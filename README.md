@@ -11,14 +11,12 @@
 - Redux Toolkit
 - React-Hook-Form
 - Axios + Fetch
-- PropTypes
 - Tailwind css
-
 
 ## Installation
 
 ```
-git clone https://github.com/larsie08/react-food-exxe-relo.git
+git clone https://github.com/larsie08/react-lover-flower.git
 ```
 
 ## Installing dependencies
