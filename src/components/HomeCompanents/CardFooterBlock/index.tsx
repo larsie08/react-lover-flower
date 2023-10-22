@@ -9,10 +9,10 @@ import {
 } from "../../../assets";
 
 const socialIcons = [
-  "/img/cardImg/tree.png",
-  "/img/cardImg/decorations.png",
-  "/img/cardImg/candle.png",
-  "/img/cardImg/bouquetCard.png",
+  "./img/cardImg/tree.png",
+  "./img/cardImg/decorations.png",
+  "./img/cardImg/candle.png",
+  "./img/cardImg/bouquetCard.png",
 ];
 
 export const CardFooterBlock: FC = () => {
@@ -37,7 +37,7 @@ export const CardFooterBlock: FC = () => {
             <div className="border-t-[1px] w-[350px] border-light-turquoise"></div>
             <img
               className="absolute left-0 -top-24"
-              src="/img/cardImg/ourSocialNetworks.png"
+              src="./img/cardImg/ourSocialNetworks.png"
               alt="signature"
             ></img>
           </div>

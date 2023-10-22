@@ -52,7 +52,7 @@ export const AboutOrderBlock: FC = () => {
               </p>
             </div>
           ))}
-          <img className="absolute right-0 -bottom-[4rem] rotate-[-11.947deg]" src="/img/signature.png" />
+          <img className="absolute right-0 -bottom-[4rem] rotate-[-11.947deg]" src="./img/signature.png" />
           <div className="relative z-10 border-r-[1px] border-pink w-0 h-[437px] float-right" />
         </div>
       </div>

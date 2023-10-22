@@ -56,7 +56,7 @@ export const Footer: FC = () => {
       <div className="container mx-auto flex h-full justify-between">
         <div className="flex flex-col ">
           <div className="logo">
-            <img src="/img/logo.png" alt="logo" />
+            <img src="./img/logo.png" alt="logo" />
           </div>
           <h3 className="text-light-turquoise mt-[8px] text-[14px] uppercase tracking-[0.56px]">
             реквизиты
