@@ -5,3 +5,5 @@ export * from "./HomeCompanents/CatalogBlock";
 export * from "./HomeCompanents/PopularBouquetsBlock";
 export * from "./HomeCompanents/AboutOrderBlock";
 export * from "./HomeCompanents/OccasionBlock";
+export * from "./HomeCompanents/QuestionBlock";
+export * from "./HomeCompanents/CardFooterBlock";

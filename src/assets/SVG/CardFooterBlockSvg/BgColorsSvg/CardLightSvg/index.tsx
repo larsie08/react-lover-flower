@@ -1,29 +1,32 @@
 import { FC } from "react";
 
-export const LightSvg: FC = () => {
+export const CardLightSvg: FC = () => {
   return (
     <svg
-    className="absolute left-0"
+    className="absolute -bottom-56 left-0 blur-[10px]"
       xmlns="http://www.w3.org/2000/svg"
-      width="778"
-      height="1391"
-      viewBox="0 0 778 1391"
+      width="339"
+      height="689"
+      viewBox="0 0 339 689"
       fill="none"
     >
-      <g filter="url(#filter0_f_1_21)">
-        <path
-          d="M398 1132C346.282 1212.16 398.068 726.653 194 595C-10.0684 463.347 -79.9444 371.315 -28.2269 291.151C23.4907 210.986 230.846 252.726 434.915 384.379C638.983 516.032 449.718 1051.84 398 1132Z"
+      <g filter="url(#filter0_f_1_57)">
+        <ellipse
+          cx="28.4407"
+          cy="350.377"
+          rx="49.7935"
+          ry="105.527"
+          transform="rotate(21.0974 28.4407 350.377)"
           fill="#43FFD2"
-          fill-opacity="0.47"
         />
       </g>
       <defs>
         <filter
-          id="filter0_f_1_21"
-          x="-294.605"
-          y="0.395508"
-          width="1072.14"
-          height="1390.48"
+          id="filter0_f_1_57"
+          x="-281.569"
+          y="0.287842"
+          width="620.021"
+          height="700.178"
           filterUnits="userSpaceOnUse"
           color-interpolation-filters="sRGB"
         >
@@ -36,7 +39,7 @@ export const LightSvg: FC = () => {
           />
           <feGaussianBlur
             stdDeviation="125"
-            result="effect1_foregroundBlur_1_21"
+            result="effect1_foregroundBlur_1_57"
           />
         </filter>
       </defs>

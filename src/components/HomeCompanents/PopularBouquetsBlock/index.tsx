@@ -1,9 +1,9 @@
 import { FC } from "react";
 
 import {
-  CherrySvg,
+  PopularCherrySvg,
   LeftArrowSvg,
-  LightSvg,
+  PopularLightSvg,
   PinkArrowSvg,
   RightArrowSvg,
 } from "../../../assets";
@@ -23,8 +23,8 @@ export const PopularBouquetsBlock: FC = () => {
         alt="BouquetsBG"
       />
 
-      <LightSvg />
-      <CherrySvg />
+      <PopularLightSvg />
+      <PopularCherrySvg />
 
       <div className="popular_bouquets__wrapper relative container mx-auto">
         <div className="popular_bouquets__title flex flex-col">

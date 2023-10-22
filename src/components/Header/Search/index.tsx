@@ -2,29 +2,29 @@ import { FC, useEffect, useRef, useState } from "react";
 
 import classNames from "classnames";
 
-import { SearchSvg } from "../../assets";
+import { SearchSvg } from "../../../assets";
 
 export const Search: FC = () => {
   const [isClicked, setIsClicked] = useState(false);
   const labelRef = useRef<HTMLLabelElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // useEffect(() => {
-  //   const handleClickOutside = (event: MouseEvent) => {
-  //     const _event = event as PopupClick;
-  //     if (
-  //       inputRef.current &&
-  //       !_event.composedPath().includes(inputRef.current)
-  //     ) {
-  //       setIsClicked(false);
-  //     }
-  //   };
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const _event = event;
+      if (
+        inputRef.current &&
+        !_event.composedPath().includes(inputRef.current)
+      ) {
+        setIsClicked(false);
+      }
+    };
 
-  //   document.body.addEventListener("click", handleClickOutside);
-  //   return () => {
-  //     document.body.removeEventListener("click", handleClickOutside);
-  //   };
-  // }, []);
+    document.body.addEventListener("click", handleClickOutside);
+    return () => {
+      document.body.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   const clickLabel = () => {
     setIsClicked(true);
@@ -36,6 +36,7 @@ export const Search: FC = () => {
     <form className="ml-[50px] flex items-center">
       <SearchSvg />
       <label
+        id="labelSearch"
         ref={labelRef}
         onClick={clickLabel}
         className={classNames({ [hidden]: isClicked })}

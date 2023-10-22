@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Search } from "../Search";
+import { Search } from "./Search";
 
 const submenu = [
   "Популярное",
@@ -21,20 +21,22 @@ const nav = ["Доставка и оплата ", "О нас", "Контакты
 
 export const Header: FC = () => {
   return (
-    <div className="header__wrapper relative z-20">
+    <div className="header__wrapper relative z-30">
       <div className="h-full flex justify-between container mx-auto">
         <div className="content h-[80px] flex">
           <div className="logo">
-            <img src="/img/logo.png" alt="logo" />
+            <img src="./img/logo.png" alt="logo" />
           </div>
           <ul className="navbar flex ml-[70px] items-center gap-12">
-            <li className="catalog_header text-[14px] font-normal tracking-[.56px] relative uppercase hover:text-light-turquoise hover:underline hover:decoration-light-turquoise">
-              <a className="">Каталог</a>
-              <ul className="submenu absolute -left-4 bg-[grey]/[.3] backdrop-blur-[10px] opacity-0 flex flex-col gap-1 w-[260px] p-2">
+            <li className="catalog_header text-[14px] font-normal tracking-[.56px] relative uppercase">
+              <a className="hover:text-light-turquoise hover:underline hover:decoration-light-turquoise cursor-pointer">
+                Каталог
+              </a>
+              <ul className="submenu absolute -left-4 bg-[grey]/[.3] backdrop-blur-[10px] invisible flex flex-col gap-1 w-[260px] p-2">
                 {submenu.map((item, i) => (
                   <li
                     key={i}
-                    className="text-[14px] font-normal tracking-[.56px] uppercase"
+                    className="text-[14px] font-normal relative z-30 tracking-[.56px] uppercase cursor-pointer hover:text-light-turquoise hover:underline hover:decoration-light-turquoise"
                   >
                     {item}
                   </li>

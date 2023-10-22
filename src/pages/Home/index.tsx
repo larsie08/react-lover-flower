@@ -2,12 +2,13 @@ import { FC } from "react";
 
 import {
   AboutOrderBlock,
+  CardFooterBlock,
   CatalogBlock,
   Footer,
-  Header,
   Intro,
   OccasionBlock,
   PopularBouquetsBlock,
+  QuestionBlock,
 } from "../../components";
 
 export const Home: FC = () => {
@@ -18,6 +19,8 @@ export const Home: FC = () => {
       <PopularBouquetsBlock />
       <AboutOrderBlock />
       <OccasionBlock />
+      <QuestionBlock />
+      <CardFooterBlock />
       <Footer />
     </div>
   );

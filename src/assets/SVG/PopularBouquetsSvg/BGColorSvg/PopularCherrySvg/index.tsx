@@ -1,9 +1,9 @@
 import { FC } from "react";
 
-export const CherrySvg: FC = () => {
+export const PopularCherrySvg: FC = () => {
   return (
     <svg
-      className="absolute top-[22rem] left-[40rem]"
+      className="absolute top-[22rem] right-[30rem] max-[1440px]:right-[13rem]"
       xmlns="http://www.w3.org/2000/svg"
       width="1001"
       height="1007"

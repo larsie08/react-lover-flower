@@ -1,8 +1,11 @@
 import { FC } from "react";
 
+import { ArrowToBtnSvg, OccasionCherrySvg } from "../../../assets";
+
 export const OccasionBlock: FC = () => {
   return (
-    <div className="occasion_block h-[1000px]">
+    <div className="occasion_block relative h-[1000px]">
+      <OccasionCherrySvg />
       <div className="occasion_block__wrapper container mx-auto">
         <div className="occasion_block__top flex justify-between">
           <div className="occasion_block__title flex flex-col">
@@ -21,7 +24,7 @@ export const OccasionBlock: FC = () => {
           </div>
         </div>
 
-        <div className="occasion_block__bottom flex justify-around mt-8">
+        <div className="occasion_block__bottom relative flex justify-around mt-8">
           <div className="content_block flex flex-col gap-8">
             <p className="max-w-[255px] text-[14px] font-normal leading-normal tracking-[.56px] uppercase">
               Мы готовы прийти на помощь и собрать уникальный букет, на любой
@@ -40,6 +43,8 @@ export const OccasionBlock: FC = () => {
                 оплатить можно при получении или онлайн на сайте
               </li>
             </ul>
+            <ArrowToBtnSvg />
+            <button className="h-[50px] text-[12px] font-bold tracking-[1.2px] uppercase text-[black] bg-light-turquoise hover:bg-cherry hover:text-[white] focus:border focus:border-cherry focus active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]">собрать индивидуальный букет</button>
           </div>
           <div className="img_block">
             <ul className="flex gap-8">

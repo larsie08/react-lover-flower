@@ -52,7 +52,7 @@ const info = [
 
 export const Footer: FC = () => {
   return (
-    <footer className="footern bg-[#000] h-[380px]">
+    <footer className="footer relative z-20 bg-[#000] h-[380px]">
       <div className="container mx-auto flex h-full justify-between">
         <div className="flex flex-col ">
           <div className="logo">
