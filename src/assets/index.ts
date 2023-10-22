@@ -25,3 +25,7 @@ export * from "./SVG/CardFooterBlockSvg/SocialsSvg/WhatsappSvg";
 export * from "./SVG/CardFooterBlockSvg/SocialsSvg/PhoneSocialSvg";
 export * from "./SVG/CardFooterBlockSvg/BgColorsSvg/CardCherrySvg";
 export * from "./SVG/CardFooterBlockSvg/BgColorsSvg/CardLightSvg";
+
+export * from "./SVG/ModalSvg/CloseSvg";
+export * from "./SVG/ModalSvg/BgColors/ModalLightSvg";
+export * from "./SVG/ModalSvg/BgColors/ModalCherrySvg";

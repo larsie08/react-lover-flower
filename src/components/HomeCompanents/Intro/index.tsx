@@ -1,9 +1,19 @@
 import { FC } from "react";
 
+import { setIsOpenModal } from "../../../redux/modal/slice";
+import { useAppDispatch } from "../../../redux/store";
+
 import { CartSvg, PhoneButtonSvg, SocialBorderSvg } from "../../../assets";
+
 import { Header } from "../..";
 
 export const Intro: FC = () => {
+  const dispatch = useAppDispatch()
+
+  const onOpen = () => {
+    dispatch(setIsOpenModal(true))
+  }
+
   return (
     <div className="intro relative h-[1600px]">
       <Header />
@@ -42,7 +52,7 @@ export const Intro: FC = () => {
               <h3 className="phone text-[16px] mt-14 text-light-turquoise font-normal tracking-[1.6px] uppercase">
                 +375 (29) 113-69-69
               </h3>
-              <button className="call w-[180px] mt-3 flex items-center gap-2 py-2 px-4 bg-[#000]/[.20] rounded-xl backdrop-blur-[10px]">
+              <button onClick={onOpen} className="call w-[180px] mt-3 flex items-center gap-2 py-2 px-4 bg-[#000]/[.20] rounded-xl backdrop-blur-[10px]">
                 <PhoneButtonSvg />
                 <p className="text-[14px] font-normal tracking-[1.4px] uppercase text-light-turquoise">
                   заказать звонок
