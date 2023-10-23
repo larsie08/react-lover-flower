@@ -5,8 +5,6 @@ import { useAppDispatch } from "../../../redux/store";
 
 import { CartSvg, PhoneButtonSvg, SocialBorderSvg } from "../../../assets";
 
-import { Header } from "../..";
-
 export const Intro: FC = () => {
   const dispatch = useAppDispatch()
 
