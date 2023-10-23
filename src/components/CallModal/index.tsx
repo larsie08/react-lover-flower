@@ -1,11 +1,13 @@
 import { FC } from "react";
 import { createPortal } from "react-dom";
 
+import classNames from "classnames";
+
+import { CloseSvg, ModalCherrySvg, ModalLightSvg } from "../../assets";
+
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { setIsOpenModal } from "../../redux/modal/slice";
-
-import { CloseSvg, ModalCherrySvg, ModalLightSvg } from "../../assets";
 
 export const CallModal: FC = () => {
   const isOpen = useSelector((state: RootState) => state.modal.isOpenModal);
@@ -15,10 +17,13 @@ export const CallModal: FC = () => {
     dispatch(setIsOpenModal(false));
   };
 
-  if (!isOpen) return null;
-
   return createPortal(
-    <div className="call_modal fixed z-40 bottom-4 right-4 w-[540px] h-[485px] bg-[#0F2222]">
+    <div
+      className={classNames(
+        "call_modal fixed z-40 bottom-4 right-4 w-0 h-[485px] bg-[#0F2222] opacity-0 transition-all duration-200",
+        { ["w-[540px] opacity-100"]: isOpen }
+      )}
+    >
       <ModalCherrySvg />
       <ModalLightSvg />
       <div className="call_modal__wrapper z-20 p-5 relative flex flex-col">

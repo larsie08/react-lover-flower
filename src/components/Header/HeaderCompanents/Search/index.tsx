@@ -2,7 +2,7 @@ import { FC, useEffect, useRef, useState } from "react";
 
 import classNames from "classnames";
 
-import { SearchSvg } from "../../../assets";
+import { SearchSvg } from "../../../../assets";
 
 export const Search: FC = () => {
   const [isClicked, setIsClicked] = useState(false);

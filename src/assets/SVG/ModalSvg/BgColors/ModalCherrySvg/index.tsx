@@ -24,7 +24,7 @@ export const ModalCherrySvg: FC = () => {
           width="525.667"
           height="574.57"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend

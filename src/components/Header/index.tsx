@@ -1,6 +1,8 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 
-import { Search } from "./Search";
+import classNames from "classnames";
+
+import { CartBlock, InfoBlock, Search } from "./HeaderCompanents";
 
 const submenu = [
   "Популярное",
@@ -20,9 +22,39 @@ const submenu = [
 const nav = ["Доставка и оплата ", "О нас", "Контакты", "FAQ"];
 
 export const Header: FC = () => {
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const controlNavbar = () => {
+    if (typeof window !== "undefined") {
+      if (window.scrollY < lastScrollY) {
+        setShow(false);
+      } else {
+        setShow(true);
+      }
+
+      setLastScrollY(window.scrollY);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", controlNavbar);
+
+      return () => {
+        window.removeEventListener("scroll", controlNavbar);
+      };
+    }
+  }, [lastScrollY]);
+
   return (
-    <div className="header__wrapper relative z-30">
-      <div className="h-full flex justify-between container mx-auto">
+    <div
+      className={classNames("header w-full fixed z-40", {
+        ["opacity-0"]: show && lastScrollY !== 0,
+        ["bg-[black]"]: lastScrollY !== 0,
+      })}
+    >
+      <div className="header__wrapper h-full flex justify-between container mx-auto">
         <div className="content h-[80px] flex">
           <div className="logo">
             <img src="./img/logo.png" alt="logo" />
@@ -55,24 +87,7 @@ export const Header: FC = () => {
           </ul>
           <Search />
         </div>
-        <div className="flex flex-col gap-5 mt-5">
-          <div className="flex flex-col gap-1.5 items-end">
-            <h2 className="text-[14px] font-normal tracking-[1.4px] text-light-turquoise uppercase">
-              zakaz@loverflower.by
-            </h2>
-            <p className="text-[10px] font-light tracking-[1px] uppercase">
-              Доставка 24/7 по договоренности с оператором
-            </p>
-          </div>
-          <div className="flex flex-col gap-1.5 items-end">
-            <h2 className="text-[14px] font-normal tracking-[1.4px] text-light-turquoise uppercase">
-              ул. Тимирязева 67
-            </h2>
-            <p className="text-[10px] font-light tracking-[1px] uppercase max-w-[80px]">
-              10:00 до 21:00 без выходных
-            </p>
-          </div>
-        </div>
+        {lastScrollY !== 0 ? <CartBlock /> : <InfoBlock />}
       </div>
     </div>
   );

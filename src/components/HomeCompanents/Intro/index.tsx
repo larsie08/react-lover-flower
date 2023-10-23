@@ -15,8 +15,7 @@ export const Intro: FC = () => {
   }
 
   return (
-    <div className="intro relative h-[1600px]">
-      <Header />
+    <div className="intro relative p-[140px] h-[1600px]">
       <img
         className="intro_img absolute h-[1600px] w-full top-0 left-0 z-10"
         src="./img/intro.png"

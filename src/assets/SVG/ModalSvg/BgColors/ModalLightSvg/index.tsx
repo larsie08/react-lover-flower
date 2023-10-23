@@ -24,7 +24,7 @@ export const ModalLightSvg: FC = () => {
           width="436.691"
           height="476.761"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend

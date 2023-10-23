@@ -1,13 +1,14 @@
 import "./App.css";
 
-import { CallModal } from "./components";
+import { CallModal, Header } from "./components";
 
 import { Home } from "./pages/Home";
 
 function App() {
   return (
     <>
-      <Home/>
+      <Header />
+      <Home />
       <CallModal />
     </>
   );
