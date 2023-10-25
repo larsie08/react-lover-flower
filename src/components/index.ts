@@ -11,3 +11,7 @@ export * from "./HomeCompanents/QuestionBlock";
 export * from "./HomeCompanents/CardFooterBlock";
 
 export * from './CallModal'
+
+export * from './DeliveryCompanents/CardBlocks'
+export * from './DeliveryCompanents/DeliveryBlock'
+export * from './DeliveryCompanents/AdditionallyBlock'

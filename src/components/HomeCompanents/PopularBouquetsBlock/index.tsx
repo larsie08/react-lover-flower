@@ -19,7 +19,7 @@ export const PopularBouquetsBlock: FC = () => {
     <div className="popular_bouquets relative w-full h-[1300px]">
       <img
         className="absolute right-0 z-10 cover bg-no-repeat h-[750px] w-[60%]"
-        src="./img/bgElements/BouquetsBG.png"
+        src="./img/bgElements/HomeBg/BouquetsBG.png"
         alt="BouquetsBG"
       />
 

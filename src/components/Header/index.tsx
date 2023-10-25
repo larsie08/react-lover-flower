@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import classNames from "classnames";
 
@@ -19,11 +20,17 @@ const submenu = [
   "дополнительно",
 ];
 
-const nav = ["Доставка и оплата ", "О нас", "Контакты", "FAQ"];
+const nav = [
+  { link: "Доставка и оплата ", url: "delivery" },
+  { link: "О нас", url: "/" },
+  { link: "Контакты", url: "/" },
+  { link: "FAQ", url: "/" },
+];
 
 export const Header: FC = () => {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const defaultPosition = 80;
 
   const controlNavbar = () => {
     if (typeof window !== "undefined") {
@@ -50,20 +57,23 @@ export const Header: FC = () => {
   return (
     <div
       className={classNames("header w-full fixed z-40", {
-        ["opacity-0"]: show && lastScrollY !== 0,
-        ["bg-[black]"]: lastScrollY !== 0,
+        ["opacity-0"]: show && lastScrollY > defaultPosition,
+        ["bg-[black]"]: lastScrollY > defaultPosition,
       })}
     >
       <div className="header__wrapper h-full flex justify-between container mx-auto">
         <div className="content h-[80px] flex">
-          <div className="logo">
+          <Link to="/" className="logo">
             <img src="./img/logo.png" alt="logo" />
-          </div>
+          </Link>
           <ul className="navbar flex ml-[70px] items-center gap-12">
             <li className="catalog_header text-[14px] font-normal tracking-[.56px] relative uppercase">
-              <a className="hover:text-light-turquoise hover:underline hover:decoration-light-turquoise cursor-pointer">
+              <Link
+                to="/"
+                className="hover:text-light-turquoise hover:underline hover:decoration-light-turquoise cursor-pointer"
+              >
                 Каталог
-              </a>
+              </Link>
               <ul className="submenu absolute -left-4 bg-[grey]/[.3] backdrop-blur-[10px] invisible flex flex-col gap-1 w-[260px] p-2">
                 {submenu.map((item, i) => (
                   <li
@@ -76,18 +86,18 @@ export const Header: FC = () => {
               </ul>
             </li>
 
-            {nav.map((item, i) => (
+            {nav.map((obj, i) => (
               <li
                 className="text-[14px] font-normal tracking-[.56px] uppercase hover:text-light-turquoise hover:underline hover:decoration-light-turquoise"
                 key={i}
               >
-                <a href="/">{item}</a>
+                <Link to={obj.url}>{obj.link}</Link>
               </li>
             ))}
           </ul>
           <Search />
         </div>
-        {lastScrollY !== 0 ? <CartBlock /> : <InfoBlock />}
+        {lastScrollY > defaultPosition ? <CartBlock /> : <InfoBlock />}
       </div>
     </div>
   );

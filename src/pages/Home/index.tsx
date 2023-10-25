@@ -4,14 +4,13 @@ import {
   AboutOrderBlock,
   CardFooterBlock,
   CatalogBlock,
-  Footer,
   Intro,
   OccasionBlock,
   PopularBouquetsBlock,
   QuestionBlock,
 } from "../../components";
 
-export const Home: FC = () => {
+const Home: FC = () => {
   return (
     <div className="wrapper bg-[#040A0A]">
       <Intro />
@@ -21,7 +20,8 @@ export const Home: FC = () => {
       <OccasionBlock />
       <QuestionBlock />
       <CardFooterBlock />
-      <Footer />
     </div>
   );
 };
+
+export default Home;

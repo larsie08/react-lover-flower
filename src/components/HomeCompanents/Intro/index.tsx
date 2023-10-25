@@ -6,17 +6,17 @@ import { useAppDispatch } from "../../../redux/store";
 import { CartSvg, PhoneButtonSvg, SocialBorderSvg } from "../../../assets";
 
 export const Intro: FC = () => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   const onOpen = () => {
-    dispatch(setIsOpenModal(true))
-  }
+    dispatch(setIsOpenModal(true));
+  };
 
   return (
-    <div className="intro relative p-[140px] h-[1600px]">
+    <div className="intro relative pt-[140px] h-[1600px]">
       <img
         className="intro_img absolute h-[1600px] w-full top-0 left-0 z-10"
-        src="./img/intro.png"
+        src="./img/bgElements/HomeBg/intro.png"
         alt="intro"
       />
 
@@ -35,6 +35,7 @@ export const Intro: FC = () => {
           </div>
           <SocialBorderSvg />
         </div>
+        
         <div className="intro__footer mt-10 relative z-20">
           <div className="intro__footer__content flex justify-end">
             <div className="flex-1 flex flex-col items-center">
@@ -49,7 +50,10 @@ export const Intro: FC = () => {
               <h3 className="phone text-[16px] mt-14 text-light-turquoise font-normal tracking-[1.6px] uppercase">
                 +375 (29) 113-69-69
               </h3>
-              <button onClick={onOpen} className="call w-[180px] mt-3 flex items-center gap-2 py-2 px-4 bg-[#000]/[.20] rounded-xl backdrop-blur-[10px]">
+              <button
+                onClick={onOpen}
+                className="call w-[180px] mt-3 flex items-center gap-2 py-2 px-4 bg-[#000]/[.20] rounded-xl backdrop-blur-[10px]"
+              >
                 <PhoneButtonSvg />
                 <p className="text-[14px] font-normal tracking-[1.4px] uppercase text-light-turquoise">
                   заказать звонок
@@ -68,8 +72,8 @@ export const Intro: FC = () => {
                   <circle cx="8" cy="8.86523" r="8" fill="#43FFD2" />
                 </svg>
                 <p className="text-dark-green absolute right-[13px] top-[10px] text-standart">
-                    5
-                  </p>
+                  5
+                </p>
               </button>
             </div>
           </div>

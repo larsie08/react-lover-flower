@@ -1,11 +1,11 @@
 import { FC } from "react";
-import { CartSvg, PhoneSvg } from "../../../../assets";
+import { CartSvg, HeaderPhoneSvg } from "../../../../assets";
 
 export const CartBlock: FC = () => {
   return (
     <div className="cart_block flex items-center gap-8">
       <div className="cart_block__phone flex items-center gap-3">
-        <PhoneSvg />
+        <HeaderPhoneSvg />
         <p className="text-[14px] text-light-turquoise font-normal tracking-[1.4px] uppercase">
           +375 (29) 113-69-69
         </p>

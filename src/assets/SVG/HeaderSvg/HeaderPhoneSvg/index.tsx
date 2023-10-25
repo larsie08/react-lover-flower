@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-export const PhoneSvg: FC = () => {
+export const HeaderPhoneSvg: FC = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
