@@ -1,26 +1,30 @@
-// import Loadable from "react-loadable";
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import { CallModal, Footer, Header } from "./components";
 
 import Home from "./pages/Home";
-import DeliveryPage from "./pages/DeliveryPage";
+import { Suspense, lazy } from "react";
 
-// const DeliveryPage = Loadable({
-//   loader: () =>
-//     import(/* webpackChunkName: "DeliveryPage" */ "./pages/DeliveryPage"),
-//   loading: () => <div>Идет загрузка...</div>,
-// });
+const DeliveryPage = lazy(
+  () => import(/* webpackChunkName: "DeliveryPage" */ "./pages/DeliveryPage")
+);
+const AboutUsPage = lazy(
+  () => import(/* webpackChunkName: "AboutUsPage" */ "./pages/AboutUsPage")
+);
 
 function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="delivery" element={<DeliveryPage />} />
-      </Routes>
+      <Suspense fallback={<div>Идет загрузка...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="delivery" element={<DeliveryPage />} />
+          <Route path="aboutUs" element={<AboutUsPage />} />
+        </Routes>
+      </Suspense>
+
       <Footer />
       <CallModal />
     </>

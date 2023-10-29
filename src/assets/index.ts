@@ -27,3 +27,5 @@ export * from "./SVG/ModalSvg/BgColors/ModalLightSvg";
 export * from "./SVG/ModalSvg/BgColors/ModalCherrySvg";
 
 export * from './SVG/DeliveryPageSvg/BgColorBottom'
+
+export * from './SVG/AboutUsSvg/AboutBgColorBottom'

@@ -14,6 +14,7 @@
 - React-Hook-Form
 - Axios + Fetch
 - Tailwind css
+- Code Splitting
 
 ## Installation
 

@@ -22,7 +22,7 @@ const submenu = [
 
 const nav = [
   { link: "Доставка и оплата ", url: "delivery" },
-  { link: "О нас", url: "/" },
+  { link: "О нас", url: "aboutUs" },
   { link: "Контакты", url: "/" },
   { link: "FAQ", url: "/" },
 ];
@@ -57,7 +57,7 @@ export const Header: FC = () => {
   return (
     <div
       className={classNames("header w-full fixed z-40", {
-        ["opacity-0"]: show && lastScrollY > defaultPosition,
+        ["invisible"]: show && lastScrollY > defaultPosition,
         ["bg-[black]"]: lastScrollY > defaultPosition,
       })}
     >

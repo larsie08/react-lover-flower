@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import {
-  AboutOrderBlock,
+  HomeOrderBlock,
   CardFooterBlock,
   CatalogBlock,
   Intro,
@@ -16,7 +16,7 @@ const Home: FC = () => {
       <Intro />
       <CatalogBlock />
       <PopularBouquetsBlock />
-      <AboutOrderBlock />
+      <HomeOrderBlock />
       <OccasionBlock />
       <QuestionBlock />
       <CardFooterBlock />

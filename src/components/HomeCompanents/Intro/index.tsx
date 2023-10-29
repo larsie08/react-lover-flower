@@ -42,7 +42,7 @@ export const Intro: FC = () => {
               <h2 className="text-[20px] font-normal tracking-[0.4px]">
                 Создаём для тех, кто ценит свежесть и изящество цветка
               </h2>
-              <button className="bg-light-turquoise w-[220px] text-[black] mt-12 px-12 py-4 uppercase text-standart font-bold tracking-[1.2px] hover:bg-cherry hover:text-[white] focus:border focus:border-cherry focus active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]">
+              <button className="bg-light-turquoise h-[50px] w-[220px] text-[black] mt-12 px-12 py-4 border border-light-turquoise uppercase text-standart font-bold tracking-[1.2px] hover:bg-cherry hover:border-cherry hover:text-[white] focus:border-cherry focus active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]">
                 смотреть каталог
               </button>
             </div>

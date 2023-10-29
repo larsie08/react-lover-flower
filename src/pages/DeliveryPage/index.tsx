@@ -1,10 +1,15 @@
 import { FC } from "react";
 
-import { AdditionallyBlock, CardBlocks, DeliveryBlock } from "../../components";
+import {
+  AdditionallyBlock,
+  CardBlocks,
+  DeliveryBlock,
+  DeliveryTitleBlock,
+} from "../../components";
 
 import { BgColorBottom } from "../../assets";
 
-const DeliveryPage: FC = ({}) => {
+const DeliveryPage: FC = () => {
   return (
     <div className="delivery_page relative pt-[120px] h-[2600px] bg-[#040A0A]">
       <div className="absolute right-0 top-0 w-[505px] h-[625px] rounded-[625px] bg-[#6B535F] blur-[125px]" />
@@ -21,19 +26,7 @@ const DeliveryPage: FC = ({}) => {
         alt="flower"
       />
       <div className="delivery_page__wrapper relative container mx-auto z-20">
-        <div className="delivery_page__path">
-          <h3 className="text-[12px] font-normal tracking-[.48px] uppercase">
-            Главная / доставка и оплката
-          </h3>
-        </div>
-        <div className="delivery_page__title mt-14">
-          <h1 className="flex items-center h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase">
-            доставка
-          </h1>
-          <h1 className="flex items-center ml-20 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase">
-            и оплата
-          </h1>
-        </div>
+        <DeliveryTitleBlock />
         <div className="delivery_page__subtitle flex items-center gap-3">
           <p className="text-[100px] text-pink font-normal font-cormorant">!</p>
           <div className="flex flex-col gap-1">
