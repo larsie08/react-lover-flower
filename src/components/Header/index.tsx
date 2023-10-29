@@ -23,7 +23,7 @@ const submenu = [
 const nav = [
   { link: "Доставка и оплата ", url: "delivery" },
   { link: "О нас", url: "aboutUs" },
-  { link: "Контакты", url: "/" },
+  { link: "Контакты", url: "contacts" },
   { link: "FAQ", url: "/" },
 ];
 

@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import {
   AdditionallyBlock,
-  CardBlocks,
+  DeliveryCardBlocks,
   DeliveryBlock,
   DeliveryTitleBlock,
 } from "../../components";
@@ -44,7 +44,7 @@ const DeliveryPage: FC = () => {
             </p>
           </div>
         </div>
-        <CardBlocks />
+        <DeliveryCardBlocks />
         <DeliveryBlock />
         <AdditionallyBlock />
       </div>

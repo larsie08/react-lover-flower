@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { ArrowToBtnSvg, OccasionCherrySvg } from "../../../assets";
+import { ArrowToBtnSvg, OccasionCherrySvg } from "../../../../assets";
 
 export const OccasionBlock: FC = () => {
   return (
@@ -20,7 +20,7 @@ export const OccasionBlock: FC = () => {
             </div>
           </div>
           <div className="img_block mr-[130px]">
-            <img src="./img/occasionImg/packing.png" alt="packing" />
+            <img src="./img/HomeImg/occasionImg/packing.png" alt="packing" />
           </div>
         </div>
 
@@ -49,13 +49,13 @@ export const OccasionBlock: FC = () => {
           <div className="img_block">
             <ul className="flex gap-8">
               <li>
-                <img src="./img/occasionImg/bouquet.png" alt="bouquet" />
+                <img src="./img/HomeImg/occasionImg/bouquet.png" alt="bouquet" />
               </li>
               <li>
-                <img src="./img/occasionImg/cloth.png" alt="cloth" />
+                <img src="./img/HomeImg/occasionImg/cloth.png" alt="cloth" />
               </li>
               <li>
-                <img src="./img/occasionImg/decoration.png" alt="decoration" />
+                <img src="./img/HomeImg/occasionImg/decoration.png" alt="decoration" />
               </li>
             </ul>
           </div>

@@ -6,7 +6,7 @@ import {
   PopularLightSvg,
   PinkArrowSvg,
   RightArrowSvg,
-} from "../../../assets";
+} from "../../../../assets";
 
 const imgLinks = [
   "./img/bouquets/bouquet1.png",

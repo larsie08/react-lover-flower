@@ -3,20 +3,24 @@ export * from "./Footer";
 
 export * from "./CallModal";
 
-export * from "./HomeCompanents/Intro";
-export * from "./HomeCompanents/CatalogBlock";
-export * from "./HomeCompanents/PopularBouquetsBlock";
-export * from "./HomeCompanents/HomeOrderBlock";
-export * from "./HomeCompanents/OccasionBlock";
-export * from "./HomeCompanents/QuestionBlock";
-export * from "./HomeCompanents/CardFooterBlock";
+export * from "./PagesCompanents/HomeCompanents/Intro";
+export * from "./PagesCompanents/HomeCompanents/CatalogBlock";
+export * from "./PagesCompanents/HomeCompanents/PopularBouquetsBlock";
+export * from "./PagesCompanents/HomeCompanents/HomeOrderBlock";
+export * from "./PagesCompanents/HomeCompanents/OccasionBlock";
+export * from "./PagesCompanents/HomeCompanents/QuestionBlock";
+export * from "./PagesCompanents/HomeCompanents/CardFooterBlock";
 
-export * from "./DeliveryCompanents/CardBlocks";
-export * from "./DeliveryCompanents/DeliveryBlock";
-export * from "./DeliveryCompanents/AdditionallyBlock";
-export * from "./DeliveryCompanents/DeliveryTitleBlock";
+export * from "./PagesCompanents/DeliveryCompanents/DeliveryCardBlocks";
+export * from "./PagesCompanents/DeliveryCompanents/DeliveryBlock";
+export * from "./PagesCompanents/DeliveryCompanents/AdditionallyBlock";
+export * from "./PagesCompanents/DeliveryCompanents/DeliveryTitleBlock";
 
-export * from "./AboutUsCompanents/AboutTitleBlock";
-export * from "./AboutUsCompanents/AboutTeamBlock";
-export * from "./AboutUsCompanents/AboutGuaranteesBlock";
-export * from "./AboutUsCompanents/AboutOrderBlock";
+export * from "./PagesCompanents/AboutUsCompanents/AboutTitleBlock";
+export * from "./PagesCompanents/AboutUsCompanents/AboutTeamBlock";
+export * from "./PagesCompanents/AboutUsCompanents/AboutGuaranteesBlock";
+export * from "./PagesCompanents/AboutUsCompanents/AboutOrderBlock";
+
+export * from "./PagesCompanents/ContactsCompanents/ContactsTitleBlock";
+export * from "./PagesCompanents/ContactsCompanents/ContactsCardBlocks";
+export * from "./PagesCompanents/ContactsCompanents/ContactsFormBlock";

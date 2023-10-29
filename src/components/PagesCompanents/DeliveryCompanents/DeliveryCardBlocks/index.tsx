@@ -7,9 +7,9 @@ const paymentMethods = [
   "КРИПТОВАЛЮТОЙ",
 ];
 
-export const CardBlocks: FC = () => {
+export const DeliveryCardBlocks: FC = () => {
   return (
-    <div className="card_blocks relative">
+    <div className="card_blocks relative z-20">
       <div className="absolute right-[15rem] top-5 w-[345px] h-[220px] -rotate-[71.859deg] rounded-[345px] bg-[#6B535F] blur-[125px]" />
       <div className="absolute left-[15rem] -bottom-[5rem] w-[274px] h-[220px] -rotate-[71.859deg] rounded-[274px] bg-[#6B535F] blur-[125px]" />
       <div className="card_blocks__wrapper flex flex-col gap-5 mt-16">

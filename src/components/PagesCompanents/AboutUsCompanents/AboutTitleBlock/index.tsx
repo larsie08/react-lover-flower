@@ -8,7 +8,7 @@ export const AboutTitleBlock: FC = () => {
           Главная / о нас
         </h3>
       </div>
-      <div className="delivery_page__title mt-14">
+      <div className="about_us__title mt-14">
         <h1 className="flex items-center ml-20 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase">
           о нас
         </h1>

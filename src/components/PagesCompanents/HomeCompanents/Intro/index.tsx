@@ -1,9 +1,9 @@
 import { FC } from "react";
 
-import { setIsOpenModal } from "../../../redux/modal/slice";
-import { useAppDispatch } from "../../../redux/store";
+import { setIsOpenModal } from "../../../../redux/modal/slice";
+import { useAppDispatch } from "../../../../redux/store";
 
-import { CartSvg, PhoneButtonSvg, SocialBorderSvg } from "../../../assets";
+import { CartSvg, PhoneButtonSvg, SocialBorderSvg } from "../../../../assets";
 
 export const Intro: FC = () => {
   const dispatch = useAppDispatch();

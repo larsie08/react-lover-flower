@@ -1,21 +1,16 @@
 import { FC } from "react";
-import { QuestionCherrySvg, QuestionLightTurquoiseSvg } from "../../../assets";
 
-export const QuestionBlock: FC = () => {
+export const ContactsFormBlock: FC = () => {
   return (
-    <div className="question_block relative bg-[#0F2222] h-[700px]">
-      <div className="bg-[url(/img/questionImg/questions.png)] w-[305px] h-[200px] absolute rotate-[-18.444deg] z-30 left-[45rem] bottom-[8rem]" />
-      <div className="bg-[url(/img/questionImg/leaves.png)] w-[691px] h-[1038px] z-20 absolute left-0 top-0" />
-      <QuestionCherrySvg />
-      <QuestionLightTurquoiseSvg />
-      <div className="question_block__wrapper container mx-auto">
-        <div className="question_block__top flex justify-between items-center pt-8">
-          <div className="question_block__title flex z-30 flex-col">
+    <div className="contacts_form mt-36">
+      <div className="contacts_form__wrapper container mx-auto">
+        <div className="contacts_form__top flex justify-between items-center pt-8">
+          <div className="contacts_form__title flex z-30 flex-col">
             <h1 className="title flex items-center h-[100px] text-[100px] font-cormorant font-normal tracking-[2px] uppercase">
-              остались
+              напишите
             </h1>
-            <h1 className="title flex items-center h-[100px] ml-24 text-[100px] font-cormorant font-normal tracking-[2px] uppercase">
-              вопросы?
+            <h1 className="title flex items-center justify-end h-[100px] text-[100px] font-cormorant font-normal tracking-[2px] uppercase">
+              нам
             </h1>
           </div>
 
@@ -29,7 +24,8 @@ export const QuestionBlock: FC = () => {
           </div>
         </div>
 
-        <div className="question_block__form relative flex flex-col items-end mt-8">
+        <div className="contacts__form relative flex justify-end mt-8">
+          <img className="absolute left-[30rem] -rotate-[18.444deg]" src="./img/bgElements/ContactsBg/signature.png" alt="signature" />
           <form className="w-[455px] flex flex-col gap-3">
             <input
               className="w-full h-[60px] border border-light-turquoise bg-[#0F2222] p-4 placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase"
@@ -52,7 +48,7 @@ export const QuestionBlock: FC = () => {
             <p className="max-w-[342px] text-[10px] font-normal tracking-[0.2px] font-roboto_condensed">
               Нажимая на кнопку «Отправить», я даю свое согласие на обработку
               персональных данных, в соответствии с
-              <span className="text-pink underline ml-1">
+              <span className="text-[#8B3131] underline ml-1">
                 Политикой конфиденциальности
               </span>
             </p>
