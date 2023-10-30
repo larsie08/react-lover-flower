@@ -48,15 +48,17 @@ const ContactsPage: FC = () => {
           <h1 className="text-[20px] text-light-turquoise font-bold tracking-[0.8px] uppercase">
             Мы на карте
           </h1>
-          <YMap className="h-[500px]" location={LOCATION} mode="vector">
-            <YMapDefaultSchemeLayer />
-            <YMapDefaultFeaturesLayer />
+          <div className="h-[500px]">
+            <YMap location={LOCATION} mode="vector">
+              <YMapDefaultSchemeLayer />
+              <YMapDefaultFeaturesLayer />
 
-            <YMapDefaultMarker coordinates={[27.508175, 53.925269]} />
-            <YMapControls position="right">
-              <YMapZoomControl />
-            </YMapControls>
-          </YMap>
+              <YMapDefaultMarker coordinates={[27.508175, 53.925269]} />
+              <YMapControls position="right">
+                <YMapZoomControl />
+              </YMapControls>
+            </YMap>
+          </div>
         </div>
       </div>
       <div className="absolute left-0 -bottom-48 w-[205px] h-[437px] rounded-[437px] bg-[#922D2D] blur-[125px]" />
