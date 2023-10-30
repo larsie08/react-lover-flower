@@ -16,6 +16,7 @@ const ContactsPage = lazy(
 );
 
 function App() {
+
   return (
     <>
       <Header />
