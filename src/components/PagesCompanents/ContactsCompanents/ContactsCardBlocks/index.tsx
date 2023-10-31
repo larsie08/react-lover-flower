@@ -11,7 +11,7 @@ export const ContactsCardBlocks: FC = () => {
   return (
     <div className="card_blocks relative">
       <div className="absolute right-[15rem] bottom-0 w-[1006px] h-[124px] -rotate-[165.265deg] rounded-[1007px] bg-[#922D2D] blur-[125px]" />
-      <div className="card_blocks__wrapper flex justify-evenly gap-5 mt-16">
+      <div className="card_blocks__wrapper relative flex justify-evenly gap-5 mt-16 z-20">
         {information.map((obj, i) => (
           <div
             key={i}

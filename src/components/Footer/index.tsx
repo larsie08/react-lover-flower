@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import { SocialsSvg } from "../../assets";
+import { Link } from "react-router-dom";
 
 const catalog = [
   "Популярное",
@@ -28,11 +29,11 @@ const bouquet = [
 ];
 
 const links = [
-  "Доставка и оплата",
-  "О нас",
-  "FAQ",
-  "Контакты",
-  "для корпоративных клиентов",
+  { link: "Доставка и оплата", url: "delivery" },
+  { link: "О нас", url: "aboutUs" },
+  { link: "FAQ", url: "" },
+  { link: "Контакты", url: "contacts" },
+  { link: "для корпоративных клиентов", url: "" },
 ];
 
 const info = [
@@ -95,13 +96,14 @@ export const Footer: FC = () => {
           ))}
         </ul>
         <ul className="flex flex-col gap-6 mt-7 max-w-[160px]">
-          {links.map((item, i: number) => (
-            <li
+          {links.map((obj, i: number) => (
+            <Link
               key={i}
+              to={obj.url}
               className="text-[14px] font-bold text-light-turquoise uppercase cursor-pointer hover:underline"
             >
-              {item}
-            </li>
+              {obj.link}
+            </Link>
           ))}
         </ul>
         <div className="flex flex-col gap-5 mt-7">

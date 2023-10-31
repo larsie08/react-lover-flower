@@ -2,10 +2,10 @@ import { FC } from "react";
 
 export const AdditionallyBlock: FC = () => {
   return (
-    <div className="additionally_block relative z-20">
+    <div className="additionally_block relative">
       <div className="absolute right-0 top-0 w-[538px] h-[431px] -rotate-[71.859deg] rounded-[537px] bg-[#6B535F] blur-[125px]" />
       <div className="additionally_block__wrapper w-[970px] container mx-auto flex flex-col gap-8 mt-24 p-5 bg-[black]/[.20] backdrop-blur-[10px] rounded-[20px]">
-        <div className="additionally_block__content flex flex-col gap-5">
+        <div className="additionally_block__content flex flex-col gap-5 z-20">
           <h1 className="title text-[20px] text-pink font-bold tracking-[0.8px] uppercase">
             Дополнительно:
           </h1>

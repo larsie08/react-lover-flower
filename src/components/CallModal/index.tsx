@@ -1,17 +1,19 @@
 import { FC } from "react";
 import { createPortal } from "react-dom";
 
-import classNames from "classnames";
-
-import { CloseSvg, ModalCherrySvg, ModalLightSvg } from "../../assets";
-
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { setIsOpenModal } from "../../redux/modal/slice";
 
+import classNames from "classnames";
+
+import { CloseSvg, ModalCherrySvg, ModalLightSvg } from "../../assets";
+import { ModalForm } from "./ModalForm";
+
 export const CallModal: FC = () => {
   const isOpen = useSelector((state: RootState) => state.modal.isOpenModal);
   const dispatch = useDispatch();
+  
 
   const onClose = () => {
     dispatch(setIsOpenModal(false));
@@ -44,21 +46,7 @@ export const CallModal: FC = () => {
             обстоятельствах не будут переданы третьим лицам.
           </p>
         </div>
-        <form className="call_modal__form flex flex-col gap-3 mt-3">
-          <input
-            className="w-full h-[60px] border border-light-turquoise bg-[#0F2222] p-4 placeholder:bg-[#0F2222] placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase"
-            type="text"
-            placeholder="Ваше имя"
-          />
-          <input
-            className="w-full h-[60px] border border-light-turquoise bg-[#0F2222] p-4 placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase"
-            type="tel"
-            placeholder="+7 (977) 777-77-77"
-          />
-          <button className="w-[255px] mt-2 text-[black] text-[12px] font-bold tracking-[1.2px] uppercase bg-light-turquoise p-4 hover:bg-cherry hover:text-[white] focus:border focus:border-cherry focus active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]">
-            отправить
-          </button>
-        </form>
+        <ModalForm />
         <div className="mt-3">
           <p className="max-w-[342px] text-[10px] font-normal tracking-[0.2px] font-roboto_condensed">
             Нажимая на кнопку «Отправить», я даю свое согласие на обработку
