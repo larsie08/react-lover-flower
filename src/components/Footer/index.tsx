@@ -31,9 +31,9 @@ const bouquet = [
 const links = [
   { link: "Доставка и оплата", url: "delivery" },
   { link: "О нас", url: "aboutUs" },
-  { link: "FAQ", url: "" },
+  { link: "FAQ", url: "FAQ" },
   { link: "Контакты", url: "contacts" },
-  { link: "для корпоративных клиентов", url: "" },
+  { link: "для корпоративных клиентов", url: "/" },
 ];
 
 const info = [

@@ -24,3 +24,5 @@ export * from "./PagesCompanents/AboutUsCompanents/AboutOrderBlock";
 export * from "./PagesCompanents/ContactsCompanents/ContactsTitleBlock";
 export * from "./PagesCompanents/ContactsCompanents/ContactsCardBlocks";
 export * from "./PagesCompanents/ContactsCompanents/ContactsFormBlock";
+
+export * from "./PagesCompanents/FAQCompanents/FAQTitleBlock";
