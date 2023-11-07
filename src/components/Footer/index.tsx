@@ -33,7 +33,7 @@ const links = [
   { link: "О нас", url: "aboutUs" },
   { link: "FAQ", url: "FAQ" },
   { link: "Контакты", url: "contacts" },
-  { link: "для корпоративных клиентов", url: "/" },
+  { link: "для корпоративных клиентов", url: "corporate" },
 ];
 
 const info = [

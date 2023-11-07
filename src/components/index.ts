@@ -26,3 +26,8 @@ export * from "./PagesCompanents/ContactsCompanents/ContactsCardBlocks";
 export * from "./PagesCompanents/ContactsCompanents/ContactsFormBlock";
 
 export * from "./PagesCompanents/FAQCompanents/FAQTitleBlock";
+
+export * from "./PagesCompanents/CorporateCompanents/CorporateTitleBlock";
+export * from "./PagesCompanents/CorporateCompanents/CorporateСoopBlock";
+export * from "./PagesCompanents/CorporateCompanents/CorporateTableBlock";
+export * from "./PagesCompanents/CorporateCompanents/CorporateFormBlock";
