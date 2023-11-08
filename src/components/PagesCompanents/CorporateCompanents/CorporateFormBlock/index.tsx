@@ -26,7 +26,11 @@ export const CorporateFormBlock: FC = () => {
 
   return (
     <div className="mt-16 relative z-20 flex flex-col gap-5">
-      <img className="absolute bottom-[8rem] right-[5rem]" src="./img/bgElements/CorporateBg/sign.png" alt="" />
+      <img
+        className="absolute bottom-[8rem] right-[5rem]"
+        src="./img/bgElements/CorporateBg/sign.png"
+        alt=""
+      />
       <h4 className="text-[20px] text-light-turquoise font-normal tracking-[0.8px] uppercase">
         заполните заявку:
       </h4>
@@ -35,22 +39,25 @@ export const CorporateFormBlock: FC = () => {
         className="flex flex-col gap-5"
       >
         <div className="flex gap-5">
-          <label className="flex flex-col gap-2 w-1/2" htmlFor="">
+          <label className="flex flex-col gap-2 w-1/2" htmlFor="name">
             Наименование организации
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px]"
+              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none  aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="Введите наименование вашей организации"
               type="text"
+              id="name"
+              value=""
               {...register("name", { required: true })}
               aria-invalid={errors.name ? true : false}
             />
           </label>
-          <label className="flex flex-col gap-2 w-1/2" htmlFor="">
+          <label className="flex flex-col gap-2 w-1/2" htmlFor="index">
             УНП
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px]"
+              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="УНП"
               type="number"
+              id="index"
               {...register("index", { required: true })}
               aria-invalid={errors.index ? true : false}
             />
@@ -58,22 +65,24 @@ export const CorporateFormBlock: FC = () => {
         </div>
 
         <div className="flex gap-5">
-          <label className="flex flex-col gap-2 w-1/2" htmlFor="">
+          <label className="flex flex-col gap-2 w-1/2" htmlFor="postalAddress">
             Почтовый адрес
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px]"
+              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="Введите почтовый адрес"
               type="text"
+              id="postalAddress"
               {...register("postalAddress", { required: true })}
               aria-invalid={errors.postalAddress ? true : false}
             />
           </label>
-          <label className="flex flex-col gap-2 w-1/2" htmlFor="">
+          <label className="flex flex-col gap-2 w-1/2" htmlFor="payment">
             Расчетный счет
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px]"
+              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="Введите номер расчетного счета"
               type="number"
+              id="payment"
               {...register("payment", { required: true })}
               aria-invalid={errors.payment ? true : false}
             />
@@ -81,22 +90,24 @@ export const CorporateFormBlock: FC = () => {
         </div>
 
         <div className="flex gap-5">
-          <label className="flex flex-col gap-2 w-1/2" htmlFor="">
+          <label className="flex flex-col gap-2 w-1/2" htmlFor="contactPerson">
             Контактное лицо
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px]"
+              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="Введите имя контактного лица"
               type="text"
+              id="contactPerson"
               {...register("contactPerson", { required: true })}
               aria-invalid={errors.contactPerson ? true : false}
             />
           </label>
-          <label className="flex flex-col gap-2 w-1/2" htmlFor="">
+          <label className="flex flex-col gap-2 w-1/2" htmlFor="code">
             Код банка
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px]"
+              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="Код банка"
               type="number"
+              id="code"
               {...register("code", { required: true })}
               aria-invalid={errors.code ? true : false}
             />
@@ -104,22 +115,24 @@ export const CorporateFormBlock: FC = () => {
         </div>
 
         <div className="flex gap-5">
-          <label className="flex flex-col gap-2 w-1/2" htmlFor="">
+          <label className="flex flex-col gap-2 w-1/2" htmlFor="phone">
             Контактный номер телефона
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px]"
+              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="+7 (977) 777-77-77"
               type="tel"
+              id="phone"
               {...register("phone", { required: true })}
               aria-invalid={errors.phone ? true : false}
             />
           </label>
-          <label className="flex flex-col gap-2 w-1/2" htmlFor="">
+          <label className="flex flex-col gap-2 w-1/2" htmlFor="quantity">
             Предполагаемое количество заявок в месяц
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px]"
+              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="Введите предполагаемое количество заявок в месяц"
               type="number"
+              id="quantity"
               {...register("quantity", { required: true })}
               aria-invalid={errors.quantity ? true : false}
             />
@@ -127,22 +140,30 @@ export const CorporateFormBlock: FC = () => {
         </div>
 
         <div className="flex flex-col gap-5">
-          <label className="flex flex-col gap-2 w-1/2 max-w-[758px]" htmlFor="">
+          <label
+            className="flex flex-col gap-2 w-1/2 max-w-[758px]"
+            htmlFor="price"
+          >
             Стоимость букета сотруднику (если разная – указать)
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px]"
+              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="Укажите стоимость букета сотруднику"
               type="number"
+              id="price"
               {...register("price", { required: true })}
               aria-invalid={errors.price ? true : false}
             />
           </label>
-          <label className="flex flex-col gap-2 w-1/2 max-w-[758px]" htmlFor="">
+          <label
+            className="flex flex-col gap-2 w-1/2 max-w-[758px]"
+            htmlFor="email"
+          >
             Адрес электронной почты
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px]"
+              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="Укажите ваш адрес электронной почты"
               type="email"
+              id="email"
               {...register("email", { required: true })}
               aria-invalid={errors.email ? true : false}
             />

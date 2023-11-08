@@ -27,3 +27,24 @@
 .catalog_header:hover > .submenu {
   visibility: visible;
 }
+
+input:not(:placeholder-shown) {
+  border: 1px solid white;
+}
+
+#search:not(:placeholder-shown) {
+  border: 0;
+  border-bottom: 1px solid #555;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #040a0a inset !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

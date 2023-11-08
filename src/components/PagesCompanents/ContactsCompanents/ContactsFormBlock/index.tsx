@@ -1,6 +1,22 @@
 import { FC } from "react";
+import { useForm, SubmitHandler, SubmitErrorHandler } from "react-hook-form";
+
+interface MyForm {
+  name: string;
+  tel: number;
+  comment: string;
+}
 
 export const ContactsFormBlock: FC = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<MyForm>();
+
+  const submit: SubmitHandler<MyForm> = (data) => console.log(data);
+  const error: SubmitErrorHandler<MyForm> = (data) => console.log(data);
+
   return (
     <div className="contacts_form mt-36">
       <div className="contacts_form__wrapper container mx-auto">
@@ -25,22 +41,35 @@ export const ContactsFormBlock: FC = () => {
         </div>
 
         <div className="contacts__form relative flex justify-end mt-8">
-          <img className="absolute left-[30rem] -rotate-[18.444deg]" src="./img/bgElements/ContactsBg/signature.png" alt="signature" />
-          <form className="w-[455px] flex flex-col gap-3">
+          <img
+            className="absolute left-[30rem] -rotate-[18.444deg]"
+            src="./img/bgElements/ContactsBg/signature.png"
+            alt="signature"
+          />
+          <form
+            onSubmit={handleSubmit(submit, error)}
+            className="w-[455px] flex flex-col gap-3"
+          >
             <input
-              className="w-full h-[60px] border border-light-turquoise bg-[#0F2222] p-4 placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase"
+              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none  aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               type="text"
               placeholder="Ваше имя"
+              {...register("name", { required: true })}
+              aria-invalid={errors.name ? true : false}
             />
             <input
-              className="w-full h-[60px] border border-light-turquoise bg-[#0F2222] p-4 placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase"
+              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none  aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               type="tel"
               placeholder="+7 (977) 777-77-77"
+              {...register("tel", { required: true })}
+              aria-invalid={errors.tel ? true : false}
             />
             <input
-              className="w-full h-[120px] border border-light-turquoise bg-[#0F2222] placeholder:-translate-y-8 p-4 placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase"
+              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none  aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               type="text"
               placeholder="Ваш комментарий"
+              {...register("comment", { required: true })}
+              aria-invalid={errors.comment ? true : false}
             />
             <button className="w-[255px] mt-2 text-[black] text-[12px] border border-light-turquoise font-bold tracking-[1.2px] uppercase bg-light-turquoise p-4 hover:border-cherry hover:bg-cherry hover:text-[white] focus:border focus:border-cherry focus active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]">
               отправить
