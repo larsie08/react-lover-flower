@@ -13,7 +13,6 @@ import { ModalForm } from "./ModalForm";
 export const CallModal: FC = () => {
   const isOpen = useSelector((state: RootState) => state.modal.isOpenModal);
   const dispatch = useDispatch();
-  
 
   const onClose = () => {
     dispatch(setIsOpenModal(false));

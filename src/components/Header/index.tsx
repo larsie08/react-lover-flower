@@ -1,6 +1,10 @@
 import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { useDispatch, useSelector } from "react-redux";
+import { setLastScrollY } from "../../redux/header/slice";
+import { RootState } from "../../redux/store";
+
 import classNames from "classnames";
 
 import { CartBlock, InfoBlock, Search } from "./HeaderCompanents";
@@ -29,7 +33,10 @@ const nav = [
 
 export const Header: FC = () => {
   const [show, setShow] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const dispatch = useDispatch();
+  const lastScrollY = useSelector(
+    (state: RootState) => state.header.lastScrollY
+  );
   const defaultPosition = 80;
 
   const controlNavbar = () => {
@@ -40,7 +47,7 @@ export const Header: FC = () => {
         setShow(true);
       }
 
-      setLastScrollY(window.scrollY);
+      dispatch(setLastScrollY(window.scrollY));
     }
   };
 

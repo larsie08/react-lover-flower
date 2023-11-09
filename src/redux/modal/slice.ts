@@ -1,5 +1,8 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { ModalSliceState } from "./types";
+
+interface ModalSliceState {
+  isOpenModal: boolean;
+}
 
 const initialState: ModalSliceState = {
   isOpenModal: false,
