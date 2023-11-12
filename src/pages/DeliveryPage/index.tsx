@@ -5,6 +5,7 @@ import {
   DeliveryCardBlocks,
   DeliveryBlock,
   DeliveryTitleBlock,
+  DecorativeElement,
 } from "../../components";
 
 import { BgColorBottom } from "../../assets";
@@ -12,9 +13,9 @@ import { BgColorBottom } from "../../assets";
 const DeliveryPage: FC = () => {
   return (
     <div className="delivery_page relative pt-[120px] h-[2600px] bg-[#040A0A]">
-      <div className="absolute right-0 top-0 w-[505px] h-[625px] rounded-[625px] bg-[#6B535F] blur-[125px]" />
-      <div className="absolute left-0 top-0 w-[274px] h-[220px] rounded-[274px] bg-[#6B535F] blur-[125px]" />
-      <div className="absolute -left-[5rem] top-[70rem] w-[538px] h-[431px] rounded-[537px] bg-[#6B535F] blur-[125px]" />
+      <DecorativeElement className="absolute right-0 top-0 w-[505px] h-[625px] rounded-[625px] bg-[#6B535F] blur-[125px]" />
+      <DecorativeElement className="absolute left-0 top-0 w-[274px] h-[220px] rounded-[274px] bg-[#6B535F] blur-[125px]" />
+      <DecorativeElement className="absolute -left-[5rem] top-[70rem] w-[538px] h-[431px] rounded-[537px] bg-[#6B535F] blur-[125px]" />
       <img
         className="absolute right-0"
         src="./img/bgElements/DeliveryBg/deliveryFlowerTop.png"
@@ -58,7 +59,7 @@ const DeliveryPage: FC = () => {
         src="./img/bgElements/DeliveryBg/sign.png"
         alt="lower flower"
       ></img>
-      <div className="absolute left-0 -bottom-[10rem] w-[205px] h-[436px] rounded-[436px] bg-[#6B535F] blur-[125px]" />
+      <DecorativeElement className="absolute left-0 -bottom-[10rem] w-[205px] h-[436px] rounded-[436px] bg-[#6B535F] blur-[125px]" />
       <BgColorBottom />
     </div>
   );

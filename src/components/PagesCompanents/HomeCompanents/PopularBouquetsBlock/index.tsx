@@ -7,6 +7,7 @@ import {
   PinkArrowSvg,
   RightArrowSvg,
 } from "../../../../assets";
+import { Link } from "react-router-dom";
 
 const imgLinks = [
   "./img/bouquets/bouquet1.png",
@@ -65,9 +66,12 @@ export const PopularBouquetsBlock: FC = () => {
           </div>
         </div>
         <div className="popular_bouquets__link flex items-center mt-16">
-          <h3 className="link text-[12px] text-pink font-bold tracking-[1.2px] uppercase underline">
+          <Link
+            to="catalog"
+            className="link text-[12px] text-pink font-bold tracking-[1.2px] uppercase underline"
+          >
             смотреть весь каталог
-          </h3>
+          </Link>
           <PinkArrowSvg />
         </div>
       </div>

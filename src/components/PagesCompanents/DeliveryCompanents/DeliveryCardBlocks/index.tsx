@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { DecorativeElement } from "../../../DecorativeElement";
 
 const paymentMethods = [
   "БАНКОВСКОЙ КАРТОЙ ПРИ ОФОРМЛЕНИИ ЗАКАЗА ЧЕРЕЗ САЙТ или по ссылке",
@@ -10,8 +11,8 @@ const paymentMethods = [
 export const DeliveryCardBlocks: FC = () => {
   return (
     <div className="card_blocks relative">
-      <div className="absolute right-[15rem] top-5 w-[345px] h-[220px] -rotate-[71.859deg] rounded-[345px] bg-[#6B535F] blur-[125px]" />
-      <div className="absolute left-[15rem] -bottom-[5rem] w-[274px] h-[220px] -rotate-[71.859deg] rounded-[274px] bg-[#6B535F] blur-[125px]" />
+      <DecorativeElement className="absolute right-[15rem] top-5 w-[345px] h-[220px] -rotate-[71.859deg] rounded-[345px] bg-[#6B535F] blur-[125px]" />
+      <DecorativeElement className="absolute left-[15rem] -bottom-[5rem] w-[274px] h-[220px] -rotate-[71.859deg] rounded-[274px] bg-[#6B535F] blur-[125px]" />
       <div className="card_blocks__wrapper flex flex-col gap-5 mt-16">
         <div className="card_block__title">
           <h2 className="title text-[20px] text-pink font-bold tracking-[.8px] uppercase">

@@ -5,18 +5,19 @@ import {
   CorporateTableBlock,
   CorporateTitleBlock,
   CorporateСoopBlock,
+  DecorativeElement,
 } from "../../components";
 import { CorporateBgColor } from "../../assets";
 
 const CorporatePage: FC = () => {
   return (
     <div className="corporate_page relative pt-[120px] h-[3800px] bg-[#040A0A]">
-      <div className="absolute w-[275px] h-[220px] top-0 -left-[6rem] -rotate-[71.859deg] rounded-[275px] bg-[#EA661C] blur-[125px]" />
+      <DecorativeElement className="absolute w-[275px] h-[220px] top-0 -left-[6rem] -rotate-[71.859deg] rounded-[275px] bg-[#EA661C] blur-[125px]" />
       <img
         className="absolute top-0"
         src="./img/bgElements/CorporateBg/CorporateFlowerTopLeft.png"
       />
-      <div className="absolute w-[347px] h-[280px] top-0 right-0 rounded-[275px] bg-[#EA661C] blur-[125px]" />
+      <DecorativeElement className="absolute w-[347px] h-[280px] top-0 right-0 rounded-[275px] bg-[#EA661C] blur-[125px]" />
       <img
         className="absolute top-0 right-0"
         src="./img/bgElements/CorporateBg/CorporateFlowerTopRight.png"
@@ -50,7 +51,7 @@ const CorporatePage: FC = () => {
         </h3>
         <CorporateFormBlock />
       </div>
-      <div className="absolute w-[206px] h-[437px] -bottom-[15rem] left-0 rotate-[21.097deg] rounded-[437px] bg-[#EA661C] blur-[125px]" />
+      <DecorativeElement className="absolute w-[206px] h-[437px] -bottom-[15rem] left-0 rotate-[21.097deg] rounded-[437px] bg-[#EA661C] blur-[125px]" />
       <CorporateBgColor />
     </div>
   );

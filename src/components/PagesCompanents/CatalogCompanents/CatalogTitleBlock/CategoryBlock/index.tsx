@@ -1,5 +1,10 @@
+import { FC } from "react";
+
+import { setCategory } from "../../../../../redux/filter/slice";
+import { RootState, useAppDispatch } from "../../../../../redux/store";
+import { useSelector } from "react-redux";
+
 import classNames from "classnames";
-import { FC, useState } from "react";
 
 const categories = [
   "Букеты из гипсофил",
@@ -22,10 +27,12 @@ const categories = [
 ];
 
 export const CategoryBlock: FC = () => {
-  const [categoryId, setCategoryId] = useState<number>();
+  const categoryId = useSelector((state: RootState) => state.filter.id);
+  const dispatch = useAppDispatch();
 
-  const onClick = (id: number) => {
-    setCategoryId(id);
+  const onClick = (id: number, category: string) => {
+    const obj = { id, category };
+    dispatch(setCategory(obj));
   };
 
   return (
@@ -33,10 +40,10 @@ export const CategoryBlock: FC = () => {
       {categories.map((category, index) => (
         <li
           className={classNames(
-            "p-5 border-[0.5px] border-[white] rounded-[40px] text-[12px] font-normal tracking-[0.48px] uppercase cursor-pointer",
+            "p-5 border-[0.5px] border-[white] rounded-[40px] text-[12px] font-normal tracking-[0.48px] uppercase cursor-pointer hover:bg-cherry hover:border-cherry hover:text-[white] focus:border-cherry focus active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]",
             { ["bg-light-turquoise text-[black]"]: categoryId === index }
           )}
-          onClick={() => onClick(index)}
+          onClick={() => onClick(index, category)}
           key={index}
         >
           {category}

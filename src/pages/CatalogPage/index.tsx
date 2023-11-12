@@ -2,6 +2,7 @@ import { FC } from "react";
 
 import {
   CatalogCardBlock,
+  CatalogCategoryBlock,
   CatalogStickyBlock,
   CatalogTitleBlock,
   DecorativeElement,
@@ -39,9 +40,9 @@ const CatalogPage: FC = () => {
       <div className="catalog_page__wrapper container mx-auto">
         <CatalogTitleBlock />
         <div className="catalog_page__content flex flex-col mt-8">
-          {/* <div className="flex justify-end">
-            <CatalogSortBlock />
-          </div> */}
+          <div className="flex relative z-10">
+            <CatalogCategoryBlock />
+          </div>
           <div className="flex">
             <div className="catalog_page__sticky w-[255px]">
               <CatalogStickyBlock />

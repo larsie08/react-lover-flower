@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 const flowers = [
   "Сборные букеты",
@@ -28,9 +29,9 @@ export const FlowersBlock: FC = () => {
           </li>
         ))}
         <li className="mt-6 float-right">
-          <a className="text-standart font-bold text-pink tracking-[1.2px] underline uppercase">
+          <Link to="catalog" className="text-standart font-bold text-pink tracking-[1.2px] underline uppercase">
             смотреть каталог
-          </a>
+          </Link>
         </li>
       </ul>
     </div>

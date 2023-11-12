@@ -3,7 +3,10 @@ import { FC } from "react";
 import { setIsOpenModal } from "../../../../redux/modal/slice";
 import { useAppDispatch } from "../../../../redux/store";
 
-import { CartSvg, PhoneButtonSvg, SocialBorderSvg } from "../../../../assets";
+import { CartSvg, PhoneButtonSvg } from "../../../../assets";
+import { DecorativeElement } from "../../..";
+import { IntroTitleBlock } from "./IntroComponents/IntroTitleBlock";
+import { Link } from "react-router-dom";
 
 export const Intro: FC = () => {
   const dispatch = useAppDispatch();
@@ -20,31 +23,23 @@ export const Intro: FC = () => {
         alt="intro"
       />
 
-      <div className="w-[359px] h-[294px] rotate-[41.599deg] rounded-[359px] bg-light-turquoise blur-[125px] absolute top-[34rem] left-[16rem] " />
-      <div className="w-[473px] h-[212px] -rotate-[43.21deg] rounded-[473px] bg-cherry blur-[125px] absolute top-[25rem] right-[25rem]" />
+      <DecorativeElement className="w-[359px] h-[294px] rotate-[41.599deg] rounded-[359px] bg-light-turquoise blur-[125px] absolute top-[34rem] left-[16rem] " />
+      <DecorativeElement className="w-[473px] h-[212px] -rotate-[43.21deg] rounded-[473px] bg-cherry blur-[125px] absolute top-[25rem] right-[25rem]" />
 
       <div className="intro_wrapper relative container mx-auto">
-        <div className="intro__title flex items-center containter mx-auto w-full">
-          <div className="intro__content flex-1 flex flex-col">
-            <h1 className="text-[200px] h-[160px] font-light tracking-[40px] uppercase font-cormorant flex justify-center items-center">
-              lover
-            </h1>
-            <h1 className="text-[200px] h-[160px] font-light tracking-[40px] uppercase font-cormorant flex justify-center items-center relative z-20">
-              Flower
-            </h1>
-          </div>
-          <SocialBorderSvg />
-        </div>
-        
+        <IntroTitleBlock />
         <div className="intro__footer mt-10 relative z-20">
           <div className="intro__footer__content flex justify-end">
             <div className="flex-1 flex flex-col items-center">
               <h2 className="text-[20px] font-normal tracking-[0.4px]">
                 Создаём для тех, кто ценит свежесть и изящество цветка
               </h2>
-              <button className="bg-light-turquoise h-[50px] w-[220px] text-[black] mt-12 px-12 py-4 border border-light-turquoise uppercase text-standart font-bold tracking-[1.2px] hover:bg-cherry hover:border-cherry hover:text-[white] focus:border-cherry focus active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]">
+              <Link
+                to="catalog"
+                className="bg-light-turquoise h-[50px] w-[220px] text-[black] mt-12 px-12 py-4 border border-light-turquoise uppercase text-standart font-bold tracking-[1.2px] hover:bg-cherry hover:border-cherry hover:text-[white] focus:border-cherry focus active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]"
+              >
                 смотреть каталог
-              </button>
+              </Link>
             </div>
             <div className="intro__footer_buttons flex flex-col items-end justify-center">
               <h3 className="phone text-[16px] mt-14 text-light-turquoise font-normal tracking-[1.6px] uppercase">
