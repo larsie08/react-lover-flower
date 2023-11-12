@@ -71,7 +71,7 @@ export const Footer: FC = () => {
         </div>
         <ul className="flex flex-col gap-2 mt-7">
           <li className="text-[14px] font-bold text-light-turquoise mb-2.5 uppercase">
-            Каталог
+            <Link to="catalog">Каталог</Link>
           </li>
           {catalog.map((item, i: number) => (
             <li

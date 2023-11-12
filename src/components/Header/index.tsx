@@ -76,7 +76,7 @@ export const Header: FC = () => {
           <ul className="navbar flex ml-[70px] items-center gap-12">
             <li className="catalog_header text-[14px] font-normal tracking-[.56px] relative uppercase">
               <Link
-                to="/"
+                to="catalog"
                 className="hover:text-light-turquoise hover:underline hover:decoration-light-turquoise cursor-pointer"
               >
                 Каталог

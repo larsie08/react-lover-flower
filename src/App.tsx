@@ -12,6 +12,7 @@ const AboutUsPage = lazy(() => import("./pages/AboutUsPage"));
 const ContactsPage = lazy(() => import("./pages/ContactsPage"));
 const FAQPage = lazy(() => import("./pages/FAQPage"));
 const CorporatePage = lazy(() => import("./pages/CorporatePage"));
+const CatalogPage = lazy(() => import("./pages/CatalogPage"));
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="catalog" element={<CatalogPage />} />
           <Route path="delivery" element={<DeliveryPage />} />
           <Route path="aboutUs" element={<AboutUsPage />} />
           <Route path="contacts" element={<ContactsPage />} />
