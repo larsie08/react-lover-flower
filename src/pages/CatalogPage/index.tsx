@@ -1,29 +1,22 @@
 import { FC } from "react";
 
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+
 import {
   CatalogCardBlock,
   CatalogCategoryBlock,
-  CatalogStickyBlock,
+  CatalogFilterBlock,
   CatalogTitleBlock,
   DecorativeElement,
 } from "../../components";
 import { CatalogLeftSvg, CatalogRightSvg } from "../../assets";
 
-const bouquetsUrl = [
-  "./img/bouquets/bouquet1.png",
-  "./img/bouquets/bouquet2.png",
-  "./img/bouquets/bouquet3.png",
-  "./img/bouquets/bouquet1.png",
-  "./img/bouquets/bouquet2.png",
-  "./img/bouquets/bouquet3.png",
-  "./img/bouquets/bouquet1.png",
-  "./img/bouquets/bouquet2.png",
-  "./img/bouquets/bouquet3.png",
-];
-
 const CatalogPage: FC = () => {
+  const items = useSelector((state: RootState) => state.bouquets.items);
+
   return (
-    <div className="catalog_page relative pt-[120px] h-[2500px] bg-[#040A0A]">
+    <div className="catalog_page relative pt-[120px] h-[3000px] bg-[#040A0A]">
       <img
         className="absolute top-0 left-0 z-10"
         src="./img/bgElements/CatalogBg/CatalogFlowerLeft.png"
@@ -45,11 +38,16 @@ const CatalogPage: FC = () => {
           </div>
           <div className="flex">
             <div className="catalog_page__sticky w-[255px]">
-              <CatalogStickyBlock />
+              <CatalogFilterBlock />
             </div>
             <div className="catalog_page__cards relative grid grid-cols-[repeat(3,_255px)] mx-auto gap-7 mt-3 z-10">
-              {bouquetsUrl.map((url, id) => (
-                <CatalogCardBlock key={id} imageUrl={url} />
+              {items.map((obj) => (
+                <CatalogCardBlock
+                  key={obj.id}
+                  name={obj.name}
+                  cost={obj.cost}
+                  imageUrl={obj.imageUrl}
+                />
               ))}
             </div>
           </div>

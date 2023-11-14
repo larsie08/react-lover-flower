@@ -7,7 +7,7 @@ import {
   RangeBlock,
 } from "./CatalogBlocks";
 
-export const CatalogStickyBlock: FC = () => {
+export const CatalogFilterBlock: FC = () => {
   return (
     <div className="flex flex-col gap-5 p-5 bg-[#000]/[0.30] rounded-[20px] backdrop-blur-[10px]">
       <ByLightBlock />

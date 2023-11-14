@@ -27,11 +27,11 @@ const categories = [
 ];
 
 export const CategoryBlock: FC = () => {
-  const categoryId = useSelector((state: RootState) => state.filter.id);
+  const categoryId = useSelector((state: RootState) => state.filter.categoryId);
   const dispatch = useAppDispatch();
 
-  const onClick = (id: number, category: string) => {
-    const obj = { id, category };
+  const onClick = (categoryId: number, category: string) => {
+    const obj = { categoryId, category };
     dispatch(setCategory(obj));
   };
 

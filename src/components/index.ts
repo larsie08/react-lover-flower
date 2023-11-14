@@ -16,7 +16,7 @@ export * from "./PagesCompanents/HomeCompanents/CardFooterBlock";
 
 export * from "./PagesCompanents/CatalogCompanents/CatalogTitleBlock";
 export * from "./PagesCompanents/CatalogCompanents/CatalogSortBlock";
-export * from "./PagesCompanents/CatalogCompanents/CatalogStickyBlock";
+export * from "./PagesCompanents/CatalogCompanents/CatalogFilterBlock";
 export * from "./PagesCompanents/CatalogCompanents/CatalogCardBlock";
 export * from "./PagesCompanents/CatalogCompanents/CatalogCategoryBlock";
 
@@ -33,6 +33,7 @@ export * from "./PagesCompanents/AboutUsCompanents/AboutOrderBlock";
 export * from "./PagesCompanents/ContactsCompanents/ContactsTitleBlock";
 export * from "./PagesCompanents/ContactsCompanents/ContactsCardBlocks";
 export * from "./PagesCompanents/ContactsCompanents/ContactsFormBlock";
+export * from "./PagesCompanents/ContactsCompanents/ContactsMapBlock";
 
 export * from "./PagesCompanents/FAQCompanents/FAQTitleBlock";
 export * from "./PagesCompanents/FAQCompanents/FAQBlocks";

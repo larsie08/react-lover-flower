@@ -1,17 +1,21 @@
 import { FC } from "react";
-import { CatalogCloseSvg } from "../../../../assets";
-import classNames from "classnames";
-import { setCategory } from "../../../../redux/filter/slice";
 import { useSelector } from "react-redux";
+
+import { setCategory } from "../../../../redux/filter/slice";
 import { RootState, useAppDispatch } from "../../../../redux/store";
+
+import { CatalogCloseSvg } from "../../../../assets";
+
+import classNames from "classnames";
 
 export const CatalogCategoryBlock: FC = () => {
   const dispatch = useAppDispatch();
-  const category = useSelector((state: RootState) => state.filter.category);
-  const categoryId = useSelector((state: RootState) => state.filter.id);
+  const { category, categoryId } = useSelector(
+    (state: RootState) => state.filter
+  );
 
   const onClear = () => {
-    const obj = { id: NaN, category: "" };
+    const obj = { categoryId: NaN, category: "" };
     dispatch(setCategory(obj));
   };
 

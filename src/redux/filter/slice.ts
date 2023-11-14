@@ -1,12 +1,12 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface FilterSliceState {
-  id: number;
+  categoryId: number;
   category: string;
 }
 
 const initialState: FilterSliceState = {
-  id: NaN,
+  categoryId: NaN,
   category: "",
 };
 
@@ -15,12 +15,12 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     setCategory(state, action: PayloadAction<FilterSliceState>) {
-      if (state.id === action.payload.id) {
+      if (state.categoryId === action.payload.categoryId) {
         state.category = "";
-        state.id = NaN;
+        state.categoryId = NaN;
       } else {
         state.category = action.payload.category;
-        state.id = action.payload.id;
+        state.categoryId = action.payload.categoryId;
       }
     },
   },
