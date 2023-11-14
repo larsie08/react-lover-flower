@@ -1,7 +1,17 @@
 import { FC } from "react";
+
+import { useAppDispatch } from "../../../../redux/store";
+import { setIsOpenCart } from "../../../../redux/modal/slice";
+
 import { CartSvg, HeaderPhoneSvg } from "../../../../assets";
 
 export const CartBlock: FC = () => {
+  const dispatch = useAppDispatch();
+
+  const openButton = () => {
+    dispatch(setIsOpenCart(true));
+  };
+
   return (
     <div className="cart_block flex items-center gap-8">
       <div className="cart_block__phone flex items-center gap-3">
@@ -10,7 +20,10 @@ export const CartBlock: FC = () => {
           +375 (29) 113-69-69
         </p>
       </div>
-      <button className="cart flex relative bg-[#000]/[.20] rounded-xl backdrop-blur-[10px]">
+      <button
+        onClick={openButton}
+        className="cart flex relative bg-[#000]/[.20] rounded-xl backdrop-blur-[10px]"
+      >
         <CartSvg />
         <svg
           className="absolute -right-[8px] -top-[3px]"

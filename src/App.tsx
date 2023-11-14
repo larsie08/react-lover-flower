@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 
-import { CallModal, Footer, Header } from "./components";
+import { CallModal, Cart, Footer, Header } from "./components";
 
 import ScrollToTop from "./hooks/ScrollToTop";
 
@@ -37,6 +37,7 @@ function App() {
 
       <Footer />
       <CallModal />
+      <Cart />
     </>
   );
 }

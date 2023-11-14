@@ -1,18 +1,18 @@
 import { FC } from "react";
 import { createPortal } from "react-dom";
 
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import { setIsOpenModal } from "../../redux/modal/slice";
+import { useSelector } from "react-redux";
+import { RootState, useAppDispatch } from "../../../redux/store";
+import { setIsOpenModal } from "../../../redux/modal/slice";
 
 import classNames from "classnames";
 
-import { CloseSvg, ModalCherrySvg, ModalLightSvg } from "../../assets";
+import { CloseSvg, ModalCherrySvg, ModalLightSvg } from "../../../assets";
 import { ModalForm } from "./ModalForm";
 
 export const CallModal: FC = () => {
   const isOpen = useSelector((state: RootState) => state.modal.isOpenModal);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const onClose = () => {
     dispatch(setIsOpenModal(false));

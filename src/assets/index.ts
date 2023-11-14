@@ -35,6 +35,6 @@ export * from "./SVG/PagesSvg/CorporateSvg/CorporateBgColor";
 
 export * from "./SVG/Footer/SocialsSvg/SocialsSvg";
 
-export * from "./SVG/ModalSvg/CloseSvg";
 export * from "./SVG/ModalSvg/BgColors/ModalLightSvg";
 export * from "./SVG/ModalSvg/BgColors/ModalCherrySvg";
+export * from "./SVG/ModalSvg/CloseSvg";

@@ -1,7 +1,8 @@
 export * from "./Header";
 export * from "./Footer";
 
-export * from "./CallModal";
+export * from "./Modals/CallModal";
+export * from "./Modals/Cart";
 
 export * from "./DecorativeElement";
 
@@ -34,6 +35,7 @@ export * from "./PagesCompanents/ContactsCompanents/ContactsCardBlocks";
 export * from "./PagesCompanents/ContactsCompanents/ContactsFormBlock";
 
 export * from "./PagesCompanents/FAQCompanents/FAQTitleBlock";
+export * from "./PagesCompanents/FAQCompanents/FAQBlocks";
 
 export * from "./PagesCompanents/CorporateCompanents/CorporateTitleBlock";
 export * from "./PagesCompanents/CorporateCompanents/CorporateСoopBlock";

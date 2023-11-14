@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { setIsOpenModal } from "../../../../redux/modal/slice";
+import { setIsOpenCart, setIsOpenModal } from "../../../../redux/modal/slice";
 import { useAppDispatch } from "../../../../redux/store";
 
 import { CartSvg, PhoneButtonSvg } from "../../../../assets";
@@ -11,8 +11,11 @@ import { Link } from "react-router-dom";
 export const Intro: FC = () => {
   const dispatch = useAppDispatch();
 
-  const onOpen = () => {
+  const onOpenModal = () => {
     dispatch(setIsOpenModal(true));
+  };
+  const onOpenCart = () => {
+    dispatch(setIsOpenCart(true));
   };
 
   return (
@@ -46,7 +49,7 @@ export const Intro: FC = () => {
                 +375 (29) 113-69-69
               </h3>
               <button
-                onClick={onOpen}
+                onClick={onOpenModal}
                 className="call w-[180px] mt-3 flex items-center gap-2 py-2 px-4 bg-[#000]/[.20] rounded-xl backdrop-blur-[10px]"
               >
                 <PhoneButtonSvg />
@@ -54,7 +57,10 @@ export const Intro: FC = () => {
                   заказать звонок
                 </p>
               </button>
-              <button className="cart flex mt-5 bg-[#000]/[.20] rounded-xl backdrop-blur-[10px] p-[15px]">
+              <button
+                onClick={onOpenCart}
+                className="cart flex mt-5 bg-[#000]/[.20] rounded-xl backdrop-blur-[10px] p-[15px]"
+              >
                 <CartSvg />
                 <svg
                   className="absolute right-[8px] top-[10px]"
