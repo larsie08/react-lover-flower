@@ -1,20 +1,17 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-
-interface FilterSliceState {
-  categoryId: number;
-  category: string;
-}
+import { CategoryProps, FilterSliceState } from "./types";
 
 const initialState: FilterSliceState = {
   categoryId: NaN,
   category: "",
+  filtersId: [],
 };
 
 const filterSlice = createSlice({
-  name: "header",
+  name: "filter",
   initialState,
   reducers: {
-    setCategory(state, action: PayloadAction<FilterSliceState>) {
+    setCategory(state, action: PayloadAction<CategoryProps>) {
       if (state.categoryId === action.payload.categoryId) {
         state.category = "";
         state.categoryId = NaN;
@@ -23,9 +20,18 @@ const filterSlice = createSlice({
         state.categoryId = action.payload.categoryId;
       }
     },
+    setFiltersId(state, action: PayloadAction<string>) {
+      if (state.filtersId.includes(action.payload)) {
+        state.filtersId = state.filtersId.filter(
+          (itemId) => itemId !== action.payload
+        );
+      } else {
+        state.filtersId = [...state.filtersId, action.payload];
+      }
+    },
   },
 });
 
-export const { setCategory } = filterSlice.actions;
+export const { setCategory, setFiltersId } = filterSlice.actions;
 
 export default filterSlice.reducer;

@@ -1,8 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 
-import Loadable from "react-loadable";
-
 import { CallModal, Cart, Footer, Header } from "./components";
 
 import ScrollToTop from "./hooks/ScrollToTop";

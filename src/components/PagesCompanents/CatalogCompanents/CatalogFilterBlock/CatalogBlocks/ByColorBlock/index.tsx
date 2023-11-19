@@ -1,5 +1,12 @@
 import { FC } from "react";
 
+import { useAppDispatch } from "../../../../../../redux/store";
+import { setFiltersId } from "../../../../../../redux/filter/slice";
+import { selectFiltersById } from "../../../../../../redux/filter/selectors";
+
+import { CatalogCheckSvg } from "../../../../../../assets";
+import { useSelector } from "react-redux";
+
 const colors = [
   { id: "white", name: "белый" },
   { id: "yellow", name: "желтый" },
@@ -11,6 +18,17 @@ const colors = [
 ];
 
 export const ByColorBlock: FC = () => {
+  const dispatch = useAppDispatch();
+  const filtersId = useSelector(selectFiltersById);
+
+  const handleClick = (id: string) => {
+    dispatch(setFiltersId(id));
+  };
+
+  const isClicked = (id: string) => {
+    return filtersId.some((itemId) => itemId === id);
+  };
+
   return (
     <div className="colors_block flex flex-col gap-2">
       <h2 className="text-[14px] text-light-turquoise font-bold tracking-[0.56px] uppercase">
@@ -18,16 +36,14 @@ export const ByColorBlock: FC = () => {
       </h2>
       <ul className="flex flex-col gap-1">
         {colors.map((obj) => (
-          <li key={obj.id} className="flex gap-1">
-            <input
-              id={obj.id}
-              className="rounded-[2px] border-[0.5px]"
-              type="checkbox"
-            />
+          <li key={obj.id}>
             <label
-              htmlFor={obj.id}
-              className="text-[12px] font-light tracking-[0.48px] uppercase"
+              onClick={() => handleClick(obj.id)}
+              className="flex items-center gap-1 text-[12px] font-light tracking-[0.48px] uppercase"
             >
+              <div className="relative w-[12px] h-[12px] rounded-[2px] border-[0.5px] border-[#FFF]">
+                {isClicked(obj.id) && <CatalogCheckSvg />}
+              </div>
               {obj.name}
             </label>
           </li>

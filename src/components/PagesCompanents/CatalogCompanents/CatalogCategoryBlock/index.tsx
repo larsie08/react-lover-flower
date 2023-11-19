@@ -2,7 +2,8 @@ import { FC } from "react";
 import { useSelector } from "react-redux";
 
 import { setCategory } from "../../../../redux/filter/slice";
-import { RootState, useAppDispatch } from "../../../../redux/store";
+import { useAppDispatch } from "../../../../redux/store";
+import { selectCategory } from "../../../../redux/filter/selectors";
 
 import { CatalogCloseSvg } from "../../../../assets";
 
@@ -10,9 +11,7 @@ import classNames from "classnames";
 
 export const CatalogCategoryBlock: FC = () => {
   const dispatch = useAppDispatch();
-  const { category, categoryId } = useSelector(
-    (state: RootState) => state.filter
-  );
+  const { category, categoryId } = useSelector(selectCategory);
 
   const onClear = () => {
     const obj = { categoryId: NaN, category: "" };

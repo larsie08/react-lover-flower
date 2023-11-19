@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 interface BouquetsSliceState {
   items: {
@@ -89,11 +89,7 @@ const initialState: BouquetsSliceState = {
 const bouquetsSlice = createSlice({
   name: "header",
   initialState,
-  reducers: {
-    setCategory(state, action: PayloadAction) {},
-  },
+  reducers: {},
 });
-
-export const { setCategory } = bouquetsSlice.actions;
 
 export default bouquetsSlice.reducer;

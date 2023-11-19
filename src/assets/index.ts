@@ -24,6 +24,7 @@ export * from "./SVG/PagesSvg/DeliveryPageSvg/BgColorBottom";
 export * from "./SVG/PagesSvg/CatalogSvg/CatalogRightSvg";
 export * from "./SVG/PagesSvg/CatalogSvg/CatalogLeftSvg";
 export * from "./SVG/PagesSvg/CatalogSvg/CatalogCloseSvg";
+export * from "./SVG/PagesSvg/CatalogSvg/CatalogCheckSvg";
 
 export * from "./SVG/PagesSvg/AboutUsSvg/AboutBgColorBottom";
 
