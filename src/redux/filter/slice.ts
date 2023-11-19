@@ -29,9 +29,13 @@ const filterSlice = createSlice({
         state.filtersId = [...state.filtersId, action.payload];
       }
     },
+    setClearFiltersId(state) {
+      state.filtersId = []
+    },
   },
 });
 
-export const { setCategory, setFiltersId } = filterSlice.actions;
+export const { setCategory, setFiltersId, setClearFiltersId } =
+  filterSlice.actions;
 
 export default filterSlice.reducer;
