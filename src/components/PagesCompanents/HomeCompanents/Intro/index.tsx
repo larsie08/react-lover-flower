@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 import { setIsOpenCart, setIsOpenModal } from "../../../../redux/modal/slice";
 import { useAppDispatch } from "../../../../redux/store";
@@ -6,15 +7,14 @@ import { useAppDispatch } from "../../../../redux/store";
 import { CartSvg, PhoneButtonSvg } from "../../../../assets";
 import { DecorativeElement } from "../../..";
 import { IntroTitleBlock } from "./IntroComponents/IntroTitleBlock";
-import { Link } from "react-router-dom";
 
 export const Intro: FC = () => {
   const dispatch = useAppDispatch();
 
-  const onOpenModal = () => {
+  const openModal = () => {
     dispatch(setIsOpenModal(true));
   };
-  const onOpenCart = () => {
+  const openCart = () => {
     dispatch(setIsOpenCart(true));
   };
 
@@ -49,7 +49,7 @@ export const Intro: FC = () => {
                 +375 (29) 113-69-69
               </h3>
               <button
-                onClick={onOpenModal}
+                onClick={openModal}
                 className="call w-[180px] mt-3 flex items-center gap-2 py-2 px-4 bg-[#000]/[.20] rounded-xl backdrop-blur-[10px]"
               >
                 <PhoneButtonSvg />
@@ -58,7 +58,7 @@ export const Intro: FC = () => {
                 </p>
               </button>
               <button
-                onClick={onOpenCart}
+                onClick={openCart}
                 className="cart flex mt-5 bg-[#000]/[.20] rounded-xl backdrop-blur-[10px] p-[15px]"
               >
                 <CartSvg />

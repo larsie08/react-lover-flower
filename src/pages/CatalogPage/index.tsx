@@ -1,19 +1,26 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 
 import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
+import { RootState, useAppDispatch } from "../../redux/store";
+import { fetchBouquets } from "../../redux/bouquets/asyncActions";
 
 import {
   CatalogCardBlock,
   CatalogCategoryBlock,
   CatalogFilterBlock,
+  CatalogSortBlock,
   CatalogTitleBlock,
   DecorativeElement,
 } from "../../components";
 import { CatalogLeftSvg, CatalogRightSvg } from "../../assets";
 
 const CatalogPage: FC = () => {
+  const dispatch = useAppDispatch();
   const items = useSelector((state: RootState) => state.bouquets.items);
+
+  useEffect(() => {
+    dispatch(fetchBouquets());
+  }, []);
 
   return (
     <div className="catalog_page relative pt-[120px] h-[3000px] bg-[#040A0A]">
@@ -33,14 +40,15 @@ const CatalogPage: FC = () => {
       <div className="catalog_page__wrapper container mx-auto">
         <CatalogTitleBlock />
         <div className="catalog_page__content flex flex-col mt-8">
-          <div className="flex relative z-10">
+          <div className="flex justify-between relative z-10">
             <CatalogCategoryBlock />
+            <CatalogSortBlock />
           </div>
           <div className="flex">
             <div className="catalog_page__sticky w-[255px]">
               <CatalogFilterBlock />
             </div>
-            <div className="catalog_page__cards relative grid grid-cols-[repeat(3,_255px)] mx-auto gap-7 mt-3 z-10">
+            <div className="catalog_page__cards relative grid grid-cols-[repeat(3,_255px)] mx-auto gap-7 mt-3">
               {items.map((obj) => (
                 <CatalogCardBlock
                   key={obj.id}

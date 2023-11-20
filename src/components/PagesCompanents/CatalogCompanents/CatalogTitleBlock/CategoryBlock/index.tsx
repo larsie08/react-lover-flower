@@ -1,9 +1,8 @@
 import { FC } from "react";
+import { useSelector } from "react-redux";
 
 import { setCategory } from "../../../../../redux/filter/slice";
-import { useAppDispatch } from "../../../../../redux/store";
-import { useSelector } from "react-redux";
-import { selectCategoryId } from "../../../../../redux/filter/selectors";
+import { RootState, useAppDispatch } from "../../../../../redux/store";
 
 import { CategoryItem } from "./CategoryItem";
 
@@ -28,7 +27,7 @@ const categories = [
 ];
 
 export const CategoryBlock: FC = () => {
-  const categoryId = useSelector(selectCategoryId);
+  const categoryId = useSelector((state: RootState) => state.filter.categoryId);
   const dispatch = useAppDispatch();
 
   const onClick = (index: number, category: string) => {

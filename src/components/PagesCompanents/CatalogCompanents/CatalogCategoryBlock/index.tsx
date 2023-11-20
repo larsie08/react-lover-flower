@@ -14,21 +14,23 @@ export const CatalogCategoryBlock: FC = () => {
   const { category, categoryId } = useSelector(selectCategory);
 
   const onClear = () => {
-    const obj = { categoryId: NaN, category: "" };
+    const obj = { categoryId: null, category: "" };
     dispatch(setCategory(obj));
   };
 
   return (
-    <div className="flex ml-[30rem] gap-2 h-6">
-      <h3 className="text-[14px] text-light-turquoise font-bold tracking-[0.56px] uppercase">
-        {category}
-      </h3>
-      <button
-        className={classNames({ invisible: Number.isNaN(categoryId) })}
-        onClick={onClear}
-      >
-        <CatalogCloseSvg />
-      </button>
+    <div className="flex items-end ml-[30rem] ">
+      <div className="flex gap-2 h-6">
+        <h3 className="text-[14px] text-light-turquoise font-bold tracking-[0.56px] uppercase">
+          {category}
+        </h3>
+        <button
+          className={classNames({ invisible: categoryId === null })}
+          onClick={onClear}
+        >
+          <CatalogCloseSvg />
+        </button>
+      </div>
     </div>
   );
 };

@@ -2,9 +2,10 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { CategoryProps, FilterSliceState } from "./types";
 
 const initialState: FilterSliceState = {
-  categoryId: NaN,
+  categoryId: null,
   category: "",
   filtersId: [],
+  sortValue: "по популярности",
 };
 
 const filterSlice = createSlice({
@@ -14,7 +15,7 @@ const filterSlice = createSlice({
     setCategory(state, action: PayloadAction<CategoryProps>) {
       if (state.categoryId === action.payload.categoryId) {
         state.category = "";
-        state.categoryId = NaN;
+        state.categoryId = null;
       } else {
         state.category = action.payload.category;
         state.categoryId = action.payload.categoryId;
@@ -30,12 +31,15 @@ const filterSlice = createSlice({
       }
     },
     setClearFiltersId(state) {
-      state.filtersId = []
+      state.filtersId = [];
+    },
+    setSortValue(state, action: PayloadAction<string>) {
+      state.sortValue = action.payload;
     },
   },
 });
 
-export const { setCategory, setFiltersId, setClearFiltersId } =
+export const { setCategory, setFiltersId, setClearFiltersId, setSortValue } =
   filterSlice.actions;
 
 export default filterSlice.reducer;

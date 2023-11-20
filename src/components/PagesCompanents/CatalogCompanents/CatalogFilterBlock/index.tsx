@@ -13,7 +13,7 @@ import { useDispatch } from "react-redux";
 
 export const CatalogFilterBlock: FC = () => {
   const dispatch = useDispatch();
-  
+
   const onClear = () => {
     dispatch(setClearFiltersId());
   };
