@@ -1,27 +1,41 @@
 import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import { useDispatch, useSelector } from "react-redux";
 import { setLastScrollY } from "../../redux/header/slice";
-import { RootState } from "../../redux/store";
+import { RootState, useAppDispatch } from "../../redux/store";
+import {
+  Category,
+  CategoryProps,
+  FlowerCategories,
+} from "../../redux/filter/types";
+import { setCategory } from "../../redux/filter/slice";
 
 import classNames from "classnames";
 
 import { CartBlock, InfoBlock, Search } from "./HeaderCompanents";
 
-const submenu = [
-  "Популярное",
-  "Сборные букеты",
-  "монобукеты",
-  "розы",
-  "свадебные",
-  "Композиции из цветов к коробке",
-  "интерьерные композиции",
-  "осенние",
-  "индивидуальный букет",
-  "сухоцветы",
-  "горшечные",
-  "дополнительно",
+const categories: Category[] = [
+  { name: "Букеты из гипсофил", id: FlowerCategories.GypsophilaBouquets },
+  { name: "Букеты из ромашек", id: FlowerCategories.ChamomileBouquets },
+  { name: "Букеты из хризантем", id: FlowerCategories.ChrysanthemumBouquets },
+  {
+    name: "Комнатные цветы в горшках",
+    id: FlowerCategories.PottedIndoorPlants,
+  },
+  { name: "Монобукеты", id: FlowerCategories.MonoBouquets },
+  { name: "Сборные букеты", id: FlowerCategories.AssortedBouquets },
+  { name: "Букет на праздник", id: FlowerCategories.HolidayBouquets },
+  { name: "Композиции из цветов", id: FlowerCategories.FlowerCompositions },
+  { name: "Конверты", id: FlowerCategories.Envelopes },
+  { name: "Открытки", id: FlowerCategories.GreetingCards },
+  { name: "Подарки", id: FlowerCategories.Gifts },
+  { name: "Букеты из сухоцветов", id: FlowerCategories.DriedFlowerBouquets },
+  { name: "Шары", id: FlowerCategories.Balloons },
+  { name: "Популярное", id: FlowerCategories.PopularItems },
+  { name: "Букеты роз", id: FlowerCategories.RoseBouquets },
+  { name: "Цветы на похороны", id: FlowerCategories.FuneralFlowers },
+  { name: "Упаковка подарков", id: FlowerCategories.GiftWrapping },
 ];
 
 const nav = [
@@ -33,7 +47,7 @@ const nav = [
 
 export const Header: FC = () => {
   const [show, setShow] = useState(true);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const lastScrollY = useSelector(
     (state: RootState) => state.header.lastScrollY
   );
@@ -41,14 +55,14 @@ export const Header: FC = () => {
 
   const controlNavbar = () => {
     if (typeof window !== "undefined") {
-      if (window.scrollY < lastScrollY) {
-        setShow(false);
-      } else {
-        setShow(true);
-      }
-
+      setShow(window.scrollY < lastScrollY ? false : true);
       dispatch(setLastScrollY(window.scrollY));
     }
+  };
+
+  const onClick = (categoryId: number, category: string) => {
+    const obj: CategoryProps = { categoryId, category };
+    dispatch(setCategory(obj));
   };
 
   useEffect(() => {
@@ -82,13 +96,15 @@ export const Header: FC = () => {
                 Каталог
               </Link>
               <ul className="submenu absolute -left-4 bg-[grey]/[.3] backdrop-blur-[10px] invisible flex flex-col gap-1 w-[260px] p-2">
-                {submenu.map((item, i) => (
-                  <li
-                    key={i}
+                {categories.map((obj) => (
+                  <Link
+                    to="catalog"
+                    onClick={() => onClick(obj.id, obj.name)}
+                    key={obj.id}
                     className="text-[14px] font-normal relative z-30 tracking-[.56px] uppercase cursor-pointer hover:text-light-turquoise hover:underline hover:decoration-light-turquoise"
                   >
-                    {item}
-                  </li>
+                    {obj.name}
+                  </Link>
                 ))}
               </ul>
             </li>

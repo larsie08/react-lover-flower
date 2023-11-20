@@ -13,22 +13,20 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     setCategory(state, action: PayloadAction<CategoryProps>) {
-      if (state.categoryId === action.payload.categoryId) {
+      const { categoryId, category } = action.payload;
+      if (state.categoryId === categoryId) {
         state.category = "";
         state.categoryId = null;
       } else {
-        state.category = action.payload.category;
-        state.categoryId = action.payload.categoryId;
+        state.category = category;
+        state.categoryId = categoryId;
       }
     },
     setFiltersId(state, action: PayloadAction<string>) {
-      if (state.filtersId.includes(action.payload)) {
-        state.filtersId = state.filtersId.filter(
-          (itemId) => itemId !== action.payload
-        );
-      } else {
-        state.filtersId = [...state.filtersId, action.payload];
-      }
+      const { payload } = action;
+      state.filtersId = state.filtersId.includes(payload)
+        ? state.filtersId.filter((itemId) => itemId !== payload)
+        : [...state.filtersId, payload];
     },
     setClearFiltersId(state) {
       state.filtersId = [];
