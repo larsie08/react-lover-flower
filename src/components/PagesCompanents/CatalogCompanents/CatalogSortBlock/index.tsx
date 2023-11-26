@@ -48,7 +48,7 @@ export const CatalogSortBlock: FC = () => {
   return (
     <ul
       ref={sortRef}
-      className="catalog_page__sort relative flex flex-col w-[260px] gap-2 p-3 rounded-[10px] bg-[#000]/[.20] backdrop-blur-[10px] z-30"
+      className="catalog_page__sort relative flex flex-col w-[260px] gap-2 p-3 rounded-[10px] bg-[#000]/[.20] backdrop-blur-[10px] z-30 select-none"
     >
       <div
         onClick={togglePopup}

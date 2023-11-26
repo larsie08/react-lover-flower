@@ -40,7 +40,7 @@ export const CategoryBlock: FC = () => {
   };
 
   return (
-    <ul className="category_block flex flex-wrap gap-3 mt-16">
+    <ul className="category_block flex flex-wrap gap-3 mt-16 select-none">
       {categories.map((category, index) => (
         <CategoryItem
           key={index}

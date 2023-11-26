@@ -1,12 +1,14 @@
 import { FC } from "react";
 
-import { useAppDispatch } from "../../../../redux/store";
+import { RootState, useAppDispatch } from "../../../../redux/store";
 import { setIsOpenCart } from "../../../../redux/modal/slice";
 
 import { CartSvg, HeaderPhoneSvg } from "../../../../assets";
+import { useSelector } from "react-redux";
 
 export const CartBlock: FC = () => {
   const dispatch = useAppDispatch();
+  const cart = useSelector((state: RootState) => state.cart.items);
 
   const openButton = () => {
     dispatch(setIsOpenCart(true));
@@ -36,7 +38,7 @@ export const CartBlock: FC = () => {
           <circle cx="8" cy="8.86523" r="8" fill="#43FFD2" />
         </svg>
         <p className="text-dark-green absolute -right-[3px] -top-[3px] text-standart">
-          5
+          {cart.length}
         </p>
       </button>
     </div>

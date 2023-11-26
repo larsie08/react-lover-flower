@@ -19,7 +19,7 @@ export const CatalogFilterBlock: FC = () => {
   };
 
   return (
-    <div className="sticky top-28 bottom-0 flex flex-col gap-5 p-5 bg-[#000]/[0.30] rounded-[20px] backdrop-blur-[10px]">
+    <div className="sticky top-24 bottom-0 flex flex-col gap-5 p-5 bg-[#000]/[0.30] rounded-[20px] backdrop-blur-[10px select-none">
       <ByLightBlock />
       <ByColorBlock />
       <ByFormatBlock />

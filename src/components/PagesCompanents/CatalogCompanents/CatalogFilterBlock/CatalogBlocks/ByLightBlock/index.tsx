@@ -34,7 +34,7 @@ export const ByLightBlock: FC = () => {
           <li key={obj.id} className="flex gap-1">
             <label
               onClick={() => handleClick(obj.id)}
-              className="flex items-center gap-1 text-[12px] font-light tracking-[0.48px] uppercase"
+              className="flex items-center gap-1 text-[12px] font-light tracking-[0.48px] uppercase cursor-pointer"
             >
               <div className="relative w-[12px] h-[12px] rounded-[2px] border-[0.5px] border-[#FFF]">
                 {isClicked(obj.id) && <CatalogCheckSvg />}

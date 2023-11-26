@@ -3,6 +3,7 @@ import { FC, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../../redux/store";
 import { fetchBouquets } from "../../redux/bouquets/asyncActions";
+import { setCartItem } from "../../redux/cart/slice";
 
 import {
   CatalogCardBlock,
@@ -17,10 +18,26 @@ import { CatalogLeftSvg, CatalogRightSvg } from "../../assets";
 const CatalogPage: FC = () => {
   const dispatch = useAppDispatch();
   const items = useSelector((state: RootState) => state.bouquets.items);
+  const cart = useSelector((state: RootState) => state.cart.items);
 
   useEffect(() => {
     dispatch(fetchBouquets());
   }, []);
+
+  useEffect(() => {
+    const json = JSON.stringify(cart);
+    localStorage.setItem("flower-cart", json);
+  }, [cart]);
+
+  const onClick = (
+    id: number,
+    name: string,
+    imageUrl: string,
+    cost: number
+  ) => {
+    const bouquet = { id, name, imageUrl, cost };
+    dispatch(setCartItem(bouquet));
+  };
 
   return (
     <div className="catalog_page relative pt-[120px] h-[3000px] bg-[#040A0A]">
@@ -52,9 +69,11 @@ const CatalogPage: FC = () => {
               {items.map((obj) => (
                 <CatalogCardBlock
                   key={obj.id}
+                  id={obj.id}
                   name={obj.name}
                   cost={obj.cost}
                   imageUrl={obj.imageUrl}
+                  onClick={onClick}
                 />
               ))}
             </div>

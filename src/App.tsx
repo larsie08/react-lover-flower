@@ -3,7 +3,7 @@ import { Suspense, lazy } from "react";
 
 import { CallModal, Cart, Footer, Header } from "./components";
 
-import ScrollToTop from "./hooks/ScrollToTop";
+import ScrollToTop from "./utils/ScrollToTop";
 
 import Home from "./pages/Home";
 

@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { setIsOpenCart, setIsOpenModal } from "../../../../redux/modal/slice";
-import { useAppDispatch } from "../../../../redux/store";
+import { RootState, useAppDispatch } from "../../../../redux/store";
 
 import { CartSvg, PhoneButtonSvg } from "../../../../assets";
 import { DecorativeElement } from "../../..";
@@ -10,13 +11,10 @@ import { IntroTitleBlock } from "./IntroComponents/IntroTitleBlock";
 
 export const Intro: FC = () => {
   const dispatch = useAppDispatch();
+  const cart = useSelector((state: RootState) => state.cart.items);
 
-  const openModal = () => {
-    dispatch(setIsOpenModal(true));
-  };
-  const openCart = () => {
-    dispatch(setIsOpenCart(true));
-  };
+  const openModal = () => dispatch(setIsOpenModal(true));
+  const openCart = () => dispatch(setIsOpenCart(true));
 
   return (
     <div className="intro relative pt-[140px] h-[1600px]">
@@ -73,7 +71,7 @@ export const Intro: FC = () => {
                   <circle cx="8" cy="8.86523" r="8" fill="#43FFD2" />
                 </svg>
                 <p className="text-dark-green absolute right-[13px] top-[10px] text-standart">
-                  5
+                  {cart.length}
                 </p>
               </button>
             </div>
