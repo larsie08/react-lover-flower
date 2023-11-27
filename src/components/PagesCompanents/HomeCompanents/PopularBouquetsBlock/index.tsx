@@ -1,4 +1,10 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+import { RootState, useAppDispatch } from "../../../../redux/store";
+import { setCartItem } from "../../../../redux/cart/slice";
+import { Bouquet } from "../../../../redux/bouquets/types";
 
 import {
   PopularCherrySvg,
@@ -7,15 +13,41 @@ import {
   PinkArrowSvg,
   RightArrowSvg,
 } from "../../../../assets";
-import { Link } from "react-router-dom";
 
-const imgLinks = [
-  "./img/bouquets/bouquet1.png",
-  "./img/bouquets/bouquet2.png",
-  "./img/bouquets/bouquet3.png",
-];
+import { BouquetsTitleBlock, CardBlock } from "./BouquetsComponents";
 
 export const PopularBouquetsBlock: FC = () => {
+  const dispatch = useAppDispatch();
+  const items = useSelector((state: RootState) => state.bouquets.items);
+  const [slideItems, setSlideItems] = useState<Bouquet[]>([]);
+  const [currentIndex, setCurrentIndex] = useState<number>(1);
+
+  useEffect(() => {
+    setSlideItems(items.slice(currentIndex, currentIndex + 3));
+  }, [items, currentIndex]);
+
+  const nextSlide = () => {
+    if (currentIndex < items.length - 3) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
+  const prevSlide = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
+  const onClick = (
+    id: number,
+    name: string,
+    cost: number,
+    imageUrl: string
+  ) => {
+    const obj = {id, name, cost, imageUrl}
+    dispatch(setCartItem(obj));
+  };
+
   return (
     <div className="popular_bouquets relative w-full h-[1300px]">
       <img
@@ -28,40 +60,31 @@ export const PopularBouquetsBlock: FC = () => {
       <PopularCherrySvg />
 
       <div className="popular_bouquets__wrapper relative container mx-auto">
-        <div className="popular_bouquets__title flex flex-col">
-          <h1 className="title relative z-20 flex items-center h-[100px] text-[100px] font-normal tracking-[2px] uppercase font-cormorant">
-            Популярные
-          </h1>
-          <h2 className="title relative z-20 flex justify-center items-center h-[100px] text-[100px] font-normal tracking-[2px] uppercase font-cormorant">
-            букеты
-          </h2>
-          <h3 className="subtitle relative z-20 flex justify-center items-center mt-5 text-[20px] font-light tracking-[.4px]">
-            Самые любимые композиции наших клиентов
-          </h3>
-        </div>
-        <div className="popular_bouquets__slider mt-20 grid grid-cols-[80px_repeat(3,_350px)_80px] gap-8 items-center justify-center">
-          <div className="arrow mb-14 relative z-10">
+        <BouquetsTitleBlock />
+        <div className="popular_bouquets__slider mt-20 gap-8 flex items-center justify-center">
+          <div
+            onClick={prevSlide}
+            className="arrow mb-14 relative z-10 cursor-pointer select-none"
+          >
             <LeftArrowSvg />
           </div>
-          {imgLinks.map((img, i) => (
-            <div key={i} className="slider__cart">
-              <img
-                className="cart__img bg-[lightgray]/[50%] w-[350px] h-[450px] relative z-20"
-                src={img}
-                alt="bouquet"
+          <div className="grid grid-cols-[repeat(3,_350px)] gap-8">
+            {slideItems.map((obj) => (
+              <CardBlock
+                key={obj.id}
+                id={obj.id}
+                imageUrl={obj.imageUrl}
+                name={obj.name}
+                cost={obj.cost}
+                onClick={onClick}
               />
-              <h1 className="cart__title relative z-10 mt-2 text-[20px] font-normal tracking-[.8px] uppercase">
-                лучший день
-              </h1>
-              <h2 className="cart__price relative z-10 mt-2 text-[14px] font-bold tracking-[.56px]">
-                167.000 ₽
-              </h2>
-              <button className="border-[.5px] w-[255px] mt-6 p-4 text-[12px] font-bold tracking-[1.2px] uppercase hover:bg-light-turquoise hover:text-[black] focus:border-light-turquoise active:shadow-[0_0_10px_0_#01281F_inset]">
-                В корзину
-              </button>
-            </div>
-          ))}
-          <div className="arrow mb-14 relative z-10">
+            ))}
+          </div>
+
+          <div
+            onClick={nextSlide}
+            className="arrow mb-14 relative z-10 cursor-pointer select-none"
+          >
             <RightArrowSvg />
           </div>
         </div>

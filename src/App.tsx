@@ -1,5 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
+
+import { useAppDispatch } from "./redux/store";
+import { fetchBouquets } from "./redux/bouquets/asyncActions";
 
 import { CallModal, Cart, Footer, Header } from "./components";
 
@@ -15,6 +18,12 @@ const CorporatePage = lazy(() => import("./pages/CorporatePage"));
 const CatalogPage = lazy(() => import("./pages/CatalogPage"));
 
 function App() {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBouquets());
+  }, []);
+
   return (
     <>
       <Header />

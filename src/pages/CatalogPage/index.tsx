@@ -2,7 +2,6 @@ import { FC, useEffect } from "react";
 
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../../redux/store";
-import { fetchBouquets } from "../../redux/bouquets/asyncActions";
 import { setCartItem } from "../../redux/cart/slice";
 
 import {
@@ -19,10 +18,6 @@ const CatalogPage: FC = () => {
   const dispatch = useAppDispatch();
   const items = useSelector((state: RootState) => state.bouquets.items);
   const cart = useSelector((state: RootState) => state.cart.items);
-
-  useEffect(() => {
-    dispatch(fetchBouquets());
-  }, []);
 
   useEffect(() => {
     const json = JSON.stringify(cart);

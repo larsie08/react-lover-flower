@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 
 import { RootState, useAppDispatch } from "../../../redux/store";
 import { useSelector } from "react-redux";
-import { setDeleteBouquet, setMinus, setPlus } from "../../../redux/cart/slice";
+import { setDeleteBouquet, updateItemCount } from "../../../redux/cart/slice";
 
 import {
   CartBallsBlock,
@@ -20,8 +20,14 @@ export const Cart: FC = () => {
   const isOpen = useSelector((state: RootState) => state.modal.isOpenCart);
   const cart = useSelector((state: RootState) => state.cart.items);
 
-  const handleAddToCart = (id: number) => dispatch(setPlus(id));
-  const handleMinus = (id: number) => dispatch(setMinus(id));
+  const increaseDelta = 1;
+  const decreaseDelta = -1;
+
+  const handleAddToCart = (id: number) =>
+    dispatch(updateItemCount({ id, delta: increaseDelta }));
+  const handleMinus = (id: number) =>
+    dispatch(updateItemCount({ id, delta: decreaseDelta }));
+    
   const handleDeleteItem = (id: number) => dispatch(setDeleteBouquet(id));
 
   return createPortal(
@@ -33,7 +39,7 @@ export const Cart: FC = () => {
     >
       <div className="w-full h-full absolute bg-[#000]/[0.20] backdrop-blur-[10px] z-40" />
       <div className="cart__wrapper absolute flex flex-col justify-between right-0 z-50 h-[100vh] w-[420px] p-5 bg-[#000]">
-        <div className="flex flex-col overflow-auto">
+        <div className="flex flex-col overflow-y-hidden">
           <CartTitleBlock />
           <div
             className={classNames("flex flex-col", {

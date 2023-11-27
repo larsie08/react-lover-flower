@@ -1,11 +1,14 @@
 import { FC } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../../../redux/store";
 
 export const CartTotalPrice: FC = () => {
+  const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
   return (
     <div className="total_price_block flex flex-col gap-5">
       <div className="total_price w-[295px]">
         <h2 className="text-[14px] text-light-turquoise font-bold tracking-[0.28px] uppercase">
-          Предварительный итог: 315.00 руб.
+          Предварительный итог: {totalPrice} руб.
         </h2>
         <p className="text-[14px] font-normal tracking-[0.28px] uppercase">
           Чтобы узнать стоимость доставки, перейдите к оформлению заказа.
