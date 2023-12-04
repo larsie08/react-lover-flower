@@ -4,6 +4,7 @@ export interface CategoryProps {
 }
 
 export interface FilterSliceState {
+  searchValue: string;
   categoryId: FlowerCategories | null;
   category: string;
   filtersId: string[];
@@ -34,3 +35,7 @@ export enum FlowerCategories {
   FuneralFlowers,
   GiftWrapping,
 }
+
+export type SearchFiltersParams = {
+  searchValue: string;
+};

@@ -1,20 +1,39 @@
-import { FC } from "react";
+import { FC, useCallback, useRef, useState } from "react";
+import debounce from "debounce";
 
-import { useSelector } from "react-redux";
-import { RootState } from "../../../../redux/store";
+import { useAppDispatch } from "../../../../redux/store";
+import { setSearchValue } from "../../../../redux/filter/slice";
 
 import classNames from "classnames";
 
 import { SearchSvg } from "../../../../assets";
 
-export const Search: FC = () => {
-  const lastScrollY = useSelector(
-    (state: RootState) => state.header.lastScrollY
-  );
+interface SearchProps {
+  lastScrollY: number;
+}
+
+export const Search: FC<SearchProps> = ({ lastScrollY }) => {
+  const dispatch = useAppDispatch();
+  const [value, setValue] = useState("");
+  const searchRef = useRef(null);
   const defaultPosition = 80;
 
+  const onSubmit = (data: any) => console.log(data);
+
+  const updateSearchValue = useCallback(
+    debounce((str: string) => {
+      dispatch(setSearchValue(str));
+    }, 250),
+    []
+  );
+
+  const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    updateSearchValue(event.target.value);
+    setValue(event.target.value);
+  };
+
   return (
-    <form className="ml-[50px] relative flex items-center">
+    <form onSubmit={onSubmit} className="ml-[50px] relative flex items-center">
       <SearchSvg />
       <label
         className="text-[14px] cursor-pointer font-normal tracking-[0.56px] uppercase"
@@ -32,9 +51,10 @@ export const Search: FC = () => {
           }
         )}
         placeholder="Введите свой запрос"
-        type="search"
+        ref={searchRef}
         id="search"
-        name="search"
+        value={value}
+        onChange={onChangeInput}
       />
     </form>
   );

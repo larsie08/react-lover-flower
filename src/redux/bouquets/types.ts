@@ -3,7 +3,7 @@ export interface BouquetsSliceState {
   status: Status;
 }
 
-export interface Bouquet {
+export type Bouquet = {
   id: number;
   name: string;
   cost: number;
