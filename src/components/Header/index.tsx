@@ -50,10 +50,8 @@ export const Header: FC = () => {
   const defaultPosition = 80;
 
   const controlNavbar = () => {
-    if (typeof window !== "undefined") {
-      setShow(window.scrollY < lastScrollY ? false : true);
-      setLastScrollY(window.scrollY);
-    }
+    setShow(window.scrollY < lastScrollY ? false : true);
+    setLastScrollY(window.scrollY);
   };
 
   const onClick = (categoryId: number, category: string) => {

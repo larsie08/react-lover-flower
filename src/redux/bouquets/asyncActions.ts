@@ -15,12 +15,3 @@ export const fetchBouquets = createAsyncThunk<Bouquet[]>(
   }
 );
 
-export const fetchSearchBouquets = createAsyncThunk<Bouquet[], SearchFiltersParams>(
-  "bouquets/fetchBouquetsStatus",
-  async (searchValue) => {
-    const { data } = await axios.get<Bouquet[]>(
-      `https://655b76e2ab37729791a92825.mockapi.io/items?${searchValue}`
-    );
-    return data;
-  }
-);

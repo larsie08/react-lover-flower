@@ -1,3 +1,5 @@
+import { Bouquet, Status } from "../bouquets/types";
+
 export interface CategoryProps {
   categoryId: FlowerCategories | null;
   category: string;
@@ -5,6 +7,8 @@ export interface CategoryProps {
 
 export interface FilterSliceState {
   searchValue: string;
+  searchItems: Bouquet[];
+  status: Status;
   categoryId: FlowerCategories | null;
   category: string;
   filtersId: string[];
@@ -37,5 +41,5 @@ export enum FlowerCategories {
 }
 
 export type SearchFiltersParams = {
-  searchValue: string;
+  searchValue?: string;
 };

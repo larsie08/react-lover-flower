@@ -1,4 +1,12 @@
-import { FC, useCallback, useRef, useState } from "react";
+import {
+  ChangeEvent,
+  FC,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { useNavigate } from "react-router-dom";
 import debounce from "debounce";
 
 import { useAppDispatch } from "../../../../redux/store";
@@ -14,26 +22,38 @@ interface SearchProps {
 
 export const Search: FC<SearchProps> = ({ lastScrollY }) => {
   const dispatch = useAppDispatch();
+  const searchRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
   const [value, setValue] = useState("");
-  const searchRef = useRef(null);
   const defaultPosition = 80;
 
-  const onSubmit = (data: any) => console.log(data);
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDownEvent);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDownEvent);
+    };
+  }, [value]);
 
   const updateSearchValue = useCallback(
     debounce((str: string) => {
       dispatch(setSearchValue(str));
     }, 250),
-    []
+    [dispatch]
   );
 
-  const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleKeyDownEvent = (event: KeyboardEvent) => {
+    if (event.key === "Enter") {
+      navigate(`search/${value}`);
+    }
+  };
+
+  const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
     updateSearchValue(event.target.value);
     setValue(event.target.value);
   };
 
   return (
-    <form onSubmit={onSubmit} className="ml-[50px] relative flex items-center">
+    <form className="ml-[50px] relative flex items-center">
       <SearchSvg />
       <label
         className="text-[14px] cursor-pointer font-normal tracking-[0.56px] uppercase"
@@ -50,6 +70,7 @@ export const Search: FC<SearchProps> = ({ lastScrollY }) => {
             ["bg-[#000]"]: lastScrollY > defaultPosition,
           }
         )}
+        type="search"
         placeholder="Введите свой запрос"
         ref={searchRef}
         id="search"

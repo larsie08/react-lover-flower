@@ -42,3 +42,5 @@ export * from "./PagesCompanents/CorporateCompanents/CorporateTitleBlock";
 export * from "./PagesCompanents/CorporateCompanents/CorporateСoopBlock";
 export * from "./PagesCompanents/CorporateCompanents/CorporateTableBlock";
 export * from "./PagesCompanents/CorporateCompanents/CorporateFormBlock";
+
+export * from "./PagesCompanents/SearchResultCompanents/NoResultMessage";

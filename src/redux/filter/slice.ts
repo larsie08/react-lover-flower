@@ -1,8 +1,13 @@
+import { Status } from './../../../../react-pizza-v2/src/redux/pizza/types';
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { CategoryProps, FilterSliceState } from "./types";
+import { fetchSearchBouquets } from "./asyncActions";
+import { Bouquet } from "../bouquets/types";
 
 const initialState: FilterSliceState = {
   searchValue: "",
+  searchItems: [],
+  status: Status.LOADING,
   categoryId: null,
   category: "",
   filtersId: [],
@@ -38,6 +43,23 @@ const filterSlice = createSlice({
     setSortValue(state, action: PayloadAction<string>) {
       state.sortValue = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchSearchBouquets.pending, (state) => {
+      state.status = Status.LOADING;
+      state.searchItems = [];
+    });
+    builder.addCase(
+      fetchSearchBouquets.fulfilled,
+      (state, action: PayloadAction<Bouquet[]>) => {
+        state.searchItems = action.payload;
+        state.status = Status.SUCCESS;
+      }
+    );
+    builder.addCase(fetchSearchBouquets.rejected, (state) => {
+      state.status = Status.ERROR;
+      state.searchItems = [];
+    });
   },
 });
 

@@ -9,6 +9,7 @@ import { CallModal, Cart, Footer, Header } from "./components";
 import ScrollToTop from "./utils/ScrollToTop";
 
 import Home from "./pages/Home";
+import MainLayout from "./layout/MainLayout";
 
 const DeliveryPage = lazy(() => import("./pages/DeliveryPage"));
 const AboutUsPage = lazy(() => import("./pages/AboutUsPage"));
@@ -16,22 +17,26 @@ const ContactsPage = lazy(() => import("./pages/ContactsPage"));
 const FAQPage = lazy(() => import("./pages/FAQPage"));
 const CorporatePage = lazy(() => import("./pages/CorporatePage"));
 const CatalogPage = lazy(() => import("./pages/CatalogPage"));
+const SearchResultPage = lazy(() => import("./pages/SearchResultPage"));
 
 function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchBouquets());
-  }, []);
+    const fetchData = async () => {
+      try {
+        await dispatch(fetchBouquets());
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [dispatch]);
 
   return (
     <>
-      <Header />
-      <Suspense
-        fallback={
-          <div className="h-[1000px] bg-[#040A0A]">Идет загрузка...</div>
-        }
-      >
+      <Suspense fallback={<MainLayout />}>
+        <Header />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -41,10 +46,11 @@ function App() {
           <Route path="contacts" element={<ContactsPage />} />
           <Route path="FAQ" element={<FAQPage />} />
           <Route path="corporate" element={<CorporatePage />} />
+          <Route path="search/:searchValue" element={<SearchResultPage />} />
         </Routes>
+        <Footer />
       </Suspense>
 
-      <Footer />
       <CallModal />
       <Cart />
     </>
