@@ -1,2 +1,2 @@
 export * from "./BouquetsTitleBlock";
-export * from "./CardBlock";
+export * from "./PopularCardBlock";

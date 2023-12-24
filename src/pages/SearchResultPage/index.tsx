@@ -12,6 +12,7 @@ import {
   DecorativeElement,
   NoResultsMessage,
 } from "../../components";
+import classNames from "classnames";
 
 const SearchResultPage: FC = () => {
   const dispatch = useAppDispatch();
@@ -38,7 +39,12 @@ const SearchResultPage: FC = () => {
   );
 
   return (
-    <div className="result_search max-h-[3000px] relative bg-[#040A0A] pt-[120px] pb-20">
+    <div
+      className={classNames(
+        "result_search max-h-[3000px] relative bg-[#040A0A] pt-[120px] pb-20",
+        { ["h-[600px]"]: items.length === 0 }
+      )}
+    >
       <DecorativeElement className="absolute top-0 left-0 w-[217px] h-[173px] bg-light-turquoise blur-[125px]" />
       <DecorativeElement className="absolute -top-[20rem] right-0 w-[504px] h-[625px] bg-cherry rounded-[625px] blur-[125px]" />
       <div className="wrapper container mx-auto flex flex-col gap-12">

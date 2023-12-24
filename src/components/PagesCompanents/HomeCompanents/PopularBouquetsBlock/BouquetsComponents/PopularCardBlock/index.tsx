@@ -1,14 +1,15 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 interface CardBlockProps {
   id: number;
-  imageUrl: string;
   name: string;
+  imageUrl: string;
   cost: number;
-  onClick: (id: number, name: string, cost: number, imageUrl: string) => void;
+  onClick: (id: number, name: string, imageUrl: string, cost: number) => void;
 }
 
-export const CardBlock: FC<CardBlockProps> = ({
+export const PopularCardBlock: FC<CardBlockProps> = ({
   id,
   imageUrl,
   name,
@@ -16,15 +17,18 @@ export const CardBlock: FC<CardBlockProps> = ({
   onClick,
 }) => {
   const handleAddToCart = () => {
-    onClick(id, name, cost, imageUrl);
+    onClick(id, name, imageUrl, cost);
   };
   return (
     <div className="slider__card">
-      <img
-        className="cart__img bg-[lightgray]/[50%] w-[350px] h-[450px] relative z-20"
-        src={imageUrl}
-        alt="bouquet"
-      />
+      <Link to={`catalog/bouquet/${id}`}>
+        <img
+          className="cart__img bg-[lightgray]/[50%] w-[350px] h-[450px] relative z-20"
+          src={imageUrl}
+          alt="bouquet"
+        />
+      </Link>
+
       <h1 className="cart__title relative z-10 mt-2 text-[20px] font-normal tracking-[.8px] uppercase">
         {name}
       </h1>

@@ -71,8 +71,8 @@ export const Header: FC = () => {
 
   return (
     <div
-      className={classNames("header w-full fixed z-40", {
-        ["invisible"]: show && lastScrollY > defaultPosition,
+      className={classNames("header w-full fixed z-40 transition-all", {
+        ["-translate-y-full"]: show && lastScrollY > defaultPosition,
         ["bg-[black]"]: lastScrollY > defaultPosition,
       })}
     >

@@ -4,6 +4,8 @@ export * from "./Footer";
 export * from "./Modals/CallModal";
 export * from "./Modals/Cart";
 
+export * from "./CardBlock";
+
 export * from "./DecorativeElement";
 
 export * from "./PagesCompanents/HomeCompanents/Intro";
@@ -17,7 +19,6 @@ export * from "./PagesCompanents/HomeCompanents/CardFooterBlock";
 export * from "./PagesCompanents/CatalogCompanents/CatalogTitleBlock";
 export * from "./PagesCompanents/CatalogCompanents/CatalogSortBlock";
 export * from "./PagesCompanents/CatalogCompanents/CatalogFilterBlock";
-export * from "./PagesCompanents/CatalogCompanents/CatalogCardBlock";
 export * from "./PagesCompanents/CatalogCompanents/CatalogCategoryBlock";
 
 export * from "./PagesCompanents/DeliveryCompanents/DeliveryCardBlocks";
@@ -42,5 +43,7 @@ export * from "./PagesCompanents/CorporateCompanents/CorporateTitleBlock";
 export * from "./PagesCompanents/CorporateCompanents/CorporateСoopBlock";
 export * from "./PagesCompanents/CorporateCompanents/CorporateTableBlock";
 export * from "./PagesCompanents/CorporateCompanents/CorporateFormBlock";
+
+export * from "./PagesCompanents/BouquetCompanents/BouquetBlock"
 
 export * from "./PagesCompanents/SearchResultCompanents/NoResultMessage";

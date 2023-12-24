@@ -18,6 +18,7 @@ const FAQPage = lazy(() => import("./pages/FAQPage"));
 const CorporatePage = lazy(() => import("./pages/CorporatePage"));
 const CatalogPage = lazy(() => import("./pages/CatalogPage"));
 const SearchResultPage = lazy(() => import("./pages/SearchResultPage"));
+const BouquetPage = lazy(() => import("./pages/BouquetPage"));
 
 function App() {
   const dispatch = useAppDispatch();
@@ -46,7 +47,8 @@ function App() {
           <Route path="contacts" element={<ContactsPage />} />
           <Route path="FAQ" element={<FAQPage />} />
           <Route path="corporate" element={<CorporatePage />} />
-          <Route path="search/:searchValue" element={<SearchResultPage />} />
+          <Route path="search/:searchValue?" element={<SearchResultPage />} />
+          <Route path="catalog/bouquet/:id" element={<BouquetPage />} />
         </Routes>
         <Footer />
       </Suspense>

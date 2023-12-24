@@ -35,6 +35,8 @@ export * from "./SVG/PagesSvg/FAQSvg/FAQBgBottom";
 
 export * from "./SVG/PagesSvg/CorporateSvg/CorporateBgColor";
 
+export * from "./SVG/PagesSvg/BouquetSvg/ArrowSvg";
+
 export * from "./SVG/Footer/SocialsSvg/SocialsSvg";
 
 export * from "./SVG/ModalSvg/BgColors/ModalLightSvg";

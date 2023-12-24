@@ -14,7 +14,7 @@ import {
   RightArrowSvg,
 } from "../../../../assets";
 
-import { BouquetsTitleBlock, CardBlock } from "./BouquetsComponents";
+import { BouquetsTitleBlock, PopularCardBlock } from "./BouquetsComponents";
 
 export const PopularBouquetsBlock: FC = () => {
   const dispatch = useAppDispatch();
@@ -41,10 +41,10 @@ export const PopularBouquetsBlock: FC = () => {
   const onClick = (
     id: number,
     name: string,
-    cost: number,
-    imageUrl: string
+    imageUrl: string,
+    cost: number
   ) => {
-    const obj = {id, name, cost, imageUrl}
+    const obj = { id, name, cost, imageUrl };
     dispatch(setCartItem(obj));
   };
 
@@ -70,11 +70,11 @@ export const PopularBouquetsBlock: FC = () => {
           </div>
           <div className="grid grid-cols-[repeat(3,_350px)] gap-8">
             {slideItems.map((obj) => (
-              <CardBlock
+              <PopularCardBlock
                 key={obj.id}
                 id={obj.id}
-                imageUrl={obj.imageUrl}
                 name={obj.name}
+                imageUrl={obj.imageUrl}
                 cost={obj.cost}
                 onClick={onClick}
               />

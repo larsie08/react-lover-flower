@@ -1,6 +1,7 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
-interface CatalogCardProps {
+interface CardProps {
   id: number;
   name: string;
   cost: number;
@@ -8,7 +9,7 @@ interface CatalogCardProps {
   onClick: (id: number, name: string, imageUrl: string, cost: number) => void;
 }
 
-export const CatalogCardBlock: FC<CatalogCardProps> = ({
+export const CardBlock: FC<CardProps> = ({
   id,
   name,
   cost,
@@ -18,9 +19,12 @@ export const CatalogCardBlock: FC<CatalogCardProps> = ({
   const handleAddToCart = () => {
     onClick(id, name, imageUrl, cost);
   };
+
   return (
-    <div className="card flex flex-col gap-3">
-      <img className="h-[335px] w-full bg-cover" src={imageUrl} alt="bouquet" />
+    <div className="card relative flex flex-col gap-3 z-20">
+      <Link to={`bouquet/${id}`}>
+        <img className="h-[335px] w-full bg-cover" src={imageUrl} alt="bouquet" />
+      </Link>
       <div className="flex flex-col gap-3">
         <h1 className="text-[20px] font-normal tracking-[0.8px] uppercase">
           {name}
