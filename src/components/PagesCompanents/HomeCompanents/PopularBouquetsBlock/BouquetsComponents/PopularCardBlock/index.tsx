@@ -6,7 +6,13 @@ interface CardBlockProps {
   name: string;
   imageUrl: string;
   cost: number;
-  onClick: (id: number, name: string, imageUrl: string, cost: number) => void;
+  onClick: (
+    id: number,
+    name: string,
+    imageUrl: string,
+    cost: number,
+    count: number
+  ) => void;
 }
 
 export const PopularCardBlock: FC<CardBlockProps> = ({
@@ -17,7 +23,7 @@ export const PopularCardBlock: FC<CardBlockProps> = ({
   onClick,
 }) => {
   const handleAddToCart = () => {
-    onClick(id, name, imageUrl, cost);
+    onClick(id, name, imageUrl, cost, 1);
   };
   return (
     <div className="slider__card">

@@ -10,7 +10,7 @@ import {
   CatalogSortBlock,
   CatalogTitleBlock,
   DecorativeElement,
-  CardBlock
+  CardBlock,
 } from "../../components";
 import { CatalogLeftSvg, CatalogRightSvg } from "../../assets";
 
@@ -22,9 +22,10 @@ const CatalogPage: FC = () => {
     id: number,
     name: string,
     imageUrl: string,
-    cost: number
+    cost: number,
+    count: number
   ) => {
-    const bouquet = { id, name, imageUrl, cost };
+    const bouquet = { id, name, imageUrl, cost, count};
     dispatch(setCartItem(bouquet));
   };
 
@@ -46,7 +47,7 @@ const CatalogPage: FC = () => {
       <div className="catalog_page__wrapper container mx-auto">
         <CatalogTitleBlock />
         <div className="catalog_page__content flex flex-col mt-8">
-          <div className="flex justify-between relative z-10">
+          <div className="flex justify-between relative z-30">
             <CatalogCategoryBlock />
             <CatalogSortBlock />
           </div>

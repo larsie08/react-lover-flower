@@ -44,6 +44,7 @@ export * from "./PagesCompanents/CorporateCompanents/CorporateСoopBlock";
 export * from "./PagesCompanents/CorporateCompanents/CorporateTableBlock";
 export * from "./PagesCompanents/CorporateCompanents/CorporateFormBlock";
 
-export * from "./PagesCompanents/BouquetCompanents/BouquetBlock"
+export * from "./PagesCompanents/BouquetCompanents/BouquetBlock";
+export * from "./PagesCompanents/BouquetCompanents/BouquetAdditionBlock";
 
 export * from "./PagesCompanents/SearchResultCompanents/NoResultMessage";

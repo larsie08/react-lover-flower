@@ -6,7 +6,13 @@ interface CardProps {
   name: string;
   cost: number;
   imageUrl: string;
-  onClick: (id: number, name: string, imageUrl: string, cost: number) => void;
+  onClick: (
+    id: number,
+    name: string,
+    imageUrl: string,
+    cost: number,
+    count: number
+  ) => void;
 }
 
 export const CardBlock: FC<CardProps> = ({
@@ -17,13 +23,17 @@ export const CardBlock: FC<CardProps> = ({
   onClick,
 }) => {
   const handleAddToCart = () => {
-    onClick(id, name, imageUrl, cost);
+    onClick(id, name, imageUrl, cost, 1);
   };
 
   return (
     <div className="card relative flex flex-col gap-3 z-20">
       <Link to={`bouquet/${id}`}>
-        <img className="h-[335px] w-full bg-cover" src={imageUrl} alt="bouquet" />
+        <img
+          className="h-[335px] w-full bg-cover"
+          src={imageUrl}
+          alt="bouquet"
+        />
       </Link>
       <div className="flex flex-col gap-3">
         <h1 className="text-[20px] font-normal tracking-[0.8px] uppercase">

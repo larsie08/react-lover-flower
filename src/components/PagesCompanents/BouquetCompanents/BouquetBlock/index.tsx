@@ -8,7 +8,13 @@ interface BouquetBlockProps {
   name: string;
   cost: number;
   imageUrl: string;
-  onClick: (id: number, name: string, imageUrl: string, cost: number) => void;
+  onClick: (
+    id: number,
+    name: string,
+    imageUrl: string,
+    cost: number,
+    count: number
+  ) => void;
 }
 
 export const BouquetBlock: FC<BouquetBlockProps> = ({
@@ -26,7 +32,7 @@ export const BouquetBlock: FC<BouquetBlockProps> = ({
   };
 
   const handleAddToCart = () => {
-    onClick(id, name, imageUrl, cost);
+    onClick(id, name, imageUrl, cost, count);
   };
 
   const handlePlus = (event: MouseEvent<HTMLButtonElement>) => {

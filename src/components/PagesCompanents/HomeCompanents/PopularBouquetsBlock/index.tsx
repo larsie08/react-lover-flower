@@ -42,10 +42,11 @@ export const PopularBouquetsBlock: FC = () => {
     id: number,
     name: string,
     imageUrl: string,
-    cost: number
+    cost: number,
+    count: number
   ) => {
-    const obj = { id, name, cost, imageUrl };
-    dispatch(setCartItem(obj));
+    const bouquet = { id, name, cost, imageUrl, count };
+    dispatch(setCartItem(bouquet));
   };
 
   return (

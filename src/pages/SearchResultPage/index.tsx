@@ -7,11 +7,7 @@ import { setCartItem } from "../../redux/cart/slice";
 import { fetchSearchBouquets } from "../../redux/filter/asyncActions";
 import { SearchFiltersParams } from "../../redux/filter/types";
 
-import {
-  CatalogCardBlock,
-  DecorativeElement,
-  NoResultsMessage,
-} from "../../components";
+import { CardBlock, DecorativeElement, NoResultsMessage } from "../../components";
 import classNames from "classnames";
 
 const SearchResultPage: FC = () => {
@@ -57,7 +53,7 @@ const SearchResultPage: FC = () => {
 
         <div className="search__cards relative grid grid-cols-[repeat(4,_255px)] mx-auto gap-7 mt-3">
           {items.map(({ id, name, cost, imageUrl }) => (
-            <CatalogCardBlock
+            <CardBlock
               key={id}
               id={id}
               name={name}

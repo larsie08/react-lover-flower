@@ -8,11 +8,17 @@ import { Bouquet } from "../../redux/bouquets/types";
 import { useAppDispatch } from "../../redux/store";
 import { setCartItem } from "../../redux/cart/slice";
 
-import { BouquetBlock } from "../../components";
+import {
+  BouquetAdditionBlock,
+  BouquetBlock,
+  DecorativeElement,
+} from "../../components";
+import { BouquetBgTopLeft } from "../../assets";
 
 const BouquetPage: FC = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams();
+
   const [bouquet, setBouquet] = useState<Bouquet>();
 
   useEffect(() => {
@@ -34,7 +40,7 @@ const BouquetPage: FC = () => {
     name: string,
     imageUrl: string,
     cost: number,
-    count?: number
+    count: number
   ) => {
     const bouquet = { id, name, imageUrl, cost, count };
     dispatch(setCartItem(bouquet));
@@ -43,8 +49,13 @@ const BouquetPage: FC = () => {
   if (!bouquet) return <MainLayout />;
 
   return (
-    <div className="bouquet_page pt-[120px] h-[1000px] relative bg-[#040A0A]">
-      <div className="bouquet_page__wrapper container mx-auto">
+    <div className="bouquet_page pt-[120px] h-[1300px] relative bg-[#040A0A]">
+      <BouquetBgTopLeft />
+      <DecorativeElement className="absolute top-0 right-0 w-[504px] h-[360px] rounded-[504px] bg-cherry blur-[125px]" />
+      <DecorativeElement className="absolute top-[18rem] left-[10rem] rotate-[32.828deg] w-[589px] h-[360px] rounded-[580px] bg-cherry blur-[125px]" />
+      <DecorativeElement className="absolute top-[52rem] left-[15rem] rotate-[21.185deg] w-[560px] h-[255px] rounded-[560px] bg-cherry blur-[125px]" />
+      <DecorativeElement className="absolute top-[58rem] right-[5rem] rotate-[21.095deg] w-[711px] h-[218px] rounded-[711px] bg-light-turquoise blur-[125px]" />
+      <div className="bouquet_page__wrapper container mx-auto relative z-20">
         <div className="title text-[12px] font-normal tracking-[0.48px] uppercase">
           Главная / Каталог букетов / Популярное / {bouquet.name}
         </div>
@@ -55,6 +66,9 @@ const BouquetPage: FC = () => {
           imageUrl={bouquet.imageUrl}
           onClick={onClick}
         />
+        <div className="bouquet_addition_order__block flex flex-col items-center mt-20 gap-11">
+          <BouquetAdditionBlock />
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Bouquet } from "../bouquets/types";
-import { CartSliceState } from "./types";
+import { CartItem, CartSliceState } from "./types";
 import { getCartFromLS } from "../../utils/getCartFromLS";
 import { calcTotalPrice } from "../../utils/calcTotalPrice";
 
@@ -10,14 +9,14 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    setCartItem(state, action: PayloadAction<Bouquet>) {
-      const { id } = action.payload;
+    setCartItem(state, action: PayloadAction<CartItem>) {
+      const { id, count } = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
 
       if (existingItem) {
-        existingItem.count++;
+        existingItem.count += count;
       } else {
-        state.items.push({ ...action.payload, count: 1 });
+        state.items.push({ ...action.payload });
       }
 
       state.totalPrice = calcTotalPrice(state.items);

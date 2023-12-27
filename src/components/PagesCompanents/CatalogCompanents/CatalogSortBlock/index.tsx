@@ -61,7 +61,7 @@ export const CatalogSortBlock: FC = () => {
       </div>
 
       {isOpen && (
-        <div className="popup absolute left-0 top-[42px] p-3 w-[260px] flex flex-col gap-2 rounded-[5px] bg-[#000]/[.40] z-20">
+        <div className="popup absolute left-0 top-[42px] p-3 w-[260px] flex flex-col gap-2 rounded-[5px] bg-[#000]/[.40] z-30">
           {availableSortOptions.map((option, id) => (
             <li
               onClick={() => handleSortChange(option)}
