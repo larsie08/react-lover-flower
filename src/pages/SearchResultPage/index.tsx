@@ -1,6 +1,7 @@
 import { FC, useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import classNames from "classnames";
 
 import { RootState, useAppDispatch } from "../../redux/store";
 import { setCartItem } from "../../redux/cart/slice";
@@ -8,7 +9,6 @@ import { fetchSearchBouquets } from "../../redux/filter/asyncActions";
 import { SearchFiltersParams } from "../../redux/filter/types";
 
 import { CardBlock, DecorativeElement, NoResultsMessage } from "../../components";
-import classNames from "classnames";
 
 const SearchResultPage: FC = () => {
   const dispatch = useAppDispatch();
@@ -28,7 +28,7 @@ const SearchResultPage: FC = () => {
 
   const onClick = useMemo(
     () => (id: number, name: string, imageUrl: string, cost: number) => {
-      const bouquet = { id, name, imageUrl, cost };
+      const bouquet = { id, name, imageUrl, cost, count: 1 };
       dispatch(setCartItem(bouquet));
     },
     [dispatch]

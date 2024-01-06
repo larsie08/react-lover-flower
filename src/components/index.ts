@@ -20,6 +20,7 @@ export * from "./PagesCompanents/CatalogCompanents/CatalogTitleBlock";
 export * from "./PagesCompanents/CatalogCompanents/CatalogSortBlock";
 export * from "./PagesCompanents/CatalogCompanents/CatalogFilterBlock";
 export * from "./PagesCompanents/CatalogCompanents/CatalogCategoryBlock";
+export * from "./PagesCompanents/CatalogCompanents/CatalogRightSideBlock";
 
 export * from "./PagesCompanents/DeliveryCompanents/DeliveryCardBlocks";
 export * from "./PagesCompanents/DeliveryCompanents/DeliveryBlock";

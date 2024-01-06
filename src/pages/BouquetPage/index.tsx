@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -35,16 +35,13 @@ const BouquetPage: FC = () => {
     fetchBouquet();
   }, [id, dispatch]);
 
-  const onClick = (
-    id: number,
-    name: string,
-    imageUrl: string,
-    cost: number,
-    count: number
-  ) => {
-    const bouquet = { id, name, imageUrl, cost, count };
-    dispatch(setCartItem(bouquet));
-  };
+  const onClick = useMemo(
+    () => (id: number, name: string, imageUrl: string, cost: number, count: number) => {
+      const bouquet = { id, name, imageUrl, cost, count };
+      dispatch(setCartItem(bouquet));
+    },
+    [dispatch]
+  );
 
   if (!bouquet) return <MainLayout />;
 

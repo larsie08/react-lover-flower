@@ -3,7 +3,7 @@ import { FC } from "react";
 export const SocialBorderSvg: FC = () => {
   return (
     <svg
-      className="z-20"
+      className="relative z-20"
       xmlns="http://www.w3.org/2000/svg"
       width="60"
       height="154"

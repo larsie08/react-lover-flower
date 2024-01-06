@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
 
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../../redux/store";
@@ -11,6 +11,7 @@ import {
   CatalogTitleBlock,
   DecorativeElement,
   CardBlock,
+  CatalogRightSideBlock,
 } from "../../components";
 import { CatalogLeftSvg, CatalogRightSvg } from "../../assets";
 
@@ -18,16 +19,13 @@ const CatalogPage: FC = () => {
   const dispatch = useAppDispatch();
   const items = useSelector((state: RootState) => state.bouquets.items);
 
-  const onClick = (
-    id: number,
-    name: string,
-    imageUrl: string,
-    cost: number,
-    count: number
-  ) => {
-    const bouquet = { id, name, imageUrl, cost, count};
-    dispatch(setCartItem(bouquet));
-  };
+  const onClick = useMemo(
+    () => (id: number, name: string, imageUrl: string, cost: number) => {
+      const bouquet = { id, name, imageUrl, cost, count: 1 };
+      dispatch(setCartItem(bouquet));
+    },
+    [dispatch]
+  );
 
   return (
     <div className="catalog_page relative pt-[120px] h-[3000px] bg-[#040A0A]">
@@ -45,7 +43,10 @@ const CatalogPage: FC = () => {
         src="./img/bgElements/CatalogBg/CatalogFlowerRight.png"
       />
       <div className="catalog_page__wrapper container mx-auto">
-        <CatalogTitleBlock />
+        <div className="flex justify-between">
+          <CatalogTitleBlock />
+          <CatalogRightSideBlock />
+        </div>
         <div className="catalog_page__content flex flex-col mt-8">
           <div className="flex justify-between relative z-30">
             <CatalogCategoryBlock />

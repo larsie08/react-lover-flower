@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -38,16 +38,13 @@ export const PopularBouquetsBlock: FC = () => {
     }
   };
 
-  const onClick = (
-    id: number,
-    name: string,
-    imageUrl: string,
-    cost: number,
-    count: number
-  ) => {
-    const bouquet = { id, name, cost, imageUrl, count };
-    dispatch(setCartItem(bouquet));
-  };
+  const onClick = useMemo(
+    () => (id: number, name: string, imageUrl: string, cost: number) => {
+      const bouquet = { id, name, imageUrl, cost, count: 1 };
+      dispatch(setCartItem(bouquet));
+    },
+    [dispatch]
+  );
 
   return (
     <div className="popular_bouquets relative w-full h-[1300px]">
