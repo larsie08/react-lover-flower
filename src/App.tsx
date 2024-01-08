@@ -6,8 +6,6 @@ import { fetchBouquets } from "./redux/bouquets/asyncActions";
 
 import { CallModal, Cart, Footer, Header } from "./components";
 
-import ScrollToTop from "./utils/ScrollToTop";
-
 import Home from "./pages/Home";
 import MainLayout from "./layout/MainLayout";
 
@@ -19,6 +17,16 @@ const CorporatePage = lazy(() => import("./pages/CorporatePage"));
 const CatalogPage = lazy(() => import("./pages/CatalogPage"));
 const SearchResultPage = lazy(() => import("./pages/SearchResultPage"));
 const BouquetPage = lazy(() => import("./pages/BouquetPage"));
+const BouquetReviewsBlock = lazy(
+  () =>
+    import("./components/PagesCompanents/BouquetCompanents/BouquetReviewsBlock")
+);
+const BouquetDeliveryBlock = lazy(
+  () =>
+    import(
+      "./components/PagesCompanents/BouquetCompanents/BouquetDeliveryBlock"
+    )
+);
 
 function App() {
   const dispatch = useAppDispatch();
@@ -38,7 +46,6 @@ function App() {
     <>
       <Suspense fallback={<MainLayout />}>
         <Header />
-        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="catalog" element={<CatalogPage />} />
@@ -48,7 +55,10 @@ function App() {
           <Route path="FAQ" element={<FAQPage />} />
           <Route path="corporate" element={<CorporatePage />} />
           <Route path="search/:searchValue?" element={<SearchResultPage />} />
-          <Route path="catalog/bouquet/:id" element={<BouquetPage />} />
+          <Route path="catalog/bouquet/:id" element={<BouquetPage />}>
+            <Route index element={<BouquetDeliveryBlock />} />
+            <Route path="reviews" element={<BouquetReviewsBlock />} />
+          </Route>
         </Routes>
         <Footer />
       </Suspense>

@@ -1,5 +1,5 @@
 import { FC, useEffect, useMemo, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Outlet, Link } from "react-router-dom";
 import axios from "axios";
 
 import MainLayout from "../../layout/MainLayout";
@@ -36,17 +36,24 @@ const BouquetPage: FC = () => {
   }, [id, dispatch]);
 
   const onClick = useMemo(
-    () => (id: number, name: string, imageUrl: string, cost: number, count: number) => {
-      const bouquet = { id, name, imageUrl, cost, count };
-      dispatch(setCartItem(bouquet));
-    },
+    () =>
+      (
+        id: number,
+        name: string,
+        imageUrl: string,
+        cost: number,
+        count: number
+      ) => {
+        const bouquet = { id, name, imageUrl, cost, count };
+        dispatch(setCartItem(bouquet));
+      },
     [dispatch]
   );
 
   if (!bouquet) return <MainLayout />;
 
   return (
-    <div className="bouquet_page pt-[120px] h-[1300px] relative bg-[#040A0A]">
+    <div className="bouquet_page pt-[120px] h-[2200px] relative bg-[#040A0A]">
       <BouquetBgTopLeft />
       <DecorativeElement className="absolute top-0 right-0 w-[504px] h-[360px] rounded-[504px] bg-cherry blur-[125px]" />
       <DecorativeElement className="absolute top-[18rem] left-[10rem] rotate-[32.828deg] w-[589px] h-[360px] rounded-[580px] bg-cherry blur-[125px]" />
@@ -66,7 +73,35 @@ const BouquetPage: FC = () => {
         <div className="bouquet_addition_order__block flex flex-col items-center mt-20 gap-11">
           <BouquetAdditionBlock />
         </div>
+        <div className="switch_block mt-24">
+          <div className="title flex justify-center">
+            <Link
+              to=""
+              className="w-[358px] flex flex-col justify-center hover:text-light-turquoise"
+            >
+              <h1 className="text-[20px] text-center font-light tracking-[0.8px] uppercase pb-7">
+                доставка и оплата
+              </h1>
+              <div className=" border-[3px] rounded-[5px]" />
+            </Link>
+            <Link
+              to="reviews"
+              className="w-[358px] flex flex-col justify-center hover:text-light-turquoise"
+            >
+              <h1 className="text-[20px] text-center font-light tracking-[0.8px] uppercase pb-7">
+                отзывы
+              </h1>
+              <div className=" border-[3px] rounded-[5px]" />
+            </Link>
+          </div>
+          <Outlet context={bouquet.name} />
+        </div>
       </div>
+      <img
+        className="absolute bottom-4 right-0"
+        src="./img/bgElements/BouquetBg/leafsBg.png"
+        alt="leafs"
+      />
     </div>
   );
 };
