@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 
 import { useOutletContext } from "react-router-dom";
@@ -12,7 +12,7 @@ interface ModalForm {
 
 const BouquetReviewsBlock: FC = () => {
   const name = useOutletContext<string>();
-  const [rating, setRating] = useState();
+  // const [rating, setRating] = useState();
 
   const {
     register,

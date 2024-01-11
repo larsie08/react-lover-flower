@@ -1,5 +1,5 @@
 import { FC, useEffect, useMemo, useState } from "react";
-import { useParams, Outlet, Link } from "react-router-dom";
+import { useParams, Outlet, Link, NavLink } from "react-router-dom";
 import axios from "axios";
 
 import MainLayout from "../../layout/MainLayout";
@@ -75,24 +75,32 @@ const BouquetPage: FC = () => {
         </div>
         <div className="switch_block mt-24">
           <div className="title flex justify-center">
-            <Link
+            <NavLink
               to=""
-              className="w-[358px] flex flex-col justify-center hover:text-light-turquoise"
+              end
+              className={({ isActive }) =>
+                isActive
+                  ? "w-[358px] flex flex-col justify-center border-b-[3px] rounded-[2px] text-light-turquoise"
+                  : "w-[358px] flex flex-col justify-center border-b-[1px] text-[#555555] hover:text-light-turquoise"
+              }
             >
               <h1 className="text-[20px] text-center font-light tracking-[0.8px] uppercase pb-7">
                 доставка и оплата
               </h1>
-              <div className=" border-[3px] rounded-[5px]" />
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="reviews"
-              className="w-[358px] flex flex-col justify-center hover:text-light-turquoise"
+              end
+              className={({ isActive }) =>
+                isActive
+                  ? "w-[358px] flex flex-col justify-center border-b-[3px] rounded-[2px] text-light-turquoise"
+                  : "w-[358px] flex flex-col justify-center border-b-[1px] text-[#555555] hover:text-light-turquoise"
+              }
             >
               <h1 className="text-[20px] text-center font-light tracking-[0.8px] uppercase pb-7">
                 отзывы
               </h1>
-              <div className=" border-[3px] rounded-[5px]" />
-            </Link>
+            </NavLink>
           </div>
           <Outlet context={bouquet.name} />
         </div>

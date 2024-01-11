@@ -1,14 +1,17 @@
 import { FC } from "react";
 
-import { RootState, useAppDispatch } from "../../../../redux/store";
+import { useAppDispatch } from "../../../../redux/store";
 import { setIsOpenCart } from "../../../../redux/modal/slice";
 
 import { CartSvg, HeaderPhoneSvg } from "../../../../assets";
-import { useSelector } from "react-redux";
+import { CartItem } from "../../../../redux/cart/types";
 
-export const CartBlock: FC = () => {
+interface CartBlockProps {
+  cart: CartItem[];
+}
+
+export const CartBlock: FC<CartBlockProps> = ({ cart }) => {
   const dispatch = useAppDispatch();
-  const cart = useSelector((state: RootState) => state.cart.items);
 
   const openButton = () => {
     dispatch(setIsOpenCart(true));

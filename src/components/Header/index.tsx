@@ -1,7 +1,8 @@
 import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import { useAppDispatch } from "../../redux/store";
+import { RootState, useAppDispatch } from "../../redux/store";
 import {
   Category,
   CategoryProps,
@@ -44,9 +45,12 @@ const nav = [
 ];
 
 export const Header: FC = () => {
+  const dispatch = useAppDispatch();
+
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState<number>(0);
-  const dispatch = useAppDispatch();
+  const cart = useSelector((state: RootState) => state.cart.items);
+
   const defaultPosition = 80;
 
   const controlNavbar = () => {
@@ -68,6 +72,10 @@ export const Header: FC = () => {
       };
     }
   }, [lastScrollY]);
+
+  useEffect(() => {
+    setShow(false);
+  }, [cart]);
 
   return (
     <div
@@ -114,7 +122,11 @@ export const Header: FC = () => {
           </ul>
           <Search lastScrollY={lastScrollY} />
         </div>
-        {lastScrollY > defaultPosition ? <CartBlock /> : <InfoBlock />}
+        {lastScrollY > defaultPosition ? (
+          <CartBlock cart={cart} />
+        ) : (
+          <InfoBlock />
+        )}
       </div>
     </div>
   );

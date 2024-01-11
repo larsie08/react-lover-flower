@@ -28,7 +28,7 @@ export const BouquetBlock: FC<BouquetBlockProps> = ({
   const [count, setCount] = useState<number>(1);
 
   const goBack = () => {
-    navigate(-1);
+    navigate("/catalog");
   };
 
   const handleAddToCart = () => {

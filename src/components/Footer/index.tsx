@@ -1,7 +1,7 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 import { SocialsSvg } from "../../assets";
-import { Link } from "react-router-dom";
 
 const catalog = [
   "Популярное",
