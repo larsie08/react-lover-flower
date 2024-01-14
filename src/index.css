@@ -28,7 +28,7 @@
   visibility: visible;
 }
 
-input:not(:placeholder-shown) {
+.form__input:not(:placeholder-shown) {
   border: 1px solid white;
 }
 
@@ -47,4 +47,52 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.rating__group {
+  background-image: url("./assets/SVG/PagesSvg/BouquetSvg/RatingSvg/rating.svg");
+  background-size: 2em auto;
+}
+
+#rating {
+  margin: 0;
+  font-size: inherit;
+  background-size: 2em auto;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+#rating:checked,
+#rating:hover {
+  background-image: url("./assets/SVG/PagesSvg/BouquetSvg/RatingSvg/ratingOn.svg");
+}
+
+#rating:hover ~ #rating {
+  background-image: url("./assets/SVG/PagesSvg/BouquetSvg/RatingSvg/rating.svg");
+}
+
+#rating:focus {
+  outline: none;
+}
+
+#rating:nth-of-type(1) {
+  z-index: 5;
+  width: 2em;
+}
+#rating:nth-of-type(2) {
+  z-index: 4;
+  width: 4em;
+}
+#rating:nth-of-type(3) {
+  z-index: 3;
+  width: 6em;
+}
+#rating:nth-of-type(4) {
+  z-index: 2;
+  width: 8em;
+}
+#rating:nth-of-type(5) {
+  z-index: 1;
+  width: 10em;
 }

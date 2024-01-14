@@ -26,14 +26,14 @@ export const ModalForm: FC = () => {
       className="call_modal__form flex flex-col gap-3 mt-3"
     >
       <input
-        className="w-full h-[60px] border border-light-turquoise bg-[#0F2222] p-4 placeholder:bg-[#0F2222] placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
+        className="form__input w-full h-[60px] border border-light-turquoise bg-[#0F2222] p-4 placeholder:bg-[#0F2222] placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
         type="text"
         placeholder="Ваше имя"
         {...register("name", { required: true })}
         aria-invalid={errors.name ? true : false}
       />
       <input
-        className="w-full h-[60px] border border-light-turquoise bg-[#0F2222] p-4 placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
+        className="form__input w-full h-[60px] border border-light-turquoise bg-[#0F2222] p-4 placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
         type="tel"
         placeholder="+7 (977) 777-77-77"
         {...register("name", { required: true })}

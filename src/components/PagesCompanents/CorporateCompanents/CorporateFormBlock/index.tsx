@@ -42,11 +42,10 @@ export const CorporateFormBlock: FC = () => {
           <label className="flex flex-col gap-2 w-1/2" htmlFor="name">
             Наименование организации
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none  aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
+              className="form__input h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none  aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="Введите наименование вашей организации"
               type="text"
               id="name"
-              value=""
               {...register("name", { required: true })}
               aria-invalid={errors.name ? true : false}
             />
@@ -54,7 +53,7 @@ export const CorporateFormBlock: FC = () => {
           <label className="flex flex-col gap-2 w-1/2" htmlFor="index">
             УНП
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
+              className="form__input h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="УНП"
               type="number"
               id="index"
@@ -68,7 +67,7 @@ export const CorporateFormBlock: FC = () => {
           <label className="flex flex-col gap-2 w-1/2" htmlFor="postalAddress">
             Почтовый адрес
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
+              className="form__input h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="Введите почтовый адрес"
               type="text"
               id="postalAddress"
@@ -79,7 +78,7 @@ export const CorporateFormBlock: FC = () => {
           <label className="flex flex-col gap-2 w-1/2" htmlFor="payment">
             Расчетный счет
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
+              className="form__input h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="Введите номер расчетного счета"
               type="number"
               id="payment"
@@ -93,7 +92,7 @@ export const CorporateFormBlock: FC = () => {
           <label className="flex flex-col gap-2 w-1/2" htmlFor="contactPerson">
             Контактное лицо
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
+              className="form__input h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="Введите имя контактного лица"
               type="text"
               id="contactPerson"
@@ -104,7 +103,7 @@ export const CorporateFormBlock: FC = () => {
           <label className="flex flex-col gap-2 w-1/2" htmlFor="code">
             Код банка
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
+              className="form__input h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="Код банка"
               type="number"
               id="code"
@@ -118,7 +117,7 @@ export const CorporateFormBlock: FC = () => {
           <label className="flex flex-col gap-2 w-1/2" htmlFor="phone">
             Контактный номер телефона
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
+              className="form__input h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="+7 (977) 777-77-77"
               type="tel"
               id="phone"
@@ -129,7 +128,7 @@ export const CorporateFormBlock: FC = () => {
           <label className="flex flex-col gap-2 w-1/2" htmlFor="quantity">
             Предполагаемое количество заявок в месяц
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
+              className="form__input h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="Введите предполагаемое количество заявок в месяц"
               type="number"
               id="quantity"
@@ -146,7 +145,7 @@ export const CorporateFormBlock: FC = () => {
           >
             Стоимость букета сотруднику (если разная – указать)
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
+              className="form__input h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="Укажите стоимость букета сотруднику"
               type="number"
               id="price"
@@ -160,7 +159,7 @@ export const CorporateFormBlock: FC = () => {
           >
             Адрес электронной почты
             <input
-              className="h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
+              className="form__input h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
               placeholder="Укажите ваш адрес электронной почты"
               type="email"
               id="email"

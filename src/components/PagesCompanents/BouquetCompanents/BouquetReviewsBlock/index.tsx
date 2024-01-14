@@ -1,10 +1,9 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 
 import { useOutletContext } from "react-router-dom";
-import { RatingSvg } from "../../../../assets";
 
-interface ModalForm {
+interface ReviewForm {
   review: string;
   name: string;
   email: string;
@@ -12,20 +11,25 @@ interface ModalForm {
 
 const BouquetReviewsBlock: FC = () => {
   const name = useOutletContext<string>();
-  // const [rating, setRating] = useState();
+  const [rating, setRating] = useState<number>();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ModalForm>();
+  } = useForm<ReviewForm>();
 
-  const submit: SubmitHandler<ModalForm> = (data) => {
+  const submitReview: SubmitHandler<ReviewForm> = (data) => {
     console.log(data);
   };
 
-  const error: SubmitErrorHandler<ModalForm> = (data) => {
+  const errorReview: SubmitErrorHandler<ReviewForm> = (data) => {
     console.log(data);
+  };
+
+  const submitRating = (value: number) => {
+    setRating(value);
+    console.log(value);
   };
 
   return (
@@ -44,29 +48,59 @@ const BouquetReviewsBlock: FC = () => {
         </h3>
       </div>
       <form className="flex flex-col mt-5">
-        <label className="" htmlFor="">
+        <label className="" htmlFor="rating-group">
           Ваша оценка:
         </label>
-        <div className="mt-1">
-          <button>
-            <RatingSvg />
-          </button>
-          <button>
-            <RatingSvg />
-          </button>
-          <button>
-            <RatingSvg />
-          </button>
-          <button>
-            <RatingSvg />
-          </button>
-          <button>
-            <RatingSvg />
-          </button>
+        <div className="rating__group mt-1 relative p-0 w-[10em] h-[2em]">
+          <input
+            className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
+            onChange={() => submitRating(1)}
+            type="radio"
+            name="rating"
+            id="rating"
+            value="1"
+            aria-label="Ужасно"
+          />
+          <input
+            className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
+            onChange={() => submitRating(2)}
+            type="radio"
+            name="rating"
+            id="rating"
+            value="2"
+            aria-label="Сносно"
+          />
+          <input
+            className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
+            onChange={() => submitRating(3)}
+            type="radio"
+            name="rating"
+            id="rating"
+            value="3"
+            aria-label="Нормально"
+          />
+          <input
+            className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
+            onChange={() => submitRating(4)}
+            type="radio"
+            name="rating"
+            id="rating"
+            value="4"
+            aria-label="Хорошо"
+          />
+          <input
+            className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
+            onChange={() => submitRating(5)}
+            type="radio"
+            name="rating"
+            id="rating"
+            value="5"
+            aria-label="Отлично"
+          />
         </div>
       </form>
       <form
-        onSubmit={handleSubmit(submit, error)}
+        onSubmit={handleSubmit(submitReview, errorReview)}
         className="flex flex-col gap-5 mt-5"
       >
         <div className="flex flex-col">

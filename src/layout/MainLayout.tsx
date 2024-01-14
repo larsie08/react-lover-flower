@@ -1,13 +1,13 @@
 import { FC } from "react";
 
 import { Footer, Header } from "../components";
+import { Outlet } from "react-router-dom";
 
 const MainLayout: FC = () => {
   return (
-    <div className="wrapper bg-[#040A0A] h-[900px]">
+    <div className="wrapper bg-[#040A0A]">
       <Header />
-      <div className="content">
-      </div>
+      <Outlet />
       <Footer />
     </div>
   );

@@ -1,5 +1,5 @@
 import { FC, useEffect, useMemo, useState } from "react";
-import { useParams, Outlet, Link, NavLink } from "react-router-dom";
+import { useParams, Outlet, NavLink } from "react-router-dom";
 import axios from "axios";
 
 import MainLayout from "../../layout/MainLayout";

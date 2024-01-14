@@ -4,7 +4,7 @@ import { Suspense, lazy, useEffect } from "react";
 import { useAppDispatch } from "./redux/store";
 import { fetchBouquets } from "./redux/bouquets/asyncActions";
 
-import { CallModal, Cart, Footer, Header } from "./components";
+import { CallModal, Cart } from "./components";
 
 import Home from "./pages/Home";
 import MainLayout from "./layout/MainLayout";
@@ -45,22 +45,22 @@ function App() {
   return (
     <>
       <Suspense fallback={<MainLayout />}>
-        <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="catalog" element={<CatalogPage />} />
-          <Route path="delivery" element={<DeliveryPage />} />
-          <Route path="aboutUs" element={<AboutUsPage />} />
-          <Route path="contacts" element={<ContactsPage />} />
-          <Route path="FAQ" element={<FAQPage />} />
-          <Route path="corporate" element={<CorporatePage />} />
-          <Route path="search/:searchValue?" element={<SearchResultPage />} />
-          <Route path="catalog/bouquet/:id" element={<BouquetPage />}>
-            <Route index element={<BouquetDeliveryBlock />} />
-            <Route path="reviews" element={<BouquetReviewsBlock />} />
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="catalog" element={<CatalogPage />} />
+            <Route path="delivery" element={<DeliveryPage />} />
+            <Route path="aboutUs" element={<AboutUsPage />} />
+            <Route path="contacts" element={<ContactsPage />} />
+            <Route path="FAQ" element={<FAQPage />} />
+            <Route path="corporate" element={<CorporatePage />} />
+            <Route path="search/:searchValue?" element={<SearchResultPage />} />
+            <Route path="catalog/bouquet/:id" element={<BouquetPage />}>
+              <Route index element={<BouquetDeliveryBlock />} />
+              <Route path="reviews" element={<BouquetReviewsBlock />} />
+            </Route>
           </Route>
         </Routes>
-        <Footer />
       </Suspense>
 
       <CallModal />

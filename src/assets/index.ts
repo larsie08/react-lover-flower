@@ -38,7 +38,6 @@ export * from "./SVG/PagesSvg/CorporateSvg/CorporateBgColor";
 export * from "./SVG/PagesSvg/BouquetSvg/ArrowSvg";
 export * from "./SVG/PagesSvg/BouquetSvg/CardCircleSvg";
 export * from "./SVG/PagesSvg/BouquetSvg/BouquetBgSvg/BouquetBgTopLeft";
-export * from "./SVG/PagesSvg/BouquetSvg/RatingSvg";
 
 export * from "./SVG/Footer/SocialsSvg/SocialsSvg";
 
