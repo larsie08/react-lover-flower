@@ -7,6 +7,7 @@ import MainLayout from "../../layout/MainLayout";
 import { Bouquet } from "../../redux/bouquets/types";
 import { useAppDispatch } from "../../redux/store";
 import { setCartItem } from "../../redux/cart/slice";
+import { fetchReviews } from "../../redux/reviews/asyncActions";
 
 import {
   BouquetAdditionBlock,
@@ -17,17 +18,19 @@ import { BouquetBgTopLeft } from "../../assets";
 
 const BouquetPage: FC = () => {
   const dispatch = useAppDispatch();
-  const { id } = useParams();
+  const { id } = useParams<string>();
 
   const [bouquet, setBouquet] = useState<Bouquet>();
 
   useEffect(() => {
     async function fetchBouquet() {
       try {
-        const { data } = await axios.get(
+        const bouquetData = await axios.get<Bouquet>(
           `https://655b76e2ab37729791a92825.mockapi.io/items/${id}`
         );
-        setBouquet(data);
+        await dispatch(fetchReviews({ id }));
+
+        setBouquet(bouquetData.data);
       } catch (error) {
         console.log(error);
       }
@@ -53,7 +56,7 @@ const BouquetPage: FC = () => {
   if (!bouquet) return <MainLayout />;
 
   return (
-    <div className="bouquet_page pt-[120px] h-[2200px] relative bg-[#040A0A]">
+    <div className="bouquet_page pt-[120px] pb-[120px] relative bg-[#040A0A]">
       <BouquetBgTopLeft />
       <DecorativeElement className="absolute top-0 right-0 w-[504px] h-[360px] rounded-[504px] bg-cherry blur-[125px]" />
       <DecorativeElement className="absolute top-[18rem] left-[10rem] rotate-[32.828deg] w-[589px] h-[360px] rounded-[580px] bg-cherry blur-[125px]" />
@@ -102,7 +105,7 @@ const BouquetPage: FC = () => {
               </h1>
             </NavLink>
           </div>
-          <Outlet context={bouquet.name} />
+          <Outlet context={bouquet} />
         </div>
       </div>
       <img

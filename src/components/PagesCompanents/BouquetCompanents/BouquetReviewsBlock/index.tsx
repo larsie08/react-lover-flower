@@ -1,17 +1,30 @@
-import { FC, useState } from "react";
+import { FC } from "react";
+import axios from "axios";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
-
 import { useOutletContext } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+import { Bouquet } from "../../../../redux/bouquets/types";
+import { RootState, useAppDispatch } from "../../../../redux/store";
+import { addReview } from "../../../../redux/reviews/slice";
+import { Reviews } from "../../../../redux/reviews/types";
+
+import { ReviewBlock } from "./ReviewBlock";
 
 interface ReviewForm {
+  rating: number;
   review: string;
   name: string;
   email: string;
 }
 
 const BouquetReviewsBlock: FC = () => {
-  const name = useOutletContext<string>();
-  const [rating, setRating] = useState<number>();
+  const dispatch = useAppDispatch();
+
+  const bouquet = useOutletContext<Bouquet>();
+  const reviews = useSelector((state: RootState) => state.reviews.reviews);
+
+  if (!bouquet) return null;
 
   const {
     register,
@@ -20,89 +33,124 @@ const BouquetReviewsBlock: FC = () => {
   } = useForm<ReviewForm>();
 
   const submitReview: SubmitHandler<ReviewForm> = (data) => {
-    console.log(data);
+    sendReview(data.rating, data.review, data.name, data.email);
   };
 
   const errorReview: SubmitErrorHandler<ReviewForm> = (data) => {
     console.log(data);
   };
 
-  const submitRating = (value: number) => {
-    setRating(value);
-    console.log(value);
+  const sendReview = async (
+    rating: number,
+    feedback: string,
+    name: string,
+    email: string
+  ) => {
+    try {
+      const id = reviews.reduce((foundId: number, item: Reviews) => {
+        if (Number(item.reviewId) === foundId) {
+          foundId++;
+        }
+        return foundId;
+      }, 1);
+
+      const review = { rating, feedback, name, email };
+      await axios.post(
+        `https://655b76e2ab37729791a92825.mockapi.io/items/${bouquet.id}/reviews`,
+        { review }
+      );
+      dispatch(
+        addReview({
+          reviewId: String(id),
+          bouquetId: String(bouquet.id),
+          review,
+        })
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <div className="mt-16">
       <div className="reviews">
-        <h3 className="text-[14px] font-normal tracking-[0.84px]">
-          Отзывов пока нет
-        </h3>
+        {reviews.length > 0 ? (
+          reviews.map((obj) => (
+            <ReviewBlock
+              key={obj.reviewId}
+              rating={obj.review.rating}
+              feedback={obj.review.feedback}
+              name={obj.review.name}
+            />
+          ))
+        ) : (
+          <h3 className="text-[14px] font-normal tracking-[0.84px]">
+            Отзывов пока нет
+          </h3>
+        )}
       </div>
+
       <div className="mt-16 flex flex-col gap-2">
         <h2 className="text-[14px] text-light-turquoise font-normal tracking-[0.84px] uppercase">
-          Будьте первым, кто оставил отзыв на “{name}”
+          {reviews.length > 0
+            ? `Оставьте свой отзыв на “${bouquet.name}”`
+            : `Будьте первым, кто оставил отзыв на “${bouquet.name}”`}
         </h2>
         <h3 className="text-[14px] font-normal tracking-[0.84px]">
           Ваш адрес email не будет опубликован. Обязательные поля помечены *
         </h3>
       </div>
-      <form className="flex flex-col mt-5">
-        <label className="" htmlFor="rating-group">
-          Ваша оценка:
-        </label>
-        <div className="rating__group mt-1 relative p-0 w-[10em] h-[2em]">
-          <input
-            className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
-            onChange={() => submitRating(1)}
-            type="radio"
-            name="rating"
-            id="rating"
-            value="1"
-            aria-label="Ужасно"
-          />
-          <input
-            className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
-            onChange={() => submitRating(2)}
-            type="radio"
-            name="rating"
-            id="rating"
-            value="2"
-            aria-label="Сносно"
-          />
-          <input
-            className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
-            onChange={() => submitRating(3)}
-            type="radio"
-            name="rating"
-            id="rating"
-            value="3"
-            aria-label="Нормально"
-          />
-          <input
-            className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
-            onChange={() => submitRating(4)}
-            type="radio"
-            name="rating"
-            id="rating"
-            value="4"
-            aria-label="Хорошо"
-          />
-          <input
-            className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
-            onChange={() => submitRating(5)}
-            type="radio"
-            name="rating"
-            id="rating"
-            value="5"
-            aria-label="Отлично"
-          />
-        </div>
-      </form>
       <form
         onSubmit={handleSubmit(submitReview, errorReview)}
         className="flex flex-col gap-5 mt-5"
       >
+        <div className="flex flex-col">
+          <label className="" htmlFor="rating-group">
+            Ваша оценка:
+          </label>
+          <div className="rating__group mt-1 relative p-0 w-[10em] h-[2em]">
+            <input
+              className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
+              type="radio"
+              id="rating"
+              value="1"
+              aria-label="Ужасно"
+              {...register("rating", { required: true })}
+            />
+            <input
+              className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
+              type="radio"
+              id="rating"
+              value="2"
+              aria-label="Сносно"
+              {...register("rating", { required: true })}
+            />
+            <input
+              className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
+              type="radio"
+              id="rating"
+              value="3"
+              aria-label="Нормально"
+              {...register("rating", { required: true })}
+            />
+            <input
+              className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
+              type="radio"
+              id="rating"
+              value="4"
+              aria-label="Хорошо"
+              {...register("rating", { required: true })}
+            />
+            <input
+              className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
+              type="radio"
+              id="rating"
+              value="5"
+              aria-label="Отлично"
+              {...register("rating", { required: true })}
+            />
+          </div>
+        </div>
         <div className="flex flex-col">
           <label
             className="text-[14px] font-normal tracking-[0.84px]"
@@ -110,9 +158,8 @@ const BouquetReviewsBlock: FC = () => {
           >
             Ваш отзыв*
           </label>
-          <input
+          <textarea
             className="w-[540px] h-[180px] border border-[#555] bg-[#040A0A] p-4 placeholder:bg-[#040A0A] placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
-            type="text"
             id="review"
             placeholder="Введите комментарий"
             {...register("review", { required: true })}

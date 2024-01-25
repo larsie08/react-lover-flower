@@ -54,7 +54,8 @@ input::-webkit-inner-spin-button {
   background-size: 2em auto;
 }
 
-#rating {
+#rating,
+.star {
   margin: 0;
   font-size: inherit;
   background-size: 2em auto;
@@ -96,3 +97,21 @@ input::-webkit-inner-spin-button {
   z-index: 1;
   width: 10em;
 }
+
+.star:nth-of-type(2) {
+  left: 2em;
+}
+
+.star:nth-of-type(3) {
+  left: 4em;
+}
+
+.star:nth-of-type(4) {
+  left: 6em;
+}
+
+.star:nth-of-type(5) {
+  left: 8em;
+}
+
+
