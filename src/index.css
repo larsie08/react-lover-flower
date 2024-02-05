@@ -48,6 +48,12 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
 
 .rating__group {
   background-image: url("./assets/SVG/PagesSvg/BouquetSvg/RatingSvg/rating.svg");
@@ -113,5 +119,3 @@ input::-webkit-inner-spin-button {
 .star:nth-of-type(5) {
   left: 8em;
 }
-
-

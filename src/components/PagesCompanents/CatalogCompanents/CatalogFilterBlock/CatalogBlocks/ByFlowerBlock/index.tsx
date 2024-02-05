@@ -1,7 +1,7 @@
 import { FC } from "react";
+import { useSelector } from "react-redux";
 
 import { useAppDispatch } from "../../../../../../redux/store";
-import { useSelector } from "react-redux";
 import { setFiltersId } from "../../../../../../redux/filter/slice";
 import { selectFiltersById } from "../../../../../../redux/filter/selectors";
 

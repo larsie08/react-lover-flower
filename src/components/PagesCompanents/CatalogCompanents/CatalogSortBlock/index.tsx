@@ -3,23 +3,30 @@ import { useSelector } from "react-redux";
 
 import { RootState, useAppDispatch } from "../../../../redux/store";
 import { setSortValue } from "../../../../redux/filter/slice";
+import { SortPropertyEnum, SortType } from "../../../../redux/filter/types";
 
 import { CatalogTipSvg } from "../../../../assets";
 
-const sortOptions = ["по популярности", "по цене", "по алфавиту"];
+const sortOptions = [
+  { name: "по популярности", sortProperty: SortPropertyEnum.RATING },
+  { name: "по цене", sortProperty: SortPropertyEnum.COST },
+  { name: "по алфавиту", sortProperty: SortPropertyEnum.NAME },
+];
 
 export const CatalogSortBlock: FC = () => {
   const dispatch = useAppDispatch();
   const sortRef = useRef<HTMLUListElement>(null);
-  const sortValue = useSelector((state: RootState) => state.filter.sortValue);
+  const sortValue = useSelector((state: RootState) => state.filter.sort);
 
   const [availableSortOptions, setAvailableSortOptions] =
-    useState<string[]>(sortOptions);
+    useState<SortType[]>(sortOptions);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     setAvailableSortOptions(
-      sortOptions.filter((option) => option !== sortValue)
+      sortOptions.filter(
+        (option) => option.sortProperty !== sortValue.sortProperty
+      )
     );
   }, [sortValue]);
 
@@ -40,7 +47,7 @@ export const CatalogSortBlock: FC = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleSortChange = (selectedOption: string) => {
+  const handleSortChange = (selectedOption: SortType) => {
     dispatch(setSortValue(selectedOption));
     setIsOpen(false);
   };
@@ -55,7 +62,7 @@ export const CatalogSortBlock: FC = () => {
         className="flex justify-between items-center cursor-pointer"
       >
         <span className="text-[12px] font-light tracking-[0.48px] uppercase">
-          {sortValue}
+          {sortValue.name}
         </span>
         <CatalogTipSvg />
       </div>
@@ -68,7 +75,7 @@ export const CatalogSortBlock: FC = () => {
               className="text-[12px] font-light tracking-[0.48px] uppercase cursor-pointer"
               key={id}
             >
-              {option}
+              {option.name}
             </li>
           ))}
         </div>

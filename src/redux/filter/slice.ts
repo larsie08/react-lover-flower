@@ -1,8 +1,14 @@
-import { Status } from './../../../../react-pizza-v2/src/redux/pizza/types';
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { CategoryProps, FilterSliceState } from "./types";
+
 import { fetchSearchBouquets } from "./asyncActions";
-import { Bouquet } from "../bouquets/types";
+
+import {
+  CategoryProps,
+  FilterSliceState,
+  SortPropertyEnum,
+  SortType,
+} from "./types";
+import { Bouquet, Status } from "../bouquets/types";
 
 const initialState: FilterSliceState = {
   searchValue: "",
@@ -11,7 +17,10 @@ const initialState: FilterSliceState = {
   categoryId: null,
   category: "",
   filtersId: [],
-  sortValue: "по популярности",
+  sort: {
+    name: "популярности",
+    sortProperty: SortPropertyEnum.RATING,
+  },
 };
 
 const filterSlice = createSlice({
@@ -40,8 +49,8 @@ const filterSlice = createSlice({
     setClearFiltersId(state) {
       state.filtersId = [];
     },
-    setSortValue(state, action: PayloadAction<string>) {
-      state.sortValue = action.payload;
+    setSortValue(state, action: PayloadAction<SortType>) {
+      state.sort = action.payload;
     },
   },
   extraReducers: (builder) => {

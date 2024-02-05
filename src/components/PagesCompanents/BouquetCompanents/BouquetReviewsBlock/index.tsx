@@ -53,7 +53,6 @@ const BouquetReviewsBlock: FC = () => {
         }
         return foundId;
       }, 1);
-
       const review = { rating, feedback, name, email };
       await axios.post(
         `https://655b76e2ab37729791a92825.mockapi.io/items/${bouquet.id}/reviews`,

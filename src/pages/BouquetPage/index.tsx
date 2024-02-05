@@ -8,6 +8,7 @@ import { Bouquet } from "../../redux/bouquets/types";
 import { useAppDispatch } from "../../redux/store";
 import { setCartItem } from "../../redux/cart/slice";
 import { fetchReviews } from "../../redux/reviews/asyncActions";
+import { Reviews } from "../../redux/reviews/types";
 
 import {
   BouquetAdditionBlock,
@@ -21,16 +22,20 @@ const BouquetPage: FC = () => {
   const { id } = useParams<string>();
 
   const [bouquet, setBouquet] = useState<Bouquet>();
+  const [reviews, setReviews] = useState<Reviews[] | undefined>();
 
   useEffect(() => {
     async function fetchBouquet() {
       try {
-        const bouquetData = await axios.get<Bouquet>(
+        const { data } = await axios.get<Bouquet>(
           `https://655b76e2ab37729791a92825.mockapi.io/items/${id}`
         );
-        await dispatch(fetchReviews({ id }));
+        const { payload } = (await dispatch(fetchReviews({ id }))) as {
+          payload: Reviews[];
+        };
 
-        setBouquet(bouquetData.data);
+        setBouquet(data);
+        setReviews(payload);
       } catch (error) {
         console.log(error);
       }
@@ -101,7 +106,7 @@ const BouquetPage: FC = () => {
               }
             >
               <h1 className="text-[20px] text-center font-light tracking-[0.8px] uppercase pb-7">
-                отзывы
+                отзывы ({reviews ? reviews.length : 0})
               </h1>
             </NavLink>
           </div>

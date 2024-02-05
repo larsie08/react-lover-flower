@@ -1,5 +1,6 @@
 export * from "./SVG/HeaderSvg/SearchSvg";
 export * from "./SVG/HeaderSvg/HeaderPhoneSvg";
+export * from "./SVG/HeaderSvg/ClearSvg";
 
 export * from "./SVG/PagesSvg/HomeSvg/Intro/CartSvg";
 export * from "./SVG/PagesSvg/HomeSvg/Intro/PhoneButtonSvg";

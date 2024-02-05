@@ -54,7 +54,7 @@ const info = [
 export const Footer: FC = () => {
   return (
     <footer className="footer relative z-20 bg-[#000] h-[380px]">
-      <div className="container mx-auto flex h-full justify-between">
+      <div className="container mx-auto flex h-full justify-between transition-all">
         <div className="flex flex-col ">
           <div className="logo">
             <img src="./img/logo.png" alt="logo" />

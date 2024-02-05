@@ -1,11 +1,11 @@
 import { FC } from "react";
+import { useSelector } from "react-redux";
 
 import { useAppDispatch } from "../../../../../../redux/store";
 import { setFiltersId } from "../../../../../../redux/filter/slice";
 import { selectFiltersById } from "../../../../../../redux/filter/selectors";
 
 import { CatalogCheckSvg } from "../../../../../../assets";
-import { useSelector } from "react-redux";
 
 const colors = [
   { id: "white", name: "белый" },

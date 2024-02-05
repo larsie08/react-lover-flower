@@ -1,13 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 
-import { useAppDispatch } from "./redux/store";
+import { RootState, useAppDispatch } from "./redux/store";
 import { fetchBouquets } from "./redux/bouquets/asyncActions";
 
 import { CallModal, Cart } from "./components";
 
 import Home from "./pages/Home";
 import MainLayout from "./layout/MainLayout";
+import { useSelector } from "react-redux";
 
 const DeliveryPage = lazy(() => import("./pages/DeliveryPage"));
 const AboutUsPage = lazy(() => import("./pages/AboutUsPage"));
@@ -31,16 +32,18 @@ const BouquetDeliveryBlock = lazy(
 function App() {
   const dispatch = useAppDispatch();
 
+  const sortBy = useSelector((state: RootState) => state.filter.sort.sortProperty);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await dispatch(fetchBouquets());
+        await dispatch(fetchBouquets({sortBy}));
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
-  }, [dispatch]);
+  }, [dispatch, sortBy]);
 
   return (
     <>

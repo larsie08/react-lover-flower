@@ -1,13 +1,12 @@
 import { FC } from "react";
 import { useSelector } from "react-redux";
+import classNames from "classnames";
 
 import { setCategory } from "../../../../redux/filter/slice";
 import { useAppDispatch } from "../../../../redux/store";
 import { selectCategory } from "../../../../redux/filter/selectors";
 
 import { CatalogCloseSvg } from "../../../../assets";
-
-import classNames from "classnames";
 
 export const CatalogCategoryBlock: FC = () => {
   const dispatch = useAppDispatch();
