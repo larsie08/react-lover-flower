@@ -1,5 +1,8 @@
 import { FC } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
+import { selectCartItemById } from "../../redux/cart/selectors";
 
 interface CardProps {
   id: number;
@@ -22,6 +25,8 @@ export const CardBlock: FC<CardProps> = ({
   imageUrl,
   onClick,
 }) => {
+  const cartItem = useSelector(selectCartItemById(id));
+
   const handleAddToCart = () => {
     onClick(id, name, imageUrl, cost, 1);
   };
@@ -47,7 +52,7 @@ export const CardBlock: FC<CardProps> = ({
         onClick={handleAddToCart}
         className="border-[.5px] w-[255px p-4 text-[12px] font-bold tracking-[1.2px] uppercase hover:bg-light-turquoise hover:text-[black] focus:border-light-turquoise active:shadow-[0_0_10px_0_#01281F_inset]"
       >
-        В корзину
+        В корзину {cartItem?.count && `(${cartItem?.count})`}
       </button>
     </div>
   );

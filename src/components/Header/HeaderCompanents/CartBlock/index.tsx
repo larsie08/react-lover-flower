@@ -5,6 +5,7 @@ import { setIsOpenCart } from "../../../../redux/modal/slice";
 
 import { CartSvg, HeaderPhoneSvg } from "../../../../assets";
 import { CartItem } from "../../../../redux/cart/types";
+import classNames from "classnames";
 
 interface CartBlockProps {
   cart: CartItem[];
@@ -40,7 +41,12 @@ export const CartBlock: FC<CartBlockProps> = ({ cart }) => {
         >
           <circle cx="8" cy="8.86523" r="8" fill="#43FFD2" />
         </svg>
-        <p className="text-dark-green absolute -right-[3px] -top-[3px] text-standart">
+        <p
+          className={classNames(
+            "text-dark-green absolute -right-[3px] -top-[3px] text-standart",
+            { ["-right-[5px]"]: cart.length >= 10 }
+          )}
+        >
           {cart.length}
         </p>
       </button>

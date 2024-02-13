@@ -7,7 +7,7 @@ import { FiltersParams } from "../filter/types";
 
 export const fetchBouquets = createAsyncThunk<Bouquet[], FiltersParams>(
   "bouquets/fetchBouquetsStatus",
-  async ({sortBy}) => {
+  async ({ sortBy }) => {
     const { data } = await axios.get<Bouquet[]>(
       `https://655b76e2ab37729791a92825.mockapi.io/items?sortBy=${sortBy}`
     );

@@ -6,6 +6,8 @@ export * from "./Modals/Cart";
 
 export * from "./CardBlock";
 
+export * from "./SkeletonCard"
+
 export * from "./DecorativeElement";
 
 export * from "./PagesCompanents/HomeCompanents/Intro";

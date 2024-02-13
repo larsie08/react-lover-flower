@@ -5,6 +5,7 @@ import { setIsOpenCart, setIsOpenModal } from "../../../../redux/modal/slice";
 
 import { CartSvg, PhoneButtonSvg, SocialBorderSvg } from "../../../../assets";
 import { useSelector } from "react-redux";
+import classNames from "classnames";
 
 export const CatalogRightSideBlock: FC = () => {
   const dispatch = useAppDispatch();
@@ -46,7 +47,12 @@ export const CatalogRightSideBlock: FC = () => {
           >
             <circle cx="8" cy="8.86523" r="8" fill="#43FFD2" />
           </svg>
-          <p className="text-dark-green absolute right-[13px] top-[10px] text-standart">
+          <p
+            className={classNames(
+              "text-dark-green absolute right-[13px] top-[10px] text-standart",
+              { ["right-[11px]"]: cart.length >= 10 }
+            )}
+          >
             {cart.length}
           </p>
         </button>

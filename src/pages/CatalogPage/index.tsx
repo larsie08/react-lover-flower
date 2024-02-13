@@ -1,6 +1,6 @@
 import { FC, useMemo } from "react";
-
 import { useSelector } from "react-redux";
+
 import { RootState, useAppDispatch } from "../../redux/store";
 import { setCartItem } from "../../redux/cart/slice";
 
@@ -12,12 +12,13 @@ import {
   DecorativeElement,
   CardBlock,
   CatalogRightSideBlock,
+  SkeletonCard,
 } from "../../components";
 import { CatalogLeftSvg, CatalogRightSvg } from "../../assets";
 
 const CatalogPage: FC = () => {
   const dispatch = useAppDispatch();
-  const items = useSelector((state: RootState) => state.bouquets.items);
+  const { items, status } = useSelector((state: RootState) => state.bouquets);
 
   const onClick = useMemo(
     () => (id: number, name: string, imageUrl: string, cost: number) => {
@@ -26,6 +27,10 @@ const CatalogPage: FC = () => {
     },
     [dispatch]
   );
+
+  const skeletons = [...new Array(9)].map((_, index) => (
+    <SkeletonCard key={index} />
+  ));
 
   return (
     <div className="catalog_page relative pt-[120px] h-[3000px] bg-[#040A0A]">
@@ -56,17 +61,19 @@ const CatalogPage: FC = () => {
             <div className="catalog_page__sticky w-[255px]">
               <CatalogFilterBlock />
             </div>
-            <div className="catalog_page__cards relative grid grid-cols-[repeat(3,_255px)] mx-auto gap-7 mt-3">
-              {items.map((obj) => (
-                <CardBlock
-                  key={obj.id}
-                  id={obj.id}
-                  name={obj.name}
-                  cost={obj.cost}
-                  imageUrl={obj.imageUrl}
-                  onClick={onClick}
-                />
-              ))}
+            <div className="catalog_page__cards relative grid grid-cols-[repeat(3,_255px)] mx-auto gap-x-7 gap-y-14 mt-3">
+              {status === "success"
+                ? items.map((obj) => (
+                    <CardBlock
+                      key={obj.id}
+                      id={obj.id}
+                      name={obj.name}
+                      cost={obj.cost}
+                      imageUrl={obj.imageUrl}
+                      onClick={onClick}
+                    />
+                  ))
+                : skeletons}
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@ import { RootState, useAppDispatch } from "../../../../redux/store";
 import { CartSvg, PhoneButtonSvg } from "../../../../assets";
 import { DecorativeElement } from "../../..";
 import { IntroTitleBlock } from "./IntroComponents/IntroTitleBlock";
+import classNames from "classnames";
 
 export const Intro: FC = () => {
   const dispatch = useAppDispatch();
@@ -70,7 +71,12 @@ export const Intro: FC = () => {
                 >
                   <circle cx="8" cy="8.86523" r="8" fill="#43FFD2" />
                 </svg>
-                <p className="text-dark-green absolute right-[13px] top-[10px] text-standart">
+                <p
+                  className={classNames(
+                    "text-dark-green absolute right-[13px] top-[10px] text-standart",
+                    { ["right-[11px]"]: cart.length >= 10 }
+                  )}
+                >
                   {cart.length}
                 </p>
               </button>

@@ -32,12 +32,14 @@ const BouquetDeliveryBlock = lazy(
 function App() {
   const dispatch = useAppDispatch();
 
-  const sortBy = useSelector((state: RootState) => state.filter.sort.sortProperty);
+  const sortBy = useSelector(
+    (state: RootState) => state.filter.sort.sortProperty
+  );
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await dispatch(fetchBouquets({sortBy}));
+        await dispatch(fetchBouquets({ sortBy }));
       } catch (error) {
         console.log(error);
       }

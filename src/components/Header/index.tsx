@@ -50,6 +50,7 @@ export const Header: FC = () => {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState<number>(0);
   const cart = useSelector((state: RootState) => state.cart.items);
+  const isOpenCart = useSelector((state: RootState) => state.modal.isOpenCart);
 
   const defaultPosition = 80;
 
@@ -64,13 +65,11 @@ export const Header: FC = () => {
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", controlNavbar);
+    window.addEventListener("scroll", controlNavbar);
 
-      return () => {
-        window.removeEventListener("scroll", controlNavbar);
-      };
-    }
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
   }, [lastScrollY]);
 
   useEffect(() => {
@@ -79,12 +78,13 @@ export const Header: FC = () => {
 
   return (
     <div
-      className={classNames("header w-full fixed z-40 transition-all", {
+      id="header"
+      className={classNames("w-full fixed z-40 transition", {
         ["-translate-y-full"]: show && lastScrollY > defaultPosition,
         ["bg-[black]"]: lastScrollY > defaultPosition,
       })}
     >
-      <div className="header__wrapper h-full flex justify-between container mx-auto">
+      <div className="header__wrapper flex justify-between container mx-auto">
         <div className="content h-[80px] flex">
           <Link to="/" className="logo">
             <img src="./img/logo.png" alt="logo" />

@@ -15,14 +15,13 @@ import {
 import { DecorativeElement } from "../..";
 
 import classNames from "classnames";
+import { setPadding } from "../../../utils/setPadding";
 
 export const Cart: FC = () => {
   const dispatch = useAppDispatch();
   const isOpen = useSelector((state: RootState) => state.modal.isOpenCart);
   const cart = useSelector((state: RootState) => state.cart.items);
-  const { isOpenModal, isOpenCart } = useSelector(
-    (state: RootState) => state.modal
-  );
+  const { isOpenCart } = useSelector((state: RootState) => state.modal);
 
   const increaseDelta = 1;
   const decreaseDelta = -1;
@@ -33,12 +32,8 @@ export const Cart: FC = () => {
   }, [cart]);
 
   useEffect(() => {
-    const body = document.querySelector("body");
-
-    if (body) {
-      body.style.overflow = isOpenCart ? "hidden" : "auto";
-    }
-  }, [isOpenModal, isOpenCart]);
+    setPadding(isOpenCart);
+  }, [isOpenCart]);
 
   const handleAddToCart = (id: number) =>
     dispatch(updateItemCount({ id, delta: increaseDelta }));
