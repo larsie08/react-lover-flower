@@ -1,9 +1,8 @@
 import { FC } from "react";
 import { useSelector } from "react-redux";
 
-import { useAppDispatch } from "../../../../../../redux/store";
+import { RootState, useAppDispatch } from "../../../../../../redux/store";
 import { setFiltersId } from "../../../../../../redux/filter/slice";
-import { selectFiltersById } from "../../../../../../redux/filter/selectors";
 
 import { CatalogCheckSvg } from "../../../../../../assets";
 
@@ -19,7 +18,7 @@ const colors = [
 
 export const ByColorBlock: FC = () => {
   const dispatch = useAppDispatch();
-  const filtersId = useSelector(selectFiltersById);
+  const filtersId = useSelector((state: RootState) => state.filter.filtersId);
 
   const handleClick = (id: string) => {
     dispatch(setFiltersId(id));

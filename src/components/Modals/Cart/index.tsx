@@ -21,7 +21,6 @@ export const Cart: FC = () => {
   const dispatch = useAppDispatch();
   const isOpen = useSelector((state: RootState) => state.modal.isOpenCart);
   const cart = useSelector((state: RootState) => state.cart.items);
-  const { isOpenCart } = useSelector((state: RootState) => state.modal);
 
   const increaseDelta = 1;
   const decreaseDelta = -1;
@@ -32,8 +31,8 @@ export const Cart: FC = () => {
   }, [cart]);
 
   useEffect(() => {
-    setPadding(isOpenCart);
-  }, [isOpenCart]);
+    setPadding(isOpen);
+  }, [isOpen]);
 
   const handleAddToCart = (id: number) =>
     dispatch(updateItemCount({ id, delta: increaseDelta }));
@@ -46,16 +45,27 @@ export const Cart: FC = () => {
 
   return createPortal(
     <div
-      className={classNames("cart fixed top-0 w-full h-full z-40", {
-        ["visible"]: isOpen,
+      className={classNames("cart fixed top-0 w-full h-full z-40 delay-75", {
         ["invisible"]: !isOpen,
+        ["visible"]: isOpen,
       })}
     >
       <div
         onClick={closeCart}
-        className="w-full h-full absolute bg-[#000]/[0.20] backdrop-blur-[10px] z-40"
+        className={classNames(
+          "w-full h-full absolute bg-[#000]/[0.20] backdrop-blur-[10px] z-40 transition-opacity ease-in-out duration-300",
+          { ["opacity-100"]: isOpen, ["opacity-0"]: !isOpen }
+        )}
       />
-      <div className="cart__wrapper absolute flex flex-col justify-between right-0 z-50 h-[100vh] w-[420px] p-5 bg-[#000]">
+      <div
+        className={classNames(
+          "cart__wrapper absolute flex flex-col justify-between right-0 z-50 h-[100vh] p-5 bg-[#000] transition-[width]",
+          {
+            ["w-[420px]"]: isOpen,
+            ["w-0"]: !isOpen,
+          }
+        )}
+      >
         <div className="flex flex-col overflow-y-hidden">
           <CartTitleBlock />
           <div

@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import classNames from "classnames";
 
 import { RootState, useAppDispatch } from "../../redux/store";
 import {
@@ -9,8 +10,6 @@ import {
   FlowerCategories,
 } from "../../redux/filter/types";
 import { setCategory } from "../../redux/filter/slice";
-
-import classNames from "classnames";
 
 import { CartBlock, InfoBlock, Search } from "./HeaderCompanents";
 
@@ -50,7 +49,6 @@ export const Header: FC = () => {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState<number>(0);
   const cart = useSelector((state: RootState) => state.cart.items);
-  const isOpenCart = useSelector((state: RootState) => state.modal.isOpenCart);
 
   const defaultPosition = 80;
 
@@ -90,20 +88,20 @@ export const Header: FC = () => {
             <img src="./img/logo.png" alt="logo" />
           </Link>
           <ul className="navbar flex ml-[70px] items-center gap-12">
-            <li className="catalog_header text-[14px] font-normal tracking-[.56px] relative uppercase">
+            <li className="group catalog-header text-[14px] font-normal tracking-[.56px] relative uppercase py-3">
               <Link
                 to="catalog"
                 className="hover:text-light-turquoise hover:underline hover:decoration-light-turquoise cursor-pointer"
               >
                 Каталог
               </Link>
-              <ul className="submenu absolute -left-4 bg-[grey]/[.3] backdrop-blur-[10px] invisible flex flex-col gap-1 w-[260px] p-2">
+              <ul className="submenu absolute group-[:hover]:visible group-[:hover]:opacity-100 opacity-0 -left-4 top-[40px] invisible bg-[grey]/[.3] backdrop-blur-[10px] flex flex-col gap-1 w-[260px] p-2 transition-all z-20">
                 {categories.map((obj) => (
                   <Link
                     to="catalog"
                     onClick={() => onClick(obj.id, obj.name)}
                     key={obj.id}
-                    className="text-[14px] font-normal relative z-30 tracking-[.56px] uppercase cursor-pointer hover:text-light-turquoise hover:underline hover:decoration-light-turquoise"
+                    className="catalog_name group-[:hover]:opacity-100 opacity-0 text-[14px] font-normal relative z-30 tracking-[.56px] uppercase cursor-pointer hover:text-light-turquoise hover:underline hover:decoration-light-turquoise"
                   >
                     {obj.name}
                   </Link>

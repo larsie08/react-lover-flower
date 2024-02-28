@@ -1,4 +1,11 @@
 import { RootState } from "../store";
 
-export const selectCategory = (state: RootState) => state.filter;
-export const selectFiltersById = (state: RootState) => state.filter.filtersId;
+export const selectMinPrice = (state: RootState) =>
+  state.bouquets.items.reduce((minValue, item) => {
+    return Math.min(minValue, item.cost);
+  }, Infinity);
+
+export const selectMaxPrice = (state: RootState) =>
+  state.bouquets.items.reduce((maxValue, item) => {
+    return Math.max(maxValue, item.cost);
+  }, 0);

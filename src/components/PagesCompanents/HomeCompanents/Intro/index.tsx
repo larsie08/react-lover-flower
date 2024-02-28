@@ -58,7 +58,7 @@ export const Intro: FC = () => {
               </button>
               <button
                 onClick={openCart}
-                className="cart flex mt-5 bg-[#000]/[.20] rounded-xl backdrop-blur-[10px] p-[15px]"
+                className="cart relative flex mt-5 bg-[#000]/[.20] rounded-xl backdrop-blur-[10px] p-[15px]"
               >
                 <CartSvg />
                 <svg
@@ -74,7 +74,7 @@ export const Intro: FC = () => {
                 <p
                   className={classNames(
                     "text-dark-green absolute right-[13px] top-[10px] text-standart",
-                    { ["right-[11px]"]: cart.length >= 10 }
+                    { ["right-0 left-10"]: cart.length >= 10 }
                   )}
                 >
                   {cart.length}

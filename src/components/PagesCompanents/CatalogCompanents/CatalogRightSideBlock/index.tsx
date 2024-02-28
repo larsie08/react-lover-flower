@@ -50,7 +50,7 @@ export const CatalogRightSideBlock: FC = () => {
           <p
             className={classNames(
               "text-dark-green absolute right-[13px] top-[10px] text-standart",
-              { ["right-[11px]"]: cart.length >= 10 }
+              { ["right-0 left-10"]: cart.length >= 10 }
             )}
           >
             {cart.length}

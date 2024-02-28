@@ -3,14 +3,13 @@ import { useSelector } from "react-redux";
 import classNames from "classnames";
 
 import { setCategory } from "../../../../redux/filter/slice";
-import { useAppDispatch } from "../../../../redux/store";
-import { selectCategory } from "../../../../redux/filter/selectors";
+import { RootState, useAppDispatch } from "../../../../redux/store";
 
 import { CatalogCloseSvg } from "../../../../assets";
 
 export const CatalogCategoryBlock: FC = () => {
   const dispatch = useAppDispatch();
-  const { category, categoryId } = useSelector(selectCategory);
+  const { category, categoryId } = useSelector((state: RootState) => state.filter);
 
   const onClear = () => {
     const obj = { categoryId: null, category: "" };
