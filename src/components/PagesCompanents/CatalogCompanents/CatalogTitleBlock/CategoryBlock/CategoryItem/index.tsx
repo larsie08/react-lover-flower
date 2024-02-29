@@ -1,13 +1,13 @@
 import { FC } from "react";
 
-import { Category } from "../../../../../../redux/filter/types";
+import { Category, FlowerCategoriesEnum } from "../../../../../../redux/filter/types";
 
 import classNames from "classnames";
 
 interface CategoryItemProps {
   category: Category;
   isSelected: boolean;
-  onClick: (index: number, category: string) => void;
+  onClick: (index: FlowerCategoriesEnum, category: string) => void;
 }
 
 export const CategoryItem: FC<CategoryItemProps> = ({

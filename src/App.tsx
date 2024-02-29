@@ -35,17 +35,18 @@ function App() {
   const sortBy = useSelector(
     (state: RootState) => state.filter.sort.sortProperty
   );
+  const categoryId = useSelector((state: RootState) => state.filter.categoryId);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await dispatch(fetchBouquets({ sortBy }));
+        await dispatch(fetchBouquets({ sortBy, categoryId }));
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
-  }, [dispatch, sortBy]);
+  }, [dispatch, sortBy, categoryId]);
 
   return (
     <>

@@ -14,7 +14,7 @@ const initialState: FilterSliceState = {
   searchValue: "",
   searchItems: [],
   status: Status.LOADING,
-  categoryId: null,
+  categoryId: "",
   category: "",
   filtersId: [],
   sort: {
@@ -34,7 +34,7 @@ const filterSlice = createSlice({
       const { categoryId, category } = action.payload;
       if (state.categoryId === categoryId) {
         state.category = "";
-        state.categoryId = null;
+        state.categoryId = "";
       } else {
         state.category = category;
         state.categoryId = categoryId;

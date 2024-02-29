@@ -8,7 +8,12 @@ export type Bouquet = {
   name: string;
   cost: number;
   imageUrl: string;
-}
+  category1?: string;
+  category2?: string;
+  category3?: string;
+  category4?: string;
+  category5?: string;
+};
 
 export enum Status {
   LOADING = "loading",

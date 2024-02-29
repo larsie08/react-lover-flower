@@ -62,18 +62,24 @@ const CatalogPage: FC = () => {
               <CatalogFilterBlock />
             </div>
             <div className="catalog_page__cards relative grid grid-cols-[repeat(3,_255px)] mx-auto gap-x-7 gap-y-14 mt-3">
-              {status === "success"
-                ? items.map((obj) => (
-                    <CardBlock
-                      key={obj.id}
-                      id={obj.id}
-                      name={obj.name}
-                      cost={obj.cost}
-                      imageUrl={obj.imageUrl}
-                      onClick={onClick}
-                    />
-                  ))
-                : skeletons}
+              {status === "error" ? (
+                <h1 className="mt-4 text-[18px] font-normal uppercase w-[600px]">
+                  Ничего по данному запросу не найдено
+                </h1>
+              ) : status === "success" ? (
+                items.map((obj) => (
+                  <CardBlock
+                    key={obj.id}
+                    id={obj.id}
+                    name={obj.name}
+                    cost={obj.cost}
+                    imageUrl={obj.imageUrl}
+                    onClick={onClick}
+                  />
+                ))
+              ) : (
+                skeletons
+              )}
             </div>
           </div>
         </div>

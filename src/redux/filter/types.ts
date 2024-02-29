@@ -1,7 +1,7 @@
 import { Bouquet, Status } from "../bouquets/types";
 
 export interface CategoryProps {
-  categoryId: FlowerCategories | null;
+  categoryId: FlowerCategoriesEnum | string;
   category: string;
 }
 
@@ -9,7 +9,7 @@ export interface FilterSliceState {
   searchValue: string;
   searchItems: Bouquet[];
   status: Status;
-  categoryId: FlowerCategories | null;
+  categoryId: FlowerCategoriesEnum | string;
   category: string;
   filtersId: string[];
   sort: {
@@ -20,27 +20,27 @@ export interface FilterSliceState {
 
 export type Category = {
   name: string;
-  id: FlowerCategories;
+  id: FlowerCategoriesEnum;
 };
 
-export enum FlowerCategories {
-  GypsophilaBouquets = 1,
-  ChamomileBouquets,
-  ChrysanthemumBouquets,
-  PottedIndoorPlants,
-  MonoBouquets,
-  AssortedBouquets,
-  HolidayBouquets,
-  FlowerCompositions,
-  Envelopes,
-  GreetingCards,
-  Gifts,
-  DriedFlowerBouquets,
-  Balloons,
-  PopularItems,
-  RoseBouquets,
-  FuneralFlowers,
-  GiftWrapping,
+export enum FlowerCategoriesEnum {
+  GypsophilaBouquets = "Букеты из гипсофил",
+  ChamomileBouquets = "Букеты из ромашек",
+  ChrysanthemumBouquets = "Букеты из хризантем",
+  PottedIndoorPlants = "Комнатные цветы в горшках",
+  MonoBouquets = "Монобукеты",
+  AssortedBouquets = "Сборные букеты",
+  HolidayBouquets = "Букет на праздник",
+  FlowerCompositions = "Композиции из цветов",
+  Envelopes = "Конверты",
+  GreetingCards = "Открытки",
+  Gifts = "Подарки",
+  DriedFlowerBouquets = "Букеты из сухоцветов",
+  Balloons = "Шары",
+  PopularItems = "Популярное",
+  RoseBouquets = "Букеты роз",
+  FuneralFlowers = "Цветы на похороны",
+  GiftWrapping = "Упаковка подарков",
 }
 
 export type SearchFiltersParams = {
@@ -49,6 +49,7 @@ export type SearchFiltersParams = {
 
 export type FiltersParams = {
   sortBy: string;
+  categoryId: string;
 };
 
 export enum SortPropertyEnum {

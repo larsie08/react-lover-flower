@@ -12,7 +12,7 @@ export const CatalogCategoryBlock: FC = () => {
   const { category, categoryId } = useSelector((state: RootState) => state.filter);
 
   const onClear = () => {
-    const obj = { categoryId: null, category: "" };
+    const obj = { categoryId: "", category: "" };
     dispatch(setCategory(obj));
   };
 
@@ -23,7 +23,7 @@ export const CatalogCategoryBlock: FC = () => {
           {category}
         </h3>
         <button
-          className={classNames({ invisible: categoryId === null })}
+          className={classNames({ invisible: categoryId === "" })}
           onClick={onClear}
         >
           <CatalogCloseSvg />

@@ -7,33 +7,33 @@ import { RootState, useAppDispatch } from "../../redux/store";
 import {
   Category,
   CategoryProps,
-  FlowerCategories,
+  FlowerCategoriesEnum,
 } from "../../redux/filter/types";
 import { setCategory } from "../../redux/filter/slice";
 
 import { CartBlock, InfoBlock, Search } from "./HeaderCompanents";
 
 const categories: Category[] = [
-  { name: "Букеты из гипсофил", id: FlowerCategories.GypsophilaBouquets },
-  { name: "Букеты из ромашек", id: FlowerCategories.ChamomileBouquets },
-  { name: "Букеты из хризантем", id: FlowerCategories.ChrysanthemumBouquets },
+  { name: "Букеты из гипсофил", id: FlowerCategoriesEnum.GypsophilaBouquets },
+  { name: "Букеты из ромашек", id: FlowerCategoriesEnum.ChamomileBouquets },
+  { name: "Букеты из хризантем", id: FlowerCategoriesEnum.ChrysanthemumBouquets },
   {
     name: "Комнатные цветы в горшках",
-    id: FlowerCategories.PottedIndoorPlants,
+    id: FlowerCategoriesEnum.PottedIndoorPlants,
   },
-  { name: "Монобукеты", id: FlowerCategories.MonoBouquets },
-  { name: "Сборные букеты", id: FlowerCategories.AssortedBouquets },
-  { name: "Букет на праздник", id: FlowerCategories.HolidayBouquets },
-  { name: "Композиции из цветов", id: FlowerCategories.FlowerCompositions },
-  { name: "Конверты", id: FlowerCategories.Envelopes },
-  { name: "Открытки", id: FlowerCategories.GreetingCards },
-  { name: "Подарки", id: FlowerCategories.Gifts },
-  { name: "Букеты из сухоцветов", id: FlowerCategories.DriedFlowerBouquets },
-  { name: "Шары", id: FlowerCategories.Balloons },
-  { name: "Популярное", id: FlowerCategories.PopularItems },
-  { name: "Букеты роз", id: FlowerCategories.RoseBouquets },
-  { name: "Цветы на похороны", id: FlowerCategories.FuneralFlowers },
-  { name: "Упаковка подарков", id: FlowerCategories.GiftWrapping },
+  { name: "Монобукеты", id: FlowerCategoriesEnum.MonoBouquets },
+  { name: "Сборные букеты", id: FlowerCategoriesEnum.AssortedBouquets },
+  { name: "Букет на праздник", id: FlowerCategoriesEnum.HolidayBouquets },
+  { name: "Композиции из цветов", id: FlowerCategoriesEnum.FlowerCompositions },
+  { name: "Конверты", id: FlowerCategoriesEnum.Envelopes },
+  { name: "Открытки", id: FlowerCategoriesEnum.GreetingCards },
+  { name: "Подарки", id: FlowerCategoriesEnum.Gifts },
+  { name: "Букеты из сухоцветов", id: FlowerCategoriesEnum.DriedFlowerBouquets },
+  { name: "Шары", id: FlowerCategoriesEnum.Balloons },
+  { name: "Популярное", id: FlowerCategoriesEnum.PopularItems },
+  { name: "Букеты роз", id: FlowerCategoriesEnum.RoseBouquets },
+  { name: "Цветы на похороны", id: FlowerCategoriesEnum.FuneralFlowers },
+  { name: "Упаковка подарков", id: FlowerCategoriesEnum.GiftWrapping },
 ];
 
 const nav = [
@@ -57,7 +57,7 @@ export const Header: FC = () => {
     setLastScrollY(window.scrollY);
   };
 
-  const onClick = (categoryId: number, category: string) => {
+  const onClick = (categoryId: FlowerCategoriesEnum, category: string) => {
     const obj: CategoryProps = { categoryId, category };
     dispatch(setCategory(obj));
   };
