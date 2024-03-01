@@ -3,14 +3,20 @@ import { useSelector } from "react-redux";
 
 import { setCategory } from "../../../../../redux/filter/slice";
 import { RootState, useAppDispatch } from "../../../../../redux/store";
-import { Category, FlowerCategoriesEnum } from "../../../../../redux/filter/types";
+import {
+  Category,
+  FlowerCategoriesEnum,
+} from "../../../../../redux/filter/types";
 
 import { CategoryItem } from "./CategoryItem";
 
 const categories: Category[] = [
   { name: "Букеты из гипсофил", id: FlowerCategoriesEnum.GypsophilaBouquets },
   { name: "Букеты из ромашек", id: FlowerCategoriesEnum.ChamomileBouquets },
-  { name: "Букеты из хризантем", id: FlowerCategoriesEnum.ChrysanthemumBouquets },
+  {
+    name: "Букеты из хризантем",
+    id: FlowerCategoriesEnum.ChrysanthemumBouquets,
+  },
   {
     name: "Комнатные цветы в горшках",
     id: FlowerCategoriesEnum.PottedIndoorPlants,
@@ -22,7 +28,10 @@ const categories: Category[] = [
   { name: "Конверты", id: FlowerCategoriesEnum.Envelopes },
   { name: "Открытки", id: FlowerCategoriesEnum.GreetingCards },
   { name: "Подарки", id: FlowerCategoriesEnum.Gifts },
-  { name: "Букеты из сухоцветов", id: FlowerCategoriesEnum.DriedFlowerBouquets },
+  {
+    name: "Букеты из сухоцветов",
+    id: FlowerCategoriesEnum.DriedFlowerBouquets,
+  },
   { name: "Шары", id: FlowerCategoriesEnum.Balloons },
   { name: "Популярное", id: FlowerCategoriesEnum.PopularItems },
   { name: "Букеты роз", id: FlowerCategoriesEnum.RoseBouquets },
@@ -31,8 +40,9 @@ const categories: Category[] = [
 ];
 
 export const CategoryBlock: FC = () => {
-  const categoryId = useSelector((state: RootState) => state.filter.categoryId);
   const dispatch = useAppDispatch();
+  
+  const categoryId = useSelector((state: RootState) => state.filter.categoryId);
 
   const onClick = (categoryId: FlowerCategoriesEnum, category: string) => {
     const obj = { categoryId, category };

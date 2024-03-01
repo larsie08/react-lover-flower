@@ -14,18 +14,15 @@ const flowers = [
   { id: "Astrance", name: "Астранция (1)" },
 ];
 
-export const ByFlowerBlock: FC = () => {
-  const dispatch = useAppDispatch();
-  const filtersId = useSelector((state: RootState) => state.filter.filtersId);
-  
-  const handleClick = (id: string) => {
-    dispatch(setFiltersId(id));
-  };
+interface ByColorBlockProps {
+  handleClick: (id: string) => void;
+  isClicked: (id: string) => boolean;
+}
 
-  const isClicked = (id: string) => {
-    return filtersId.some((itemId) => itemId === id);
-  };
-
+export const ByFlowerBlock: FC<ByColorBlockProps> = ({
+  handleClick,
+  isClicked,
+}) => {
   return (
     <div className="light_block flex flex-col gap-2">
       <h2 className="text-[14px] text-light-turquoise font-bold tracking-[0.56px] uppercase">

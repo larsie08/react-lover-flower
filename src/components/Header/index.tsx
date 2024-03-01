@@ -14,26 +14,25 @@ import { setCategory } from "../../redux/filter/slice";
 import { CartBlock, InfoBlock, Search } from "./HeaderCompanents";
 
 const categories: Category[] = [
-  { name: "Букеты из гипсофил", id: FlowerCategoriesEnum.GypsophilaBouquets },
-  { name: "Букеты из ромашек", id: FlowerCategoriesEnum.ChamomileBouquets },
-  { name: "Букеты из хризантем", id: FlowerCategoriesEnum.ChrysanthemumBouquets },
+  { name: "Популярное", id: FlowerCategoriesEnum.PopularItems },
+  { name: "Сборные букеты", id: FlowerCategoriesEnum.AssortedBouquets },
+  { name: "Монобукеты", id: FlowerCategoriesEnum.MonoBouquets },
+  { name: "Розы", id: FlowerCategoriesEnum.RoseBouquets },
+  { name: "Свадебные", id: FlowerCategoriesEnum.HolidayBouquets },
+  { name: "Композиции из цветов", id: FlowerCategoriesEnum.FlowerCompositions },
   {
-    name: "Комнатные цветы в горшках",
+    name: "интерьерные композиции",
     id: FlowerCategoriesEnum.PottedIndoorPlants,
   },
-  { name: "Монобукеты", id: FlowerCategoriesEnum.MonoBouquets },
-  { name: "Сборные букеты", id: FlowerCategoriesEnum.AssortedBouquets },
-  { name: "Букет на праздник", id: FlowerCategoriesEnum.HolidayBouquets },
-  { name: "Композиции из цветов", id: FlowerCategoriesEnum.FlowerCompositions },
-  { name: "Конверты", id: FlowerCategoriesEnum.Envelopes },
-  { name: "Открытки", id: FlowerCategoriesEnum.GreetingCards },
+  {
+    name: "сухоцветы",
+    id: FlowerCategoriesEnum.DriedFlowerBouquets,
+  },
   { name: "Подарки", id: FlowerCategoriesEnum.Gifts },
-  { name: "Букеты из сухоцветов", id: FlowerCategoriesEnum.DriedFlowerBouquets },
-  { name: "Шары", id: FlowerCategoriesEnum.Balloons },
-  { name: "Популярное", id: FlowerCategoriesEnum.PopularItems },
-  { name: "Букеты роз", id: FlowerCategoriesEnum.RoseBouquets },
-  { name: "Цветы на похороны", id: FlowerCategoriesEnum.FuneralFlowers },
-  { name: "Упаковка подарков", id: FlowerCategoriesEnum.GiftWrapping },
+  {
+    name: "Букеты из хризантем",
+    id: FlowerCategoriesEnum.ChrysanthemumBouquets,
+  },
 ];
 
 const nav = [
@@ -43,14 +42,14 @@ const nav = [
   { link: "FAQ", url: "FAQ" },
 ];
 
+const defaultPosition = 80;
+
 export const Header: FC = () => {
   const dispatch = useAppDispatch();
 
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState<number>(0);
   const cart = useSelector((state: RootState) => state.cart.items);
-
-  const defaultPosition = 80;
 
   const controlNavbar = () => {
     setShow(window.scrollY < lastScrollY ? false : true);

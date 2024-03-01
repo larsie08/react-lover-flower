@@ -1,8 +1,4 @@
 import { FC } from "react";
-import { useSelector } from "react-redux";
-
-import { RootState, useAppDispatch } from "../../../../../../redux/store";
-import { setFiltersId } from "../../../../../../redux/filter/slice";
 
 import { CatalogCheckSvg } from "../../../../../../assets";
 
@@ -11,18 +7,15 @@ const lighting = [
   { id: "light", name: "яркие" },
 ];
 
-export const ByLightBlock: FC = () => {
-  const dispatch = useAppDispatch();
-  const filtersId = useSelector((state: RootState) => state.filter.filtersId);
+interface ByLightBlockProps {
+  handleClick: (id: string) => void;
+  isClicked: (id: string) => boolean;
+}
 
-  const handleClick = (id: string) => {
-    dispatch(setFiltersId(id));
-  };
-
-  const isClicked = (id: string) => {
-    return filtersId.some((itemId) => itemId === id);
-  };
-
+export const ByLightBlock: FC<ByLightBlockProps> = ({
+  handleClick,
+  isClicked,
+}) => {
   return (
     <div className="light_block flex flex-col gap-2">
       <h2 className="text-[14px] text-light-turquoise font-bold tracking-[0.56px] uppercase">

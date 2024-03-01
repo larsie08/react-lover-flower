@@ -15,18 +15,15 @@ const format = [
   { id: "box", name: "в ящике" },
 ];
 
-export const ByFormatBlock: FC = () => {
-  const dispatch = useAppDispatch();
-  const filtersId = useSelector((state: RootState) => state.filter.filtersId);
+interface ByFormatBlockProps {
+  handleClick: (id: string) => void;
+  isClicked: (id: string) => boolean;
+}
 
-  const handleClick = (id: string) => {
-    dispatch(setFiltersId(id));
-  };
-
-  const isClicked = (id: string) => {
-    return filtersId.some((itemId) => itemId === id);
-  };
-
+export const ByFormatBlock: FC<ByFormatBlockProps> = ({
+  handleClick,
+  isClicked,
+}) => {
   return (
     <div className="format_block flex flex-col gap-2">
       <h2 className="text-[14px] text-light-turquoise font-bold tracking-[0.56px] uppercase">

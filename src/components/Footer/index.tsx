@@ -2,18 +2,33 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 
 import { SocialsSvg } from "../../assets";
+import { Category, FlowerCategoriesEnum } from "../../redux/filter/types";
+import { useAppDispatch } from "../../redux/store";
+import { setCategory } from "../../redux/filter/slice";
 
-const catalog = [
-  "Популярное",
-  "Сухоцветы",
-  "Букеты роз",
-  "Композиции из цветов",
-  "Индивидуальный букет",
-  "Букет на праздник",
-  "Упаковка подарков",
-  "Шары",
-  "Открытки",
-  "Конверты",
+const categories: Category[] = [
+  { name: "Популярное", id: FlowerCategoriesEnum.PopularItems },
+  {
+    name: "сухоцветы",
+    id: FlowerCategoriesEnum.DriedFlowerBouquets,
+  },
+  { name: "Букеты роз", id: FlowerCategoriesEnum.RoseBouquets },
+  { name: "Композиции из цветов", id: FlowerCategoriesEnum.FlowerCompositions },
+  { name: "Сборные букеты", id: FlowerCategoriesEnum.AssortedBouquets },
+  { name: "Монобукеты", id: FlowerCategoriesEnum.MonoBouquets },
+
+  { name: "Свадебные", id: FlowerCategoriesEnum.HolidayBouquets },
+
+  {
+    name: "интерьерные композиции",
+    id: FlowerCategoriesEnum.PottedIndoorPlants,
+  },
+
+  { name: "Подарки", id: FlowerCategoriesEnum.Gifts },
+  {
+    name: "Букеты из хризантем",
+    id: FlowerCategoriesEnum.ChrysanthemumBouquets,
+  },
 ];
 
 const bouquet = [
@@ -52,6 +67,13 @@ const info = [
 ];
 
 export const Footer: FC = () => {
+  const dispatch = useAppDispatch();
+
+  const onClick = (categoryId: FlowerCategoriesEnum, category: string) => {
+    const obj = { categoryId, category };
+    dispatch(setCategory(obj));
+  };
+
   return (
     <footer className="footer relative z-20 bg-[#000] h-[380px]">
       <div className="container mx-auto flex h-full justify-between transition-all">
@@ -73,13 +95,15 @@ export const Footer: FC = () => {
           <li className="text-[14px] font-bold text-light-turquoise mb-2.5 uppercase">
             <Link to="catalog">Каталог</Link>
           </li>
-          {catalog.map((item, i: number) => (
-            <li
+          {categories.map((item, i: number) => (
+            <Link
+              to="catalog"
+              onClick={() => onClick(item.id, item.name)}
               key={i}
               className="text-standart font-light uppercase tracking-[0.48px] cursor-pointer hover:text-light-turquoise hover:underline"
             >
-              {item}
-            </li>
+              {item.name}
+            </Link>
           ))}
         </ul>
         <ul className="flex flex-col gap-2 mt-7">
@@ -87,12 +111,13 @@ export const Footer: FC = () => {
             Букет
           </li>
           {bouquet.map((item, i: number) => (
-            <li
+            <Link
+              to="catalog"
               key={i}
               className="text-standart font-light uppercase tracking-[0.48px] cursor-pointer hover:text-light-turquoise hover:underline"
             >
               {item}
-            </li>
+            </Link>
           ))}
         </ul>
         <ul className="flex flex-col gap-6 mt-7 max-w-[160px]">
