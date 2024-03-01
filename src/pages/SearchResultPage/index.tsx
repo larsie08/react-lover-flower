@@ -8,7 +8,11 @@ import { setCartItem } from "../../redux/cart/slice";
 import { fetchSearchBouquets } from "../../redux/filter/asyncActions";
 import { SearchFiltersParams } from "../../redux/filter/types";
 
-import { CardBlock, DecorativeElement, NoResultsMessage } from "../../components";
+import {
+  CardBlock,
+  DecorativeElement,
+  NoResultsMessage,
+} from "../../components";
 
 const SearchResultPage: FC = () => {
   const dispatch = useAppDispatch();
@@ -38,7 +42,7 @@ const SearchResultPage: FC = () => {
     <div
       className={classNames(
         "result_search max-h-[3000px] relative bg-[#040A0A] pt-[120px] pb-20",
-        { ["h-[600px]"]: items.length === 0 }
+        { ["h-[900px]"]: items.length === 0 }
       )}
     >
       <DecorativeElement className="absolute top-0 left-0 w-[217px] h-[173px] bg-light-turquoise blur-[125px]" />

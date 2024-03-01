@@ -4,10 +4,10 @@ import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { useOutletContext } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { Bouquet } from "../../../../redux/bouquets/types";
 import { RootState, useAppDispatch } from "../../../../redux/store";
 import { addReview } from "../../../../redux/reviews/slice";
 import { Reviews } from "../../../../redux/reviews/types";
+import { selectBouquetById } from "../../../../redux/bouquets/selectors";
 
 import { ReviewBlock } from "./ReviewBlock";
 
@@ -21,10 +21,9 @@ interface ReviewForm {
 const BouquetReviewsBlock: FC = () => {
   const dispatch = useAppDispatch();
 
-  const bouquet = useOutletContext<Bouquet>();
+  const id = useOutletContext<number>();
+  const bouquet = useSelector(selectBouquetById(id));
   const reviews = useSelector((state: RootState) => state.reviews.reviews);
-
-  if (!bouquet) return null;
 
   const {
     register,
@@ -55,13 +54,13 @@ const BouquetReviewsBlock: FC = () => {
       }, 1);
       const review = { rating, feedback, name, email };
       await axios.post(
-        `https://655b76e2ab37729791a92825.mockapi.io/items/${bouquet.id}/reviews`,
+        `https://655b76e2ab37729791a92825.mockapi.io/items/${id}/reviews`,
         { review }
       );
       dispatch(
         addReview({
           reviewId: String(id),
-          bouquetId: String(bouquet.id),
+          bouquetId: String(id),
           review,
         })
       );
@@ -92,8 +91,8 @@ const BouquetReviewsBlock: FC = () => {
       <div className="mt-16 flex flex-col gap-2">
         <h2 className="text-[14px] text-light-turquoise font-normal tracking-[0.84px] uppercase">
           {reviews.length > 0
-            ? `Оставьте свой отзыв на “${bouquet.name}”`
-            : `Будьте первым, кто оставил отзыв на “${bouquet.name}”`}
+            ? `Оставьте свой отзыв на “${bouquet?.name}”`
+            : `Будьте первым, кто оставил отзыв на “${bouquet?.name}”`}
         </h2>
         <h3 className="text-[14px] font-normal tracking-[0.84px]">
           Ваш адрес email не будет опубликован. Обязательные поля помечены *

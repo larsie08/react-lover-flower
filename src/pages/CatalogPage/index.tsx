@@ -33,7 +33,7 @@ const CatalogPage: FC = () => {
   ));
 
   return (
-    <div className="catalog_page relative pt-[120px] h-[3000px] bg-[#040A0A]">
+    <div className="catalog_page relative pt-[120px] pb-[200px] max-h-[3000px] bg-[#040A0A]">
       <img
         className="absolute top-0 left-0 z-10"
         src="./img/bgElements/CatalogBg/CatalogFlowerLeft.png"

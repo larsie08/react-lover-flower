@@ -2,8 +2,6 @@ import { FC, useEffect, useMemo, useState } from "react";
 import { useParams, Outlet, NavLink } from "react-router-dom";
 import axios from "axios";
 
-import MainLayout from "../../layout/MainLayout";
-
 import { Bouquet } from "../../redux/bouquets/types";
 import { useAppDispatch } from "../../redux/store";
 import { setCartItem } from "../../redux/cart/slice";
@@ -13,6 +11,7 @@ import { Reviews } from "../../redux/reviews/types";
 import {
   BouquetAdditionBlock,
   BouquetBlock,
+  BouquetSkeletonBlock,
   DecorativeElement,
 } from "../../components";
 import { BouquetBgTopLeft } from "../../assets";
@@ -21,7 +20,7 @@ const BouquetPage: FC = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams<string>();
 
-  const [bouquet, setBouquet] = useState<Bouquet>();
+  const [bouquet, setBouquet] = useState<Bouquet | undefined>();
   const [reviews, setReviews] = useState<Reviews[] | undefined>();
 
   useEffect(() => {
@@ -58,8 +57,6 @@ const BouquetPage: FC = () => {
     [dispatch]
   );
 
-  if (!bouquet) return <MainLayout />;
-
   return (
     <div className="bouquet_page pt-[120px] pb-[120px] relative bg-[#040A0A]">
       <BouquetBgTopLeft />
@@ -69,15 +66,21 @@ const BouquetPage: FC = () => {
       <DecorativeElement className="absolute top-[58rem] right-[5rem] rotate-[21.095deg] w-[711px] h-[218px] rounded-[711px] bg-light-turquoise blur-[125px]" />
       <div className="bouquet_page__wrapper container mx-auto relative z-20">
         <div className="title text-[12px] font-normal tracking-[0.48px] uppercase">
-          Главная / Каталог букетов / Популярное / {bouquet.name}
+          Главная / Каталог букетов / Популярное / {bouquet?.name}
         </div>
-        <BouquetBlock
-          id={bouquet.id}
-          name={bouquet.name}
-          cost={bouquet.cost}
-          imageUrl={bouquet.imageUrl}
-          onClick={onClick}
-        />
+
+        {!bouquet ? (
+          <BouquetSkeletonBlock />
+        ) : (
+          <BouquetBlock
+            id={bouquet.id}
+            name={bouquet.name}
+            cost={bouquet.cost}
+            imageUrl={bouquet.imageUrl}
+            onClick={onClick}
+          />
+        )}
+
         <div className="bouquet_addition_order__block flex flex-col items-center mt-20 gap-11">
           <BouquetAdditionBlock />
         </div>
@@ -110,7 +113,7 @@ const BouquetPage: FC = () => {
               </h1>
             </NavLink>
           </div>
-          <Outlet context={bouquet} />
+          <Outlet context={id} />
         </div>
       </div>
       <img

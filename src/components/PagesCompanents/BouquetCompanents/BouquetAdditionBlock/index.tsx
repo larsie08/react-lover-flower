@@ -36,13 +36,13 @@ export const BouquetAdditionBlock: FC = () => {
         {infoCards.map((obj, id) => (
           <div
             key={id}
-            className="card relative p-6 flex flex-col items-center gap-5 rounded-[20px] bg-[#000]/[0.30] backdrop-blur-[10px] z-10"
+            className="card [&:last-of-type_p]:mt-6 relative p-6 flex flex-col items-center gap-5 rounded-[20px] bg-[#000]/[0.30] backdrop-blur-[10px] z-10"
           >
             <CardCircleSvg />
             <h2 className="max-w-[125px] text-center text-[14px] mt-2 text-light-turquoise font-normal tracking-[0.56px] uppercase">
               {obj.title}
             </h2>
-            <p className="max-w-[218px] text-center text-[14px] font-normal tracking-[0.84px]">
+            <p className=" max-w-[218px] text-center text-[14px] font-normal tracking-[0.84px]">
               {obj.content}
             </p>
           </div>

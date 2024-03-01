@@ -1,14 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import { RootState, useAppDispatch } from "./redux/store";
 import { fetchBouquets } from "./redux/bouquets/asyncActions";
 
-import { CallModal, Cart } from "./components";
-
 import Home from "./pages/Home";
 import MainLayout from "./layout/MainLayout";
-import { useSelector } from "react-redux";
+import { CallModal, Cart } from "./components";
 
 const DeliveryPage = lazy(() => import("./pages/DeliveryPage"));
 const AboutUsPage = lazy(() => import("./pages/AboutUsPage"));
