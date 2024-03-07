@@ -12,6 +12,7 @@ import {
 import { setCategory } from "../../redux/filter/slice";
 
 import { CartBlock, InfoBlock, Search } from "./HeaderCompanents";
+import { DecorativeElement } from "..";
 
 const categories: Category[] = [
   { name: "Популярное", id: FlowerCategoriesEnum.PopularItems },
@@ -90,9 +91,10 @@ export const Header: FC = () => {
             <li className="group catalog-header text-[14px] font-normal tracking-[.56px] relative uppercase py-3">
               <Link
                 to="catalog"
-                className="hover:text-light-turquoise hover:underline hover:decoration-light-turquoise cursor-pointer"
+                className="group/link hover:text-light-turquoise hover:decoration-light-turquoise cursor-pointer transition-all"
               >
                 Каталог
+                <DecorativeElement className="absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/link:w-full group-hover/link:visible transition-all" />
               </Link>
               <ul className="submenu absolute group-[:hover]:visible group-[:hover]:opacity-100 opacity-0 -left-4 top-[40px] invisible bg-[grey]/[.3] backdrop-blur-[10px] flex flex-col gap-1 w-[260px] p-2 transition-all z-20">
                 {categories.map((obj) => (
@@ -100,9 +102,10 @@ export const Header: FC = () => {
                     to="catalog"
                     onClick={() => onClick(obj.id, obj.name)}
                     key={obj.id}
-                    className="catalog_name group-[:hover]:opacity-100 opacity-0 text-[14px] font-normal relative z-30 tracking-[.56px] uppercase cursor-pointer hover:text-light-turquoise hover:underline hover:decoration-light-turquoise"
+                    className="group/categories catalog_name group-[:hover]:opacity-100 opacity-0 text-[14px] font-normal relative z-30 tracking-[.56px] uppercase cursor-pointer hover:text-light-turquoise"
                   >
                     {obj.name}
+                    <DecorativeElement className="absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/categories:w-full group-hover/categories:visible transition-all duration-300" />
                   </Link>
                 ))}
               </ul>
@@ -110,10 +113,13 @@ export const Header: FC = () => {
 
             {nav.map((obj, i) => (
               <li
-                className="text-[14px] font-normal tracking-[.56px] uppercase hover:text-light-turquoise hover:underline hover:decoration-light-turquoise"
+                className="group/nav text-[14px] font-normal tracking-[.56px] uppercase hover:text-light-turquoise transition-colors"
                 key={i}
               >
-                <Link to={obj.url}>{obj.link}</Link>
+                <Link to={obj.url} className="relative">
+                  {obj.link}
+                  <DecorativeElement className="absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/nav:w-full group-hover/nav:visible transition-all" />
+                </Link>
               </li>
             ))}
           </ul>

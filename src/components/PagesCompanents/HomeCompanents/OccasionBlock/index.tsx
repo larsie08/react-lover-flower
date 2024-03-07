@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import { ArrowToBtnSvg, OccasionCherrySvg } from "../../../../assets";
+import { Link } from "react-router-dom";
 
 export const OccasionBlock: FC = () => {
   return (
@@ -44,18 +45,29 @@ export const OccasionBlock: FC = () => {
               </li>
             </ul>
             <ArrowToBtnSvg />
-            <button className="h-[50px] text-[12px] font-bold tracking-[1.2px] uppercase text-[black] bg-light-turquoise hover:bg-cherry hover:text-[white] focus:border focus:border-cherry focus active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]">собрать индивидуальный букет</button>
+            <Link
+              to="catalog"
+              className="h-[50px] text-[12px] font-bold tracking-[1.2px] text-center p-4 transition uppercase text-[black] bg-light-turquoise hover:bg-cherry hover:text-[white] focus:border focus:border-cherry active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]"
+            >
+              собрать индивидуальный букет
+            </Link>
           </div>
           <div className="img_block">
             <ul className="flex gap-8">
               <li>
-                <img src="./img/HomeImg/occasionImg/bouquet.png" alt="bouquet" />
+                <img
+                  src="./img/HomeImg/occasionImg/bouquet.png"
+                  alt="bouquet"
+                />
               </li>
               <li>
                 <img src="./img/HomeImg/occasionImg/cloth.png" alt="cloth" />
               </li>
               <li>
-                <img src="./img/HomeImg/occasionImg/decoration.png" alt="decoration" />
+                <img
+                  src="./img/HomeImg/occasionImg/decoration.png"
+                  alt="decoration"
+                />
               </li>
             </ul>
           </div>

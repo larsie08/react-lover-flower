@@ -24,7 +24,7 @@ export const Intro: FC = () => {
         src="./img/bgElements/HomeBg/intro.png"
         alt="intro"
       />
-
+      
       <DecorativeElement className="w-[359px] h-[294px] rotate-[41.599deg] rounded-[359px] bg-light-turquoise blur-[125px] absolute top-[34rem] left-[16rem] " />
       <DecorativeElement className="w-[473px] h-[212px] -rotate-[43.21deg] rounded-[473px] bg-cherry blur-[125px] absolute top-[25rem] right-[25rem]" />
 

@@ -17,6 +17,7 @@ import {
 const SearchResultPage: FC = () => {
   const dispatch = useAppDispatch();
   const { searchValue } = useParams<SearchFiltersParams>();
+
   const items = useSelector((state: RootState) => state.filter.searchItems);
 
   useEffect(() => {

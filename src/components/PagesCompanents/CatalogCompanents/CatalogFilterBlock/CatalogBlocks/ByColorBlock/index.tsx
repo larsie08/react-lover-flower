@@ -1,8 +1,4 @@
 import { FC } from "react";
-import { useSelector } from "react-redux";
-
-import { RootState, useAppDispatch } from "../../../../../../redux/store";
-import { setFiltersId } from "../../../../../../redux/filter/slice";
 
 import { CatalogCheckSvg } from "../../../../../../assets";
 

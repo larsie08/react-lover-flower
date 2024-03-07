@@ -3,10 +3,8 @@ import { useParams, Outlet, NavLink } from "react-router-dom";
 import axios from "axios";
 
 import { Bouquet } from "../../redux/bouquets/types";
-import { useAppDispatch } from "../../redux/store";
+import { RootState, useAppDispatch } from "../../redux/store";
 import { setCartItem } from "../../redux/cart/slice";
-import { fetchReviews } from "../../redux/reviews/asyncActions";
-import { Reviews } from "../../redux/reviews/types";
 
 import {
   BouquetAdditionBlock,
@@ -15,13 +13,15 @@ import {
   DecorativeElement,
 } from "../../components";
 import { BouquetBgTopLeft } from "../../assets";
+import { useSelector } from "react-redux";
 
 const BouquetPage: FC = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams<string>();
 
+  const reviews = useSelector((state: RootState) => state.reviews.reviews);
+
   const [bouquet, setBouquet] = useState<Bouquet | undefined>();
-  const [reviews, setReviews] = useState<Reviews[] | undefined>();
 
   useEffect(() => {
     async function fetchBouquet() {
@@ -29,12 +29,8 @@ const BouquetPage: FC = () => {
         const { data } = await axios.get<Bouquet>(
           `https://655b76e2ab37729791a92825.mockapi.io/items/${id}`
         );
-        const { payload } = (await dispatch(fetchReviews({ id }))) as {
-          payload: Reviews[];
-        };
 
         setBouquet(data);
-        setReviews(payload);
       } catch (error) {
         console.log(error);
       }
@@ -92,7 +88,7 @@ const BouquetPage: FC = () => {
               className={({ isActive }) =>
                 isActive
                   ? "w-[358px] flex flex-col justify-center border-b-[3px] rounded-[2px] text-light-turquoise"
-                  : "w-[358px] flex flex-col justify-center border-b-[1px] text-[#555555] hover:text-light-turquoise"
+                  : "w-[358px] flex flex-col justify-center border-b-[1px] text-[#555555] hover:text-light-turquoise transition-all"
               }
             >
               <h1 className="text-[20px] text-center font-light tracking-[0.8px] uppercase pb-7">
@@ -105,7 +101,7 @@ const BouquetPage: FC = () => {
               className={({ isActive }) =>
                 isActive
                   ? "w-[358px] flex flex-col justify-center border-b-[3px] rounded-[2px] text-light-turquoise"
-                  : "w-[358px] flex flex-col justify-center border-b-[1px] text-[#555555] hover:text-light-turquoise"
+                  : "w-[358px] flex flex-col justify-center border-b-[1px] text-[#555555] hover:text-light-turquoise transition-all"
               }
             >
               <h1 className="text-[20px] text-center font-light tracking-[0.8px] uppercase pb-7">
@@ -117,7 +113,7 @@ const BouquetPage: FC = () => {
         </div>
       </div>
       <img
-        className="absolute bottom-4 right-0"
+        className="absolute top-[60rem] right-0"
         src="./img/bgElements/BouquetBg/leafsBg.png"
         alt="leafs"
       />

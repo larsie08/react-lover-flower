@@ -1,10 +1,18 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
-import { SocialsSvg } from "../../assets";
 import { Category, FlowerCategoriesEnum } from "../../redux/filter/types";
 import { useAppDispatch } from "../../redux/store";
 import { setCategory } from "../../redux/filter/slice";
+
+import { DecorativeElement } from "..";
+import { SocialsSvg } from "../../assets";
+import {
+  FooterBouquetBlock,
+  FooterCategoriesBlock,
+  FooterPagesBlock,
+  FooterTitleBlock,
+} from "./FooterCompanents";
 
 const categories: Category[] = [
   { name: "Популярное", id: FlowerCategoriesEnum.PopularItems },
@@ -92,43 +100,24 @@ export const Footer: FC = () => {
           </p>
         </div>
         <ul className="flex flex-col gap-2 mt-7">
-          <li className="text-[14px] font-bold text-light-turquoise mb-2.5 uppercase">
-            <Link to="catalog">Каталог</Link>
-          </li>
-          {categories.map((item, i: number) => (
-            <Link
-              to="catalog"
-              onClick={() => onClick(item.id, item.name)}
-              key={i}
-              className="text-standart font-light uppercase tracking-[0.48px] cursor-pointer hover:text-light-turquoise hover:underline"
-            >
-              {item.name}
-            </Link>
+          <FooterTitleBlock title={"Каталог"} />
+          {categories.map((item) => (
+            <FooterCategoriesBlock
+              key={item.id}
+              category={item}
+              onClick={onClick}
+            />
           ))}
         </ul>
         <ul className="flex flex-col gap-2 mt-7">
-          <li className="text-[14px] font-bold text-light-turquoise mb-2.5 uppercase">
-            Букет
-          </li>
-          {bouquet.map((item, i: number) => (
-            <Link
-              to="catalog"
-              key={i}
-              className="text-standart font-light uppercase tracking-[0.48px] cursor-pointer hover:text-light-turquoise hover:underline"
-            >
-              {item}
-            </Link>
+          <FooterTitleBlock title={"Букет"} />
+          {bouquet.map((name, id: number) => (
+            <FooterBouquetBlock key={id} name={name} />
           ))}
         </ul>
         <ul className="flex flex-col gap-6 mt-7 max-w-[160px]">
-          {links.map((obj, i: number) => (
-            <Link
-              key={i}
-              to={obj.url}
-              className="text-[14px] font-bold text-light-turquoise uppercase cursor-pointer hover:underline"
-            >
-              {obj.link}
-            </Link>
+          {links.map((obj, id: number) => (
+            <FooterPagesBlock key={id} page={obj} />
           ))}
         </ul>
         <div className="flex flex-col gap-5 mt-7">

@@ -1,13 +1,14 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import axios from "axios";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { useOutletContext } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { RootState, useAppDispatch } from "../../../../redux/store";
+import { useAppDispatch } from "../../../../redux/store";
 import { addReview } from "../../../../redux/reviews/slice";
 import { Reviews } from "../../../../redux/reviews/types";
 import { selectBouquetById } from "../../../../redux/bouquets/selectors";
+import { fetchReviews } from "../../../../redux/reviews/asyncActions";
 
 import { ReviewBlock } from "./ReviewBlock";
 
@@ -21,9 +22,10 @@ interface ReviewForm {
 const BouquetReviewsBlock: FC = () => {
   const dispatch = useAppDispatch();
 
-  const id = useOutletContext<number>();
-  const bouquet = useSelector(selectBouquetById(id));
-  const reviews = useSelector((state: RootState) => state.reviews.reviews);
+  const bouquetId = useOutletContext<string>();
+  const bouquet = useSelector(selectBouquetById(bouquetId));
+
+  const [reviews, setReviews] = useState<Reviews[] | undefined>();
 
   const {
     register,
@@ -39,6 +41,21 @@ const BouquetReviewsBlock: FC = () => {
     console.log(data);
   };
 
+  useEffect(() => {
+    async function fetchBouquet() {
+      try {
+        const { payload } = (await dispatch(fetchReviews({ bouquetId }))) as {
+          payload: Reviews[];
+        };
+
+        setReviews(payload);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchBouquet();
+  }, [bouquetId, dispatch]);
+
   const sendReview = async (
     rating: number,
     feedback: string,
@@ -46,23 +63,36 @@ const BouquetReviewsBlock: FC = () => {
     email: string
   ) => {
     try {
-      const id = reviews.reduce((foundId: number, item: Reviews) => {
+      const review = { rating, feedback, name, email };
+      const reviewId = reviews?.reduce((foundId: number, item: Reviews) => {
         if (Number(item.reviewId) === foundId) {
           foundId++;
         }
         return foundId;
       }, 1);
-      const review = { rating, feedback, name, email };
-      await axios.post(
-        `https://655b76e2ab37729791a92825.mockapi.io/items/${id}/reviews`,
-        { review }
-      );
+
+      setReviews((prevReviews) => {
+        return [
+          ...(prevReviews || []),
+          {
+            reviewId: String(reviewId),
+            bouquetId: String(bouquetId),
+            review,
+          },
+        ];
+      });
+
       dispatch(
         addReview({
-          reviewId: String(id),
-          bouquetId: String(id),
+          reviewId: String(reviewId),
+          bouquetId: String(bouquetId),
           review,
         })
+      );
+
+      await axios.post(
+        `https://655b76e2ab37729791a92825.mockapi.io/items/${bouquetId}/reviews`,
+        { review }
       );
     } catch (error) {
       console.log(error);
@@ -72,7 +102,7 @@ const BouquetReviewsBlock: FC = () => {
   return (
     <div className="mt-16">
       <div className="reviews">
-        {reviews.length > 0 ? (
+        {reviews ? (
           reviews.map((obj) => (
             <ReviewBlock
               key={obj.reviewId}
@@ -90,7 +120,7 @@ const BouquetReviewsBlock: FC = () => {
 
       <div className="mt-16 flex flex-col gap-2">
         <h2 className="text-[14px] text-light-turquoise font-normal tracking-[0.84px] uppercase">
-          {reviews.length > 0
+          {reviews
             ? `Оставьте свой отзыв на “${bouquet?.name}”`
             : `Будьте первым, кто оставил отзыв на “${bouquet?.name}”`}
         </h2>

@@ -1,8 +1,16 @@
+import classNames from "classnames";
 import { FC } from "react";
 
-export const CatalogTipSvg: FC = () => {
+interface CatalogTipProps {
+  isOpen: boolean;
+}
+
+export const CatalogTipSvg: FC<CatalogTipProps> = ({ isOpen }) => {
   return (
     <svg
+      className={classNames("transition-all duration-300", {
+        ["-rotate-180"]: isOpen,
+      })}
       xmlns="http://www.w3.org/2000/svg"
       width="12"
       height="12"

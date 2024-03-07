@@ -6,6 +6,7 @@ import { setSortValue } from "../../../../redux/filter/slice";
 import { SortPropertyEnum, SortType } from "../../../../redux/filter/types";
 
 import { CatalogTipSvg } from "../../../../assets";
+import classNames from "classnames";
 
 const sortOptions = [
   { name: "по популярности", sortProperty: SortPropertyEnum.RATING },
@@ -64,22 +65,27 @@ export const CatalogSortBlock: FC = () => {
         <span className="text-[12px] font-light tracking-[0.48px] uppercase">
           {sortValue.name}
         </span>
-        <CatalogTipSvg />
+        <CatalogTipSvg isOpen={isOpen} />
       </div>
-
-      {isOpen && (
-        <div className="popup absolute left-0 top-[42px] p-3 w-[260px] flex flex-col gap-2 rounded-[5px] bg-[#000]/[.40] z-30">
-          {availableSortOptions.map((option, id) => (
-            <li
-              onClick={() => handleSortChange(option)}
-              className="text-[12px] font-light tracking-[0.48px] uppercase cursor-pointer"
-              key={id}
-            >
-              {option.name}
-            </li>
-          ))}
-        </div>
-      )}
+      <div
+        className={classNames(
+          "popup absolute left-0 top-[42px] p-3 w-[260px] flex flex-col gap-2 rounded-[5px] bg-[#000]/[.40] z-30 transition-all duration-150",
+          {
+            ["visible h-[70px] opacity-100"]: isOpen,
+            ["invisible h-0 opacity-0"]: !isOpen,
+          }
+        )}
+      >
+        {availableSortOptions.map((option, id) => (
+          <li
+            onClick={() => handleSortChange(option)}
+            className="text-[12px] font-light tracking-[0.48px] uppercase cursor-pointer"
+            key={id}
+          >
+            {option.name}
+          </li>
+        ))}
+      </div>
     </ul>
   );
 };

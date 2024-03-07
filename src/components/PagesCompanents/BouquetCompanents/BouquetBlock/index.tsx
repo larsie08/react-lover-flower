@@ -99,14 +99,14 @@ export const BouquetBlock: FC<BouquetBlockProps> = ({
           <div className="flex gap-8">
             <button
               onClick={handleAddToCart}
-              className="border-[.5px] w-[255px] p-4 text-[12px] font-bold tracking-[1.2px] uppercase hover:bg-light-turquoise hover:text-[black] focus:border-light-turquoise active:shadow-[0_0_10px_0_#01281F_inset]"
+              className="border-[.5px] w-[255px] p-4 text-[12px] font-bold tracking-[1.2px] uppercase hover:bg-light-turquoise hover:text-[black] focus:border-light-turquoise active:shadow-[0_0_10px_0_#01281F_inset] transition"
             >
               В корзину
             </button>
             <form className="flex justify-around items-center w-[160px] border-[0.5px] border-[#555]">
               <button
                 onClick={handleMinus}
-                className="h-full w-[8px] text-[#555]"
+                className="h-full w-[8px] disabled:text-[#555] text-[white] hover:text-light-turquoise active:text-cherry transition-colors"
                 disabled={count === 1}
               >
                 –
@@ -114,7 +114,7 @@ export const BouquetBlock: FC<BouquetBlockProps> = ({
               <b>{count}</b>
               <button
                 onClick={handlePlus}
-                className="h-full w-[8px] text-[#555]"
+                className="h-full w-[8px] text-[white] hover:text-light-turquoise active:text-cherry transition-colors"
               >
                 +
               </button>

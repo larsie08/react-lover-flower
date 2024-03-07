@@ -17,5 +17,5 @@ export interface ReviewsSliceState {
 }
 
 export interface ReviewsParams {
-  id: string | undefined;
+  bouquetId: string | undefined;
 }
