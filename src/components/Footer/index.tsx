@@ -1,11 +1,9 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
 
 import { Category, FlowerCategoriesEnum } from "../../redux/filter/types";
 import { useAppDispatch } from "../../redux/store";
 import { setCategory } from "../../redux/filter/slice";
 
-import { DecorativeElement } from "..";
 import { SocialsSvg } from "../../assets";
 import {
   FooterBouquetBlock,
