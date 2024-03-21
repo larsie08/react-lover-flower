@@ -21,11 +21,13 @@ interface ReviewForm {
 
 const BouquetReviewsBlock: FC = () => {
   const dispatch = useAppDispatch();
+  const date = new Date();
 
   const bouquetId = useOutletContext<string>();
   const bouquet = useSelector(selectBouquetById(bouquetId));
 
   const [reviews, setReviews] = useState<Reviews[] | undefined>();
+  const currentDate = date.toLocaleDateString().split(".").join("/");
 
   const {
     register,
@@ -63,7 +65,7 @@ const BouquetReviewsBlock: FC = () => {
     email: string
   ) => {
     try {
-      const review = { rating, feedback, name, email };
+      const review = { rating, feedback, name, email, currentDate };
       const reviewId = reviews?.reduce((foundId: number, item: Reviews) => {
         if (Number(item.reviewId) === foundId) {
           foundId++;
@@ -109,6 +111,7 @@ const BouquetReviewsBlock: FC = () => {
               rating={obj.review.rating}
               feedback={obj.review.feedback}
               name={obj.review.name}
+              currentDate={obj.review.currentDate}
             />
           ))
         ) : (
@@ -133,9 +136,7 @@ const BouquetReviewsBlock: FC = () => {
         className="flex flex-col gap-5 mt-5"
       >
         <div className="flex flex-col">
-          <label className="" htmlFor="rating-group">
-            Ваша оценка:
-          </label>
+          <label htmlFor="rating-group">Ваша оценка:</label>
           <div className="rating__group mt-1 relative p-0 w-[10em] h-[2em]">
             <input
               className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"

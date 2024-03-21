@@ -1,9 +1,10 @@
 import { FC } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../../../redux/store";
 
-export const CartTotalPrice: FC = () => {
-  const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
+interface CartTotalPriceProps {
+  totalPrice: number;
+}
+
+export const CartTotalPrice: FC<CartTotalPriceProps> = ({ totalPrice }) => {
   return (
     <div className="total_price_block flex flex-col gap-5">
       <div className="total_price w-[295px]">

@@ -8,6 +8,7 @@ export interface Reviews {
     feedback: string;
     name: string;
     email: string;
+    currentDate: string;
   };
 }
 

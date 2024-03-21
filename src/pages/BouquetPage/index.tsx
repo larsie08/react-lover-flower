@@ -1,6 +1,7 @@
 import { FC, useEffect, useMemo, useState } from "react";
 import { useParams, Outlet, NavLink } from "react-router-dom";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 import { Bouquet } from "../../redux/bouquets/types";
 import { RootState, useAppDispatch } from "../../redux/store";
@@ -13,7 +14,6 @@ import {
   DecorativeElement,
 } from "../../components";
 import { BouquetBgTopLeft } from "../../assets";
-import { useSelector } from "react-redux";
 
 const BouquetPage: FC = () => {
   const dispatch = useAppDispatch();
@@ -105,7 +105,7 @@ const BouquetPage: FC = () => {
               }
             >
               <h1 className="text-[20px] text-center font-light tracking-[0.8px] uppercase pb-7">
-                отзывы ({reviews ? reviews.length : 0})
+                отзывы {reviews.length > 0 ? `(${reviews.length})` : null}
               </h1>
             </NavLink>
           </div>

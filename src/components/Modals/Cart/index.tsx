@@ -1,8 +1,9 @@
 import { FC, useEffect } from "react";
 import { createPortal } from "react-dom";
+import { useSelector } from "react-redux";
+import classNames from "classnames";
 
 import { RootState, useAppDispatch } from "../../../redux/store";
-import { useSelector } from "react-redux";
 import { setDeleteBouquet, updateItemCount } from "../../../redux/cart/slice";
 import { setIsOpenCart } from "../../../redux/modal/slice";
 
@@ -14,21 +15,20 @@ import {
 } from "./CartComponents";
 import { DecorativeElement } from "../..";
 
-import classNames from "classnames";
 import { setPadding } from "../../../utils/setPadding";
 
 export const Cart: FC = () => {
   const dispatch = useAppDispatch();
   const isOpen = useSelector((state: RootState) => state.modal.isOpenCart);
-  const cart = useSelector((state: RootState) => state.cart.items);
+  const { totalPrice, items } = useSelector((state: RootState) => state.cart);
 
   const increaseDelta = 1;
   const decreaseDelta = -1;
 
   useEffect(() => {
-    const json = JSON.stringify(cart);
+    const json = JSON.stringify(items);
     localStorage.setItem("flower-cart", json);
-  }, [cart]);
+  }, [items]);
 
   useEffect(() => {
     setPadding(isOpen);
@@ -67,13 +67,13 @@ export const Cart: FC = () => {
         )}
       >
         <div className="flex flex-col overflow-y-hidden">
-          <CartTitleBlock />
+          <CartTitleBlock closeCart={closeCart} />
           <div
-            className={classNames("flex flex-col", {
-              ["overflow-y-scroll"]: cart.length > 5,
+            className={classNames("flex flex-col pr-4", {
+              ["overflow-y-scroll"]: items.length > 5,
             })}
           >
-            {cart.map((obj) => (
+            {items.map((obj) => (
               <CartCardBlock
                 key={obj.id}
                 id={obj.id}
@@ -91,7 +91,7 @@ export const Cart: FC = () => {
         <div className="flex flex-col">
           <CartBallsBlock />
           <DecorativeElement className="mt-7 mb-3 border-b-[1px] border-[#555]" />
-          <CartTotalPrice />
+          <CartTotalPrice totalPrice={totalPrice} />
         </div>
       </div>
     </div>,

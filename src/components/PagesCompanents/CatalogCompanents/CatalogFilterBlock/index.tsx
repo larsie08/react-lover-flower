@@ -11,7 +11,7 @@ import {
   ByFormatBlock,
   ByLightBlock,
   RangeBlock,
-} from "./CatalogBlocks";
+} from "./FilterCompanents";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../redux/store";
 

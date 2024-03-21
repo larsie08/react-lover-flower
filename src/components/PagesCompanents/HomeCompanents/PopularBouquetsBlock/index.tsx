@@ -1,9 +1,6 @@
-import { FC, useEffect, useMemo, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 
-import { RootState, useAppDispatch } from "../../../../redux/store";
-import { setCartItem } from "../../../../redux/cart/slice";
 import { Bouquet } from "../../../../redux/bouquets/types";
 
 import {
@@ -16,18 +13,24 @@ import {
 
 import { BouquetsTitleBlock, PopularCardBlock } from "./BouquetsComponents";
 
-export const PopularBouquetsBlock: FC = () => {
-  const dispatch = useAppDispatch();
-  const items = useSelector((state: RootState) => state.bouquets.items);
+interface PopularBouquetsProps {
+  onClick: (id: number, name: string, imageUrl: string, cost: number) => void;
+  bouquets: Bouquet[];
+}
+
+export const PopularBouquetsBlock: FC<PopularBouquetsProps> = ({
+  onClick,
+  bouquets,
+}) => {
   const [slideItems, setSlideItems] = useState<Bouquet[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(1);
 
   useEffect(() => {
-    setSlideItems(items.slice(currentIndex, currentIndex + 3));
-  }, [items, currentIndex]);
+    setSlideItems(bouquets.slice(currentIndex, currentIndex + 3));
+  }, [bouquets, currentIndex]);
 
   const nextSlide = () => {
-    if (currentIndex < items.length - 3) {
+    if (currentIndex < bouquets.length - 3) {
       setCurrentIndex(currentIndex + 1);
     }
   };
@@ -37,14 +40,6 @@ export const PopularBouquetsBlock: FC = () => {
       setCurrentIndex(currentIndex - 1);
     }
   };
-
-  const onClick = useMemo(
-    () => (id: number, name: string, imageUrl: string, cost: number) => {
-      const bouquet = { id, name, imageUrl, cost, count: 1 };
-      dispatch(setCartItem(bouquet));
-    },
-    [dispatch]
-  );
 
   return (
     <div className="popular_bouquets relative w-full h-[1300px]">

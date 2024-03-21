@@ -1,8 +1,10 @@
 import { FC } from "react";
-
-import { Category, FlowerCategoriesEnum } from "../../../../../../redux/filter/types";
-
 import classNames from "classnames";
+
+import {
+  Category,
+  FlowerCategoriesEnum,
+} from "../../../../../redux/filter/types";
 
 interface CategoryItemProps {
   category: Category;

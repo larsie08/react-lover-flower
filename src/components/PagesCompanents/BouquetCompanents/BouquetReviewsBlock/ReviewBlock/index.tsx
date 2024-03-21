@@ -6,9 +6,15 @@ interface ReviewProps {
   rating: number;
   feedback: string;
   name: string;
+  currentDate: string;
 }
 
-export const ReviewBlock: FC<ReviewProps> = ({ rating, feedback, name }) => {
+export const ReviewBlock: FC<ReviewProps> = ({
+  rating,
+  feedback,
+  name,
+  currentDate,
+}) => {
   return (
     <div className="flex flex-col gap-2">
       <p className="h-[25px] text-light-turquoise text-[30px] font-normal tracking-[0.6px] uppercase">
@@ -32,7 +38,7 @@ export const ReviewBlock: FC<ReviewProps> = ({ rating, feedback, name }) => {
           {name},
         </h4>
         <h4 className="text-[14px] font-normal tracking-[0.28px] text-[#555]">
-          10/10/2021
+          {currentDate}
         </h4>
       </div>
     </div>

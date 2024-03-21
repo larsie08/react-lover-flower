@@ -1,30 +1,31 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import classNames from "classnames";
 
-import { setIsOpenCart, setIsOpenModal } from "../../../../redux/modal/slice";
-import { RootState, useAppDispatch } from "../../../../redux/store";
+import { CartItem } from "../../../../redux/cart/types";
 
 import { CartSvg, PhoneButtonSvg } from "../../../../assets";
 import { DecorativeElement } from "../../..";
 import { IntroTitleBlock } from "./IntroComponents/IntroTitleBlock";
-import classNames from "classnames";
 
-export const Intro: FC = () => {
-  const dispatch = useAppDispatch();
-  const cart = useSelector((state: RootState) => state.cart.items);
+interface IntroProps {
+  cart: CartItem[];
+  openModal: () => void;
+  openCart: () => void;
+}
 
-  const openModal = () => dispatch(setIsOpenModal(true));
-  const openCart = () => dispatch(setIsOpenCart(true));
-
+export const Intro: FC<IntroProps> = ({ cart, openModal, openCart }) => {
   return (
     <div className="intro relative pt-[140px] h-[1600px]">
       <img
-        className="intro_img absolute h-[1600px] w-full top-0 left-0 z-10"
+        className="intro_img absolute h-full w-full top-0 left-0 z-10"
         src="./img/bgElements/HomeBg/intro.png"
         alt="intro"
       />
-      
+      <img
+        src="./img/HomeImg/shadow.png"
+        className="absolute h-[500px] w-full z-20 bottom-0 bg-cover"
+      />
       <DecorativeElement className="w-[359px] h-[294px] rotate-[41.599deg] rounded-[359px] bg-light-turquoise blur-[125px] absolute top-[34rem] left-[16rem] " />
       <DecorativeElement className="w-[473px] h-[212px] -rotate-[43.21deg] rounded-[473px] bg-cherry blur-[125px] absolute top-[25rem] right-[25rem]" />
 
@@ -38,7 +39,7 @@ export const Intro: FC = () => {
               </h2>
               <Link
                 to="catalog"
-                className="bg-light-turquoise h-[50px] w-[220px] text-[black] mt-12 px-12 py-4 border border-light-turquoise uppercase text-standart font-bold tracking-[1.2px] hover:bg-cherry hover:border-cherry hover:text-[white] focus:border-cherry focus active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]"
+                className="bg-light-turquoise h-[50px] w-[220px] text-[black] mt-12 px-12 py-4 border border-light-turquoise uppercase text-standart font-bold tracking-[1.2px] hover:bg-cherry hover:border-cherry hover:text-[white] focus:border-cherry focus active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset] transition-all"
               >
                 смотреть каталог
               </Link>

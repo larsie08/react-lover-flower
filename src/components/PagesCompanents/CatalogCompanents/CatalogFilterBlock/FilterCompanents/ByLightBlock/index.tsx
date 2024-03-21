@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import { CatalogCheckSvg } from "../../../../../../assets";
+import { DecorativeElement } from "../../../../..";
 
 const lighting = [
   { id: "gentle", name: "нежные" },
@@ -26,12 +27,15 @@ export const ByLightBlock: FC<ByLightBlockProps> = ({
           <li key={obj.id} className="flex gap-1">
             <label
               onClick={() => handleClick(obj.id)}
-              className="flex items-center gap-1 text-[12px] font-light tracking-[0.48px] uppercase cursor-pointer"
+              className="group/light_filter flex items-center gap-1 text-[12px] font-light tracking-[0.48px] uppercase cursor-pointer"
             >
               <div className="relative w-[12px] h-[12px] rounded-[2px] border-[0.5px] border-[#FFF]">
                 {isClicked(obj.id) && <CatalogCheckSvg />}
               </div>
-              {obj.name}
+              <p className="relative group-hover/light_filter:text-light-turquoise duration-200 transition-all">
+                {obj.name}
+                <DecorativeElement className="absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/light_filter:w-full group-hover/light_filter:visible transition-all duration-200" />
+              </p>
             </label>
           </li>
         ))}

@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import { CatalogCheckSvg } from "../../../../../../assets";
+import { DecorativeElement } from "../../../../..";
 
 const format = [
   { id: "bouquet", name: "букет" },
@@ -30,12 +31,15 @@ export const ByFormatBlock: FC<ByFormatBlockProps> = ({
           <li key={obj.id} className="flex gap-1">
             <label
               onClick={() => handleClick(obj.id)}
-              className="flex items-center gap-1 text-[12px] font-light tracking-[0.48px] uppercase cursor-pointer"
+              className="group/format_filter flex items-center gap-1 text-[12px] font-light tracking-[0.48px] uppercase cursor-pointer"
             >
               <div className="relative w-[12px] h-[12px] rounded-[2px] border-[0.5px] border-[#FFF]">
                 {isClicked(obj.id) && <CatalogCheckSvg />}
               </div>
-              {obj.name}
+              <p className="relative group-hover/format_filter:text-light-turquoise transition-all duration-200">
+                {obj.name}
+                <DecorativeElement className="absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/format_filter:w-full group-hover/format_filter:visible transition-all duration-200" />
+              </p>
             </label>
           </li>
         ))}

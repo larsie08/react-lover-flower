@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import { CatalogCheckSvg } from "../../../../../../assets";
+import { DecorativeElement } from "../../../../..";
 
 const colors = [
   { id: "white", name: "белый" },
@@ -31,12 +32,15 @@ export const ByColorBlock: FC<ByColorBlockProps> = ({
           <li key={obj.id}>
             <label
               onClick={() => handleClick(obj.id)}
-              className="flex items-center gap-1 text-[12px] font-light tracking-[0.48px] uppercase cursor-pointer"
+              className="group/color_filter flex items-center gap-1 text-[12px] font-light tracking-[0.48px] uppercase cursor-pointer"
             >
               <div className="relative w-[12px] h-[12px] rounded-[2px] border-[0.5px] border-[#FFF]">
                 {isClicked(obj.id) && <CatalogCheckSvg />}
               </div>
-              {obj.name}
+              <p className="relative group-hover/color_filter:text-light-turquoise duration-200 transition-all">
+                {obj.name}
+                <DecorativeElement className="absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/color_filter:w-full group-hover/color_filter:visible transition-all duration-200" />
+              </p>
             </label>
           </li>
         ))}

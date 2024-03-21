@@ -21,8 +21,8 @@ export const FAQBlock: FC<FAQBlockProps> = ({
         "w-[825px] pb-5 px-5 flex flex-col border border-light-turquoise"
       )}
     >
-      <div className="title h-[80px] relative flex items-center justify-between z-20">
-        <h1 className="text-center text-[20px] text-light-turquoise font-normal uppercase">
+      <div className="trigger h-[80px] relative flex items-center justify-between z-20">
+        <h1 className="title text-center text-[20px] text-light-turquoise font-normal uppercase">
           {title}
         </h1>
         <h2

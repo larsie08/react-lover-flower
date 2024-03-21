@@ -11,8 +11,6 @@ export const RangeBlock: FC = () => {
   const min = useSelector(selectMinPrice);
   const max = useSelector(selectMaxPrice);
 
-  console.log(max, min);
-
   const [lowerValue, setLowerValue] = useState(min);
   const [upperValue, setUpperValue] = useState(max);
 

@@ -4,7 +4,7 @@ export default {
   theme: {
     fontFamily: {
       cormorant: ["Cormorant"],
-      roboto_condensed: ["Roboto Condensed"]
+      roboto_condensed: ["Roboto Condensed"],
     },
     fontSize: {
       standart: "12px",
