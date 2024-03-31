@@ -1,4 +1,4 @@
-import { FC, useMemo } from "react";
+import { FC, memo, useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 
 import { RootState, useAppDispatch } from "../../redux/store";
@@ -15,16 +15,45 @@ import {
   SkeletonCard,
 } from "../../components";
 import { CatalogLeftSvg, CatalogRightSvg } from "../../assets";
+import { BouquetFilters } from "../../redux/bouquets/types";
+import { fetchBouquets } from "../../redux/bouquets/asyncActions";
+import { setConfirm } from "../../redux/filter/slice";
 
-const CatalogPage: FC = () => {
+const CatalogPage: FC = memo(() => {
   const dispatch = useAppDispatch();
+
   const { items, status } = useSelector((state: RootState) => state.bouquets);
+  const sortBy = useSelector(
+    (state: RootState) => state.filter.sort.sortProperty
+  );
+  const { categoryId, isConfirm, filtersId } = useSelector(
+    (state: RootState) => state.filter
+  );
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await dispatch(fetchBouquets({ sortBy, categoryId, filtersId }));
+        dispatch(setConfirm(false));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [dispatch, sortBy, categoryId, isConfirm]);
 
   const onClick = useMemo(
-    () => (id: number, name: string, imageUrl: string, cost: number) => {
-      const bouquet = { id, name, imageUrl, cost, count: 1 };
-      dispatch(setCartItem(bouquet));
-    },
+    () =>
+      (
+        id: number,
+        name: string,
+        imageUrl: string,
+        cost: number,
+        filters: BouquetFilters
+      ) => {
+        const bouquet = { id, name, imageUrl, cost, count: 1, filters };
+        dispatch(setCartItem(bouquet));
+      },
     [dispatch]
   );
 
@@ -74,6 +103,7 @@ const CatalogPage: FC = () => {
                     name={obj.name}
                     cost={obj.cost}
                     imageUrl={obj.imageUrl}
+                    filters={obj.filters}
                     onClick={onClick}
                   />
                 ))
@@ -89,6 +119,6 @@ const CatalogPage: FC = () => {
       <CatalogRightSvg />
     </div>
   );
-};
+});
 
 export default CatalogPage;

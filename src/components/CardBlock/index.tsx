@@ -3,18 +3,20 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { selectCartItemById } from "../../redux/cart/selectors";
+import { BouquetFilters } from "../../redux/bouquets/types";
 
 interface CardProps {
   id: number;
   name: string;
   cost: number;
   imageUrl: string;
+  filters: BouquetFilters;
   onClick: (
     id: number,
     name: string,
     imageUrl: string,
     cost: number,
-    count: number
+    filters: BouquetFilters
   ) => void;
 }
 
@@ -23,12 +25,13 @@ export const CardBlock: FC<CardProps> = ({
   name,
   cost,
   imageUrl,
+  filters,
   onClick,
 }) => {
   const cartItem = useSelector(selectCartItemById(id));
 
   const handleAddToCart = () => {
-    onClick(id, name, imageUrl, cost, 1);
+    onClick(id, name, imageUrl, cost, filters);
   };
 
   return (

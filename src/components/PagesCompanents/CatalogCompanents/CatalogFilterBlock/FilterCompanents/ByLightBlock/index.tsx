@@ -2,6 +2,7 @@ import { FC } from "react";
 
 import { CatalogCheckSvg } from "../../../../../../assets";
 import { DecorativeElement } from "../../../../..";
+import { ConfirmModal } from "..";
 
 const lighting = [
   { id: "gentle", name: "нежные" },
@@ -9,11 +10,13 @@ const lighting = [
 ];
 
 interface ByLightBlockProps {
+  currentId: string | undefined;
   handleClick: (id: string) => void;
   isClicked: (id: string) => boolean;
 }
 
 export const ByLightBlock: FC<ByLightBlockProps> = ({
+  currentId,
   handleClick,
   isClicked,
 }) => {
@@ -24,7 +27,7 @@ export const ByLightBlock: FC<ByLightBlockProps> = ({
       </h2>
       <ul className="flex flex-col gap-1">
         {lighting.map((obj) => (
-          <li key={obj.id} className="flex gap-1">
+          <li key={obj.id} className="flex gap-1 relative">
             <label
               onClick={() => handleClick(obj.id)}
               className="group/light_filter flex items-center gap-1 text-[12px] font-light tracking-[0.48px] uppercase cursor-pointer"
@@ -37,6 +40,7 @@ export const ByLightBlock: FC<ByLightBlockProps> = ({
                 <DecorativeElement className="absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/light_filter:w-full group-hover/light_filter:visible transition-all duration-200" />
               </p>
             </label>
+            {currentId === obj.id && <ConfirmModal />}
           </li>
         ))}
       </ul>

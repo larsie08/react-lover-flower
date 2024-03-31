@@ -13,6 +13,7 @@ import { setCategory } from "../../redux/filter/slice";
 
 import { CartBlock, InfoBlock, Search } from "./HeaderCompanents";
 import { DecorativeElement } from "..";
+import { setIsOpenCart } from "../../redux/modal/slice";
 
 const categories: Category[] = [
   { name: "Популярное", id: FlowerCategoriesEnum.PopularItems },
@@ -60,6 +61,10 @@ export const Header: FC = () => {
   const onClick = (categoryId: FlowerCategoriesEnum, category: string) => {
     const obj: CategoryProps = { categoryId, category };
     dispatch(setCategory(obj));
+  };
+
+  const openButton = () => {
+    dispatch(setIsOpenCart(true));
   };
 
   useEffect(() => {
@@ -126,7 +131,7 @@ export const Header: FC = () => {
           <Search lastScrollY={lastScrollY} />
         </div>
         {lastScrollY > defaultPosition ? (
-          <CartBlock cart={cart} />
+          <CartBlock cart={cart} openButton={openButton} />
         ) : (
           <InfoBlock />
         )}

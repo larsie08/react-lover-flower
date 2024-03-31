@@ -2,6 +2,7 @@ import { FC } from "react";
 
 import { CatalogCheckSvg } from "../../../../../../assets";
 import { DecorativeElement } from "../../../../..";
+import { ConfirmModal } from "..";
 
 const format = [
   { id: "bouquet", name: "букет" },
@@ -13,11 +14,13 @@ const format = [
 ];
 
 interface ByFormatBlockProps {
+  currentId: string | undefined;
   handleClick: (id: string) => void;
   isClicked: (id: string) => boolean;
 }
 
 export const ByFormatBlock: FC<ByFormatBlockProps> = ({
+  currentId,
   handleClick,
   isClicked,
 }) => {
@@ -28,7 +31,7 @@ export const ByFormatBlock: FC<ByFormatBlockProps> = ({
       </h2>
       <ul className="flex flex-col gap-1">
         {format.map((obj) => (
-          <li key={obj.id} className="flex gap-1">
+          <li key={obj.id} className="flex gap-1 relative">
             <label
               onClick={() => handleClick(obj.id)}
               className="group/format_filter flex items-center gap-1 text-[12px] font-light tracking-[0.48px] uppercase cursor-pointer"
@@ -41,6 +44,7 @@ export const ByFormatBlock: FC<ByFormatBlockProps> = ({
                 <DecorativeElement className="absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/format_filter:w-full group-hover/format_filter:visible transition-all duration-200" />
               </p>
             </label>
+            {currentId === obj.id && <ConfirmModal />}
           </li>
         ))}
       </ul>

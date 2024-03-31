@@ -3,7 +3,7 @@ import { useParams, Outlet, NavLink } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-import { Bouquet } from "../../redux/bouquets/types";
+import { Bouquet, BouquetFilters } from "../../redux/bouquets/types";
 import { RootState, useAppDispatch } from "../../redux/store";
 import { setCartItem } from "../../redux/cart/slice";
 
@@ -45,9 +45,10 @@ const BouquetPage: FC = () => {
         name: string,
         imageUrl: string,
         cost: number,
-        count: number
+        count: number,
+        filters: BouquetFilters
       ) => {
-        const bouquet = { id, name, imageUrl, cost, count };
+        const bouquet = { id, name, imageUrl, cost, count, filters };
         dispatch(setCartItem(bouquet));
       },
     [dispatch]
@@ -73,6 +74,7 @@ const BouquetPage: FC = () => {
             name={bouquet.name}
             cost={bouquet.cost}
             imageUrl={bouquet.imageUrl}
+            filters={bouquet.filters}
             onClick={onClick}
           />
         )}

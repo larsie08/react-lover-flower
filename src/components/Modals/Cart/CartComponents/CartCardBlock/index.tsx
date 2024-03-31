@@ -34,14 +34,14 @@ export const CartCardBlock: FC<CartCardProps> = ({
           <button
             disabled={count === 1}
             onClick={() => handleMinus(id)}
-            className="h-full w-[8px] text-[#555]"
+            className="h-full w-[8px] disabled:text-[#555] text-[white] hover:text-light-turquoise active:text-cherry transition-colors"
           >
             –
           </button>
           <b>{count}</b>
           <button
             onClick={() => handleAddToCart(id)}
-            className="h-full w-[8px] text-[#555]"
+            className="h-full w-[8px] text-[white] hover:text-light-turquoise active:text-cherry transition-colors"
           >
             +
           </button>

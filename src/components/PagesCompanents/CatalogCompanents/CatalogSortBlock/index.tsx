@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, memo, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { RootState, useAppDispatch } from "../../../../redux/store";
@@ -14,7 +14,7 @@ const sortOptions = [
   { name: "по алфавиту", sortProperty: SortPropertyEnum.NAME },
 ];
 
-export const CatalogSortBlock: FC = () => {
+export const CatalogSortBlock: FC = memo(() => {
   const dispatch = useAppDispatch();
   const sortRef = useRef<HTMLUListElement>(null);
   const sortValue = useSelector((state: RootState) => state.filter.sort);
@@ -88,4 +88,4 @@ export const CatalogSortBlock: FC = () => {
       </div>
     </ul>
   );
-};
+});

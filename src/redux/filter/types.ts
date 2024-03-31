@@ -12,6 +12,7 @@ export interface FilterSliceState {
   categoryId: FlowerCategoriesEnum | string;
   category: string;
   filtersId: string[];
+  isConfirm: boolean;
   sort: {
     name: string;
     sortProperty: SortPropertyEnum;
@@ -43,6 +44,12 @@ export enum FlowerCategoriesEnum {
   GiftWrapping = "Упаковка подарков",
 }
 
+export enum SortPropertyEnum {
+  RATING = "rating",
+  NAME = "name",
+  COST = "cost",
+}
+
 export type SearchFiltersParams = {
   searchValue?: string;
 };
@@ -50,13 +57,8 @@ export type SearchFiltersParams = {
 export type FiltersParams = {
   sortBy: string;
   categoryId: string;
+  filtersId?: string[];
 };
-
-export enum SortPropertyEnum {
-  RATING = "rating",
-  NAME = "name",
-  COST = "cost",
-}
 
 export type SortType = {
   name: string;

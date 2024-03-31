@@ -1,22 +1,16 @@
 import { FC } from "react";
-
-import { useAppDispatch } from "../../../../redux/store";
-import { setIsOpenCart } from "../../../../redux/modal/slice";
+import classNames from "classnames";
 
 import { CartSvg, HeaderPhoneSvg } from "../../../../assets";
 import { CartItem } from "../../../../redux/cart/types";
-import classNames from "classnames";
 
 interface CartBlockProps {
   cart: CartItem[];
+  openButton: () => void;
 }
 
-export const CartBlock: FC<CartBlockProps> = ({ cart }) => {
-  const dispatch = useAppDispatch();
-
-  const openButton = () => {
-    dispatch(setIsOpenCart(true));
-  };
+export const CartBlock: FC<CartBlockProps> = ({ cart, openButton }) => {
+  const onClick = () => openButton();
 
   return (
     <div className="cart_block flex items-center gap-8">
@@ -27,7 +21,7 @@ export const CartBlock: FC<CartBlockProps> = ({ cart }) => {
         </p>
       </div>
       <button
-        onClick={openButton}
+        onClick={onClick}
         className="cart flex relative bg-[#000]/[.20] rounded-xl backdrop-blur-[10px]"
       >
         <CartSvg />

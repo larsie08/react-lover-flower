@@ -17,6 +17,7 @@ const initialState: FilterSliceState = {
   categoryId: "",
   category: "",
   filtersId: [],
+  isConfirm: false,
   sort: {
     name: "популярности",
     sortProperty: SortPropertyEnum.RATING,
@@ -52,6 +53,9 @@ const filterSlice = createSlice({
     setSortValue(state, action: PayloadAction<SortType>) {
       state.sort = action.payload;
     },
+    setConfirm(state, action: PayloadAction<boolean>) {
+      state.isConfirm = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchSearchBouquets.pending, (state) => {
@@ -78,6 +82,7 @@ export const {
   setClearFiltersId,
   setSortValue,
   setSearchValue,
+  setConfirm,
 } = filterSlice.actions;
 
 export default filterSlice.reducer;

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { useSelector } from "react-redux";
 
 import { Category, FlowerCategoriesEnum } from "../../../../redux/filter/types";
@@ -36,7 +36,7 @@ const categories: Category[] = [
   { name: "Упаковка подарков", id: FlowerCategoriesEnum.GiftWrapping },
 ];
 
-export const CatalogTitleBlock: FC = () => {
+export const CatalogTitleBlock: FC = memo(() => {
   const dispatch = useAppDispatch();
 
   const categoryId = useSelector((state: RootState) => state.filter.categoryId);
@@ -78,4 +78,4 @@ export const CatalogTitleBlock: FC = () => {
       </div>
     </div>
   );
-};
+});

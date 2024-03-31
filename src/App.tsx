@@ -1,9 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Suspense, lazy, useEffect } from "react";
-import { useSelector } from "react-redux";
-
-import { RootState, useAppDispatch } from "./redux/store";
-import { fetchBouquets } from "./redux/bouquets/asyncActions";
+import { Suspense, lazy } from "react";
 
 import Home from "./pages/Home";
 import MainLayout from "./layout/MainLayout";
@@ -29,24 +25,6 @@ const BouquetDeliveryBlock = lazy(
 );
 
 function App() {
-  const dispatch = useAppDispatch();
-
-  const sortBy = useSelector(
-    (state: RootState) => state.filter.sort.sortProperty
-  );
-  const categoryId = useSelector((state: RootState) => state.filter.categoryId);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        await dispatch(fetchBouquets({ sortBy, categoryId }));
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, [dispatch, sortBy, categoryId]);
-
   return (
     <>
       <Suspense fallback={<MainLayout />}>

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
 
@@ -7,9 +7,12 @@ import { RootState, useAppDispatch } from "../../../../redux/store";
 
 import { CatalogCloseSvg } from "../../../../assets";
 
-export const CatalogCategoryBlock: FC = () => {
+export const CatalogCategoryBlock: FC = memo(() => {
   const dispatch = useAppDispatch();
-  const { category, categoryId } = useSelector((state: RootState) => state.filter);
+
+  const { category, categoryId } = useSelector(
+    (state: RootState) => state.filter
+  );
 
   const onClear = () => {
     const obj = { categoryId: "", category: "" };
@@ -31,4 +34,4 @@ export const CatalogCategoryBlock: FC = () => {
       </div>
     </div>
   );
-};
+});

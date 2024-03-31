@@ -9,3 +9,6 @@ export const selectMaxPrice = (state: RootState) =>
   state.bouquets.items.reduce((maxValue, item) => {
     return Math.max(maxValue, item.cost);
   }, 0);
+
+export const selectValueByFilter = (id: string) => (state: RootState) =>
+  state.bouquets.items;

@@ -2,6 +2,7 @@ import { FC } from "react";
 
 import { CatalogCheckSvg } from "../../../../../../assets";
 import { DecorativeElement } from "../../../../..";
+import { ConfirmModal } from "..";
 
 const colors = [
   { id: "white", name: "белый" },
@@ -14,11 +15,13 @@ const colors = [
 ];
 
 interface ByColorBlockProps {
+  currentId: string | undefined;
   handleClick: (id: string) => void;
   isClicked: (id: string) => boolean;
 }
 
 export const ByColorBlock: FC<ByColorBlockProps> = ({
+  currentId,
   handleClick,
   isClicked,
 }) => {
@@ -29,7 +32,7 @@ export const ByColorBlock: FC<ByColorBlockProps> = ({
       </h2>
       <ul className="flex flex-col gap-1">
         {colors.map((obj) => (
-          <li key={obj.id}>
+          <li className="flex gap-1 relative" key={obj.id}>
             <label
               onClick={() => handleClick(obj.id)}
               className="group/color_filter flex items-center gap-1 text-[12px] font-light tracking-[0.48px] uppercase cursor-pointer"
@@ -42,6 +45,7 @@ export const ByColorBlock: FC<ByColorBlockProps> = ({
                 <DecorativeElement className="absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/color_filter:w-full group-hover/color_filter:visible transition-all duration-200" />
               </p>
             </label>
+            {currentId === obj.id && <ConfirmModal />}
           </li>
         ))}
       </ul>

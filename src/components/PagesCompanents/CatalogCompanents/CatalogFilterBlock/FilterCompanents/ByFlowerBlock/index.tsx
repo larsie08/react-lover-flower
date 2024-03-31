@@ -1,7 +1,8 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 import { CatalogCheckSvg } from "../../../../../../assets";
 import { DecorativeElement } from "../../../../..";
+import { ConfirmModal } from "..";
 
 const flowers = [
   { id: "Alstroemeria", name: "Альстромерия (2)" },
@@ -12,11 +13,13 @@ const flowers = [
 ];
 
 interface ByColorBlockProps {
+  currentId: string | undefined;
   handleClick: (id: string) => void;
   isClicked: (id: string) => boolean;
 }
 
 export const ByFlowerBlock: FC<ByColorBlockProps> = ({
+  currentId,
   handleClick,
   isClicked,
 }) => {
@@ -27,7 +30,7 @@ export const ByFlowerBlock: FC<ByColorBlockProps> = ({
       </h2>
       <ul className="flex flex-col gap-1">
         {flowers.map((obj) => (
-          <li key={obj.id} className="flex gap-1">
+          <li key={obj.id} className="flex gap-1 relative">
             <label
               onClick={() => handleClick(obj.id)}
               className="group/flower_filter flex items-center gap-1 text-[12px] font-light tracking-[0.48px] uppercase cursor-pointer"
@@ -40,6 +43,7 @@ export const ByFlowerBlock: FC<ByColorBlockProps> = ({
                 <DecorativeElement className="absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/flower_filter:w-full group-hover/flower_filter:visible transition-all duration-200" />
               </p>
             </label>
+            {currentId === obj.id && <ConfirmModal />}
           </li>
         ))}
       </ul>

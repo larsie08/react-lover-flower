@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Bouquet } from "../../../../redux/bouquets/types";
+import { Bouquet, BouquetFilters } from "../../../../redux/bouquets/types";
 
 import {
   PopularCherrySvg,
@@ -14,7 +14,7 @@ import {
 import { BouquetsTitleBlock, PopularCardBlock } from "./BouquetsComponents";
 
 interface PopularBouquetsProps {
-  onClick: (id: number, name: string, imageUrl: string, cost: number) => void;
+  onClick: (id: number, name: string, imageUrl: string, cost: number, filters: BouquetFilters) => void;
   bouquets: Bouquet[];
 }
 
@@ -69,6 +69,7 @@ export const PopularBouquetsBlock: FC<PopularBouquetsProps> = ({
                 name={obj.name}
                 imageUrl={obj.imageUrl}
                 cost={obj.cost}
+                filters={obj.filters}
                 onClick={onClick}
               />
             ))}

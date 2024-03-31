@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 import { RootState, useAppDispatch } from "../../../../redux/store";
 import { setIsOpenCart, setIsOpenModal } from "../../../../redux/modal/slice";
@@ -7,7 +7,7 @@ import { CartSvg, PhoneButtonSvg, SocialBorderSvg } from "../../../../assets";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
 
-export const CatalogRightSideBlock: FC = () => {
+export const CatalogRightSideBlock: FC = memo(() => {
   const dispatch = useAppDispatch();
   const cart = useSelector((state: RootState) => state.cart.items);
 
@@ -59,4 +59,4 @@ export const CatalogRightSideBlock: FC = () => {
       </div>
     </div>
   );
-};
+});
