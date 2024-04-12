@@ -43,7 +43,7 @@ export const ContactsFormBlock: FC = () => {
         <div className="contacts__form relative flex justify-end mt-8">
           <img
             className="absolute left-[30rem] -rotate-[18.444deg]"
-            src="./img/bgElements/ContactsBg/signature.png"
+            src="./img/PagesImg/ContactsImg/signature.png"
             alt="signature"
           />
           <form

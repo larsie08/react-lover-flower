@@ -16,13 +16,13 @@ const AboutUsPage: FC = () => {
       <DecorativeElement className="absolute left-0 top-0 h-[220px] w-[274px] -rotate-[71.859deg] rounded-[274px] bg-[#C8A156] blur-[125px]" />
       <img
         className="absolute left-0"
-        src="./img/bgElements/AboutUsBg/AboutFlowerTopLeft.png"
+        src="./img/PagesImg/AboutUsImg/AboutFlowerTopLeft.png"
         alt="flower"
       />
       <DecorativeElement className="absolute right-[38rem] top-[18rem] h-[294px] w-[235px] -rotate-[71.859deg] rounded-[294px] bg-[#C8A156] blur-[125px]" />
       <img
         className="absolute w-[928px] h-[690px] right-0 -top-[172px] min-[2300px]:right-28"
-        src="./img/bgElements/AboutUsBg/AboutFlowerTopRight.png"
+        src="./img/PagesImg/AboutUsImg/AboutFlowerTopRight.png"
         alt="flower"
       />
       <div className="about_us__wrapper relative container mx-auto">
@@ -50,7 +50,7 @@ const AboutUsPage: FC = () => {
       <DecorativeElement className="absolute left-0 -bottom-[15rem] h-[437px] w-[206px] rotate-[21.097deg] rounded-[437px] bg-[#C8A156] blur-[125px]" />
       <img
         className="absolute right-0 -bottom-[5rem]"
-        src="./img/bgElements/AboutUsBg/AboutFlowerBottom.png"
+        src="./img/PagesImg/AboutUsImg/AboutFlowerBottom.png"
         alt="flower"
       />
       <AboutBgColorBottom />

@@ -4,10 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* * {
-  border: 1px solid white;
-} */
-
 :root {
   font-family: Oswald;
   line-height: 1.5;
@@ -147,4 +143,17 @@ input[type="range"]::-moz-range-thumb {
   height: 5px;
   pointer-events: auto;
   cursor: pointer;
+}
+
+.error_title {
+  background: linear-gradient(
+    180deg,
+    rgba(22, 61, 143, 1) 0%,
+    rgba(22, 61, 143, 1) 0%,
+    rgba(79, 108, 171, 1) 54.6875%,
+    rgba(182, 205, 255, 1) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

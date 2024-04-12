@@ -11,7 +11,7 @@ interface CartBlockProps {
 
 export const CartBlock: FC<CartBlockProps> = ({ cart, openButton }) => {
   const onClick = () => openButton();
-
+  
   return (
     <div className="cart_block flex items-center gap-8">
       <div className="cart_block__phone flex items-center gap-3">

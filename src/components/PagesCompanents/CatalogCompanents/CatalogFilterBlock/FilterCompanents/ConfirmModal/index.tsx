@@ -9,7 +9,7 @@ export const ConfirmModal: FC = () => {
   const submitConfirm = () => dispatch(setConfirm(true));
 
   return (
-    <div className="confirm_modal absolute -right-4 top-0 z-20">
+    <div className="confirm_modal absolute -right-4 -top-[9px] z-20">
       <div className="relative">
         <button
           onClick={submitConfirm}

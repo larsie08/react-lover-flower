@@ -25,7 +25,7 @@ export const HomeOrderBlock: FC = () => {
     <div className="about_order relative h-[1000px]">
       <img
         className="absolute top-10 w-[562px] h-[845px]"
-        src="./img/bgElements/HomeBg/flowerBg.png"
+        src="./img/PagesImg/HomeImg/IntroImg/flowerBg.png"
         alt="Flower"
       />
 

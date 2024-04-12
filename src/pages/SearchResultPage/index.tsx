@@ -1,10 +1,9 @@
-import { FC, useEffect, useMemo } from "react";
+import { FC, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import classNames from "classnames";
 
 import { RootState, useAppDispatch } from "../../redux/store";
-import { setCartItem } from "../../redux/cart/slice";
 import { fetchSearchBouquets } from "../../redux/filter/asyncActions";
 import { SearchFiltersParams } from "../../redux/filter/types";
 
@@ -31,14 +30,6 @@ const SearchResultPage: FC = () => {
     fetchData();
   }, [dispatch, searchValue]);
 
-  const onClick = useMemo(
-    () => (id: number, name: string, imageUrl: string, cost: number) => {
-      const bouquet = { id, name, imageUrl, cost, count: 1 };
-      dispatch(setCartItem(bouquet));
-    },
-    [dispatch]
-  );
-
   return (
     <div
       className={classNames(
@@ -57,14 +48,15 @@ const SearchResultPage: FC = () => {
         </div>
 
         <div className="search__cards relative grid grid-cols-[repeat(4,_255px)] mx-auto gap-7 mt-3">
-          {items.map(({ id, name, cost, imageUrl }) => (
+          {items.map(({ id, name, cost, imageUrl, filters }) => (
             <CardBlock
               key={id}
               id={id}
               name={name}
               cost={cost}
               imageUrl={imageUrl}
-              onClick={onClick}
+              filters={filters}
+              imgClassName="h-[335px]"
             />
           ))}
         </div>

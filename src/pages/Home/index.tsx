@@ -1,21 +1,22 @@
-import { FC, useEffect, useMemo } from "react";
+import { FC, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { RootState, useAppDispatch } from "../../redux/store";
 import { setIsOpenCart, setIsOpenModal } from "../../redux/modal/slice";
-import { setCartItem } from "../../redux/cart/slice";
-import { BouquetFilters } from "../../redux/bouquets/types";
 import { fetchBouquets } from "../../redux/bouquets/asyncActions";
-
+  
 import {
   HomeOrderBlock,
   CardFooterBlock,
   CatalogBlock,
   Intro,
   OccasionBlock,
-  PopularBouquetsBlock,
   QuestionBlock,
+  BouquetsTitleBlock,
+  SliderBlock,
 } from "../../components";
+import { PinkArrowSvg, PopularCherrySvg, PopularLightSvg } from "../../assets";
 
 const Home: FC = () => {
   const dispatch = useAppDispatch();
@@ -41,26 +42,36 @@ const Home: FC = () => {
     fetchData();
   }, [dispatch]);
 
-  const onClick = useMemo(
-    () =>
-      (
-        id: number,
-        name: string,
-        imageUrl: string,
-        cost: number,
-        filters: BouquetFilters
-      ) => {
-        const bouquet = { id, name, imageUrl, cost, count: 1, filters };
-        dispatch(setCartItem(bouquet));
-      },
-    [dispatch]
-  );
-
   return (
     <div className="wrapper bg-[#040A0A]">
       <Intro cart={cart} openCart={openCart} openModal={openModal} />
       <CatalogBlock />
-      <PopularBouquetsBlock onClick={onClick} bouquets={bouquets} />
+
+      <div className="popular_bouquets relative w-full h-[1300px]">
+        <img
+          className="absolute right-0 z-10 cover bg-no-repeat h-[750px] w-[60%]"
+          src="./img/PagesImg/HomeImg/IntroImg/BouquetsBG.png"
+          alt="BouquetsBG"
+        />
+
+        <PopularLightSvg />
+        <PopularCherrySvg />
+
+        <div className="popular_bouquets__wrapper relative container mx-auto">
+          <BouquetsTitleBlock />
+          <SliderBlock bouquets={bouquets} showCatalog={true} />
+          <div className="popular_bouquets__link flex items-center mt-16">
+            <Link
+              to="catalog"
+              className="link text-[12px] text-pink font-bold tracking-[1.2px] uppercase underline"
+            >
+              смотреть весь каталог
+            </Link>
+            <PinkArrowSvg />
+          </div>
+        </div>
+      </div>
+
       <HomeOrderBlock />
       <OccasionBlock />
       <QuestionBlock />

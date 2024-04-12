@@ -23,6 +23,7 @@ const BouquetDeliveryBlock = lazy(
       "./components/PagesCompanents/BouquetCompanents/BouquetDeliveryBlock"
     )
 );
+const EmptyPage = lazy(() => import("./pages/EmptyPage"));
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
+            <Route path="*" element={<EmptyPage />} />
             <Route path="catalog" element={<CatalogPage />} />
             <Route path="delivery" element={<DeliveryPage />} />
             <Route path="aboutUs" element={<AboutUsPage />} />

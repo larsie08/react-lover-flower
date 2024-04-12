@@ -10,7 +10,7 @@ interface BouquetBlockProps {
   cost: number;
   imageUrl: string;
   filters: BouquetFilters;
-  onClick: (
+  addToCart: (
     id: number,
     name: string,
     imageUrl: string,
@@ -26,7 +26,7 @@ export const BouquetBlock: FC<BouquetBlockProps> = ({
   cost,
   imageUrl,
   filters,
-  onClick,
+  addToCart,
 }) => {
   const navigate = useNavigate();
   const [count, setCount] = useState<number>(1);
@@ -36,7 +36,7 @@ export const BouquetBlock: FC<BouquetBlockProps> = ({
   };
 
   const handleAddToCart = () => {
-    onClick(id, name, imageUrl, cost, count, filters);
+    addToCart(id, name, imageUrl, cost, count, filters);
   };
 
   const handlePlus = (event: MouseEvent<HTMLButtonElement>) => {

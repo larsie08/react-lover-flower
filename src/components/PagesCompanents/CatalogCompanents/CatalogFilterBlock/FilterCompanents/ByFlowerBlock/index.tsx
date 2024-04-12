@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC } from "react";
 
 import { CatalogCheckSvg } from "../../../../../../assets";
 import { DecorativeElement } from "../../../../..";
@@ -38,10 +38,10 @@ export const ByFlowerBlock: FC<ByColorBlockProps> = ({
               <div className="relative w-[12px] h-[12px] rounded-[2px] border-[0.5px] border-[#FFF]">
                 {isClicked(obj.id) && <CatalogCheckSvg />}
               </div>
-              <p className="relative group-hover/flower_filter:text-light-turquoise duration-200 transition-all">
+              <h1 className="relative group-hover/flower_filter:text-light-turquoise duration-200 transition-all">
                 {obj.name}
                 <DecorativeElement className="absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/flower_filter:w-full group-hover/flower_filter:visible transition-all duration-200" />
-              </p>
+              </h1>
             </label>
             {currentId === obj.id && <ConfirmModal />}
           </li>

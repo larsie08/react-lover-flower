@@ -19,11 +19,11 @@ export const Intro: FC<IntroProps> = ({ cart, openModal, openCart }) => {
     <div className="intro relative pt-[140px] h-[1600px]">
       <img
         className="intro_img absolute h-full w-full top-0 left-0 z-10"
-        src="./img/bgElements/HomeBg/intro.png"
+        src="./img/PagesImg/HomeImg/IntroImg/intro.png"
         alt="intro"
       />
       <img
-        src="./img/HomeImg/shadow.png"
+        src="./img/PagesImg/HomeImg/IntroImg/shadow.png"
         className="absolute h-[500px] w-full z-20 bottom-0 bg-cover"
       />
       <DecorativeElement className="w-[359px] h-[294px] rotate-[41.599deg] rounded-[359px] bg-light-turquoise blur-[125px] absolute top-[34rem] left-[16rem] " />

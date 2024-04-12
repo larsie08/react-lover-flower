@@ -1,8 +1,9 @@
-import { FC, memo, useEffect, useMemo } from "react";
+import { FC, memo, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import { RootState, useAppDispatch } from "../../redux/store";
-import { setCartItem } from "../../redux/cart/slice";
+import { fetchBouquets } from "../../redux/bouquets/asyncActions";
+import { setConfirm } from "../../redux/filter/slice";
 
 import {
   CatalogCategoryBlock,
@@ -15,9 +16,6 @@ import {
   SkeletonCard,
 } from "../../components";
 import { CatalogLeftSvg, CatalogRightSvg } from "../../assets";
-import { BouquetFilters } from "../../redux/bouquets/types";
-import { fetchBouquets } from "../../redux/bouquets/asyncActions";
-import { setConfirm } from "../../redux/filter/slice";
 
 const CatalogPage: FC = memo(() => {
   const dispatch = useAppDispatch();
@@ -42,21 +40,6 @@ const CatalogPage: FC = memo(() => {
     fetchData();
   }, [dispatch, sortBy, categoryId, isConfirm]);
 
-  const onClick = useMemo(
-    () =>
-      (
-        id: number,
-        name: string,
-        imageUrl: string,
-        cost: number,
-        filters: BouquetFilters
-      ) => {
-        const bouquet = { id, name, imageUrl, cost, count: 1, filters };
-        dispatch(setCartItem(bouquet));
-      },
-    [dispatch]
-  );
-
   const skeletons = [...new Array(9)].map((_, index) => (
     <SkeletonCard key={index} />
   ));
@@ -65,7 +48,7 @@ const CatalogPage: FC = memo(() => {
     <div className="catalog_page relative pt-[120px] pb-[200px] max-h-[3000px] bg-[#040A0A]">
       <img
         className="absolute top-0 left-0 z-10"
-        src="./img/bgElements/CatalogBg/CatalogFlowerLeft.png"
+        src="./img/PagesImg/CatalogImg/CatalogFlowerLeft.png"
       />
       <DecorativeElement className="absolute top-0 right-0 w-[393px] h-[280px] bg-cherry rounded-[393px] blur-[125px]" />
       <DecorativeElement className="absolute top-[35rem] right-[15rem] w-[435px] h-[257px] rotate-[32.828deg] bg-cherry rounded-[435px] blur-[125px]" />
@@ -74,7 +57,7 @@ const CatalogPage: FC = memo(() => {
       <DecorativeElement className="absolute top-[95rem] left-0 w-[750px] h-[175px] -rotate-[71.859deg] bg-light-turquoise rounded-[750px] blur-[125px]" />
       <img
         className="absolute top-0 right-0"
-        src="./img/bgElements/CatalogBg/CatalogFlowerRight.png"
+        src="./img/PagesImg/CatalogImg/CatalogFlowerRight.png"
       />
       <div className="catalog_page__wrapper container mx-auto">
         <div className="flex justify-between">
@@ -104,7 +87,7 @@ const CatalogPage: FC = memo(() => {
                     cost={obj.cost}
                     imageUrl={obj.imageUrl}
                     filters={obj.filters}
-                    onClick={onClick}
+                    imgClassName="h-[335px]"
                   />
                 ))
               ) : (

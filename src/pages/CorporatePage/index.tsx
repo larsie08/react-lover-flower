@@ -15,20 +15,20 @@ const CorporatePage: FC = () => {
       <DecorativeElement className="absolute w-[275px] h-[220px] top-0 -left-[6rem] -rotate-[71.859deg] rounded-[275px] bg-[#EA661C] blur-[125px]" />
       <img
         className="absolute top-0"
-        src="./img/bgElements/CorporateBg/CorporateFlowerTopLeft.png"
+        src="./img/PagesImg/CorporateImg/CorporateFlowerTopLeft.png"
       />
       <DecorativeElement className="absolute w-[347px] h-[280px] top-0 right-0 rounded-[275px] bg-[#EA661C] blur-[125px]" />
       <img
         className="absolute top-0 right-0"
-        src="./img/bgElements/CorporateBg/CorporateFlowerTopRight.png"
+        src="./img/PagesImg/CorporateImg/CorporateFlowerTopRight.png"
       />
       <img
         className="absolute top-[100rem] left-0 z-10"
-        src="./img/bgElements/CorporateBg/CorporateFlowerMiddle.png"
+        src="./img/PagesImg/CorporateImg/CorporateFlowerMiddle.png"
       />
       <img
         className="absolute top-[100rem] left-0"
-        src="./img/bgElements/CorporateBg/CorporateFlowerMiddleSecond.png"
+        src="./img/PagesImg/CorporateImg/CorporateFlowerMiddleSecond.png"
       />
       <div className="corporate_page__wrapper container mx-auto">
         <CorporateTitleBlock />

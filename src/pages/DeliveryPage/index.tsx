@@ -18,12 +18,12 @@ const DeliveryPage: FC = () => {
       <DecorativeElement className="absolute -left-[5rem] top-[70rem] w-[538px] h-[431px] rounded-[537px] bg-[#6B535F] blur-[125px]" />
       <img
         className="absolute right-0"
-        src="./img/bgElements/DeliveryBg/deliveryFlowerTop.png"
+        src="./img/PagesImg/DeliveryImg/deliveryFlowerTop.png"
         alt="flower"
       />
       <img
         className="absolute left-0 top-[75rem]"
-        src="./img/bgElements/DeliveryBg/deliveryFlowerCenter.png"
+        src="./img/PagesImg/DeliveryImg/deliveryFlowerCenter.png"
         alt="flower"
       />
       <div className="delivery_page__wrapper relative container mx-auto z-20">
@@ -51,12 +51,12 @@ const DeliveryPage: FC = () => {
       </div>
       <img
         className="absolute right-0 -bottom-[15rem] z-10"
-        src="./img/bgElements/DeliveryBg/deliveryFlowerFooter.png"
+        src="./img/PagesImg/DeliveryImg/deliveryFlowerFooter.png"
         alt="flower"
       />
       <img
         className="absolute left-[25rem] -rotate-[14.166deg]"
-        src="./img/bgElements/DeliveryBg/sign.png"
+        src="./img/PagesImg/DeliveryImg/sign.png"
         alt="lower flower"
       ></img>
       <DecorativeElement className="absolute left-0 -bottom-[10rem] w-[205px] h-[436px] rounded-[436px] bg-[#6B535F] blur-[125px]" />

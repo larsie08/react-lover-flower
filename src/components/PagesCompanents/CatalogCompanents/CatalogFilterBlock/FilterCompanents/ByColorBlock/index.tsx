@@ -40,10 +40,10 @@ export const ByColorBlock: FC<ByColorBlockProps> = ({
               <div className="relative w-[12px] h-[12px] rounded-[2px] border-[0.5px] border-[#FFF]">
                 {isClicked(obj.id) && <CatalogCheckSvg />}
               </div>
-              <p className="relative group-hover/color_filter:text-light-turquoise duration-200 transition-all">
+              <h1 className="relative group-hover/color_filter:text-light-turquoise duration-200 transition-all">
                 {obj.name}
                 <DecorativeElement className="absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/color_filter:w-full group-hover/color_filter:visible transition-all duration-200" />
-              </p>
+              </h1>
             </label>
             {currentId === obj.id && <ConfirmModal />}
           </li>

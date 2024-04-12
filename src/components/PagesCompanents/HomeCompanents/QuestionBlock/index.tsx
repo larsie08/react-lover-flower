@@ -10,8 +10,8 @@ import { QuestionFormBlock } from "./QuestionFormBlock";
 export const QuestionBlock: FC = () => {
   return (
     <div className="question_block relative bg-[#0F2222] h-[700px]">
-      <div className="bg-[url(/img/HomeImg/questionImg/questions.png)] w-[305px] h-[200px] absolute rotate-[-18.444deg] z-30 left-[45rem] bottom-[8rem]" />
-      <div className="bg-[url(/img/HomeImg/questionImg/leaves.png)] w-[691px] h-[1038px] z-20 absolute left-0 top-0" />
+      <div className="bg-[url(./img/PagesImg/HomeImg/QuestionImg/questions.png)] w-[305px] h-[200px] absolute rotate-[-18.444deg] z-30 left-[45rem] bottom-[8rem]" />
+      <div className="bg-[url(./img/PagesImg/HomeImg/QuestionImg/leaves.png)] w-[691px] h-[1038px] z-20 absolute left-0 top-0" />
       <QuestionCherrySvg />
       <QuestionLightTurquoiseSvg />
       <div className="question_block__wrapper container mx-auto">

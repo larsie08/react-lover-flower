@@ -6,13 +6,15 @@ export * from "./Modals/Cart";
 
 export * from "./CardBlock";
 
-export * from "./SkeletonCard"
+export * from "./SkeletonCard";
+
+export * from "./SliderBlock";
 
 export * from "./DecorativeElement";
 
 export * from "./PagesCompanents/HomeCompanents/Intro";
 export * from "./PagesCompanents/HomeCompanents/CatalogBlock";
-export * from "./PagesCompanents/HomeCompanents/PopularBouquetsBlock";
+export * from "./PagesCompanents/HomeCompanents/BouquetsTitleBlock";
 export * from "./PagesCompanents/HomeCompanents/HomeOrderBlock";
 export * from "./PagesCompanents/HomeCompanents/OccasionBlock";
 export * from "./PagesCompanents/HomeCompanents/QuestionBlock";
@@ -50,5 +52,6 @@ export * from "./PagesCompanents/CorporateCompanents/CorporateFormBlock";
 export * from "./PagesCompanents/BouquetCompanents/BouquetBlock";
 export * from "./PagesCompanents/BouquetCompanents/BouquetAdditionBlock";
 export * from "./PagesCompanents/BouquetCompanents/BouquetSkeletonBlock";
+export * from "./PagesCompanents/BouquetCompanents/BouquetSwitchBlock";
 
 export * from "./PagesCompanents/SearchResultCompanents/NoResultMessage";

@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, memo, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
@@ -46,15 +46,15 @@ const nav = [
 
 const defaultPosition = 80;
 
-export const Header: FC = () => {
+export const Header: FC = memo(() => {
   const dispatch = useAppDispatch();
 
-  const [show, setShow] = useState(true);
+  const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState<number>(0);
   const cart = useSelector((state: RootState) => state.cart.items);
 
   const controlNavbar = () => {
-    setShow(window.scrollY < lastScrollY ? false : true);
+    setShowHeader(window.scrollY > lastScrollY ? false : true);
     setLastScrollY(window.scrollY);
   };
 
@@ -76,14 +76,14 @@ export const Header: FC = () => {
   }, [lastScrollY]);
 
   useEffect(() => {
-    setShow(false);
+    setShowHeader(false);
   }, [cart]);
 
   return (
     <div
       id="header"
       className={classNames("w-full fixed z-40 transition", {
-        ["-translate-y-full"]: show && lastScrollY > defaultPosition,
+        ["-translate-y-full"]: !showHeader && lastScrollY > defaultPosition,
         ["bg-[black]"]: lastScrollY > defaultPosition,
       })}
     >
@@ -96,12 +96,12 @@ export const Header: FC = () => {
             <li className="group catalog-header text-[14px] font-normal tracking-[.56px] relative uppercase py-3">
               <Link
                 to="catalog"
-                className="group/link hover:text-light-turquoise hover:decoration-light-turquoise cursor-pointer transition-all"
+                className="group/link hover:text-light-turquoise hover:decoration-light-turquoise cursor-pointer transition-all group-hover:text-light-turquoise"
               >
                 Каталог
-                <DecorativeElement className="absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/link:w-full group-hover/link:visible transition-all" />
+                <DecorativeElement className="absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/link:w-full group-hover/link:visible transition-all group-hover:w-full group-hover:visible" />
               </Link>
-              <ul className="submenu absolute group-[:hover]:visible group-[:hover]:opacity-100 opacity-0 -left-4 top-[40px] invisible bg-[grey]/[.3] backdrop-blur-[10px] flex flex-col gap-1 w-[260px] p-2 transition-all z-20">
+              <ul className="group/submenu absolute group-[:hover]:visible group-[:hover]:opacity-100 opacity-0 -left-4 top-[40px] invisible bg-[grey]/[.3] backdrop-blur-[10px] flex flex-col gap-1 w-[260px] p-2 transition-all z-20">
                 {categories.map((obj) => (
                   <Link
                     to="catalog"
@@ -128,7 +128,11 @@ export const Header: FC = () => {
               </li>
             ))}
           </ul>
-          <Search lastScrollY={lastScrollY} />
+          <Search
+            lastScrollY={lastScrollY}
+            defaultPosition={defaultPosition}
+            show={showHeader}
+          />
         </div>
         {lastScrollY > defaultPosition ? (
           <CartBlock cart={cart} openButton={openButton} />
@@ -138,4 +142,4 @@ export const Header: FC = () => {
       </div>
     </div>
   );
-};
+});

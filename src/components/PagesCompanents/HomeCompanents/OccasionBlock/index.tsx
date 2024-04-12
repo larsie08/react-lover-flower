@@ -21,7 +21,10 @@ export const OccasionBlock: FC = () => {
             </div>
           </div>
           <div className="img_block mr-[130px]">
-            <img src="./img/HomeImg/occasionImg/packing.png" alt="packing" />
+            <img
+              src="./img/PagesImg/HomeImg/OccasionImg/packing.png"
+              alt="packing"
+            />
           </div>
         </div>
 
@@ -56,16 +59,19 @@ export const OccasionBlock: FC = () => {
             <ul className="flex gap-8">
               <li>
                 <img
-                  src="./img/HomeImg/occasionImg/bouquet.png"
+                  src="./img/PagesImg/HomeImg/OccasionImg/bouquet.png"
                   alt="bouquet"
                 />
               </li>
               <li>
-                <img src="./img/HomeImg/occasionImg/cloth.png" alt="cloth" />
+                <img
+                  src="./img/PagesImg/HomeImg/OccasionImg/cloth.png"
+                  alt="cloth"
+                />
               </li>
               <li>
                 <img
-                  src="./img/HomeImg/occasionImg/decoration.png"
+                  src="./img/PagesImg/HomeImg/OccasionImg/decoration.png"
                   alt="decoration"
                 />
               </li>

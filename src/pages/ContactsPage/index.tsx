@@ -7,7 +7,6 @@ import {
   ContactsTitleBlock,
   DecorativeElement,
 } from "../../components";
-
 import { ContactsBgColor } from "../../assets";
 
 const ContactsPage: FC = () => {
@@ -16,13 +15,13 @@ const ContactsPage: FC = () => {
       <DecorativeElement className="absolute right-0 top-0 w-[342px] h-[274px] rounded-[342px] bg-[#922D2D] blur-[125px]" />
       <img
         className="absolute right-0 top-0"
-        src="./img/bgElements/ContactsBg/ContactsFlowerTop.png"
+        src="./img/PagesImg/ContactsImg/ContactsFlowerTop.png"
         alt="flower"
       />
       <DecorativeElement className="absolute -left-36 top-0 w-[465px] h-[220px] -rotate-[71.859deg] rounded-[466px] bg-[#922D2D] blur-[125px]" />
       <img
         className="absolute left-0"
-        src="./img/bgElements/ContactsBg/ContactsFlowerMiddle.png"
+        src="./img/PagesImg/ContactsImg/ContactsFlowerMiddle.png"
         alt="flower"
       />
       <div className="contacts__wrapper container mx-auto">
