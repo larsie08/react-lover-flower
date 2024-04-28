@@ -1,4 +1,6 @@
 import { FC } from "react";
+import { useAppDispatch } from "../../../../../redux/store";
+import { setDeleteBouquet, updateItemCount } from "../../../../../redux/cart/slice";
 
 interface CartCardProps {
   id: number;
@@ -6,9 +8,6 @@ interface CartCardProps {
   cost: number;
   imageUrl: string;
   count: number;
-  handleAddToCart: (id: number) => void;
-  handleMinus: (id: number) => void;
-  handleDeleteItem: (id: number) => void;
 }
 
 export const CartCardBlock: FC<CartCardProps> = ({
@@ -17,10 +16,16 @@ export const CartCardBlock: FC<CartCardProps> = ({
   cost,
   imageUrl,
   count,
-  handleAddToCart,
-  handleMinus,
-  handleDeleteItem,
 }) => {
+  const dispatch = useAppDispatch();
+
+  const handleAddToCart = (id: number) =>
+    dispatch(updateItemCount({ id, delta: 1 }));
+  const handleMinus = (id: number) =>
+    dispatch(updateItemCount({ id, delta: -1 }));
+
+  const handleDeleteItem = (id: number) => dispatch(setDeleteBouquet(id));
+
   return (
     <div className="card_block flex border-b-[1px] border-[#555] py-5">
       <div className="img">

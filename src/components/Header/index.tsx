@@ -49,12 +49,12 @@ const defaultPosition = 80;
 export const Header: FC = memo(() => {
   const dispatch = useAppDispatch();
 
-  const [showHeader, setShowHeader] = useState(true);
+  const [showHeader, toogleShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState<number>(0);
   const cart = useSelector((state: RootState) => state.cart.items);
 
   const controlNavbar = () => {
-    setShowHeader(window.scrollY > lastScrollY ? false : true);
+    toogleShowHeader(window.scrollY > lastScrollY ? false : true);
     setLastScrollY(window.scrollY);
   };
 
@@ -76,7 +76,7 @@ export const Header: FC = memo(() => {
   }, [lastScrollY]);
 
   useEffect(() => {
-    setShowHeader(false);
+    toogleShowHeader(false);
   }, [cart]);
 
   return (
@@ -131,7 +131,7 @@ export const Header: FC = memo(() => {
           <Search
             lastScrollY={lastScrollY}
             defaultPosition={defaultPosition}
-            show={showHeader}
+            showHeader={showHeader}
           />
         </div>
         {lastScrollY > defaultPosition ? (

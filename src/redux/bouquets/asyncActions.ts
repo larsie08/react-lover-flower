@@ -5,29 +5,39 @@ import axios from "axios";
 import { Bouquet } from "./types";
 import { FiltersParams } from "../filter/types";
 
-const filterBouquets = (data: Bouquet[], filtersId: string[] | undefined) => {
-  if (filtersId && filtersId.length > 0) {
-    return data.reduce((acc: Bouquet[], item) => {
-      const itemColors = Object.values(item.filters.colors);
-      const itemFormat = Object.values(item.filters.format);
-      const itemFlower = Object.values(item.filters.flowers);
-      if (
-        filtersId.includes(item.filters.lighting) ||
-        filtersId.some((filter) =>
-          itemColors.some((color: string) => color === filter)
-        ) ||
-        filtersId.some((filter) =>
-          itemFormat.some((format: string) => format === filter)
-        ) ||
-        filtersId.some((filter) =>
-          itemFlower.some((flower: string) => flower === filter)
-        )
-      ) {
-        if (!acc.some((bouquet) => bouquet.id === item.id)) acc.push(item);
-      }
-      return acc;
-    }, []);
-  } else return data;
+const filterBouquets = (items: Bouquet[], filtersId: string[] | undefined) => {
+  if (!filtersId || filtersId.length === 0) {
+    return items;
+  }
+
+  const filteredBouquets: Bouquet[] = [];
+
+  const isFilterMatch = (bouquet: Bouquet) => {
+    const itemFilters = bouquet.filters;
+    return (
+      filtersId.includes(itemFilters.lighting) ||
+      Object.values(itemFilters.colors).some((color: string) =>
+        filtersId.includes(color)
+      ) ||
+      Object.values(itemFilters.format).some((format: string) =>
+        filtersId.includes(format)
+      ) ||
+      Object.values(itemFilters.flowers).some((flower: string) =>
+        filtersId.includes(flower)
+      )
+    );
+  };
+
+  for (const item of items) {
+    if (
+      isFilterMatch(item) &&
+      !filteredBouquets.some((bouquet) => bouquet.id === item.id)
+    ) {
+      filteredBouquets.push(item);
+    }
+  }
+
+  return filteredBouquets;
 };
 
 export const fetchBouquets = createAsyncThunk<Bouquet[], FiltersParams>(

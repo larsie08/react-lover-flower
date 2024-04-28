@@ -1,14 +1,9 @@
-import { Bouquet, Status } from "../bouquets/types";
-
 export interface CategoryProps {
   categoryId: FlowerCategoriesEnum | string;
   category: string;
 }
 
 export interface FilterSliceState {
-  searchValue: string;
-  searchItems: Bouquet[];
-  status: Status;
   categoryId: FlowerCategoriesEnum | string;
   category: string;
   filtersId: string[];
@@ -49,10 +44,6 @@ export enum SortPropertyEnum {
   NAME = "name",
   COST = "cost",
 }
-
-export type SearchFiltersParams = {
-  searchValue?: string;
-};
 
 export type FiltersParams = {
   sortBy: string;

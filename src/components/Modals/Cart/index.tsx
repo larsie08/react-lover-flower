@@ -19,11 +19,9 @@ import { setPadding } from "../../../utils/setPadding";
 
 export const Cart: FC = () => {
   const dispatch = useAppDispatch();
+
   const isOpen = useSelector((state: RootState) => state.modal.isOpenCart);
   const { totalPrice, items } = useSelector((state: RootState) => state.cart);
-
-  const increaseDelta = 1;
-  const decreaseDelta = -1;
 
   useEffect(() => {
     const json = JSON.stringify(items);
@@ -33,13 +31,6 @@ export const Cart: FC = () => {
   useEffect(() => {
     setPadding(isOpen);
   }, [isOpen]);
-
-  const handleAddToCart = (id: number) =>
-    dispatch(updateItemCount({ id, delta: increaseDelta }));
-  const handleMinus = (id: number) =>
-    dispatch(updateItemCount({ id, delta: decreaseDelta }));
-
-  const handleDeleteItem = (id: number) => dispatch(setDeleteBouquet(id));
 
   const closeCart = () => dispatch(setIsOpenCart(false));
 
@@ -81,9 +72,6 @@ export const Cart: FC = () => {
                 imageUrl={obj.imageUrl}
                 cost={obj.cost}
                 count={obj.count}
-                handleAddToCart={handleAddToCart}
-                handleMinus={handleMinus}
-                handleDeleteItem={handleDeleteItem}
               />
             ))}
           </div>
@@ -91,7 +79,7 @@ export const Cart: FC = () => {
         <div className="flex flex-col">
           <CartBallsBlock />
           <DecorativeElement className="mt-7 mb-3 border-b-[1px] border-[#555]" />
-          <CartTotalPrice totalPrice={totalPrice} />
+          <CartTotalPrice totalPrice={totalPrice} closeCart={closeCart} />
         </div>
       </div>
     </div>,

@@ -1,10 +1,11 @@
-import { FC, useEffect, useState } from "react";
-import axios from "axios";
+import { FC } from "react";
 import { useParams, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { Bouquet, BouquetFilters } from "../../redux/bouquets/types";
+import { BouquetFilters } from "../../redux/bouquets/types";
 import { RootState, useAppDispatch } from "../../redux/store";
+import { setCartItem } from "../../redux/cart/slice";
+import { selectBouquetById } from "../../redux/bouquets/selectors";
 
 import {
   BouquetAdditionBlock,
@@ -15,31 +16,14 @@ import {
   SliderBlock,
 } from "../../components";
 import { BouquetBgTopLeft } from "../../assets";
-import { setCartItem } from "../../redux/cart/slice";
 
 const BouquetPage: FC = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams<string>();
 
-  const reviews = useSelector((state: RootState) => state.reviews.reviews);
+  const bouquet = useSelector(selectBouquetById(id));
   const bouquets = useSelector((state: RootState) => state.bouquets.items);
-
-  const [bouquet, setBouquet] = useState<Bouquet | undefined>();
-
-  useEffect(() => {
-    async function fetchBouquet() {
-      try {
-        const { data } = await axios.get<Bouquet>(
-          `https://655b76e2ab37729791a92825.mockapi.io/items/${id}`
-        );
-
-        setBouquet(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchBouquet();
-  }, [id, dispatch]);
+  const reviews = useSelector((state: RootState) => state.reviews.reviews);
 
   const addToCart = (
     id: number,

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useForm, SubmitHandler, SubmitErrorHandler } from "react-hook-form";
 
-interface MyForm {
+interface CorporateForm {
   name: string;
   index: number;
   email: string;
@@ -19,10 +19,10 @@ export const CorporateFormBlock: FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<MyForm>();
+  } = useForm<CorporateForm>();
 
-  const submit: SubmitHandler<MyForm> = (data) => console.log(data);
-  const error: SubmitErrorHandler<MyForm> = (data) => console.log(data);
+  const submit: SubmitHandler<CorporateForm> = (data) => console.log(data);
+  const error: SubmitErrorHandler<CorporateForm> = (data) => console.log(data);
 
   return (
     <div className="mt-16 relative z-20 flex flex-col gap-5">

@@ -1,9 +1,7 @@
-import { FC, memo, useEffect } from "react";
+import { FC, memo } from "react";
 import { useSelector } from "react-redux";
 
-import { RootState, useAppDispatch } from "../../redux/store";
-import { fetchBouquets } from "../../redux/bouquets/asyncActions";
-import { setConfirm } from "../../redux/filter/slice";
+import { RootState } from "../../redux/store";
 
 import {
   CatalogCategoryBlock,
@@ -18,27 +16,7 @@ import {
 import { CatalogLeftSvg, CatalogRightSvg } from "../../assets";
 
 const CatalogPage: FC = memo(() => {
-  const dispatch = useAppDispatch();
-
   const { items, status } = useSelector((state: RootState) => state.bouquets);
-  const sortBy = useSelector(
-    (state: RootState) => state.filter.sort.sortProperty
-  );
-  const { categoryId, isConfirm, filtersId } = useSelector(
-    (state: RootState) => state.filter
-  );
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        await dispatch(fetchBouquets({ sortBy, categoryId, filtersId }));
-        dispatch(setConfirm(false));
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, [dispatch, sortBy, categoryId, isConfirm]);
 
   const skeletons = [...new Array(9)].map((_, index) => (
     <SkeletonCard key={index} />

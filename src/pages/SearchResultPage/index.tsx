@@ -1,11 +1,9 @@
-import { FC, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import classNames from "classnames";
+import axios from "axios";
 
-import { RootState, useAppDispatch } from "../../redux/store";
-import { fetchSearchBouquets } from "../../redux/filter/asyncActions";
-import { SearchFiltersParams } from "../../redux/filter/types";
+import { Bouquet } from "../../redux/bouquets/types";
 
 import {
   CardBlock,
@@ -14,27 +12,29 @@ import {
 } from "../../components";
 
 const SearchResultPage: FC = () => {
-  const dispatch = useAppDispatch();
-  const { searchValue } = useParams<SearchFiltersParams>();
+  const { searchValue } = useParams<string>();
 
-  const items = useSelector((state: RootState) => state.filter.searchItems);
+  const [searchItems, setSearchItems] = useState<Bouquet[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await dispatch(fetchSearchBouquets({ searchValue }));
+        const { data } = await axios.get<Bouquet[]>(
+          `https://655b76e2ab37729791a92825.mockapi.io/items?search=${searchValue}`
+        );
+        setSearchItems(data);
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
-  }, [dispatch, searchValue]);
+  }, [searchValue]);
 
   return (
     <div
       className={classNames(
         "result_search max-h-[3000px] relative bg-[#040A0A] pt-[120px] pb-20",
-        { ["h-[900px]"]: items.length === 0 }
+        { ["h-[900px]"]: searchItems.length === 0 }
       )}
     >
       <DecorativeElement className="absolute top-0 left-0 w-[217px] h-[173px] bg-light-turquoise blur-[125px]" />
@@ -44,11 +44,11 @@ const SearchResultPage: FC = () => {
           <h1 className="text-[30px] text-light-turquoise font-bold tracking-[1.2px] uppercase">
             Результат поиска: {searchValue}
           </h1>
-          {items.length === 0 && <NoResultsMessage />}
+          {searchItems.length === 0 && <NoResultsMessage />}
         </div>
 
         <div className="search__cards relative grid grid-cols-[repeat(4,_255px)] mx-auto gap-7 mt-3">
-          {items.map(({ id, name, cost, imageUrl, filters }) => (
+          {searchItems.map(({ id, name, cost, imageUrl, filters }) => (
             <CardBlock
               key={id}
               id={id}

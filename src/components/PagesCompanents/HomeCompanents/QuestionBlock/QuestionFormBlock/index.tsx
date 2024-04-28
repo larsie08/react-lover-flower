@@ -44,7 +44,7 @@ export const QuestionFormBlock: FC = () => {
           {...register("comment")}
           aria-invalid={errors.comment ? true : false}
         />
-        <button className="w-[255px] mt-2 text-[black] text-[12px] border border-light-turquoise font-bold tracking-[1.2px] uppercase bg-light-turquoise p-4 hover:border-cherry hover:bg-cherry hover:text-[white] focus:border focus:border-cherry active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]">
+        <button className="w-[255px] mt-2 transition-all text-[black] text-[12px] border border-light-turquoise font-bold tracking-[1.2px] uppercase bg-light-turquoise p-4 hover:border-cherry hover:bg-cherry hover:text-[white] focus:border focus:border-cherry active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]">
           отправить
         </button>
         <p className="max-w-[342px] text-[10px] font-normal tracking-[0.2px] font-roboto_condensed">

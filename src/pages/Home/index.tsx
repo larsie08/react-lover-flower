@@ -1,11 +1,10 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { RootState, useAppDispatch } from "../../redux/store";
 import { setIsOpenCart, setIsOpenModal } from "../../redux/modal/slice";
-import { fetchBouquets } from "../../redux/bouquets/asyncActions";
-  
+
 import {
   HomeOrderBlock,
   CardFooterBlock,
@@ -23,24 +22,9 @@ const Home: FC = () => {
 
   const cart = useSelector((state: RootState) => state.cart.items);
   const bouquets = useSelector((state: RootState) => state.bouquets.items);
-  const sortBy = useSelector(
-    (state: RootState) => state.filter.sort.sortProperty
-  );
-  const categoryId = useSelector((state: RootState) => state.filter.categoryId);
 
   const openModal = () => dispatch(setIsOpenModal(true));
   const openCart = () => dispatch(setIsOpenCart(true));
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        await dispatch(fetchBouquets({ sortBy, categoryId }));
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, [dispatch]);
 
   return (
     <div className="wrapper bg-[#040A0A]">

@@ -1,19 +1,13 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-import { fetchSearchBouquets } from "./asyncActions";
-
 import {
   CategoryProps,
   FilterSliceState,
   SortPropertyEnum,
   SortType,
 } from "./types";
-import { Bouquet, Status } from "../bouquets/types";
 
 const initialState: FilterSliceState = {
-  searchValue: "",
-  searchItems: [],
-  status: Status.LOADING,
   categoryId: "",
   category: "",
   filtersId: [],
@@ -28,9 +22,6 @@ const filterSlice = createSlice({
   name: "filter",
   initialState,
   reducers: {
-    setSearchValue(state, action: PayloadAction<string>) {
-      state.searchValue = action.payload;
-    },
     setCategory(state, action: PayloadAction<CategoryProps>) {
       const { categoryId, category } = action.payload;
       if (state.categoryId === categoryId) {
@@ -57,23 +48,6 @@ const filterSlice = createSlice({
       state.isConfirm = action.payload;
     },
   },
-  extraReducers: (builder) => {
-    builder.addCase(fetchSearchBouquets.pending, (state) => {
-      state.status = Status.LOADING;
-      state.searchItems = [];
-    });
-    builder.addCase(
-      fetchSearchBouquets.fulfilled,
-      (state, action: PayloadAction<Bouquet[]>) => {
-        state.searchItems = action.payload;
-        state.status = Status.SUCCESS;
-      }
-    );
-    builder.addCase(fetchSearchBouquets.rejected, (state) => {
-      state.status = Status.ERROR;
-      state.searchItems = [];
-    });
-  },
 });
 
 export const {
@@ -81,7 +55,6 @@ export const {
   setFiltersId,
   setClearFiltersId,
   setSortValue,
-  setSearchValue,
   setConfirm,
 } = filterSlice.actions;
 
