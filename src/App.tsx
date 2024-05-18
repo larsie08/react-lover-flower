@@ -11,19 +11,6 @@ import MainLayout from "./layout/MainLayout";
 import { CallModal, Cart } from "./components";
 import OrderPage from "./pages/OrderPage";
 
-const ROUTE_PATHS = {
-  HOME: "/",
-  CATALOG: "/catalog",
-  BOUQUET: "/catalog/bouquet/:id",
-  DELIVERY: "/delivery",
-  ABOUT_US: "/aboutUs",
-  CONTACTS: "/contacts",
-  FAQ: "/FAQ",
-  CORPORATE: "/corporate",
-  SEARCH: "/search/:searchValue?",
-  ORDER: "/order",
-};
-
 const DeliveryPage = lazy(() => import("./pages/DeliveryPage"));
 const AboutUsPage = lazy(() => import("./pages/AboutUsPage"));
 const ContactsPage = lazy(() => import("./pages/ContactsPage"));
@@ -48,6 +35,25 @@ const OrderFormBlock = lazy(
   () => import("./components/PagesCompanents/OrderCompanents/OrderFormBlock")
 );
 
+const ROUTE_PATHS = {
+  HOME: "/",
+  CATALOG: "/catalog",
+  BOUQUET: "/catalog/bouquet/:id",
+  DELIVERY: "/delivery",
+  ABOUT_US: "/aboutUs",
+  CONTACTS: "/contacts",
+  FAQ: "/FAQ",
+  CORPORATE: "/corporate",
+  SEARCH: "/search/:searchValue?",
+  ORDER: "/order",
+};
+
+const allowedPaths = [
+  ROUTE_PATHS.HOME,
+  ROUTE_PATHS.CATALOG,
+  ROUTE_PATHS.BOUQUET,
+];
+
 function App() {
   const dispatch = useAppDispatch();
   const location = useLocation();
@@ -68,7 +74,8 @@ function App() {
           ...(location.pathname === ROUTE_PATHS.CATALOG && { filtersId }),
         };
 
-        await dispatch(fetchBouquets(fetchParams));
+        if (allowedPaths.includes(location.pathname))
+          await dispatch(fetchBouquets(fetchParams));
 
         dispatch(setConfirm(false));
       } catch (error) {

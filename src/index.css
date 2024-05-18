@@ -5,6 +5,7 @@
 @tailwind utilities;
 
 :root {
+  scroll-behavior: smooth;
   font-family: Oswald;
   line-height: 1.5;
   font-weight: 400;

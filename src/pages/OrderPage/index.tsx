@@ -1,13 +1,80 @@
-import { FC } from "react";
+import { FC, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
+import axios from "axios";
 
 import { RootState } from "../../redux/store";
+import { CartItem } from "../../redux/cart/types";
 
 import { CartCardBlock, DecorativeElement } from "../../components";
 
+import {
+  DeliveryRadioGroupOption,
+  OrderForm,
+  PayRadioGroupOptions,
+  PromoCode,
+} from "../../components/PagesCompanents/OrderCompanents/OrderFormBlock";
+
+type Order = {
+  name: string;
+  phoneNumber: string;
+  email: string;
+  secondPhoneNumber: string;
+  receiverName: string;
+  comment: string;
+  deliveryMethod: DeliveryRadioGroupOption;
+  paymentMethod: PayRadioGroupOptions;
+  appliedPromoCode?: PromoCode;
+  cartItems: CartItem[];
+  // address: {
+  //   city: string;
+  //   street: string;
+  //   building: string;
+  //   houseNumber: string;
+  //   apartmentNumber: string;
+  //   deliveryTime: string;
+  // };
+};
+
 const OrderPage: FC = () => {
-  const { totalPrice, items } = useSelector((state: RootState) => state.cart);
+  const { items, totalPrice } = useSelector((state: RootState) => state.cart);
+
+  const submitOrder = (
+    formData: OrderForm,
+    finalPrice: number,
+    appliedPromoCode?: PromoCode
+  ) => {
+    const order = {
+      name: formData.name,
+      phoneNumber: formData.phone,
+      email: formData.email,
+      secondPhoneNumber: formData.secondPhone,
+      receiverName: formData.receiverName,
+      comment: formData.comment,
+      deliveryMethod: formData.deliveryRadioGroup,
+      paymentMethod: formData.payRadioGroupOptions,
+      cartItems: items,
+      finalPrice,
+
+      ...(appliedPromoCode && { appliedPromoCode }),
+    };
+
+    postOrder(order);
+  };
+
+  const postOrder = useCallback(
+    async (order: Order) => {
+      try {
+        await axios.post(
+          "https://663a356f1ae792804bee79f1.mockapi.io/orders",
+          order
+        );
+      } catch (error) {
+        console.log("Ошибка подтверждения заказа", error);
+      }
+    },
+    [submitOrder]
+  );
 
   return (
     <div className="order_page relative pt-[120px] pb-[200px] max-h-[3000px] bg-[#040A0A]">
@@ -27,7 +94,7 @@ const OrderPage: FC = () => {
       <DecorativeElement className="absolute w-[504px] h-[625px] blur-[125px] bg-cherry rounded-[50%] -top-[5rem] right-0 z-10" />
       <DecorativeElement className="absolute w-[403px] h-[211px] blur-[125px] bg-light-turquoise rounded-[50%] top-[80rem] right-0 z-[15]" />
       <DecorativeElement className="absolute w-[355px] h-[365px] blur-[125px] bg-cherry rounded-[50%] top-[88rem] right-[5rem] z-10" />
-      <div className="order_page__wrapper mx-auto container">
+      <div className="order_page__wrapper mx-auto container relative z-30">
         <div className="order__path">
           <h3 className="text-[12px] font-normal tracking-[.48px] uppercase">
             Главная / оформление заказа
@@ -49,7 +116,7 @@ const OrderPage: FC = () => {
           </h2>
           <div className="order__content_block flex justify-between mt-10 w-full">
             {/* form */}
-            <Outlet context={totalPrice} />
+            <Outlet context={{ submitOrder, totalPrice }} />
             {/* form */}
             <div className="order__cart_items">
               <h3 className="form_title text-[14px] text-light-turquoise font-bold uppercase">

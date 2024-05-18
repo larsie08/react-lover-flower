@@ -30,7 +30,7 @@ export const Search: FC<SearchProps> = memo(
 
     const [searchValue, setSearchValue] = useState("");
     const [searchItems, setSearchItems] = useState<Bouquet[]>([]);
-    const [showSearchItems, toogleShowSearchItems] = useState(false);
+    const [showSearchItems, toggleShowSearchItems] = useState(false);
 
     useEffect(() => {
       document.body.addEventListener("click", handleClickOutside);
@@ -63,8 +63,8 @@ export const Search: FC<SearchProps> = memo(
         searchRef.current &&
         event.composedPath().includes(searchRef.current)
       ) {
-        toogleShowSearchItems(true);
-      } else toogleShowSearchItems(false);
+        toggleShowSearchItems(true);
+      } else toggleShowSearchItems(false);
     };
 
     const clearSearchValue = useCallback(
@@ -82,7 +82,7 @@ export const Search: FC<SearchProps> = memo(
           `https://655b76e2ab37729791a92825.mockapi.io/items?name=${searchValue}&page=1&limit=5`
         );
         setSearchItems(data);
-        toogleShowSearchItems(true);
+        toggleShowSearchItems(true);
       } catch (error) {
         console.error("Error fetching search bouquets:", error);
       }
