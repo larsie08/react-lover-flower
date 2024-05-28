@@ -10,10 +10,10 @@ import { CartCardBlock, DecorativeElement } from "../../components";
 
 import {
   DeliveryRadioGroupOption,
-  OrderForm,
   PayRadioGroupOptions,
-  PromoCode,
 } from "../../components/PagesCompanents/OrderCompanents/OrderFormBlock";
+import { PromoCode } from "../../components/PagesCompanents/OrderCompanents/OrderFormBlock/FormTypes/form.types";
+import { IOrderForm } from "../../components/PagesCompanents/OrderCompanents/OrderFormBlock/FormTypes/form.interface";
 
 type Order = {
   name: string;
@@ -26,25 +26,24 @@ type Order = {
   paymentMethod: PayRadioGroupOptions;
   appliedPromoCode?: PromoCode;
   cartItems: CartItem[];
-  // address: {
-  //   city: string;
-  //   street: string;
-  //   building: string;
-  //   houseNumber: string;
-  //   apartmentNumber: string;
-  //   deliveryTime: string;
-  // };
+  finalPrice: number;
+  address?: {
+    deliveryAddress: string;
+    apartmentNumber: string;
+    deliveryTime: string;
+  };
 };
 
 const OrderPage: FC = () => {
   const { items, totalPrice } = useSelector((state: RootState) => state.cart);
 
   const submitOrder = (
-    formData: OrderForm,
+    formData: IOrderForm,
     finalPrice: number,
+    deliveryAddress: string,
     appliedPromoCode?: PromoCode
   ) => {
-    const order = {
+    const order: Order = {
       name: formData.name,
       phoneNumber: formData.phone,
       email: formData.email,
@@ -55,26 +54,29 @@ const OrderPage: FC = () => {
       paymentMethod: formData.payRadioGroupOptions,
       cartItems: items,
       finalPrice,
-
+      ...(deliveryAddress && {
+        address: {
+          deliveryAddress,
+          apartmentNumber: formData.apartmentNumber,
+          deliveryTime: formData.deliveryTime,
+        },
+      }),
       ...(appliedPromoCode && { appliedPromoCode }),
     };
 
     postOrder(order);
   };
 
-  const postOrder = useCallback(
-    async (order: Order) => {
-      try {
-        await axios.post(
-          "https://663a356f1ae792804bee79f1.mockapi.io/orders",
-          order
-        );
-      } catch (error) {
-        console.log("Ошибка подтверждения заказа", error);
-      }
-    },
-    [submitOrder]
-  );
+  const postOrder = async (order: Order) => {
+    try {
+      await axios.post(
+        "https://663a356f1ae792804bee79f1.mockapi.io/orders",
+        order
+      );
+    } catch (error) {
+      console.log("Ошибка подтверждения заказа", error);
+    }
+  };
 
   return (
     <div className="order_page relative pt-[120px] pb-[200px] max-h-[3000px] bg-[#040A0A]">

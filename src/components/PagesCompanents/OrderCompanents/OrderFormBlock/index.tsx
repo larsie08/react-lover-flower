@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useCallback, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import {
   SubmitErrorHandler,
   SubmitHandler,
@@ -9,8 +9,16 @@ import {
 import { useOutletContext } from "react-router-dom";
 import axios from "axios";
 
+import {
+  IGeosuggestAnswer,
+  IOrderForm,
+  IOrderFormProps,
+} from "./FormTypes/form.interface";
+import { GeosuggestResult, PromoCode } from "./FormTypes/form.types";
+
 import { FormControlLabel, Radio, RadioGroup, debounce } from "@mui/material";
 import grey from "@mui/material/colors/grey";
+import classNames from "classnames";
 
 const deliveryRadioGroupOptions = ["Самовывоз", "Доставка курьером"] as const;
 const payRadioGroupOptions = [
@@ -27,38 +35,15 @@ const validePromoCode: PromoCode[] = [
   { promoName: "bonybog", percentageDiscount: 10 },
 ];
 
+const labelClassName = "flex flex-col gap-1 text-[14px] font-normal";
+const inputClassName =
+  "form__input h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]";
+
 export type DeliveryRadioGroupOption =
   (typeof deliveryRadioGroupOptions)[number];
 export type PayRadioGroupOptions = (typeof payRadioGroupOptions)[number];
 
-export type PromoCode = {
-  promoName: string;
-  percentageDiscount: number;
-};
-
-const labelClassName = "flex flex-col gap-1 text-[14px] font-normal";
-const inputClassName =
-  "form__input h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none  aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]";
-
-export interface OrderForm {
-  name: string;
-  phone: string;
-  email: string;
-  secondPhone: string;
-  receiverName: string;
-  comment: string;
-  deliveryRadioGroup: DeliveryRadioGroupOption;
-  payRadioGroupOptions: PayRadioGroupOptions;
-  promoCode: string;
-  city: string;
-  street: string;
-  building: string;
-  houseNumber: string;
-  apartmentNumber: string;
-  deliveryTime: string;
-}
-
-const defaultValues: DefaultValues<OrderForm> = {
+const defaultValues: DefaultValues<IOrderForm> = {
   name: "",
   phone: "",
   email: "",
@@ -68,22 +53,10 @@ const defaultValues: DefaultValues<OrderForm> = {
   deliveryRadioGroup: "Самовывоз",
   payRadioGroupOptions: "Банковская карта",
   promoCode: "",
-  city: "",
-  street: "",
-  building: "",
-  houseNumber: "",
+  address: "",
   apartmentNumber: "",
   deliveryTime: "",
 };
-
-interface OrderFormProps {
-  submitOrder: (
-    formData: OrderForm,
-    finalPrice: number,
-    appliedPromoCode: PromoCode | undefined
-  ) => void;
-  totalPrice: number;
-}
 
 const OrderFormBlock: FC = () => {
   const {
@@ -92,33 +65,37 @@ const OrderFormBlock: FC = () => {
     control,
     watch,
     getValues,
+    setValue,
     formState: { errors },
-  } = useForm<OrderForm>({
+  } = useForm<IOrderForm>({
     defaultValues,
   });
 
-  const { submitOrder, totalPrice } = useOutletContext<OrderFormProps>();
+  const { submitOrder, totalPrice } = useOutletContext<IOrderFormProps>();
 
   const [discount, setDiscount] = useState<number>(0);
   const [deliveryPrice, setDeliveryPrice] = useState<number>(0);
   const [finalPrice, setFinalPrice] = useState<number>(totalPrice);
 
-  const [listOfAddresses, setListOfAddresses] = useState();
-  const [address, setAddress] = useState<string>();
+  const [listOfAddresses, setListOfAddresses] = useState<GeosuggestResult[]>();
 
   const [appliedPromoCode, setAppiedPromoCode] = useState<PromoCode>();
+
+  const [isOpenAddressesList, toogleIsOpenAddressesList] = useState(false);
 
   const watchDelivery = watch("deliveryRadioGroup");
   const watchPayMethods = watch("payRadioGroupOptions");
 
-  const submit: SubmitHandler<OrderForm> = useCallback(
+  const submit: SubmitHandler<IOrderForm> = useCallback(
     (data) => {
-      submitOrder(data, finalPrice, appliedPromoCode);
+      const deliveryAddress = getValues("address").trim();
+
+      submitOrder(data, finalPrice, deliveryAddress, appliedPromoCode);
     },
     [submitOrder]
   );
 
-  const error: SubmitErrorHandler<OrderForm> = (data) => console.log(data);
+  const error: SubmitErrorHandler<IOrderForm> = (data) => console.log(data);
 
   const submitPromoCode = () => {
     const promo = getValues("promoCode").trim().toLowerCase();
@@ -144,37 +121,54 @@ const OrderFormBlock: FC = () => {
   };
 
   const updateAddress = debounce(() => {
-    const cityAddress = getValues("city").trim();
-    const streetAddress = getValues("street").trim();
-    const buildingAddress = getValues("building").trim();
-    const houseNumberAddress = getValues("houseNumber").trim();
+    const address = getValues("address").trim();
 
-    const addressParts = [
-      cityAddress,
-      streetAddress,
-      buildingAddress,
-      houseNumberAddress,
-    ];
+    if (address === "") return;
 
-    const address = addressParts.filter((part) => !!part).join(" ");
-
-    if (!address) return;
-
-    console.log(address);
+    setListOfAddresses([]);
 
     fetchAddress(address);
-  }, 250);
+  }, 350);
 
-  const fetchAddress = async (value: string) => {
+  const fetchAddress = async (address: string) => {
     try {
-      const { data } = await axios.get(
-        `https://suggest-maps.yandex.ru/v1/suggest?apikey=070fb698-002c-430b-9858-7b9dd513018a&text=${value}&lang=ru&types=street,province,house&print_address=1&results=40`
+      const { data } = await axios.get<IGeosuggestAnswer>(
+        `https://suggest-maps.yandex.ru/v1/suggest?apikey=070fb698-002c-430b-9858-7b9dd513018a&text=${address}&lang=ru&types=province,locality,street,house&results=20`
       );
-      console.log(data);
+
+      toogleIsOpenAddressesList(true);
+      setListOfAddresses(data.results);
     } catch (error) {
-      console.log("не удалось получить адрес", error);
+      console.log("Не удалось получить адрес", error);
     }
   };
+
+  const handleAddressValue = (addressObj: GeosuggestResult) => {
+    const textTitle = addressObj.title.text;
+    const textSubtitle = addressObj.subtitle?.text;
+
+    const address = formatAddress(textTitle, textSubtitle);
+    const deliveryPrice = getRandomDeliveryPrice();
+
+    setValue("address", address);
+    setDeliveryPrice(deliveryPrice);
+
+    toogleIsOpenAddressesList(false);
+  };
+
+  const formatAddress = (textTitle: string, textSubtitle?: string) => {
+    if (textSubtitle) {
+      const reversedSubtitleValue = textSubtitle
+        .split(",")
+        .reverse()
+        .join(", ");
+
+      return `${reversedSubtitleValue}, ${textTitle}`;
+    }
+    return textTitle;
+  };
+
+  const getRandomDeliveryPrice = () => Math.round(Math.random() * (1000 - 100));
 
   return (
     <form>
@@ -276,60 +270,46 @@ const OrderFormBlock: FC = () => {
           />
           {watchDelivery === "Доставка курьером" && (
             <div className="flex flex-col gap-5">
-              <label className={labelClassName} htmlFor="city">
-                Город*
+              <label className={`${labelClassName} relative`} htmlFor="city">
+                Адрес*
                 <input
                   className={inputClassName}
-                  placeholder="Выберите город"
+                  placeholder="Введите адрес"
                   type="text"
-                  {...register("city", {
+                  autoComplete="off"
+                  {...register("address", {
                     required: true,
                     onChange: updateAddress,
                   })}
-                  aria-invalid={errors.city ? true : false}
+                  aria-invalid={errors.address ? true : false}
                 />
-                <div className="input__answer_block"></div>
+                {listOfAddresses && isOpenAddressesList && (
+                  <ul
+                    className={classNames(
+                      "input__answer_block flex flex-col absolute w-full overflow-hidden top-[85px] z-10 h-[220px]",
+                      { ["overflow-y-scroll"]: listOfAddresses.length > 4 }
+                    )}
+                  >
+                    {listOfAddresses.map((addressObj) => (
+                      <li
+                        key={addressObj.distance.value}
+                        onClick={() => handleAddressValue(addressObj)}
+                        className="h-[50px] w-full bg-[black] border-y group/address-items hover:bg-light-turquoise active:bg-cherry transition-colors active:shadow-[0_0_10px_0_#1B000E_inset]"
+                      >
+                        <h4 className="text-[14px] font-normal tracking-[.56px] group-hover/address-items:text-[black] group-active/address-items:text-[white]">
+                          {addressObj.title.text}
+                        </h4>
+
+                        <span className="text-[14px] font-normal tracking-[.56px] group-hover/address-items:text-[black] group-active/address-items:text-[white]">
+                          {addressObj.subtitle?.text}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </label>
-              <label className={labelClassName} htmlFor="street">
-                Улица*
-                <input
-                  className={inputClassName}
-                  placeholder="Введите улицу"
-                  type="text"
-                  {...register("street", {
-                    required: true,
-                    onChange: updateAddress,
-                  })}
-                  aria-invalid={errors.street ? true : false}
-                />
-              </label>
+
               <div className="flex gap-8">
-                <label className={labelClassName} htmlFor="building">
-                  Корп/стр
-                  <input
-                    className={`${inputClassName} w-[160px]`}
-                    placeholder="Корп/стр"
-                    type="text"
-                    {...register("building", {
-                      required: true,
-                      onChange: updateAddress,
-                    })}
-                    aria-invalid={errors.building ? true : false}
-                  />
-                </label>
-                <label className={labelClassName} htmlFor="houseNumber">
-                  Дом
-                  <input
-                    className={`${inputClassName} w-[160px]`}
-                    placeholder="Дом"
-                    type="text"
-                    {...register("houseNumber", {
-                      required: true,
-                      onChange: updateAddress,
-                    })}
-                    aria-invalid={errors.houseNumber ? true : false}
-                  />
-                </label>
                 <label className={labelClassName} htmlFor="apartmentNumber">
                   Кв/офис
                   <input
@@ -340,17 +320,17 @@ const OrderFormBlock: FC = () => {
                     aria-invalid={errors.apartmentNumber ? true : false}
                   />
                 </label>
+                <label className={labelClassName} htmlFor="deliveryTime">
+                  Время доставки
+                  <input
+                    className={`${inputClassName} w-[160px]`}
+                    placeholder="__/__"
+                    type="time"
+                    {...register("deliveryTime", { required: true })}
+                    aria-invalid={errors.deliveryTime ? true : false}
+                  />
+                </label>
               </div>
-              <label className={labelClassName} htmlFor="deliveryTime">
-                Время доставки
-                <input
-                  className={`${inputClassName} w-[160px]`}
-                  placeholder="__/__"
-                  type="time"
-                  {...register("deliveryTime", { required: true })}
-                  aria-invalid={errors.deliveryTime ? true : false}
-                />
-              </label>
             </div>
           )}
         </section>
@@ -417,9 +397,16 @@ const OrderFormBlock: FC = () => {
                 {finalPrice} ₽
               </h2>
             </div>
-            <h3 className="text-[14px] font-normal uppercase">
-              Скидка = {discount} ₽
-            </h3>
+            <div className="flex gap-4">
+              <h3 className="text-[14px] font-normal uppercase">
+                Скидка = {discount} ₽
+              </h3>
+              {appliedPromoCode && (
+                <h4 className="text-[14px] font-normal uppercase">
+                  ({appliedPromoCode.percentageDiscount} %)
+                </h4>
+              )}
+            </div>
             <h3 className="text-[14px] font-normal uppercase">
               Доставка = {deliveryPrice} ₽
             </h3>

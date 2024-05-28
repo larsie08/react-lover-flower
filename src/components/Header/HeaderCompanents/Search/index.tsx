@@ -76,7 +76,7 @@ export const Search: FC<SearchProps> = memo(
       []
     );
 
-    const fetchSearchBouquets = useCallback(async (searchValue: string) => {
+    const fetchSearchBouquets = async (searchValue: string) => {
       try {
         const { data } = await axios.get<Bouquet[]>(
           `https://655b76e2ab37729791a92825.mockapi.io/items?name=${searchValue}&page=1&limit=5`
@@ -86,25 +86,19 @@ export const Search: FC<SearchProps> = memo(
       } catch (error) {
         console.error("Error fetching search bouquets:", error);
       }
-    }, []);
+    };
 
-    const debouncedFetch = useCallback(
-      debounce((str: string) => {
-        if (str !== "") {
-          fetchSearchBouquets(str);
-        } else setSearchItems([]);
-      }, 500),
-      [fetchSearchBouquets]
-    );
+    const debouncedFetch = debounce((str: string) => {
+      if (str !== "") {
+        fetchSearchBouquets(str);
+      } else setSearchItems([]);
+    }, 500);
 
-    const onChangeInput = useCallback(
-      (event: ChangeEvent<HTMLInputElement>) => {
-        const inputValue = event.target.value.toLowerCase();
-        setSearchValue(inputValue);
-        debouncedFetch(inputValue);
-      },
-      [debouncedFetch]
-    );
+    const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
+      const inputValue = event.target.value.toLowerCase();
+      setSearchValue(inputValue);
+      debouncedFetch(inputValue);
+    };
 
     return (
       <div className="flex ml-[50px] flex-col relative justify-center">
