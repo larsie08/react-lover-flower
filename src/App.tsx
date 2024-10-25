@@ -6,8 +6,8 @@ import { fetchBouquets } from "./redux/bouquets/asyncActions";
 import { setConfirm } from "./redux/filter/slice";
 import { RootState, useAppDispatch } from "./redux/store";
 
-import Home from "./pages/Home";
 import MainLayout from "./layout/MainLayout";
+import Home from "./pages/Home";
 import { CallModal, Cart } from "./components";
 import OrderPage from "./pages/OrderPage";
 
@@ -92,9 +92,6 @@ function App() {
           <Route path={ROUTE_PATHS.HOME} element={<MainLayout />}>
             <Route index element={<Home />} />
             <Route path="*" element={<EmptyPage />} />
-            <Route path={ROUTE_PATHS.ORDER} element={<OrderPage />}>
-              <Route index element={<OrderFormBlock />} />
-            </Route>
             <Route path={ROUTE_PATHS.CATALOG} element={<CatalogPage />} />
             <Route path={ROUTE_PATHS.DELIVERY} element={<DeliveryPage />} />
             <Route path={ROUTE_PATHS.ABOUT_US} element={<AboutUsPage />} />
@@ -102,6 +99,10 @@ function App() {
             <Route path={ROUTE_PATHS.FAQ} element={<FAQPage />} />
             <Route path={ROUTE_PATHS.CORPORATE} element={<CorporatePage />} />
             <Route path={ROUTE_PATHS.SEARCH} element={<SearchResultPage />} />
+
+            <Route path={ROUTE_PATHS.ORDER} element={<OrderPage />}>
+              <Route index element={<OrderFormBlock />} />
+            </Route>
             <Route path={ROUTE_PATHS.BOUQUET} element={<BouquetPage />}>
               <Route index element={<BouquetDeliveryBlock />} />
               <Route path="reviews" element={<BouquetReviewsBlock />} />

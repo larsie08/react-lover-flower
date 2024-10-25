@@ -5,9 +5,11 @@ import { Footer, Header } from "../components";
 
 const MainLayout: FC = () => {
   return (
-    <div className="wrapper bg-[#040A0A]">
+    <div className="wrapper bg-[#040A0A] flex flex-col justify-between h-[100vh]">
       <Header />
-      <Outlet />
+      <div>
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

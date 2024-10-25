@@ -1,6 +1,10 @@
-import { FC, useEffect, useState } from "react";
+import { FC, memo } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode, Mousewheel, Navigation } from "swiper/modules";
 
 import { Bouquet } from "../../redux/bouquets/types";
+
+import "swiper/css";
 
 import { LeftArrowSvg, RightArrowSvg } from "../../assets";
 import { CardBlock } from "..";
@@ -10,58 +14,41 @@ interface SliderProps {
   showCatalog?: boolean;
 }
 
-export const SliderBlock: FC<SliderProps> = ({
-  bouquets,
-}) => {
-  const [slideItems, setSlideItems] = useState<Bouquet[]>([]);
-  const [currentIndex, setCurrentIndex] = useState<number>(1);
-
-  useEffect(() => {
-    setSlideItems(bouquets.slice(currentIndex, currentIndex + 3));
-  }, [bouquets, currentIndex]);
-
-  const nextSlide = () => {
-    if (currentIndex < bouquets.length - 3) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
-
-  const prevSlide = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
-
+export const SliderBlock: FC<SliderProps> = memo(({ bouquets }) => {
   return (
     <>
       <div className="popular_bouquets__slider gap-8 flex items-center justify-center">
-        <div
-          onClick={prevSlide}
-          className="arrow mb-14 relative z-10 cursor-pointer select-none"
-        >
+        <button className="arrow-prev mb-14 relative z-10 cursor-pointer select-none">
           <LeftArrowSvg />
-        </div>
-        <div className="grid grid-cols-[repeat(3,_350px)] gap-8">
-          {slideItems.map((obj) => (
-            <CardBlock
-              key={obj.id}
-              id={obj.id}
-              name={obj.name}
-              imageUrl={obj.imageUrl}
-              cost={obj.cost}
-              filters={obj.filters}
-              imgClassName="h-[450px]"
-            />
-          ))}
-        </div>
+        </button>
 
-        <div
-          onClick={nextSlide}
-          className="arrow mb-14 relative z-10 cursor-pointer select-none"
+        <Swiper
+          spaceBetween={10}
+          freeMode={true}
+          slidesPerView={3}
+          navigation={{ prevEl: ".arrow-prev", nextEl: ".arrow-next" }}
+          mousewheel={true}
+          modules={[FreeMode, Mousewheel, Navigation]}
+          className="flex flex-nowrap select-none z-30 relative"
         >
+          {bouquets.map((obj) => (
+            <SwiperSlide key={obj.id}>
+              <CardBlock
+                key={obj.id}
+                id={obj.id}
+                name={obj.name}
+                imageUrl={obj.imageUrl}
+                cost={obj.cost}
+                filters={obj.filters}
+                imgClassName="h-[450px] w-[350px]"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <button className="arrow-next mb-14 relative cursor-pointer select-none z-10">
           <RightArrowSvg />
-        </div>
+        </button>
       </div>
     </>
   );
-};
+});

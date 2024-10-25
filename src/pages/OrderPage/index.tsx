@@ -1,4 +1,4 @@
-import { FC, useCallback } from "react";
+import { FC } from "react";
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import axios from "axios";

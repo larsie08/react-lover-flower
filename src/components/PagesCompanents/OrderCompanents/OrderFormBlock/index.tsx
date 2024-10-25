@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, useCallback, useState } from "react";
 import {
   SubmitErrorHandler,
   SubmitHandler,
@@ -31,7 +31,7 @@ const payRadioGroupOptions = [
 ] as const;
 
 const validePromoCode: PromoCode[] = [
-  { promoName: "ilyalox", percentageDiscount: 5 },
+  { promoName: "kiriewka", percentageDiscount: 5 },
   { promoName: "bonybog", percentageDiscount: 10 },
 ];
 

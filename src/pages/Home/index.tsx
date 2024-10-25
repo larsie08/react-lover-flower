@@ -32,11 +32,7 @@ const Home: FC = () => {
       <CatalogBlock />
 
       <div className="popular_bouquets relative w-full h-[1300px]">
-        <img
-          className="absolute right-0 z-10 cover bg-no-repeat h-[750px] w-[60%]"
-          src="./img/PagesImg/HomeImg/IntroImg/BouquetsBG.png"
-          alt="BouquetsBG"
-        />
+        <div className="absolute right-0 z-10 w-[60%] h-[750px] bg-[url('./img/PagesImg/HomeImg/IntroImg/BouquetsBG.png')]" />
 
         <PopularLightSvg />
         <PopularCherrySvg />
