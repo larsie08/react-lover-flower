@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import classNames from "classnames";
 
 import { RootState, useAppDispatch } from "../../../redux/store";
-import { setDeleteBouquet, updateItemCount } from "../../../redux/cart/slice";
 import { setIsOpenCart } from "../../../redux/modal/slice";
 
 import {

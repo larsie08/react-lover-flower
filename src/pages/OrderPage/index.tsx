@@ -1,4 +1,4 @@
-import { FC, useCallback } from "react";
+import { FC } from "react";
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import axios from "axios";
@@ -11,9 +11,9 @@ import { CartCardBlock, DecorativeElement } from "../../components";
 import {
   DeliveryRadioGroupOption,
   PayRadioGroupOptions,
-} from "../../components/PagesCompanents/OrderCompanents/OrderFormBlock";
-import { PromoCode } from "../../components/PagesCompanents/OrderCompanents/OrderFormBlock/FormTypes/form.types";
-import { IOrderForm } from "../../components/PagesCompanents/OrderCompanents/OrderFormBlock/FormTypes/form.interface";
+} from "./OrderFormBlock";
+import { PromoCode } from "./OrderFormBlock/FormTypes/form.types";
+import { IOrderForm } from "./OrderFormBlock/FormTypes/form.interface";
 
 type Order = {
   name: string;

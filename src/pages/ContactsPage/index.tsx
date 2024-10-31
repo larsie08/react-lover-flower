@@ -1,12 +1,13 @@
 import { FC } from "react";
 
+import { DecorativeElement } from "../../components";
 import {
   ContactsCardBlocks,
   ContactsFormBlock,
   ContactsMapBlock,
   ContactsTitleBlock,
-  DecorativeElement,
-} from "../../components";
+} from "./companents";
+
 import { ContactsBgColor } from "../../assets";
 
 const ContactsPage: FC = () => {

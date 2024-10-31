@@ -1,11 +1,10 @@
 import { FC } from "react";
 import { createPortal } from "react-dom";
+import classNames from "classnames";
 
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../../../redux/store";
 import { setIsOpenModal } from "../../../redux/modal/slice";
-
-import classNames from "classnames";
 
 import { CloseSvg, ModalCherrySvg, ModalLightSvg } from "../../../assets";
 import { ModalForm } from "./ModalForm";

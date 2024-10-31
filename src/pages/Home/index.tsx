@@ -5,16 +5,17 @@ import { Link } from "react-router-dom";
 import { RootState, useAppDispatch } from "../../redux/store";
 import { setIsOpenCart, setIsOpenModal } from "../../redux/modal/slice";
 
+import { SliderBlock } from "../../components";
 import {
-  HomeOrderBlock,
+  BouquetsTitleBlock,
   CardFooterBlock,
   CatalogBlock,
+  HomeOrderBlock,
   Intro,
   OccasionBlock,
   QuestionBlock,
-  BouquetsTitleBlock,
-  SliderBlock,
-} from "../../components";
+} from "./companents";
+
 import { PinkArrowSvg, PopularCherrySvg, PopularLightSvg } from "../../assets";
 
 const Home: FC = () => {

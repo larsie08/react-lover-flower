@@ -7,9 +7,10 @@ import { setConfirm } from "./redux/filter/slice";
 import { RootState, useAppDispatch } from "./redux/store";
 
 import Home from "./pages/Home";
+import OrderPage from "./pages/OrderPage";
+
 import MainLayout from "./layout/MainLayout";
 import { CallModal, Cart } from "./components";
-import OrderPage from "./pages/OrderPage";
 
 const DeliveryPage = lazy(() => import("./pages/DeliveryPage"));
 const AboutUsPage = lazy(() => import("./pages/AboutUsPage"));
@@ -22,18 +23,12 @@ const BouquetPage = lazy(() => import("./pages/BouquetPage"));
 const EmptyPage = lazy(() => import("./pages/EmptyPage"));
 
 const BouquetReviewsBlock = lazy(
-  () =>
-    import("./components/PagesCompanents/BouquetCompanents/BouquetReviewsBlock")
+  () => import("./pages/BouquetPage/companents/BouquetReviewsBlock")
 );
 const BouquetDeliveryBlock = lazy(
-  () =>
-    import(
-      "./components/PagesCompanents/BouquetCompanents/BouquetDeliveryBlock"
-    )
+  () => import("./pages/BouquetPage/companents/BouquetDeliveryBlock")
 );
-const OrderFormBlock = lazy(
-  () => import("./components/PagesCompanents/OrderCompanents/OrderFormBlock")
-);
+const OrderFormBlock = lazy(() => import("./pages/OrderPage/OrderFormBlock"));
 
 const ROUTE_PATHS = {
   HOME: "/",

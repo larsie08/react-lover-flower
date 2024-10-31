@@ -7,14 +7,14 @@ import { RootState, useAppDispatch } from "../../redux/store";
 import { setCartItem } from "../../redux/cart/slice";
 import { selectBouquetById } from "../../redux/bouquets/selectors";
 
+import { DecorativeElement, SliderBlock } from "../../components";
 import {
   BouquetAdditionBlock,
   BouquetBlock,
   BouquetSkeletonBlock,
   BouquetSwitchBlock,
-  DecorativeElement,
-  SliderBlock,
-} from "../../components";
+} from "./companents";
+
 import { BouquetBgTopLeft } from "../../assets";
 
 const BouquetPage: FC = () => {

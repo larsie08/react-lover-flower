@@ -3,16 +3,15 @@ import { useSelector } from "react-redux";
 
 import { RootState } from "../../redux/store";
 
+import { DecorativeElement, CardBlock, SkeletonCard } from "../../components";
 import {
   CatalogCategoryBlock,
   CatalogFilterBlock,
+  CatalogRightSideBlock,
   CatalogSortBlock,
   CatalogTitleBlock,
-  DecorativeElement,
-  CardBlock,
-  CatalogRightSideBlock,
-  SkeletonCard,
-} from "../../components";
+} from "./companents";
+
 import { CatalogLeftSvg, CatalogRightSvg } from "../../assets";
 
 const CatalogPage: FC = memo(() => {
