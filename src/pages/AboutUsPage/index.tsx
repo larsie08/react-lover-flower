@@ -1,12 +1,12 @@
 import { FC } from "react";
 
+import { DecorativeElement } from "../../components";
 import {
-  AboutTeamBlock,
-  AboutTitleBlock,
   AboutGuaranteesBlock,
   AboutOrderBlock,
-  DecorativeElement,
-} from "../../components";
+  AboutTeamBlock,
+  AboutTitleBlock,
+} from "./companents";
 
 import { AboutBgColorBottom } from "../../assets";
 

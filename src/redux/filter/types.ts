@@ -7,6 +7,7 @@ export interface FilterSliceState {
   categoryId: FlowerCategoriesEnum | string;
   category: string;
   filtersId: string[];
+  fieldPriceValue: number[];
   isConfirm: boolean;
   sort: {
     name: string;

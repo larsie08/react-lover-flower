@@ -11,6 +11,7 @@ const initialState: FilterSliceState = {
   categoryId: "",
   category: "",
   filtersId: [],
+  fieldPriceValue: [],
   isConfirm: false,
   sort: {
     name: "популярности",
@@ -47,6 +48,9 @@ const filterSlice = createSlice({
     setConfirm(state, action: PayloadAction<boolean>) {
       state.isConfirm = action.payload;
     },
+    setFieldPriceValue(state, action: PayloadAction<number[]>) {
+      state.fieldPriceValue = action.payload;
+    },
   },
 });
 
@@ -56,6 +60,7 @@ export const {
   setClearFiltersId,
   setSortValue,
   setConfirm,
+  setFieldPriceValue,
 } = filterSlice.actions;
 
 export default filterSlice.reducer;

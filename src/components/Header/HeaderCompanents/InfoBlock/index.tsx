@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
-export const InfoBlock: FC = () => {
+export const InfoBlock: FC = memo(() => {
   return (
     <div className="flex flex-col gap-5 mt-5">
       <div className="flex flex-col gap-1.5 items-end">
@@ -21,4 +21,4 @@ export const InfoBlock: FC = () => {
       </div>
     </div>
   );
-};
+});

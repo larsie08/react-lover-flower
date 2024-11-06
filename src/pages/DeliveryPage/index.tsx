@@ -1,12 +1,13 @@
 import { FC } from "react";
 
+import { DecorativeElement } from "../../components";
+
 import {
-  AdditionallyBlock,
-  DeliveryCardBlocks,
+  DeliveryAdditionallyBlock,
   DeliveryBlock,
+  DeliveryCardBlocks,
   DeliveryTitleBlock,
-  DecorativeElement,
-} from "../../components";
+} from "./companents";
 
 import { BgColorBottom } from "../../assets";
 
@@ -47,7 +48,7 @@ const DeliveryPage: FC = () => {
         </div>
         <DeliveryCardBlocks />
         <DeliveryBlock />
-        <AdditionallyBlock />
+        <DeliveryAdditionallyBlock />
       </div>
       <img
         className="absolute right-0 -bottom-[15rem] z-10"

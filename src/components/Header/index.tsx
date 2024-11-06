@@ -1,4 +1,4 @@
-import { FC, memo, useEffect, useState } from "react";
+import { FC, memo, useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
@@ -11,7 +11,7 @@ import {
 } from "../../redux/filter/types";
 import { setCategory } from "../../redux/filter/slice";
 
-import { CartBlock, InfoBlock, Search } from "./HeaderCompanents";
+import { CartBlock, InfoBlock, ListBlock, Search } from "./HeaderCompanents";
 import { DecorativeElement } from "..";
 import { setIsOpenCart } from "../../redux/modal/slice";
 
@@ -53,19 +53,22 @@ export const Header: FC = memo(() => {
   const [lastScrollY, setLastScrollY] = useState<number>(0);
   const cart = useSelector((state: RootState) => state.cart.items);
 
-  const controlNavbar = () => {
+  const controlNavbar = useCallback(() => {
     toggleShowHeader(window.scrollY > lastScrollY ? false : true);
     setLastScrollY(window.scrollY);
-  };
+  }, [dispatch, lastScrollY]);
 
-  const onClick = (categoryId: FlowerCategoriesEnum, category: string) => {
-    const obj: CategoryProps = { categoryId, category };
-    dispatch(setCategory(obj));
-  };
+  const onClick = useCallback(
+    (categoryId: FlowerCategoriesEnum, category: string) => {
+      const obj: CategoryProps = { categoryId, category };
+      dispatch(setCategory(obj));
+    },
+    [dispatch]
+  );
 
-  const openButton = () => {
+  const openButton = useCallback(() => {
     dispatch(setIsOpenCart(true));
-  };
+  }, [dispatch]);
 
   useEffect(() => {
     window.addEventListener("scroll", controlNavbar);
@@ -103,15 +106,7 @@ export const Header: FC = memo(() => {
               </Link>
               <ul className="group/submenu absolute group-[:hover]:visible group-[:hover]:opacity-100 opacity-0 -left-4 top-[40px] invisible bg-[grey]/[.3] backdrop-blur-[10px] flex flex-col gap-1 w-[260px] p-2 transition-all z-20">
                 {categories.map((obj) => (
-                  <Link
-                    to="catalog"
-                    onClick={() => onClick(obj.id, obj.name)}
-                    key={obj.id}
-                    className="group/categories catalog_name group-[:hover]:opacity-100 opacity-0 text-[14px] font-normal relative z-30 tracking-[.56px] uppercase cursor-pointer hover:text-light-turquoise"
-                  >
-                    {obj.name}
-                    <DecorativeElement className="absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/categories:w-full group-hover/categories:visible transition-all duration-300" />
-                  </Link>
+                  <ListBlock id={obj.id} name={obj.name} onClick={onClick} />
                 ))}
               </ul>
             </li>

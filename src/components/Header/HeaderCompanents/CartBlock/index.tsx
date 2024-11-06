@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import classNames from "classnames";
 
 import { CartSvg, HeaderPhoneSvg } from "../../../../assets";
@@ -9,9 +9,9 @@ interface CartBlockProps {
   openButton: () => void;
 }
 
-export const CartBlock: FC<CartBlockProps> = ({ cart, openButton }) => {
+export const CartBlock: FC<CartBlockProps> = memo(({ cart, openButton }) => {
   const onClick = () => openButton();
-  
+
   return (
     <div className="cart_block flex items-center gap-8">
       <div className="cart_block__phone flex items-center gap-3">
@@ -46,4 +46,4 @@ export const CartBlock: FC<CartBlockProps> = ({ cart, openButton }) => {
       </button>
     </div>
   );
-};
+});

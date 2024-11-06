@@ -3,13 +3,10 @@ import { useParams } from "react-router-dom";
 import classNames from "classnames";
 import axios from "axios";
 
-import { Bouquet } from "../../redux/bouquets/types";
+import { CardBlock, DecorativeElement } from "../../components";
+import { NoResultsMessage } from "./NoResultMessage";
 
-import {
-  CardBlock,
-  DecorativeElement,
-  NoResultsMessage,
-} from "../../components";
+import { Bouquet } from "../../redux/bouquets/types";
 
 const SearchResultPage: FC = () => {
   const { searchValue } = useParams<string>();

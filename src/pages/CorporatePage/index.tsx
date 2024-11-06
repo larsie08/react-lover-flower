@@ -1,12 +1,13 @@
 import { FC } from "react";
 
+import { DecorativeElement } from "../../components";
 import {
   CorporateFormBlock,
   CorporateTableBlock,
   CorporateTitleBlock,
   CorporateСoopBlock,
-  DecorativeElement,
-} from "../../components";
+} from "./companents";
+
 import { CorporateBgColor } from "../../assets";
 
 const CorporatePage: FC = () => {
