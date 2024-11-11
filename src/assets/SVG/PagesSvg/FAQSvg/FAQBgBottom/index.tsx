@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
-export const FAQBgBottom: FC = () => {
+export const FAQBgBottom: FC = memo(() => {
   return (
     <svg
       className="absolute -bottom-[15rem] right-0"
@@ -41,4 +41,4 @@ export const FAQBgBottom: FC = () => {
       </defs>
     </svg>
   );
-};
+});

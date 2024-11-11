@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import Collapse from "@mui/material/Collapse";
 
 interface FAQBlockProps {
@@ -8,7 +8,7 @@ interface FAQBlockProps {
   onClick: () => void;
 }
 
-export const FAQBlock: FC<FAQBlockProps> = ({
+export const FAQBlock: FC<FAQBlockProps> = memo(({
   title,
   content,
   isOpen,
@@ -37,4 +37,4 @@ export const FAQBlock: FC<FAQBlockProps> = ({
       </Collapse>
     </div>
   );
-};
+});

@@ -21,7 +21,10 @@ const BouquetPage: FC = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams<string>();
 
-  const bouquet = useSelector(selectBouquetById(id));
+  const bouquet = useSelector((state: RootState) =>
+    selectBouquetById(state, id)
+  );
+
   const bouquets = useSelector((state: RootState) => state.bouquets.items);
   const reviews = useSelector((state: RootState) => state.reviews.reviews);
 

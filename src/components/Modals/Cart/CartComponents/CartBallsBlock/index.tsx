@@ -1,11 +1,11 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 const balls = [
   { title: "ШАР “ЗВЕЗДА”", url: "./img/balls/star.png" },
   { title: "ШАР “СЕРДЦЕ”", url: "./img/balls/heart.png" },
 ];
 
-export const CartBallsBlock: FC = () => {
+export const CartBallsBlock: FC = memo(() => {
   return (
     <div className="top_block flex flex-col gap-3">
       <div className="title">
@@ -34,4 +34,4 @@ export const CartBallsBlock: FC = () => {
       </div>
     </div>
   );
-};
+});

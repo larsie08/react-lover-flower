@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
-export const SocialsSvg: FC = () => {
+export const SocialsSvg: FC = memo(() => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -31,4 +31,4 @@ export const SocialsSvg: FC = () => {
       />
     </svg>
   );
-};
+});

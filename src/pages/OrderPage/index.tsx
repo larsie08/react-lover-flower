@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import axios from "axios";
 
-import { RootState } from "../../redux/store";
+import { RootState, useAppDispatch } from "../../redux/store";
 import { CartItem } from "../../redux/cart/types";
 
 import { CartCardBlock, DecorativeElement } from "../../components";
@@ -35,6 +35,8 @@ type Order = {
 };
 
 const OrderPage: FC = () => {
+  const dispatch = useAppDispatch();
+
   const { items, totalPrice } = useSelector((state: RootState) => state.cart);
 
   const submitOrder = (
@@ -133,6 +135,7 @@ const OrderPage: FC = () => {
                     cost={item.cost}
                     imageUrl={item.imageUrl}
                     count={item.count}
+                    dispatch={dispatch}
                   />
                 ))}
               </div>

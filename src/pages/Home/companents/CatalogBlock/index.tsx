@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { AdditionallyBlock, BouquetsBlock, FlowersBlock } from "./Blocks";
 import { DecorativeElement } from "../../../../components";
 
-export const CatalogBlock: FC = () => {
+export const CatalogBlock: FC = memo(() => {
   return (
     <div className="catalog_block__wrapper h-[1000px]">
       <div className="container relative h-full flex flex-col mx-auto">
@@ -31,4 +31,4 @@ export const CatalogBlock: FC = () => {
       </div>
     </div>
   );
-};
+});

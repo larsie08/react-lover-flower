@@ -4,7 +4,7 @@ import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { useOutletContext } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { useAppDispatch } from "../../../../redux/store";
+import { RootState, useAppDispatch } from "../../../../redux/store";
 import { addReview } from "../../../../redux/reviews/slice";
 import { Reviews } from "../../../../redux/reviews/types";
 import { selectBouquetById } from "../../../../redux/bouquets/selectors";
@@ -24,7 +24,9 @@ const BouquetReviewsBlock: FC = () => {
   const date = new Date();
 
   const bouquetId = useOutletContext<string>();
-  const bouquet = useSelector(selectBouquetById(bouquetId));
+  const bouquet = useSelector((state: RootState) =>
+    selectBouquetById(state, bouquetId)
+  );
 
   const [reviews, setReviews] = useState<Reviews[] | undefined>();
   const currentDate = date.toLocaleDateString().split(".").join("/");

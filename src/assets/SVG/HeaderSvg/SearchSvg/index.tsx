@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
-export const SearchSvg: FC = () => {
+export const SearchSvg: FC = memo(() => {
   return (
     <svg
       className="mr-2.5"
@@ -16,4 +16,4 @@ export const SearchSvg: FC = () => {
       />
     </svg>
   );
-};
+});

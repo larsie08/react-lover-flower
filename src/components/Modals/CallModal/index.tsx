@@ -1,17 +1,19 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { createPortal } from "react-dom";
 import classNames from "classnames";
 
 import { useSelector } from "react-redux";
-import { RootState, useAppDispatch } from "../../../redux/store";
+import { useAppDispatch } from "../../../redux/store";
 import { setIsOpenModal } from "../../../redux/modal/slice";
+import { selectCallStatus } from "../../../redux/modal/selectors";
 
 import { CloseSvg, ModalCherrySvg, ModalLightSvg } from "../../../assets";
 import { ModalForm } from "./ModalForm";
 
-export const CallModal: FC = () => {
-  const isOpen = useSelector((state: RootState) => state.modal.isOpenModal);
+export const CallModal: FC = memo(() => {
   const dispatch = useAppDispatch();
+
+  const isOpen = useSelector(selectCallStatus);
 
   const onClose = () => {
     dispatch(setIsOpenModal(false));
@@ -58,4 +60,4 @@ export const CallModal: FC = () => {
     </div>,
     document.getElementById("portal") as Element
   );
-};
+});

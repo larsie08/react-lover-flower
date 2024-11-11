@@ -4,11 +4,12 @@ import { useSelector } from "react-redux";
 
 import { fetchBouquets } from "./redux/bouquets/asyncActions";
 import { setConfirm } from "./redux/filter/slice";
-import { RootState, useAppDispatch } from "./redux/store";
+import { useAppDispatch } from "./redux/store";
 
 import Home from "./pages/Home";
 import MainLayout from "./layout/MainLayout";
 import { CallModal, Cart } from "./components";
+import { selectFiltersAppState } from "./redux/filter/selectors";
 
 const DeliveryPage = lazy(() => import("./pages/DeliveryPage"));
 const OrderPage = lazy(() => import("./pages/OrderPage"));
@@ -52,20 +53,17 @@ function App() {
   const dispatch = useAppDispatch();
   const location = useLocation();
 
-  const sortBy = useSelector(
-    (state: RootState) => state.filter.sort.sortProperty
-  );
-  const { categoryId, filtersId, isConfirm } = useSelector(
-    (state: RootState) => state.filter
+  const { category, filterIds, isConfirmStatus, sortProperty } = useSelector(
+    selectFiltersAppState
   );
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const fetchParams = {
-          sortBy,
-          categoryId,
-          ...(location.pathname === ROUTE_PATHS.CATALOG && { filtersId }),
+          sortProperty,
+          category,
+          ...(location.pathname === ROUTE_PATHS.CATALOG && { filterIds }),
         };
 
         if (allowedPaths.includes(location.pathname))
@@ -77,7 +75,7 @@ function App() {
       }
     };
     fetchData();
-  }, [dispatch, sortBy, categoryId, location, isConfirm]);
+  }, [dispatch, sortProperty, category, location, isConfirmStatus]);
 
   return (
     <>

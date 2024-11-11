@@ -1,10 +1,11 @@
-import { FC, useEffect } from "react";
+import { FC, useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
 
-import { RootState, useAppDispatch } from "../../../redux/store";
+import { useAppDispatch } from "../../../redux/store";
 import { setIsOpenCart } from "../../../redux/modal/slice";
+import { selectCartState } from "../../../redux/cart/selectors";
 
 import {
   CartBallsBlock,
@@ -19,19 +20,20 @@ import { setPadding } from "../../../utils/setPadding";
 export const Cart: FC = () => {
   const dispatch = useAppDispatch();
 
-  const isOpen = useSelector((state: RootState) => state.modal.isOpenCart);
-  const { totalPrice, items } = useSelector((state: RootState) => state.cart);
+  const { totalPrice, items, isOpen } = useSelector(selectCartState);
 
   useEffect(() => {
-    const json = JSON.stringify(items);
-    localStorage.setItem("flower-cart", json);
+    localStorage.setItem("flower-cart", JSON.stringify(items));
   }, [items]);
 
   useEffect(() => {
     setPadding(isOpen);
   }, [isOpen]);
 
-  const closeCart = () => dispatch(setIsOpenCart(false));
+  const closeCart = useCallback(
+    () => dispatch(setIsOpenCart(false)),
+    [dispatch]
+  );
 
   return createPortal(
     <div
@@ -71,6 +73,7 @@ export const Cart: FC = () => {
                 imageUrl={obj.imageUrl}
                 cost={obj.cost}
                 count={obj.count}
+                dispatch={dispatch}
               />
             ))}
           </div>

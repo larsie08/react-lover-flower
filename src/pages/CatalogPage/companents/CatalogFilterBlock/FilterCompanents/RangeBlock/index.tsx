@@ -6,11 +6,11 @@ type RangeBlockProps = {
   lowerFieldValue: number;
   upperFieldValue: number;
   value: number[];
-  handleSliderValue: (event: Event, newValue: number | number[]) => void;
+  handleSliderChange: (event: Event, newValue: number | number[]) => void;
 };
 
 export const RangeBlock: FC<RangeBlockProps> = memo(
-  ({ lowerFieldValue, upperFieldValue, value, handleSliderValue }) => {
+  ({ lowerFieldValue, upperFieldValue, value, handleSliderChange  }) => {
     return (
       <div className="range_block flex flex-col gap-2">
         <h2 className="text-[14px] text-light-turquoise font-bold tracking-[0.56px] uppercase">
@@ -23,7 +23,7 @@ export const RangeBlock: FC<RangeBlockProps> = memo(
               min={lowerFieldValue}
               max={upperFieldValue}
               value={value}
-              onChange={handleSliderValue}
+              onChange={handleSliderChange}
             />
           </div>
           <label

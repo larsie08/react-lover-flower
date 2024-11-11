@@ -4,14 +4,12 @@ import classNames from "classnames";
 import { CartSvg, HeaderPhoneSvg } from "../../../../assets";
 import { CartItem } from "../../../../redux/cart/types";
 
-interface CartBlockProps {
+type CartBlockProps = {
   cart: CartItem[];
-  openButton: () => void;
-}
+  openCart: () => void;
+};
 
-export const CartBlock: FC<CartBlockProps> = memo(({ cart, openButton }) => {
-  const onClick = () => openButton();
-
+export const CartBlock: FC<CartBlockProps> = memo(({ cart, openCart }) => {
   return (
     <div className="cart_block flex items-center gap-8">
       <div className="cart_block__phone flex items-center gap-3">
@@ -21,7 +19,7 @@ export const CartBlock: FC<CartBlockProps> = memo(({ cart, openButton }) => {
         </p>
       </div>
       <button
-        onClick={onClick}
+        onClick={openCart}
         className="cart flex relative bg-[#000]/[.20] rounded-xl backdrop-blur-[10px]"
       >
         <CartSvg />

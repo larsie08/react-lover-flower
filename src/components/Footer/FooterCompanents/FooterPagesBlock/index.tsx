@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Link } from "react-router-dom";
 
 import { DecorativeElement } from "../../..";
@@ -10,7 +10,7 @@ interface FooterPagesProps {
   };
 }
 
-export const FooterPagesBlock: FC<FooterPagesProps> = ({ page }) => {
+export const FooterPagesBlock: FC<FooterPagesProps> = memo(({ page }) => {
   return (
     <li className="flex">
       <Link
@@ -22,4 +22,4 @@ export const FooterPagesBlock: FC<FooterPagesProps> = ({ page }) => {
       </Link>
     </li>
   );
-};
+});

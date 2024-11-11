@@ -1,11 +1,12 @@
-import classNames from "classnames";
-import { FC } from "react";
+import { FC, memo } from "react";
 
-interface CatalogTipProps {
+import classNames from "classnames";
+
+type CatalogTipProps = {
   isOpen: boolean;
 }
 
-export const CatalogTipSvg: FC<CatalogTipProps> = ({ isOpen }) => {
+export const CatalogTipSvg: FC<CatalogTipProps> = memo(({ isOpen }) => {
   return (
     <svg
       className={classNames("transition-all duration-300", {
@@ -23,4 +24,4 @@ export const CatalogTipSvg: FC<CatalogTipProps> = ({ isOpen }) => {
       />
     </svg>
   );
-};
+});

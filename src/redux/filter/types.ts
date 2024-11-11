@@ -1,10 +1,8 @@
 export interface CategoryProps {
-  categoryId: FlowerCategoriesEnum | string;
   category: string;
 }
 
 export interface FilterSliceState {
-  categoryId: FlowerCategoriesEnum | string;
   category: string;
   filtersId: string[];
   fieldPriceValue: number[];
@@ -16,8 +14,7 @@ export interface FilterSliceState {
 }
 
 export type Category = {
-  name: string;
-  id: FlowerCategoriesEnum;
+  name: FlowerCategoriesEnum;
 };
 
 export enum FlowerCategoriesEnum {
@@ -47,9 +44,9 @@ export enum SortPropertyEnum {
 }
 
 export type FiltersParams = {
-  sortBy: string;
-  categoryId: string;
-  filtersId?: string[];
+  sortProperty: string;
+  category: string;
+  filterIds?: string[];
 };
 
 export type SortType = {

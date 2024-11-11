@@ -1,13 +1,13 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Link } from "react-router-dom";
 
 import { DecorativeElement } from "../../..";
 
-interface FooterBouquetProps {
+type FooterBouquetProps = {
   name: string;
 }
 
-export const FooterBouquetBlock: FC<FooterBouquetProps> = ({ name }) => {
+export const FooterBouquetBlock: FC<FooterBouquetProps> = memo(({ name }) => {
   return (
     <li className="flex">
       <Link
@@ -19,4 +19,4 @@ export const FooterBouquetBlock: FC<FooterBouquetProps> = ({ name }) => {
       </Link>
     </li>
   );
-};
+});

@@ -1,7 +1,13 @@
-import { FC, memo } from "react";
+import { FC, useCallback } from "react";
 import { useSelector } from "react-redux";
 
-import { RootState } from "../../redux/store";
+import { useAppDispatch } from "../../redux/store";
+import { SortType } from "../../redux/filter/types";
+import { setCategory, setSortValue } from "../../redux/filter/slice";
+import { selectCategoryAndSortOptions } from "../../redux/filter/selectors";
+import { selectBouquetState } from "../../redux/bouquets/selectors";
+import { selectCartItems } from "../../redux/cart/selectors";
+import { setIsOpenCart, setIsOpenModal } from "../../redux/modal/slice";
 
 import { DecorativeElement, CardBlock, SkeletonCard } from "../../components";
 import {
@@ -11,15 +17,42 @@ import {
   CatalogSortBlock,
   CatalogTitleBlock,
 } from "./companents";
-
 import { CatalogLeftSvg, CatalogRightSvg } from "../../assets";
 
-const CatalogPage: FC = memo(() => {
-  const { items, status } = useSelector((state: RootState) => state.bouquets);
+const skeletons = [...new Array(9)].map((_, index) => (
+  <SkeletonCard key={index} />
+));
 
-  const skeletons = [...new Array(9)].map((_, index) => (
-    <SkeletonCard key={index} />
-  ));
+const CatalogPage: FC = () => {
+  const dispatch = useAppDispatch();
+
+  const { category, sortOption } = useSelector(selectCategoryAndSortOptions);
+  const { items, status } = useSelector(selectBouquetState);
+  const cartItems = useSelector(selectCartItems);
+
+  const onClick = useCallback(
+    (category: string) => {
+      dispatch(setCategory({ category }));
+    },
+    [dispatch]
+  );
+
+  const handleSortValue = useCallback(
+    (selectedOption: SortType) => {
+      dispatch(setSortValue(selectedOption));
+    },
+    [dispatch]
+  );
+
+  const onClear = useCallback(() => {
+    dispatch(setCategory({ category: "" }));
+  }, [dispatch]);
+
+  const openModal = useCallback(
+    () => dispatch(setIsOpenModal(true)),
+    [dispatch]
+  );
+  const openCart = useCallback(() => dispatch(setIsOpenCart(true)), [dispatch]);
 
   return (
     <div className="catalog_page relative pt-[120px] pb-[200px] max-h-[3000px] bg-[#040A0A]">
@@ -27,24 +60,31 @@ const CatalogPage: FC = memo(() => {
         className="absolute top-0 left-0 z-10"
         src="./img/PagesImg/CatalogImg/CatalogFlowerLeft.png"
       />
-      <DecorativeElement className="absolute top-0 right-0 w-[393px] h-[280px] bg-cherry rounded-[393px] blur-[125px]" />
-      <DecorativeElement className="absolute top-[35rem] right-[15rem] w-[435px] h-[257px] rotate-[32.828deg] bg-cherry rounded-[435px] blur-[125px]" />
-      <DecorativeElement className="absolute top-[25rem] left-[5rem] w-[505px] h-[360px] rotate-[32.828deg] bg-cherry rounded-[505px] blur-[125px]" />
-      <DecorativeElement className="absolute top-[50rem] left-0 w-[505px] h-[360px] rotate-[32.828deg] bg-cherry rounded-[505px] blur-[125px]" />
-      <DecorativeElement className="absolute top-[95rem] left-0 w-[750px] h-[175px] -rotate-[71.859deg] bg-light-turquoise rounded-[750px] blur-[125px]" />
+      <DecorativeElement className="absolute top-0 right-0 w-[393px] h-[280px] bg-cherry rounded-[393px] blur-[125px] select-none" />
+      <DecorativeElement className="absolute top-[35rem] right-[15rem] w-[435px] h-[257px] rotate-[32.828deg] bg-cherry rounded-[435px] blur-[125px] select-none" />
+      <DecorativeElement className="absolute top-[25rem] left-[5rem] w-[505px] h-[360px] rotate-[32.828deg] bg-cherry rounded-[505px] blur-[125px] select-none" />
+      <DecorativeElement className="absolute top-[50rem] left-0 w-[505px] h-[360px] rotate-[32.828deg] bg-cherry rounded-[505px] blur-[125px] select-none" />
+      <DecorativeElement className="absolute top-[95rem] left-0 w-[750px] h-[175px] -rotate-[71.859deg] bg-light-turquoise rounded-[750px] blur-[125px] select-none" />
       <img
         className="absolute top-0 right-0"
         src="./img/PagesImg/CatalogImg/CatalogFlowerRight.png"
       />
       <div className="catalog_page__wrapper container mx-auto">
         <div className="flex justify-between">
-          <CatalogTitleBlock />
-          <CatalogRightSideBlock />
+          <CatalogTitleBlock categoryId={category} onClick={onClick} />
+          <CatalogRightSideBlock
+            openModal={openModal}
+            openCart={openCart}
+            cartItems={cartItems}
+          />
         </div>
         <div className="catalog_page__content flex flex-col mt-8">
           <div className="flex justify-between relative z-30">
-            <CatalogCategoryBlock />
-            <CatalogSortBlock />
+            <CatalogCategoryBlock categoryId={category} onClear={onClear} />
+            <CatalogSortBlock
+              sortValue={sortOption}
+              handleSortValue={handleSortValue}
+            />
           </div>
           <div className="flex">
             <div className="catalog_page__sticky w-[255px]">
@@ -58,7 +98,7 @@ const CatalogPage: FC = memo(() => {
               ) : status === "success" ? (
                 items.map((obj) => (
                   <CardBlock
-                    key={obj.id}
+                    key={obj.name}
                     id={obj.id}
                     name={obj.name}
                     cost={obj.cost}
@@ -75,10 +115,10 @@ const CatalogPage: FC = memo(() => {
         </div>
       </div>
       <CatalogLeftSvg />
-      <DecorativeElement className="absolute -bottom-[13rem] right-[15rem] w-[880px] h-[212px] rotate-[21.097deg] bg-light-turquoise rounded-[880px] blur-[125px]" />
+      <DecorativeElement className="absolute -bottom-[13rem] right-[15rem] w-[880px] h-[212px] rotate-[21.097deg] bg-light-turquoise rounded-[880px] blur-[125px] select-none" />
       <CatalogRightSvg />
     </div>
   );
-});
+};
 
 export default CatalogPage;

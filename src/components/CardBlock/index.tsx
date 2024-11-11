@@ -2,10 +2,11 @@ import { FC, memo, useCallback, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { selectCartItemById } from "../../redux/cart/selectors";
 import { BouquetFilters } from "../../redux/bouquets/types";
-import { useAppDispatch } from "../../redux/store";
+import { RootState, useAppDispatch } from "../../redux/store";
 import { setCartItem } from "../../redux/cart/slice";
+import { selectCartItemById } from "../../redux/cart/selectors";
+import { setIsOpenCart, setIsOpenModal } from "../../redux/modal/slice";
 
 interface CardProps {
   id: number;
@@ -21,16 +22,18 @@ export const CardBlock: FC<CardProps> = memo(
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
-    const cartItem = useSelector(selectCartItemById(id));
+    const cartItem = useSelector((state: RootState) =>
+      selectCartItemById(state, id)
+    );
 
-    const handleAddToCart = useCallback(() => {
+    const handleAddToCart = () => {
       const bouquet = { id, name, imageUrl, cost, count: 1, filters };
       dispatch(setCartItem(bouquet));
-    }, [dispatch, id, name, imageUrl, cost, filters]);
+    };
 
-    const clickOnImg = useCallback(() => {
+    const clickOnImg = () => {
       navigate(`/catalog/bouquet/${id}`);
-    }, [navigate, id]);
+    };
 
     const buttonText = useMemo(() => {
       return `В корзину ${cartItem?.count ? `(${cartItem.count})` : ""}`;

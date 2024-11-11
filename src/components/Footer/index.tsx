@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo, useCallback } from "react";
 
 import { Category, FlowerCategoriesEnum } from "../../redux/filter/types";
 import { useAppDispatch } from "../../redux/store";
@@ -8,32 +8,30 @@ import { SocialsSvg } from "../../assets";
 import {
   FooterBouquetBlock,
   FooterCategoriesBlock,
+  FooterInfoBlock,
   FooterPagesBlock,
   FooterTitleBlock,
 } from "./FooterCompanents";
 
 const categories: Category[] = [
-  { name: "Популярное", id: FlowerCategoriesEnum.PopularItems },
+  { name: FlowerCategoriesEnum.PopularItems },
   {
-    name: "сухоцветы",
-    id: FlowerCategoriesEnum.DriedFlowerBouquets,
+    name: FlowerCategoriesEnum.DriedFlowerBouquets,
   },
-  { name: "Букеты роз", id: FlowerCategoriesEnum.RoseBouquets },
-  { name: "Композиции из цветов", id: FlowerCategoriesEnum.FlowerCompositions },
-  { name: "Сборные букеты", id: FlowerCategoriesEnum.AssortedBouquets },
-  { name: "Монобукеты", id: FlowerCategoriesEnum.MonoBouquets },
+  { name: FlowerCategoriesEnum.RoseBouquets },
+  { name: FlowerCategoriesEnum.FlowerCompositions },
+  { name: FlowerCategoriesEnum.AssortedBouquets },
+  { name: FlowerCategoriesEnum.MonoBouquets },
 
-  { name: "Свадебные", id: FlowerCategoriesEnum.HolidayBouquets },
+  { name: FlowerCategoriesEnum.HolidayBouquets },
 
   {
-    name: "интерьерные композиции",
-    id: FlowerCategoriesEnum.PottedIndoorPlants,
+    name: FlowerCategoriesEnum.PottedIndoorPlants,
   },
 
-  { name: "Подарки", id: FlowerCategoriesEnum.Gifts },
+  { name: FlowerCategoriesEnum.Gifts },
   {
-    name: "Букеты из хризантем",
-    id: FlowerCategoriesEnum.ChrysanthemumBouquets,
+    name: FlowerCategoriesEnum.ChrysanthemumBouquets,
   },
 ];
 
@@ -72,13 +70,16 @@ const info = [
   },
 ];
 
-export const Footer: FC = () => {
+export const Footer: FC = memo(() => {
   const dispatch = useAppDispatch();
 
-  const onClick = (categoryId: FlowerCategoriesEnum, category: string) => {
-    const obj = { categoryId, category };
-    dispatch(setCategory(obj));
-  };
+  const onClick = useCallback(
+    (category: string) => {
+      const obj = { category };
+      dispatch(setCategory(obj));
+    },
+    [dispatch]
+  );
 
   return (
     <footer className="footer relative z-20 bg-[#000] h-[380px]">
@@ -98,36 +99,33 @@ export const Footer: FC = () => {
           </p>
         </div>
         <ul className="flex flex-col gap-2 mt-7">
-          <FooterTitleBlock title={"Каталог"} />
-          {categories.map((item) => (
+          <FooterTitleBlock title="Каталог" />
+          {categories.map((category) => (
             <FooterCategoriesBlock
-              key={item.id}
-              category={item}
+              key={category.name}
+              category={category}
               onClick={onClick}
             />
           ))}
         </ul>
         <ul className="flex flex-col gap-2 mt-7">
           <FooterTitleBlock title={"Букет"} />
-          {bouquet.map((name, id: number) => (
-            <FooterBouquetBlock key={id} name={name} />
+          {bouquet.map((name) => (
+            <FooterBouquetBlock key={name} name={name} />
           ))}
         </ul>
         <ul className="flex flex-col gap-6 mt-7 max-w-[160px]">
-          {links.map((obj, id: number) => (
-            <FooterPagesBlock key={id} page={obj} />
+          {links.map((obj) => (
+            <FooterPagesBlock key={obj.url} page={obj} />
           ))}
         </ul>
         <div className="flex flex-col gap-5 mt-7">
-          {info.map((obj, i: number) => (
-            <div key={i} className="flex flex-col gap-1.5">
-              <h2 className="text-[14px] font-normal text-light-turquoise uppercase">
-                {obj.title}
-              </h2>
-              <p className="text-[10px] font-light tracking-[1px] uppercase">
-                {obj.content}
-              </p>
-            </div>
+          {info.map((obj) => (
+            <FooterInfoBlock
+              key={obj.title}
+              name={obj.title}
+              contentInfo={obj.content}
+            />
           ))}
           <div className="mt-9">
             <SocialsSvg />
@@ -136,4 +134,4 @@ export const Footer: FC = () => {
       </div>
     </footer>
   );
-};
+});

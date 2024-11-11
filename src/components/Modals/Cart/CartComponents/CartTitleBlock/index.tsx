@@ -1,12 +1,12 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 import { CloseSvg } from "../../../../../assets";
 
-interface CartTitleProps {
+type CartTitleProps = {
   closeCart: () => void;
-}
+};
 
-export const CartTitleBlock: FC<CartTitleProps> = ({ closeCart }) => {
+export const CartTitleBlock: FC<CartTitleProps> = memo(({ closeCart }) => {
   return (
     <div className="title flex items-center justify-between border-b-[1px] w-full pb-4 border-[#555] ">
       <h1 className="text-[30px] text-light-turquoise font-bold tracking-[1.2px] uppercase">
@@ -17,4 +17,4 @@ export const CartTitleBlock: FC<CartTitleProps> = ({ closeCart }) => {
       </button>
     </div>
   );
-};
+});

@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, useEffect, useState } from "react";
+import { FC, memo, useCallback, useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import debounce from "debounce";
 
@@ -7,95 +7,139 @@ import {
   setFieldPriceValue,
   setFiltersId,
 } from "../../../../redux/filter/slice";
-import { RootState } from "../../../../redux/store";
 
-import {
-  ByColorBlock,
-  ByFlowerBlock,
-  ByFormatBlock,
-  ByLightBlock,
-  RangeBlock,
-} from "./FilterCompanents";
+import { FilterOptionBlock, RangeBlock } from "./FilterCompanents";
+import { selectFilterIds } from "../../../../redux/filter/selectors";
 
-export type FilterBlockProps = {
-  currentId: string | null;
-  handleClick: (id: string) => void;
-  isClicked: (id: string) => boolean;
+const FILTER_OPTIONS = {
+  format: [
+    { id: "bouquet", name: "букет" },
+    { id: "vase", name: "в вазе" },
+    { id: "envelope", name: "в конверте" },
+    { id: "basket", name: "в корзине" },
+    { id: "hatbox", name: "в шляпной коробке" },
+    { id: "box", name: "в ящике" },
+  ],
+  colors: [
+    { id: "white", name: "белый" },
+    { id: "yellow", name: "желтый" },
+    { id: "green", name: "зеленый" },
+    { id: "red", name: "красный" },
+    { id: "orange", name: "оранжевый" },
+    { id: "pink", name: "розовый" },
+    { id: "blue", name: "синий" },
+  ],
+  lighting: [
+    { id: "gentle", name: "нежные" },
+    { id: "light", name: "яркие" },
+  ],
+  flowers: [
+    { id: "Alstroemeria", name: "Альстромерия (2)" },
+    { id: "Anthurium", name: "Антуриум (1)" },
+    { id: "Asparagus", name: "Аспарагус (1)" },
+    { id: "Astilba", name: "Астильба (7)" },
+    { id: "Astrance", name: "Астранция (1)" },
+  ],
 };
+
+export type FilterOption = {
+  id: string;
+  name: string;
+};
+
+const lowerFieldValue = 800;
+const upperFieldValue = 2500;
 
 export const CatalogFilterBlock: FC = memo(() => {
   const dispatch = useDispatch();
 
-  const [lowerFieldValue] = useState(800);
-  const [upperFieldValue] = useState(2500);
   const [value, setValue] = useState<number[]>([
     lowerFieldValue,
     upperFieldValue,
   ]);
   const [currentId, setCurrentId] = useState<string | null>(null);
 
-  const filtersId = useSelector((state: RootState) => state.filter.filtersId);
+  const filterIds = useSelector(selectFilterIds);
 
-  const handleSliderValue = useCallback(
+  const debouncedUpdatePrice = useMemo(
+    () =>
+      debounce((newValue: number | number[]) => {
+        dispatch(setFieldPriceValue(newValue as number[]));
+      }, 250),
+    [dispatch]
+  );
+
+  const handleSliderChange = useCallback(
     (_event: Event, newValue: number | number[]) => {
       setValue(newValue as number[]);
-      updateFieldPriceValue(newValue);
+      debouncedUpdatePrice(newValue);
+    },
+    [debouncedUpdatePrice]
+  );
+
+  const handleClick = useCallback(
+    (id: string) => {
+      setCurrentId(id);
+      dispatch(setFiltersId(id));
     },
     [dispatch]
   );
 
-  const updateFieldPriceValue = debounce((newValue: number | number[]) => {
-    dispatch(setFieldPriceValue(newValue as number[]));
-  }, 250);
-
-  useEffect(() => {
-    if (currentId) setTimeout(() => setCurrentId(null), 10000);
-  }, [currentId, dispatch]);
-
-  const handleClick = (id: string) => {
-    setCurrentId(id);
-    dispatch(setFiltersId(id));
-  };
-
-  const onClear = () => {
+  const onClearFilters = () => {
     setCurrentId(null);
     dispatch(setClearFiltersId());
   };
 
-  const isClicked = (id: string) => {
-    return filtersId.some((itemId) => itemId === id);
-  };
+  const isOptionSelected = useCallback(
+    (id: string) => filterIds.includes(id),
+    [filterIds]
+  );
+
+  useEffect(() => {
+    if (currentId) {
+      const timer = setTimeout(() => setCurrentId(null), 10000);
+      return () => clearTimeout(timer);
+    }
+  }, [currentId]);
 
   return (
     <div className="sticky top-24 bottom-0 flex flex-col gap-5 p-5 bg-[#000]/[0.30] rounded-[20px] backdrop-blur-[10px select-none">
-      <ByLightBlock
+      <FilterOptionBlock
+        title="По свету"
+        options={FILTER_OPTIONS.lighting}
         handleClick={handleClick}
-        isClicked={isClicked}
+        isOptionSelected={isOptionSelected}
         currentId={currentId}
       />
-      <ByColorBlock
+      <FilterOptionBlock
+        title="По цвету"
+        options={FILTER_OPTIONS.colors}
         handleClick={handleClick}
-        isClicked={isClicked}
+        isOptionSelected={isOptionSelected}
         currentId={currentId}
       />
-      <ByFormatBlock
+      <FilterOptionBlock
+        title="По формату"
+        options={FILTER_OPTIONS.format}
         handleClick={handleClick}
-        isClicked={isClicked}
+        isOptionSelected={isOptionSelected}
         currentId={currentId}
       />
       <RangeBlock
         lowerFieldValue={lowerFieldValue}
         upperFieldValue={upperFieldValue}
         value={value}
-        handleSliderValue={handleSliderValue}
+        handleSliderChange={handleSliderChange}
       />
-      <ByFlowerBlock
+      <FilterOptionBlock
+        title="По цветку"
+        options={FILTER_OPTIONS.flowers}
         handleClick={handleClick}
-        isClicked={isClicked}
+        isOptionSelected={isOptionSelected}
         currentId={currentId}
       />
       <button
-        onClick={onClear}
+        onClick={onClearFilters}
         className="border-[1px] p-4 text-[12px] font-bold tracking-[1.2px] uppercase hover:bg-light-turquoise hover:text-[black] focus:border-light-turquoise active:shadow-[0_0_10px_0_#01281F_inset]"
       >
         Сбросить фильтр

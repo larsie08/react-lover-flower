@@ -1,6 +1,6 @@
 import { DeliveryRadioGroupOption, PayRadioGroupOptions } from "..";
+import { GeosuggestResult, PromoCode } from "./form.types";
 
-import { GeosuggestResult, PromoCode } from "./FormTypes/form.types";
 
 export interface IOrderForm {
   name: string;

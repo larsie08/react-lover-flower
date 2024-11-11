@@ -8,7 +8,6 @@ import {
 } from "./types";
 
 const initialState: FilterSliceState = {
-  categoryId: "",
   category: "",
   filtersId: [],
   fieldPriceValue: [],
@@ -24,13 +23,11 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     setCategory(state, action: PayloadAction<CategoryProps>) {
-      const { categoryId, category } = action.payload;
-      if (state.categoryId === categoryId) {
+      const { category } = action.payload;
+      if (state.category === category) {
         state.category = "";
-        state.categoryId = "";
       } else {
         state.category = category;
-        state.categoryId = categoryId;
       }
     },
     setFiltersId(state, action: PayloadAction<string>) {

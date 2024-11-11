@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
-export const FAQTitleBlock: FC = () => {
+export const FAQTitleBlock: FC = memo(() => {
   return (
     <>
       <div className="FAQ_page__path relative z-10 select-none">
@@ -16,4 +16,4 @@ export const FAQTitleBlock: FC = () => {
       </div>
     </>
   );
-};
+});

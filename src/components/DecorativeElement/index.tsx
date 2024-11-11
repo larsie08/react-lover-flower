@@ -1,9 +1,11 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 interface DecorativeElementProps {
   className: string;
 }
 
-export const DecorativeElement: FC<DecorativeElementProps> = ({ className }) => {
-  return <div className={className} />;
-};
+export const DecorativeElement: FC<DecorativeElementProps> = memo(
+  ({ className }) => {
+    return <div className={className} />;
+  }
+);

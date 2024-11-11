@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 
@@ -6,15 +6,15 @@ import { CartItem } from "../../../../redux/cart/types";
 
 import { CartSvg, PhoneButtonSvg } from "../../../../assets";
 import { DecorativeElement } from "../../../../components";
-import { IntroTitleBlock } from "./IntroComponents/IntroTitleBlock";
+import { IntroTitleBlock } from "./IntroTitleBlock";
 
-interface IntroProps {
+type IntroProps = {
   cart: CartItem[];
   openModal: () => void;
   openCart: () => void;
 }
 
-export const Intro: FC<IntroProps> = ({ cart, openModal, openCart }) => {
+export const Intro: FC<IntroProps> = memo(({ cart, openModal, openCart }) => {
   return (
     <div className="intro relative pt-[140px] h-[1600px]">
       <img
@@ -87,4 +87,4 @@ export const Intro: FC<IntroProps> = ({ cart, openModal, openCart }) => {
       </div>
     </div>
   );
-};
+});

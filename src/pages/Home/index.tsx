@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -17,15 +17,20 @@ import {
 } from "./companents";
 
 import { PinkArrowSvg, PopularCherrySvg, PopularLightSvg } from "../../assets";
+import { selectBouquetItems } from "../../redux/bouquets/selectors";
+import { selectCartItems } from "../../redux/cart/selectors";
 
 const Home: FC = () => {
   const dispatch = useAppDispatch();
 
-  const cart = useSelector((state: RootState) => state.cart.items);
-  const bouquets = useSelector((state: RootState) => state.bouquets.items);
+  const cart = useSelector((state: RootState) => selectCartItems(state));
+  const bouquets = useSelector((state: RootState) => selectBouquetItems(state));
 
-  const openModal = () => dispatch(setIsOpenModal(true));
-  const openCart = () => dispatch(setIsOpenCart(true));
+  const openModal = useCallback(
+    () => dispatch(setIsOpenModal(true)),
+    [dispatch]
+  );
+  const openCart = useCallback(() => dispatch(setIsOpenCart(true)), [dispatch]);
 
   return (
     <div className="wrapper bg-[#040A0A]">

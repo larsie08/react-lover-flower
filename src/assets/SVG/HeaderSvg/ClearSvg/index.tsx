@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
-export const ClearSvg: FC = () => {
+export const ClearSvg: FC = memo(() => {
   return (
     <svg
       className="ei-close"
@@ -59,4 +59,4 @@ export const ClearSvg: FC = () => {
       </defs>
     </svg>
   );
-};
+});

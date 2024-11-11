@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
-export const CatalogLeftSvg: FC = () => {
+export const CatalogLeftSvg: FC = memo(() => {
   return (
     <svg
       className="absolute -bottom-[20rem]"
@@ -45,4 +45,4 @@ export const CatalogLeftSvg: FC = () => {
       </defs>
     </svg>
   );
-};
+});

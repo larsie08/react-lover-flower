@@ -17,15 +17,16 @@ import { Bouquet } from "../../../../redux/bouquets/types";
 import { SearchCardBlock } from "./SearchCardBlock";
 import { ClearSvg, SearchSvg } from "../../../../assets";
 
-interface SearchProps {
+type SearchProps = {
   lastScrollY: number;
-  defaultPosition: number;
+  SCROLL_HIDE_THRESHOLD: number;
   showHeader: boolean;
-}
+};
 
 export const Search: FC<SearchProps> = memo(
-  ({ lastScrollY, defaultPosition, showHeader }) => {
+  ({ lastScrollY, SCROLL_HIDE_THRESHOLD, showHeader }) => {
     const navigate = useNavigate();
+
     const searchRef = useRef<HTMLInputElement>(null);
 
     const [searchValue, setSearchValue] = useState("");
@@ -40,15 +41,17 @@ export const Search: FC<SearchProps> = memo(
     }, []);
 
     useEffect(() => {
-      if (searchValue !== "") {
-        document.addEventListener("keydown", handleKeyDownEvent);
-        return () => {
-          document.removeEventListener("keydown", handleKeyDownEvent);
-        };
+      if (searchValue) {
+        document.addEventListener("keydown", handleKeyDown);
+      } else {
+        toggleShowSearchItems(false);
       }
+      return () => {
+        document.removeEventListener("keydown", handleKeyDown);
+      };
     }, [searchValue]);
 
-    const handleKeyDownEvent = (event: KeyboardEvent) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (
         searchRef.current &&
         event.composedPath().includes(searchRef.current) &&
@@ -73,7 +76,7 @@ export const Search: FC<SearchProps> = memo(
         setSearchValue("");
         setSearchItems([]);
       },
-      []
+      [navigate]
     );
 
     const fetchSearchBouquets = async (searchValue: string) => {
@@ -94,10 +97,10 @@ export const Search: FC<SearchProps> = memo(
       } else setSearchItems([]);
     }, 500);
 
-    const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
-      const inputValue = event.target.value.toLowerCase();
-      setSearchValue(inputValue);
-      debouncedFetch(inputValue);
+    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+      const query = event.target.value.toLowerCase();
+      setSearchValue(query);
+      debouncedFetch(query);
     };
 
     return (
@@ -108,8 +111,8 @@ export const Search: FC<SearchProps> = memo(
             className={classNames(
               "left-6 outline-none border-[#555] transition-[width] h-[30px] text-[14px] font-normal tracking-[.56px] uppercase placeholder:font-light placeholder:tracking-[.28px] placeholder:normal-case border-b w-[360px]",
               {
-                ["bg-[#040A0A]/[0.40]"]: lastScrollY < defaultPosition,
-                ["bg-[rgb(0,0,0)]"]: lastScrollY > defaultPosition,
+                ["bg-[#040A0A]/[0.40]"]: lastScrollY < SCROLL_HIDE_THRESHOLD,
+                ["bg-[rgb(0,0,0)]"]: lastScrollY > SCROLL_HIDE_THRESHOLD,
               }
             )}
             type="search"
@@ -118,7 +121,7 @@ export const Search: FC<SearchProps> = memo(
             id="search"
             value={searchValue}
             autoComplete="off"
-            onChange={onChangeInput}
+            onChange={handleInputChange}
           />
 
           <button
@@ -133,11 +136,11 @@ export const Search: FC<SearchProps> = memo(
           <div
             className={classNames(
               "absolute flex flex-col top-0 right-0 bg-[black]/[0.8] [&:last-of-type]:border-b transition-all ease-in-out w-[360px] duration-300",
-              { ["top-[70px]"]: lastScrollY < defaultPosition },
-              { ["top-[5rem]"]: lastScrollY > defaultPosition },
+              { ["top-[70px]"]: lastScrollY < SCROLL_HIDE_THRESHOLD },
+              { ["top-[5rem]"]: lastScrollY > SCROLL_HIDE_THRESHOLD },
               {
                 ["-translate-y-[150%]"]:
-                  (!showHeader && lastScrollY > defaultPosition) ||
+                  (!showHeader && lastScrollY > SCROLL_HIDE_THRESHOLD) ||
                   !showSearchItems,
               }
             )}

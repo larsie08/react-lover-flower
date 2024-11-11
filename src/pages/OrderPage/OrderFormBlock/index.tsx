@@ -1,4 +1,4 @@
-import { FC, useCallback, useState } from "react";
+import { FC, memo, useCallback, useState } from "react";
 import {
   SubmitErrorHandler,
   SubmitHandler,
@@ -8,6 +8,7 @@ import {
 } from "react-hook-form";
 import { useOutletContext } from "react-router-dom";
 import axios from "axios";
+import classNames from "classnames";
 
 import {
   IGeosuggestAnswer,
@@ -18,7 +19,6 @@ import { GeosuggestResult, PromoCode } from "./FormTypes/form.types";
 
 import { FormControlLabel, Radio, RadioGroup, debounce } from "@mui/material";
 import grey from "@mui/material/colors/grey";
-import classNames from "classnames";
 
 const deliveryRadioGroupOptions = ["Самовывоз", "Доставка курьером"] as const;
 const payRadioGroupOptions = [
@@ -58,7 +58,7 @@ const defaultValues: DefaultValues<IOrderForm> = {
   deliveryTime: "",
 };
 
-const OrderFormBlock: FC = () => {
+const OrderFormBlock: FC = memo(() => {
   const {
     register,
     handleSubmit,
@@ -433,6 +433,6 @@ const OrderFormBlock: FC = () => {
       </div>
     </form>
   );
-};
+});
 
 export default OrderFormBlock;

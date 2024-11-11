@@ -1,7 +1,8 @@
-import { Skeleton } from "@mui/material";
-import { FC } from "react";
+import { FC, memo } from "react";
 
-export const SkeletonCard: FC = () => {
+import { Skeleton } from "@mui/material";
+
+export const SkeletonCard: FC = memo(() => {
   return (
     <div>
       <Skeleton
@@ -31,4 +32,4 @@ export const SkeletonCard: FC = () => {
       />
     </div>
   );
-};
+});

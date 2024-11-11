@@ -1,13 +1,13 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Link } from "react-router-dom";
 
 import { DecorativeElement } from "../../..";
 
-interface FooterTitleProps {
+type FooterTitleProps = {
   title: string;
-}
+};
 
-export const FooterTitleBlock: FC<FooterTitleProps> = ({ title }) => {
+export const FooterTitleBlock: FC<FooterTitleProps> = memo(({ title }) => {
   return (
     <li className="text-[14px] font-bold text-light-turquoise mb-2.5 uppercase">
       <Link
@@ -19,4 +19,4 @@ export const FooterTitleBlock: FC<FooterTitleProps> = ({ title }) => {
       </Link>
     </li>
   );
-};
+});
