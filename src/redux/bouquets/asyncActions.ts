@@ -5,48 +5,50 @@ import axios from "axios";
 import { Bouquet } from "./types";
 import { FiltersParams } from "../filter/types";
 
-const filterBouquets = (items: Bouquet[], filterIds: string[] | undefined) => {
+const filterBouquets = (
+  items: Bouquet[],
+  filterIds: string[] | undefined,
+  fieldPriceValue: number[]
+) => {
   if (!filterIds || filterIds.length === 0) {
-    return items;
+    return items.filter(
+      (item) =>
+        item.cost >= fieldPriceValue[0] && item.cost <= fieldPriceValue[1]
+    );
   }
 
-  const filteredBouquets: Bouquet[] = [];
-
-  const isFilterMatch = (bouquet: Bouquet) => {
-    const itemFilters = bouquet.filters;
-    return (
-      filterIds.includes(itemFilters.lighting) ||
-      Object.values(itemFilters.colors).some((color: string) =>
+  return items.filter((bouquet) => {
+    const { filters, cost } = bouquet;
+    const matchesFilter =
+      filterIds.includes(filters.lighting) ||
+      Object.values(filters.colors).some((color) =>
         filterIds.includes(color)
       ) ||
-      Object.values(itemFilters.format).some((format: string) =>
+      Object.values(filters.format).some((format) =>
         filterIds.includes(format)
       ) ||
-      Object.values(itemFilters.flowers).some((flower: string) =>
+      Object.values(filters.flowers).some((flower) =>
         filterIds.includes(flower)
-      )
+      );
+
+    return (
+      matchesFilter && cost >= fieldPriceValue[0] && cost <= fieldPriceValue[1]
     );
-  };
-
-  for (const item of items) {
-    if (
-      isFilterMatch(item) &&
-      !filteredBouquets.some((bouquet) => bouquet.id === item.id)
-    ) {
-      filteredBouquets.push(item);
-    }
-  }
-
-  return filteredBouquets;
+  });
 };
 
 export const fetchBouquets = createAsyncThunk<Bouquet[], FiltersParams>(
   "bouquets/fetchBouquetsStatus",
-  async ({ sortProperty, category, filterIds }) => {
+  async ({ sortProperty, category, filterIds, fieldPriceValue }) => {
+    const params = new URLSearchParams({
+      sortBy: sortProperty,
+      search: category,
+    });
+
     const { data } = await axios.get<Bouquet[]>(
-      `https://655b76e2ab37729791a92825.mockapi.io/items?sortBy=${sortProperty}&search=${category}`
+      `https://655b76e2ab37729791a92825.mockapi.io/items?${params.toString()}`
     );
 
-    return filterBouquets(data, filterIds);
+    return filterBouquets(data, filterIds, fieldPriceValue);
   }
 );

@@ -9,9 +9,8 @@ import "swiper/css";
 import { LeftArrowSvg, RightArrowSvg } from "../../assets";
 import { CardBlock } from "..";
 
-interface SliderProps {
+type SliderProps = {
   bouquets: Bouquet[];
-  showCatalog?: boolean;
 }
 
 export const SliderBlock: FC<SliderProps> = memo(({ bouquets }) => {

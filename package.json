@@ -5,7 +5,7 @@
   "homepage": "https://larsie08.github.io/react-lover-flower",
   "type": "module",
   "scripts": {
-    "dev": "set NODE_ENV=dev&&vite",
+    "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
@@ -41,7 +41,6 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
-    "@welldone-software/why-did-you-render": "^8.0.3",
     "@yandex/ymaps3-types": "^0.0.18",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.45.0",

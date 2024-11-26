@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import axios from "axios";
@@ -39,35 +39,38 @@ const OrderPage: FC = () => {
 
   const { items, totalPrice } = useSelector((state: RootState) => state.cart);
 
-  const submitOrder = (
-    formData: IOrderForm,
-    finalPrice: number,
-    deliveryAddress: string,
-    appliedPromoCode?: PromoCode
-  ) => {
-    const order: Order = {
-      name: formData.name,
-      phoneNumber: formData.phone,
-      email: formData.email,
-      secondPhoneNumber: formData.secondPhone,
-      receiverName: formData.receiverName,
-      comment: formData.comment,
-      deliveryMethod: formData.deliveryRadioGroup,
-      paymentMethod: formData.payRadioGroupOptions,
-      cartItems: items,
-      finalPrice,
-      ...(deliveryAddress && {
-        address: {
-          deliveryAddress,
-          apartmentNumber: formData.apartmentNumber,
-          deliveryTime: formData.deliveryTime,
-        },
-      }),
-      ...(appliedPromoCode && { appliedPromoCode }),
-    };
+  const submitOrder = useCallback(
+    (
+      formData: IOrderForm,
+      finalPrice: number,
+      deliveryAddress: string,
+      appliedPromoCode?: PromoCode
+    ) => {
+      const order: Order = {
+        name: formData.name,
+        phoneNumber: formData.phone,
+        email: formData.email,
+        secondPhoneNumber: formData.secondPhone,
+        receiverName: formData.receiverName,
+        comment: formData.comment,
+        deliveryMethod: formData.deliveryRadioGroup,
+        paymentMethod: formData.payRadioGroupOptions,
+        cartItems: items,
+        finalPrice,
+        ...(deliveryAddress && {
+          address: {
+            deliveryAddress,
+            apartmentNumber: formData.apartmentNumber,
+            deliveryTime: formData.deliveryTime,
+          },
+        }),
+        ...(appliedPromoCode && { appliedPromoCode }),
+      };
 
-    postOrder(order);
-  };
+      postOrder(order);
+    },
+    [dispatch]
+  );
 
   const postOrder = async (order: Order) => {
     try {

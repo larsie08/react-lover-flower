@@ -45,7 +45,7 @@ const Home: FC = () => {
 
         <div className="popular_bouquets__wrapper relative container mx-auto">
           <BouquetsTitleBlock />
-          <SliderBlock bouquets={bouquets} showCatalog={true} />
+          <SliderBlock bouquets={bouquets} />
           <div className="popular_bouquets__link flex items-center mt-16">
             <Link
               to="catalog"

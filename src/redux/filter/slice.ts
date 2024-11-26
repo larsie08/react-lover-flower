@@ -10,7 +10,7 @@ import {
 const initialState: FilterSliceState = {
   category: "",
   filtersId: [],
-  fieldPriceValue: [],
+  fieldPriceValue: [800, 2500],
   isConfirm: false,
   sort: {
     name: "популярности",

@@ -1,6 +1,6 @@
 import { FC, memo } from "react";
 
-interface DecorativeElementProps {
+type DecorativeElementProps = {
   className: string;
 }
 

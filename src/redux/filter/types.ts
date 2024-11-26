@@ -47,6 +47,7 @@ export type FiltersParams = {
   sortProperty: string;
   category: string;
   filterIds?: string[];
+  fieldPriceValue: number[];
 };
 
 export type SortType = {

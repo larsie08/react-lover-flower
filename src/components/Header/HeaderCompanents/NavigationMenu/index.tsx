@@ -14,12 +14,10 @@ type NavigationMenuProps = {
 
 export const NavigationMenu: FC<NavigationMenuProps> = memo(
   ({ categories, navLinks, handleCategorySelect }) => {
-    
-
     return (
       <>
         <Link to="/" className="logo">
-          <img src="./img/logo.png" alt="logo" />
+          <img src="./img/logo.png" alt="logo" className="w-[34px] h-[75px]" />
         </Link>
         <ul className="navbar flex ml-[70px] items-center gap-12">
           <li className="group catalog-header text-[14px] font-normal tracking-[.56px] relative uppercase py-3">

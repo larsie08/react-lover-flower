@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, useMemo } from "react";
+import { FC, memo } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -6,16 +6,15 @@ import { BouquetFilters } from "../../redux/bouquets/types";
 import { RootState, useAppDispatch } from "../../redux/store";
 import { setCartItem } from "../../redux/cart/slice";
 import { selectCartItemById } from "../../redux/cart/selectors";
-import { setIsOpenCart, setIsOpenModal } from "../../redux/modal/slice";
 
-interface CardProps {
+type CardProps = {
   id: number;
   name: string;
   cost: number;
   imageUrl: string;
   filters: BouquetFilters;
   imgClassName: string;
-}
+};
 
 export const CardBlock: FC<CardProps> = memo(
   ({ id, name, cost, imageUrl, filters, imgClassName }) => {
@@ -35,9 +34,9 @@ export const CardBlock: FC<CardProps> = memo(
       navigate(`/catalog/bouquet/${id}`);
     };
 
-    const buttonText = useMemo(() => {
-      return `В корзину ${cartItem?.count ? `(${cartItem.count})` : ""}`;
-    }, [cartItem]);
+    const buttonText = `В корзину ${
+      cartItem?.count ? `(${cartItem.count})` : ""
+    }`;
 
     return (
       <div className="card relative flex flex-col gap-3 z-20">

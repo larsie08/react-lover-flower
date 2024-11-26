@@ -1,4 +1,4 @@
-import { FC, memo, useEffect, useMemo, useRef, useState } from "react";
+import { FC, memo, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 
 import { SortPropertyEnum, SortType } from "../../../../redux/filter/types";
@@ -22,12 +22,8 @@ export const CatalogSortBlock: FC<SortBlockProps> = memo(
 
     const [isOpen, setIsOpen] = useState(false);
 
-    const filteredSortOptions = useMemo(
-      () =>
-        sortOptions.filter(
-          (option) => option.sortProperty !== sortValue.sortProperty
-        ),
-      [sortValue]
+    const filteredSortOptions = sortOptions.filter(
+      (option) => option.sortProperty !== sortValue.sortProperty
     );
 
     const handleClickOutside = (event: MouseEvent) => {
@@ -84,4 +80,3 @@ export const CatalogSortBlock: FC<SortBlockProps> = memo(
     );
   }
 );
-

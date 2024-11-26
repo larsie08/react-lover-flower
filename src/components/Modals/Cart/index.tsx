@@ -15,8 +15,6 @@ import {
 } from "./CartComponents";
 import { DecorativeElement } from "../..";
 
-import { setPadding } from "../../../utils/setPadding";
-
 export const Cart: FC = () => {
   const dispatch = useAppDispatch();
 
@@ -27,7 +25,27 @@ export const Cart: FC = () => {
   }, [items]);
 
   useEffect(() => {
-    setPadding(isOpen);
+    const body = document.body;
+    const header = document.getElementById("header");
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+    const paddingValue = `${scrollbarWidth}px`;
+
+    if (isOpen) {
+      body.style.paddingRight = paddingValue;
+      body.style.overflow = "hidden";
+      if (header) header.style.paddingRight = paddingValue;
+    } else {
+      body.style.paddingRight = "0px";
+      body.style.overflow = "visible";
+      if (header) header.style.paddingRight = "0px";
+    }
+
+    return () => {
+      body.style.paddingRight = "0px";
+      body.style.overflow = "visible";
+      if (header) header.style.paddingRight = "0px";
+    };
   }, [isOpen]);
 
   const closeCart = useCallback(

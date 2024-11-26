@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
-export const HeaderPhoneSvg: FC = () => {
+export const HeaderPhoneSvg: FC = memo(() => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,4 +15,4 @@ export const HeaderPhoneSvg: FC = () => {
       />
     </svg>
   );
-};
+});

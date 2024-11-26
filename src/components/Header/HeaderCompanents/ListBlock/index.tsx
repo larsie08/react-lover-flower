@@ -1,4 +1,4 @@
-import { FC, memo, useEffect } from "react";
+import { FC, memo } from "react";
 import { Link } from "react-router-dom";
 
 import { DecorativeElement } from "../../../DecorativeElement";

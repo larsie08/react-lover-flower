@@ -53,9 +53,13 @@ function App() {
   const dispatch = useAppDispatch();
   const location = useLocation();
 
-  const { category, filterIds, isConfirmStatus, sortProperty } = useSelector(
-    selectFiltersAppState
-  );
+  const {
+    category,
+    filterIds,
+    isConfirmStatus,
+    sortProperty,
+    fieldPriceValue,
+  } = useSelector(selectFiltersAppState);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -63,6 +67,7 @@ function App() {
         const fetchParams = {
           sortProperty,
           category,
+          fieldPriceValue,
           ...(location.pathname === ROUTE_PATHS.CATALOG && { filterIds }),
         };
 

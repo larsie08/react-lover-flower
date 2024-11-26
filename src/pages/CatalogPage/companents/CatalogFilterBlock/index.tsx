@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, useEffect, useMemo, useState } from "react";
+import { FC, memo, useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import debounce from "debounce";
 
@@ -61,13 +61,9 @@ export const CatalogFilterBlock: FC = memo(() => {
 
   const filterIds = useSelector(selectFilterIds);
 
-  const debouncedUpdatePrice = useMemo(
-    () =>
-      debounce((newValue: number | number[]) => {
-        dispatch(setFieldPriceValue(newValue as number[]));
-      }, 250),
-    [dispatch]
-  );
+  const debouncedUpdatePrice = debounce((newValue: number | number[]) => {
+    dispatch(setFieldPriceValue(newValue as number[]));
+  }, 250);
 
   const handleSliderChange = useCallback(
     (_event: Event, newValue: number | number[]) => {
@@ -103,7 +99,7 @@ export const CatalogFilterBlock: FC = memo(() => {
   }, [currentId]);
 
   return (
-    <div className="sticky top-24 bottom-0 flex flex-col gap-5 p-5 bg-[#000]/[0.30] rounded-[20px] backdrop-blur-[10px select-none">
+    <div className="sticky top-24 bottom-0 flex flex-col gap-5 p-5 bg-[#000]/[0.30] rounded-[20px] backdrop-blur-[10px] select-none">
       <FilterOptionBlock
         title="По свету"
         options={FILTER_OPTIONS.lighting}

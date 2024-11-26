@@ -5,7 +5,11 @@ import { useSelector } from "react-redux";
 import { BouquetFilters } from "../../redux/bouquets/types";
 import { RootState, useAppDispatch } from "../../redux/store";
 import { setCartItem } from "../../redux/cart/slice";
-import { selectBouquetById } from "../../redux/bouquets/selectors";
+import {
+  selectBouquetById,
+  selectBouquetItems,
+} from "../../redux/bouquets/selectors";
+import { selectReviews } from "../../redux/reviews/selectors";
 
 import { DecorativeElement, SliderBlock } from "../../components";
 import {
@@ -25,8 +29,8 @@ const BouquetPage: FC = () => {
     selectBouquetById(state, id)
   );
 
-  const bouquets = useSelector((state: RootState) => state.bouquets.items);
-  const reviews = useSelector((state: RootState) => state.reviews.reviews);
+  const bouquets = useSelector(selectBouquetItems);
+  const reviews = useSelector(selectReviews);
 
   const addToCart = (
     id: number,
