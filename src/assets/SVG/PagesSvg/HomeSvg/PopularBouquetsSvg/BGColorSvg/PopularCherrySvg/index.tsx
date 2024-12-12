@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
-export const PopularCherrySvg: FC = () => {
+export const PopularCherrySvg: FC = memo(() => {
   return (
     <svg
       className="absolute top-[22rem] right-[30rem] max-[1440px]:right-[13rem]"
@@ -41,4 +41,4 @@ export const PopularCherrySvg: FC = () => {
       </defs>
     </svg>
   );
-};
+});

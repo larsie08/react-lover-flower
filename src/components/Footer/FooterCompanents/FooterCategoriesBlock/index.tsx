@@ -1,7 +1,7 @@
 import { FC, memo } from "react";
 import { Link } from "react-router-dom";
 
-import { Category, FlowerCategoriesEnum } from "../../../../redux/filter/types";
+import { Category } from "../../../../redux/filter/types";
 
 import { DecorativeElement } from "../../..";
 
@@ -13,7 +13,7 @@ interface FooterCategoriesProps {
 export const FooterCategoriesBlock: FC<FooterCategoriesProps> = memo(
   ({ category, onClick }) => {
     return (
-      <li className="flex">
+      <li className="max-sm:hidden sm:flex">
         <Link
           to="catalog"
           onClick={() => onClick(category.name)}

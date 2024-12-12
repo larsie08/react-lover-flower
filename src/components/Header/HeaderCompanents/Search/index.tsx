@@ -104,12 +104,12 @@ export const Search: FC<SearchProps> = memo(
     };
 
     return (
-      <div className="flex ml-[50px] flex-col relative justify-center">
+      <div className="flex xl:ml-[50px] flex-col relative justify-center lg:ml-[30px]">
         <form className="relative flex items-center">
           <SearchSvg />
           <input
             className={classNames(
-              "left-6 outline-none border-[#555] transition-[width] h-[30px] text-[14px] font-normal tracking-[.56px] uppercase placeholder:font-light placeholder:tracking-[.28px] placeholder:normal-case border-b w-[360px]",
+              "left-6 outline-none border-[#555] transition-[width] h-[30px] text-[14px] font-normal tracking-[.56px] uppercase placeholder:font-light placeholder:tracking-[.28px] placeholder:normal-case border-b xl:w-[360px]",
               {
                 ["bg-[#040A0A]/[0.40]"]: lastScrollY < SCROLL_HIDE_THRESHOLD,
                 ["bg-[rgb(0,0,0)]"]: lastScrollY > SCROLL_HIDE_THRESHOLD,

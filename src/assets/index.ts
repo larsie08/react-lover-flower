@@ -12,13 +12,17 @@ export * from "./SVG/PagesSvg/HomeSvg/PopularBouquetsSvg/BGColorSvg/PopularCherr
 export * from "./SVG/PagesSvg/HomeSvg/PopularBouquetsSvg/BGColorSvg/PopularLightSvg";
 export * from "./SVG/PagesSvg/HomeSvg/OccasionBlockSvg/OccasionCherrySvg";
 export * from "./SVG/PagesSvg/HomeSvg/OccasionBlockSvg/ArrowToBtnSvg";
+export * from "./SVG/PagesSvg/HomeSvg/OccasionBlockSvg/ArrowToBtnAdaptive";
 export * from "./SVG/PagesSvg/HomeSvg/QuestionBlock/BgColorsSvg/QuestionCherrySvg";
 export * from "./SVG/PagesSvg/HomeSvg/QuestionBlock/BgColorsSvg/QuestionLightTurquoiseSvg";
+export * from "./SVG/PagesSvg/HomeSvg/QuestionBlock/BgColorsSvg/CherryAdaptiveSvg";
+export * from "./SVG/PagesSvg/HomeSvg/QuestionBlock/BgColorsSvg/LightTurquoiseAdaptiveSvg";
 export * from "./SVG/PagesSvg/HomeSvg/CardFooterBlockSvg/SocialsSvg/InstagramSvg";
 export * from "./SVG/PagesSvg/HomeSvg/CardFooterBlockSvg/SocialsSvg/WhatsappSvg";
 export * from "./SVG/PagesSvg/HomeSvg/CardFooterBlockSvg/SocialsSvg/PhoneSocialSvg";
 export * from "./SVG/PagesSvg/HomeSvg/CardFooterBlockSvg/BgColorsSvg/CardCherrySvg";
 export * from "./SVG/PagesSvg/HomeSvg/CardFooterBlockSvg/BgColorsSvg/CardLightSvg";
+export * from "./SVG/PagesSvg/HomeSvg/CardFooterBlockSvg/BgColorsSvg/CardCherryAdaptiveSvg";
 
 export * from "./SVG/PagesSvg/DeliveryPageSvg/BgColorBottom";
 
@@ -45,3 +49,4 @@ export * from "./SVG/Footer/SocialsSvg/SocialsSvg";
 export * from "./SVG/ModalSvg/BgColors/ModalLightSvg";
 export * from "./SVG/ModalSvg/BgColors/ModalCherrySvg";
 export * from "./SVG/ModalSvg/CloseSvg";
+export * from "./SVG/ModalSvg/CloseAdaptiveSvg";

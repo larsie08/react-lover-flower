@@ -9,11 +9,11 @@ import "swiper/css";
 import { LeftArrowSvg, RightArrowSvg } from "../../assets";
 import { CardBlock } from "..";
 
-type SliderProps = {
+type SliderBlockProps = {
   bouquets: Bouquet[];
 }
 
-export const SliderBlock: FC<SliderProps> = memo(({ bouquets }) => {
+export const SliderBlock: FC<SliderBlockProps> = memo(({ bouquets }) => {
   return (
     <>
       <div className="popular_bouquets__slider gap-8 flex items-center justify-center">

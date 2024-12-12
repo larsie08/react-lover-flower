@@ -8,7 +8,7 @@ import { useAppDispatch } from "./redux/store";
 
 import Home from "./pages/Home";
 import MainLayout from "./layout/MainLayout";
-import { CallModal, Cart } from "./components";
+import { CallModal, Cart, HamburgerMenu } from "./components";
 import { selectFiltersAppState } from "./redux/filter/selectors";
 
 const DeliveryPage = lazy(() => import("./pages/DeliveryPage"));
@@ -110,6 +110,7 @@ function App() {
 
       <CallModal />
       <Cart />
+      <HamburgerMenu />
     </>
   );
 }

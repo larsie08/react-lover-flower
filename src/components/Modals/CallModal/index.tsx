@@ -4,8 +4,9 @@ import classNames from "classnames";
 
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../../redux/store";
-import { setIsOpenModal } from "../../../redux/modal/slice";
 import { selectCallStatus } from "../../../redux/modal/selectors";
+import { ModalType } from "../../../redux/modal/types";
+import { setModalState } from "../../../redux/modal/slice";
 
 import { CloseSvg, ModalCherrySvg, ModalLightSvg } from "../../../assets";
 import { ModalForm } from "./ModalForm";
@@ -16,7 +17,7 @@ export const CallModal: FC = memo(() => {
   const isOpen = useSelector(selectCallStatus);
 
   const onClose = () => {
-    dispatch(setIsOpenModal(false));
+    dispatch(setModalState({ modalType: ModalType.Modal, isOpen: false }));
   };
 
   return createPortal(

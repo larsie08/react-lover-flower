@@ -7,7 +7,6 @@ import { setCategory, setSortValue } from "../../redux/filter/slice";
 import { selectCategoryAndSortOptions } from "../../redux/filter/selectors";
 import { selectBouquetState } from "../../redux/bouquets/selectors";
 import { selectCartItems } from "../../redux/cart/selectors";
-import { setIsOpenCart, setIsOpenModal } from "../../redux/modal/slice";
 
 import { DecorativeElement, CardBlock, SkeletonCard } from "../../components";
 import {
@@ -18,6 +17,8 @@ import {
   CatalogTitleBlock,
 } from "./companents";
 import { CatalogLeftSvg, CatalogRightSvg } from "../../assets";
+import { setModalState } from "../../redux/modal/slice";
+import { ModalType } from "../../redux/modal/types";
 
 const skeletons = [...new Array(9)].map((_, index) => (
   <SkeletonCard key={index} />
@@ -49,10 +50,13 @@ const CatalogPage: FC = () => {
   }, [dispatch]);
 
   const openModal = useCallback(
-    () => dispatch(setIsOpenModal(true)),
+    () => dispatch(setModalState({ modalType: ModalType.Modal, isOpen: true })),
     [dispatch]
   );
-  const openCart = useCallback(() => dispatch(setIsOpenCart(true)), [dispatch]);
+  const openCart = useCallback(
+    () => dispatch(setModalState({ modalType: ModalType.Cart, isOpen: true })),
+    [dispatch]
+  );
 
   return (
     <div className="catalog_page relative pt-[120px] pb-[200px] bg-[#040A0A]">

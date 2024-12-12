@@ -4,6 +4,7 @@ export * from "./Footer";
 export * from "./Modals/CallModal";
 export * from "./Modals/Cart";
 export * from "./Modals/Cart/CartComponents/CartCardBlock";
+export * from "./Modals/HamburgerMenu";
 
 export * from "./CardBlock";
 

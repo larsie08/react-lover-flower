@@ -1,10 +1,9 @@
-import { FC, useCallback, useEffect } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
 
 import { useAppDispatch } from "../../../redux/store";
-import { setIsOpenCart } from "../../../redux/modal/slice";
 import { selectCartState } from "../../../redux/cart/selectors";
 
 import {
@@ -14,15 +13,34 @@ import {
   CartTotalPrice,
 } from "./CartComponents";
 import { DecorativeElement } from "../..";
+import { setModalState } from "../../../redux/modal/slice";
+import { ModalType } from "../../../redux/modal/types";
 
 export const Cart: FC = () => {
   const dispatch = useAppDispatch();
 
   const { totalPrice, items, isOpen } = useSelector(selectCartState);
 
+  const [screenWidth, setScreenWidth] = useState(window.outerWidth);
+
+  const closeCart = useCallback(
+    () => dispatch(setModalState({ modalType: ModalType.Cart, isOpen: false })),
+    [dispatch]
+  );
+
+  const handleScreenWidth = () => setScreenWidth(window.outerWidth);
+
   useEffect(() => {
     localStorage.setItem("flower-cart", JSON.stringify(items));
   }, [items]);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleScreenWidth);
+
+    return () => {
+      window.removeEventListener("resize", handleScreenWidth);
+    };
+  }, []);
 
   useEffect(() => {
     const body = document.body;
@@ -48,11 +66,6 @@ export const Cart: FC = () => {
     };
   }, [isOpen]);
 
-  const closeCart = useCallback(
-    () => dispatch(setIsOpenCart(false)),
-    [dispatch]
-  );
-
   return createPortal(
     <div
       className={classNames("cart fixed top-0 w-full h-full z-40 delay-75", {
@@ -67,20 +80,22 @@ export const Cart: FC = () => {
           { ["opacity-100"]: isOpen, ["opacity-0"]: !isOpen }
         )}
       />
+
       <div
         className={classNames(
-          "cart__wrapper absolute flex flex-col justify-between right-0 z-50 h-[100vh] p-5 bg-[#000] transition-[width]",
+          "cart__wrapper absolute flex flex-col justify-between right-0 z-50 h-full lg:p-5 max-sm:py-5 max-sm:px-2 bg-[#000] transition-[width]",
           {
-            ["w-[420px]"]: isOpen,
+            ["w-[420px] max-sm:w-[260px]"]: isOpen,
             ["w-0"]: !isOpen,
           }
         )}
       >
         <div className="flex flex-col overflow-y-hidden">
-          <CartTitleBlock closeCart={closeCart} />
+          <CartTitleBlock closeCart={closeCart} screenWidth={screenWidth} />
           <div
             className={classNames("flex flex-col pr-4", {
-              ["overflow-y-scroll"]: items.length > 5,
+              ["overflow-y-scroll"]:
+                items.length > 5 || (screenWidth < 720 && items.length >= 4),
             })}
           >
             {items.map((obj) => (
@@ -98,7 +113,7 @@ export const Cart: FC = () => {
         </div>
         <div className="flex flex-col">
           <CartBallsBlock />
-          <DecorativeElement className="mt-7 mb-3 border-b-[1px] border-[#555]" />
+          <DecorativeElement className="lg:mt-7 mb-3 border-b-[1px] border-[#555] max-sm:mt-3" />
           <CartTotalPrice totalPrice={totalPrice} closeCart={closeCart} />
         </div>
       </div>

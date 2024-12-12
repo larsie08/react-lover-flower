@@ -44,20 +44,20 @@ export const CartCardBlock: FC<CartCardProps> = memo(
     const handleDeleteItem = (id: number) => dispatch(setDeleteBouquet(id));
 
     return (
-      <div className="card_block flex border-b-[1px] border-[#555] py-5">
+      <div className="card_block flex border-b-[1px] border-[#555] py-5 max-sm:py-2">
         {/* Image Block */}
         <div className="img">
           <img className="h-[80px] w-[60px]" src={imageUrl} alt={name} />
         </div>
 
         {/* Info Block */}
-        <div className="flex flex-col justify-between ml-5">
-          <h2 className="text-[14px] font-normal tracking-[0.28px] uppercase">
+        <div className="flex flex-col justify-between lg:ml-5 max-sm:ml-2">
+          <h2 className="text-[14px] font-normal tracking-[0.28px] uppercase max-sm:text-[12px] max-sm:tracking-[0.02em]">
             {name}
           </h2>
 
           {/* Counter Block */}
-          <div className="flex justify-around items-center w-[100px] h-[30px] border-[0.5px] border-[#555]">
+          <div className="flex justify-around items-center w-[100px] h-[30px] border-[0.5px] border-[#555] max-sm:w-[80px]">
             <CounterButton
               onClick={() => handleMinus(id)}
               disabled={count === 1}
@@ -71,12 +71,12 @@ export const CartCardBlock: FC<CartCardProps> = memo(
 
         {/* Price & Delete Block */}
         <div className="flex flex-col justify-between ml-auto">
-          <p className="text-[14px] text-light-turquoise font-bold tracking-[0.56px] uppercase">
+          <p className="text-[14px] text-light-turquoise font-bold tracking-[0.56px] uppercase max-sm:text-[12px] max-sm:tracking-[0.04em]">
             {cost} ₽
           </p>
           <button
             onClick={() => handleDeleteItem(id)}
-            className="text-[10px] font-normal tracking-[0.4px] underline uppercase"
+            className="text-[10px] font-normal tracking-[0.4px] underline uppercase max-sm:tracking-[0.04em]"
           >
             Удалить
           </button>

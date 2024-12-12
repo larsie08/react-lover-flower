@@ -9,7 +9,7 @@ type FooterBouquetProps = {
 
 export const FooterBouquetBlock: FC<FooterBouquetProps> = memo(({ name }) => {
   return (
-    <li className="flex">
+    <li className="max-sm:hidden sm:flex">
       <Link
         to="catalog"
         className="group/bouquet relative text-standart font-light uppercase tracking-[0.48px] cursor-pointer hover:text-light-turquoise transition-colors"
