@@ -13,7 +13,7 @@ interface FooterCategoriesProps {
 export const FooterCategoriesBlock: FC<FooterCategoriesProps> = memo(
   ({ category, onClick }) => {
     return (
-      <li className="max-sm:hidden sm:flex">
+      <li className="max-lg:hidden lg:flex">
         <Link
           to="catalog"
           onClick={() => onClick(category.name)}

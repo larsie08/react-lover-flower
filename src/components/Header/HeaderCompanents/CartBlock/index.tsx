@@ -12,7 +12,7 @@ type CartBlockProps = {
 export const CartBlock: FC<CartBlockProps> = memo(({ cart, openCart }) => {
   return (
     <div className="cart_block flex items-center gap-8">
-      <div className="cart_block__phone items-center gap-3 max-sm:hidden lg:flex">
+      <div className="cart_block__phone items-center gap-3 max-lg:hidden lg:flex">
         <HeaderPhoneSvg />
         <p className="text-[14px] text-light-turquoise font-normal tracking-[1.4px] uppercase">
           +375 (29) 113-69-69
@@ -20,7 +20,7 @@ export const CartBlock: FC<CartBlockProps> = memo(({ cart, openCart }) => {
       </div>
       <button
         onClick={openCart}
-        className="cart flex relative bg-[#000]/[.20] rounded-xl backdrop-blur-[10px] max-sm:mr-8"
+        className="cart flex relative bg-[#000]/[.20] rounded-xl backdrop-blur-[10px] max-sm:mr-8 md:mr-8"
       >
         <CartSvg />
         <svg

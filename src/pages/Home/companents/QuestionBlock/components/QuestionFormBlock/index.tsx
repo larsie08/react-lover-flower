@@ -18,10 +18,10 @@ export const QuestionFormBlock: FC = () => {
   const error: SubmitErrorHandler<QuestionForm> = (data) => console.log(data);
 
   return (
-    <div className="question_block__form relative flex flex-col sm:items-end mt-8 max-sm:items-center">
+    <div className="question_block__form relative flex flex-col md:items-end mt-8 max-lg:items-center md:mr-[1rem]">
       <form
         onSubmit={handleSubmit(submit, error)}
-        className="sm:w-[455px] flex flex-col gap-3 max-sm:max-w-[400px]"
+        className="sm:w-[455px] flex flex-col gap-3 max-lg:max-w-[400px]"
       >
         <input
           className="form__input w-full h-[60px] border border-light-turquoise bg-[#0F2222] p-4 placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"

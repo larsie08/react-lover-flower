@@ -77,6 +77,7 @@ export const HamburgerMenu: FC = memo(() => {
             <Link
               key={link.url}
               to={link.url}
+              onClick={onClose}
               className="text-[14px] tracking-[0.04em] font-normal uppercase"
             >
               {link.link}

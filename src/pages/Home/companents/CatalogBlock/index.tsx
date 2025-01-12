@@ -16,7 +16,7 @@ const additionally: string[] = ["шары", "игрушки", "открытки"
 export const CatalogBlock: FC = memo(() => {
   return (
     <section className="catalog_block__wrapper lg:h-[1100px] mt-[100px]">
-      <div className="container relative h-full flex flex-col mx-auto max-sm:items-center">
+      <div className="container relative h-full flex flex-col mx-auto max-lg:items-center">
         {/* Decorative Elements */}
         <DecorativeElement
           className="absolute z-10 top-[34rem] w-[707px] h-[236px] bg-cherry rotate-[32.828deg] rounded-[50%] blur-[125px]
@@ -28,17 +28,17 @@ export const CatalogBlock: FC = memo(() => {
         />
 
         {/* Top Section */}
-        <div className="catalog_block__top relative flex justify-around max-sm:flex-col">
+        <div className="catalog_block__top relative flex lg:justify-around max-lg:flex-col max-md:justify-center">
           <div className="catalog_block__title">
             <h1 className="title text-[100px] font-normal tracking-[2px] font-cormorant uppercase max-sm:text-[40px] max-sm:tracking-[0.02em]">
               Каталог
             </h1>
-            <p className="text-[20px] relative z-10 font-light tracking-[.8px] leading-[130%] ml-[90px] max-w-[540px] max-sm:hidden">
+            <p className="text-[20px] relative z-10 font-light tracking-[.8px] leading-[130%] lg:ml-[90px] max-w-[540px] max-sm:hidden">
               У нас самый большой выбор цветов, букетов, открыток и подарков. Мы
               всегда поможем вам подобрать букет для вашего события. Наш менеджер вас
               проконсультирует и поможет определиться с выбором.
             </p>
-            <p className="text-[20px] relative z-10 font-light tracking-[.4px] mt-7 ml-[90px] max-sm:hidden">
+            <p className="text-[20px] relative z-10 font-light tracking-[.4px] mt-7 lg:ml-[90px] max-sm:hidden">
               Ознакомьтесь с нашими разделами каталога.
             </p>
           </div>
@@ -47,7 +47,7 @@ export const CatalogBlock: FC = memo(() => {
         </div>
 
         {/* Bottom Section */}
-        <div className="catalog_block__bottom flex justify-around max-sm:flex-col max-sm:mt-10">
+        <div className="catalog_block__bottom flex justify-around max-lg:flex-col max-lg:mt-10">
           <FlowersBlock flowers={flowers} />
           <AdditionallyBlock additionally={additionally} />
         </div>

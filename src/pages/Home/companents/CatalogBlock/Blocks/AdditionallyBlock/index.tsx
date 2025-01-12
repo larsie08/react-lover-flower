@@ -9,7 +9,7 @@ export const AdditionallyBlock: FC<AdditionallyBlockProps> = memo(
   ({ additionally }) => {
     return (
       <div className="catalog__content_block h-[250px] mt-8">
-        <p className="absolute right-[2rem] text-[200px] max-w-[800px] overflow-hidden font-bold tracking-[8px] uppercase text-[#0A1717] max-[1536px]:max-w-[500px] max-sm:hidden">
+        <p className="absolute right-[2rem] text-[200px] max-w-[800px] overflow-hidden font-bold tracking-[8px] uppercase text-[#0A1717] max-[1536px]:max-w-[500px] max-lg:hidden">
           дополнительно
         </p>
 

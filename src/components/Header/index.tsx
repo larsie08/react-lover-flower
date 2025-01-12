@@ -102,12 +102,12 @@ export const Header: FC = memo(() => {
         ["-translate-y-full"]:
           !showHeader && lastScrollY > SCROLL_HIDE_THRESHOLD,
         ["bg-[black]"]:
-          (location.pathname !== "/" && screenWidth < 640) ||
+          (location.pathname !== "/" && screenWidth < 768) ||
           lastScrollY > SCROLL_HIDE_THRESHOLD,
       })}
     >
       <div className="header__wrapper flex justify-between h-[80px] container mx-auto">
-        <div className="my-auto ml-2.5 sm:hidden">
+        <div className="my-auto ml-2.5 lg:hidden">
           <button onClick={openHamburgerMenu} className="p-3 relative z-20">
             <img
               src="./img/headerImg/burgerIcon.png"
@@ -119,7 +119,7 @@ export const Header: FC = memo(() => {
 
         <div
           className={classNames(
-            "intro__content flex flex-col my-auto sm:hidden",
+            "intro__content flex flex-col my-auto lg:hidden",
             {
               ["hidden"]:
                 location.pathname === "/" &&
@@ -135,7 +135,7 @@ export const Header: FC = memo(() => {
           </h1>
         </div>
 
-        <div className="content max-sm:hidden lg:flex">
+        <div className="content max-lg:hidden lg:flex">
           <NavigationMenu
             handleCategorySelect={handleCategorySelect}
             categories={CATEGORIES}
@@ -147,7 +147,7 @@ export const Header: FC = memo(() => {
             showHeader={showHeader}
           />
         </div>
-        {screenWidth <= 640 || lastScrollY > SCROLL_HIDE_THRESHOLD ? (
+        {screenWidth <= 768 || lastScrollY > SCROLL_HIDE_THRESHOLD ? (
           <CartBlock cart={items} openCart={openCart} />
         ) : (
           <InfoBlock />

@@ -83,9 +83,9 @@ export const Cart: FC = () => {
 
       <div
         className={classNames(
-          "cart__wrapper absolute flex flex-col justify-between right-0 z-50 h-full lg:p-5 max-sm:py-5 max-sm:px-2 bg-[#000] transition-[width]",
+          "cart__wrapper absolute flex flex-col justify-between right-0 z-50 h-full lg:p-5 max-lg:py-5 max-lg:px-2 bg-[#000] transition-[width]",
           {
-            ["w-[420px] max-sm:w-[260px]"]: isOpen,
+            ["w-[420px] max-lg:w-[260px]"]: isOpen,
             ["w-0"]: !isOpen,
           }
         )}
@@ -95,7 +95,7 @@ export const Cart: FC = () => {
           <div
             className={classNames("flex flex-col pr-4", {
               ["overflow-y-scroll"]:
-                items.length > 5 || (screenWidth < 720 && items.length >= 4),
+                items.length > 5 || (screenWidth < 769 && items.length >= 4),
             })}
           >
             {items.map((obj) => (
@@ -113,7 +113,7 @@ export const Cart: FC = () => {
         </div>
         <div className="flex flex-col">
           <CartBallsBlock />
-          <DecorativeElement className="lg:mt-7 mb-3 border-b-[1px] border-[#555] max-sm:mt-3" />
+          <DecorativeElement className="lg:mt-7 mb-3 border-b-[1px] border-[#555] max-lg:mt-3" />
           <CartTotalPrice totalPrice={totalPrice} closeCart={closeCart} />
         </div>
       </div>

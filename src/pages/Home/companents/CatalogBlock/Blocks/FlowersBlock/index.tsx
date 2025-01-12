@@ -8,7 +8,7 @@ type FlowersBlockProps = {
 export const FlowersBlock: FC<FlowersBlockProps> = memo(({ flowers }) => {
   return (
     <div className="catalog__content_block h-[280px]">
-      <h2 className="absolute left-0 text-[200px] font-bold tracking-[8px] uppercase text-[#0A1717] max-sm:hidden">
+      <h2 className="absolute left-0 text-[200px] font-bold tracking-[8px] uppercase text-[#0A1717] max-lg:hidden">
         Цветы
       </h2>
 

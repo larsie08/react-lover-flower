@@ -7,11 +7,11 @@ type BouquetsBlockProps = {
 
 export const BouquetsBlock: FC<BouquetsBlockProps> = memo(({ bouquets }) => {
   return (
-    <div className="catalog__content_block h-[280px] sm:mt-36 max-sm:mt-5 ">
-      <h2 className="sm:absolute text-[200px] top-8 right-0 font-bold tracking-[8px] uppercase text-[#0A1717] max-sm:hidden">
+    <div className="catalog__content_block h-[280px] lg:mt-36 max-lg:mt-5">
+      <h2 className="sm:absolute text-[200px] top-8 right-0 font-bold tracking-[8px] uppercase text-[#0A1717] max-lg:hidden">
         букеты
       </h2>
-      <ul className="w-[445px] relative z-20 h-full bg-[#000]/[0.20] backdrop-blur-[10px] rounded-[20px] px-10 py-5 max-sm:w-[300px] max-sm:flex max-sm:flex-col max-sm:items-center max-sm:justify-between">
+      <ul className="w-[445px] relative z-20 h-full bg-[#000]/[0.20] backdrop-blur-[10px] rounded-[20px] px-10 py-5 max-sm:w-[300px] max-sm:flex max-sm:flex-col max-sm:items-center max-sm:justify-between md:w-[540px]">
         <li className="block_title text-[30px] mb-2.5 max-w-[271px] font-bold tracking-[1.2px] text-light-turquoise uppercase max-sm:text-[20px] max-sm:tracking-[0.04em] max-sm:text-center">
           готовые букеты из сухоцветов
         </li>

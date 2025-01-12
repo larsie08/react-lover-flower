@@ -17,8 +17,7 @@ type IntroProps = {
 
 export const Intro: FC<IntroProps> = memo(
   ({ cart, openModal, openCart, screenWidth }) => {
-    const cartCount = cart.length;
-    const isMobile = screenWidth < 640;
+    const isMobile = screenWidth <= 768;
 
     return (
       <div className="intro relative max-sm:pt-5 sm:pt-[140px] sm:h-[1600px] max-sm:h-[1000px]">
@@ -26,7 +25,7 @@ export const Intro: FC<IntroProps> = memo(
         <div className="absolute w-full sm:h-[1600px] max-sm:h-[800px] top-0">
           <img
             className="intro_img absolute w-full h-full top-0 left-0 z-10"
-            srcSet="./img/PagesImg/HomeImg/IntroImg/intro.png 1280w, ./img/PagesImg/HomeImg/IntroImg/introAdaptive.png 640w"
+            srcSet="./img/PagesImg/HomeImg/IntroImg/intro.png 1280w, ./img/PagesImg/HomeImg/IntroImg/introAdaptive.png 768w"
             alt="intro"
           />
           <img
@@ -96,10 +95,10 @@ export const Intro: FC<IntroProps> = memo(
                   <p
                     className={classNames(
                       "text-dark-green absolute right-[13px] top-[10px] text-standart",
-                      { ["right-0 left-10"]: cartCount >= 10 }
+                      { ["right-0 left-10"]: cart.length >= 10 }
                     )}
                   >
-                    {cartCount}
+                    {cart.length}
                   </p>
                 </button>
               </div>

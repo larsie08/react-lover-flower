@@ -9,12 +9,12 @@ type CartTotalPriceProps = {
 export const CartTotalPrice: FC<CartTotalPriceProps> = memo(
   ({ totalPrice, closeCart }) => {
     return (
-      <div className="total_price_block flex flex-col lg:gap-5 max-sm:gap-2">
+      <div className="total_price_block flex flex-col lg:gap-5 max-lg:gap-2">
         <div className="total_price w-[295px]">
-          <h2 className="text-[14px] text-light-turquoise font-bold tracking-[0.28px] uppercase max-sm:text-[10px] max-sm:tracking-[0.02em]">
+          <h2 className="text-[14px] text-light-turquoise font-bold tracking-[0.28px] uppercase max-lg:text-[10px] max-lg:tracking-[0.02em]">
             Предварительный итог: {totalPrice} руб.
           </h2>
-          <p className="text-[14px] font-normal tracking-[0.28px] uppercase max-sm:text-[10px] max-sm:tracking-[0.02em]">
+          <p className="text-[14px] font-normal tracking-[0.28px] uppercase text-balance max-lg:text-[10px] max-lg:tracking-[0.02em]">
             Чтобы узнать стоимость доставки, перейдите к оформлению заказа.
           </p>
         </div>

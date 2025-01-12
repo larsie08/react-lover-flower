@@ -3,7 +3,7 @@ import { FC } from "react";
 export const ArrowToBtnAdaptive: FC = () => {
   return (
     <svg
-      className="absolute bottom-6 right-[2.5rem]"
+      className="absolute bottom-6 max-md:right-[2.5rem] md:left-[16rem]"
       width="25"
       height="63"
       viewBox="0 0 25 63"

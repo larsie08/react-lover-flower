@@ -60,15 +60,15 @@ const Home: FC = () => {
       <CatalogBlock />
 
       <div className="popular_bouquets relative w-full h-full">
-        {screenWidth > 425 && (
+        {screenWidth > 768 && (
           <DecorativeElement className="absolute right-0 z-10 w-[60%] h-[750px] bg-[url('./img/PagesImg/HomeImg/IntroImg/BouquetsBG.png')]" />
         )}
-        {screenWidth > 425 && <PopularLightSvg />}
-        {screenWidth > 425 && <PopularCherrySvg />}
+        {screenWidth > 768 && <PopularLightSvg />}
+        {screenWidth > 768 && <PopularCherrySvg />}
 
-        <div className="popular_bouquets__wrapper relative container mx-auto max-sm:flex max-sm:flex-col max-sm:mt-[6rem]">
+        <div className="popular_bouquets__wrapper relative container mx-auto max-lg:flex max-lg:flex-col max-lg:mt-[6rem]">
           <BouquetsTitleBlock />
-          {screenWidth > 425 ? (
+          {screenWidth > 768 ? (
             <SliderBlock bouquets={bouquets} />
           ) : (
             <div className="flex flex-col items-center gap-10 mt-6">
