@@ -68,8 +68,8 @@ const Home: FC = () => {
 
         <div className="popular_bouquets__wrapper relative container mx-auto max-lg:flex max-lg:flex-col max-lg:mt-[6rem]">
           <BouquetsTitleBlock />
-          {screenWidth > 768 ? (
-            <SliderBlock bouquets={bouquets} />
+          {screenWidth > 500 ? (
+            <SliderBlock bouquets={bouquets} screenWidth={screenWidth} />
           ) : (
             <div className="flex flex-col items-center gap-10 mt-6">
               {bouquets.slice(0, 3).map((bouquet) => (

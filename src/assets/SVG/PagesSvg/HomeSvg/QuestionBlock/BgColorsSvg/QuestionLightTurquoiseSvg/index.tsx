@@ -1,11 +1,10 @@
-import {FC} from "react";
+import { FC } from "react";
 
 export const QuestionLightTurquoiseSvg: FC = () => {
   return (
     <svg
-    className="absolute left-[24rem] z-10 top-0 blur-[50px]"
+      className="absolute w-[733px] left-[24rem] z-10 top-0 blur-[50px] max-xl:w-[500px]"
       xmlns="http://www.w3.org/2000/svg"
-      width="733"
       height="802"
       viewBox="0 0 733 802"
       fill="none"

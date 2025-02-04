@@ -14,7 +14,7 @@ type CardFooterBlockProps = {
 
 export const CardFooterBlock: FC<CardFooterBlockProps> = memo(
   ({ screenWidth }) => {
-    const isLargeScreen = screenWidth > 640;
+    const isLargeScreen = screenWidth > 1024;
 
     return (
       <div className="card_footer_block relative h-[500px] mt-[10rem] max-lg:px-2">

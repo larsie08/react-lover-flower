@@ -3,9 +3,8 @@ import { FC } from "react";
 export const CardCherrySvg: FC = () => {
   return (
     <svg
-    className="absolute -bottom-56 right-0 blur-[10px]"
+    className="absolute -bottom-56 right-0 blur-[10px] max-lg:right-0 w-[489px]"
       xmlns="http://www.w3.org/2000/svg"
-      width="489"
       height="818"
       viewBox="0 0 489 818"
       fill="none"

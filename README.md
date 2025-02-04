@@ -1,68 +1,34 @@
-# React + TypeScript + Vite
+# 🌸 Lover-Flower  
 
-# Lover-Flower
+**Lover-Flower** — это веб-приложение, разработанное с использованием **React** и **TypeScript**, предназначенное для демонстрации навыков работы с современными технологиями фронтенд-разработки.  
 
-### Demo - https://larsie08.github.io/react-lover-flower/
+## 🚀 Функциональность  
+- **Каталог цветов** — динамическое отображение карточек с описанием и изображениями.  
+- **Фильтрация и поиск** — возможность сортировки и поиска по категориям.  
+- **Управление состоянием** — используется Redux Toolkit для предсказуемого обновления данных.  
+- **Форма обратной связи** — валидация с помощью React Hook Form.  
+- **Навигация** — реализована на React Router.  
+- **Интерактивный UI** — стилизация с Tailwind CSS.  
+- **Высокая производительность** — применены Code Splitting и оптимизация загрузки данных.  
 
-## Stack:
+## 🛠️ Технологии  
+- **Frontend:** React, TypeScript, Redux Toolkit, React Router  
+- **Стилизация:** Tailwind CSS  
+- **Запросы к API:** Axios, Fetch  
+- **Оптимизация:** Code Splitting, React Loadable  
 
-- React
-- TypeScript
-- React Router
-- React-Hooks
-- Redux Toolkit
-- React-Hook-Form
-- Axios + Fetch
-- Tailwind css
-- Code Splitting
+## 📦 Установка и запуск  
 
-## Installation
-
-```
+```bash
+# Клонировать репозиторий
 git clone https://github.com/larsie08/react-lover-flower.git
-```
 
-## Installing dependencies
+# Перейти в папку проекта
+cd react-lover-flower
 
-```
+# Установить зависимости
 npm install
+
+# Запустить приложение
+npm run dev
 ```
-
-## Starting a project
-
-```
-npm run server
-npm run start
-```
-
-## Building a project
-
-```
-npm run build
-```
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list

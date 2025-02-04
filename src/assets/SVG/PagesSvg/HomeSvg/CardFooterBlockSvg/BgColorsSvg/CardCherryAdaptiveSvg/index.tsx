@@ -3,7 +3,7 @@ import { FC } from "react";
 export const CardCherryAdaptiveSvg: FC = () => {
   return (
     <svg
-      className="absolute -bottom-[11rem] right-0 z-30"
+      className="absolute -bottom-[11rem] right-0 z-30 max-xl:size-2/3"
       width="235"
       height="413"
       viewBox="0 0 235 413"

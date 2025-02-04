@@ -56,7 +56,7 @@ export const HomeOrderBlock: FC = memo(() => {
             <StepBlock key={obj.info} step={obj.step} info={obj.info} />
           ))}
           <img
-            className="absolute right-0 sm:-bottom-[4rem] rotate-[-11.947deg] max-lg:rotate-[-10.255deg] max-lg:w-[137px] max-lg:-bottom-[4rem] max-lg:right-5"
+            className="absolute right-0 sm:-bottom-[4rem] rotate-[-11.947deg] max-lg:rotate-[-10.255deg] max-lg:w-[137px] max-lg:-bottom-[4rem] max-lg:right-5 max-xl:right-[1rem]"
             srcSet="./img/signature.png 1280w, ./img/signature-640.png 640w"
           />
           <div className="relative z-10 border-r-[1px] border-pink w-0 h-[437px] float-right max-lg:hidden" />

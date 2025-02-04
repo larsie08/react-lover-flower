@@ -1,11 +1,10 @@
-import {FC} from "react";
+import { FC } from "react";
 
 export const OccasionCherrySvg: FC = () => {
   return (
     <svg
-    className="absolute right-0 "
+      className="absolute right-0 top-0 max-xl:size-2/3 w-[439px]"
       xmlns="http://www.w3.org/2000/svg"
-      width="439"
       height="900"
       viewBox="0 0 439 900"
       fill="none"

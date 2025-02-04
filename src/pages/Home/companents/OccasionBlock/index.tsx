@@ -18,8 +18,9 @@ export const OccasionBlock: FC<OccasionBlockProps> = memo(({ screenWidth }) => (
     <div className="occasion_block__wrapper container mx-auto">
       <div className="occasion_block__top flex lg:justify-between max-lg:justify-center">
         <OccasionTitle />
-        <div className="img_block mr-[130px] max-lg:hidden">
+        <div className="img_block mr-[130px] max-lg:hidden relative z-20 flex justify-center items-center">
           <img
+            className="w-[255px] h-[223px]"
             src="./img/PagesImg/HomeImg/OccasionImg/packing.png"
             alt="packing"
           />
@@ -33,7 +34,7 @@ export const OccasionBlock: FC<OccasionBlockProps> = memo(({ screenWidth }) => (
             вкус, бюджет и для любого события по вашему индивидуальному заказу.
           </p>
           <OccasionList />
-          {screenWidth > 768 ? <ArrowToBtnSvg /> : <ArrowToBtnAdaptive />}
+          {screenWidth > 1024 ? <ArrowToBtnSvg /> : <ArrowToBtnAdaptive />}
           <Link
             to="catalog"
             className="h-[50px] text-[12px] font-bold tracking-[1.2px] text-center p-4 transition uppercase text-[black] bg-light-turquoise hover:bg-cherry hover:text-[white] focus:border focus:border-cherry active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]"

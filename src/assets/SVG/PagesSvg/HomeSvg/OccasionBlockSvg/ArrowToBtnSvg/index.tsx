@@ -3,7 +3,7 @@ import { FC } from "react";
 export const ArrowToBtnSvg: FC = () => {
   return (
     <svg
-    className="absolute bottom-6 left-24"
+    className="absolute bottom-6 left-24 max-xl:-left-[1rem] max-2xl:left-[3rem]"
       xmlns="http://www.w3.org/2000/svg"
       width="11"
       height="61"
