@@ -1,5 +1,11 @@
 import { FC } from "react";
 import { useForm, SubmitHandler, SubmitErrorHandler } from "react-hook-form";
+import { useAppDispatch } from "../../../../redux/store";
+import {
+  setModalState,
+  setSeverityOption,
+} from "../../../../redux/modal/slice";
+import { ModalType } from "../../../../redux/modal/types";
 
 interface MyForm {
   name: string;
@@ -8,13 +14,22 @@ interface MyForm {
 }
 
 export const ContactsFormBlock: FC = () => {
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<MyForm>();
 
-  const submit: SubmitHandler<MyForm> = (data) => console.log(data);
+  const sendAlert = () => {
+    dispatch(setModalState({ modalType: ModalType.Alert, isOpen: true }));
+    dispatch(setSeverityOption({ severity: "success" }));
+  };
+
+  const submit: SubmitHandler<MyForm> = (data) => {
+    sendAlert();
+    console.log(data);
+  };
   const error: SubmitErrorHandler<MyForm> = (data) => console.log(data);
 
   return (

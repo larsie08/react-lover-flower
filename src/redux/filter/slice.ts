@@ -12,7 +12,7 @@ const initialState: FilterSliceState = {
   filtersId: [],
   fieldPriceValue: [800, 2500],
   isConfirm: false,
-  sort: {
+  sortOption: {
     name: "популярности",
     sortProperty: SortPropertyEnum.RATING,
   },
@@ -40,7 +40,7 @@ const filterSlice = createSlice({
       state.filtersId = [];
     },
     setSortValue(state, action: PayloadAction<SortType>) {
-      state.sort = action.payload;
+      state.sortOption = action.payload;
     },
     setConfirm(state, action: PayloadAction<boolean>) {
       state.isConfirm = action.payload;

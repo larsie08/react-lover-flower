@@ -1,3 +1,4 @@
+import { AlertColor } from "@mui/material";
 import { FC } from "react";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 
@@ -6,7 +7,11 @@ interface ModalForm {
   tel: number;
 }
 
-export const ModalForm: FC = () => {
+type FormProps = {
+  handleAlert: (severityOption: AlertColor) => void;
+};
+
+export const ModalForm: FC<FormProps> = ({ handleAlert }) => {
   const {
     register,
     handleSubmit,
@@ -15,11 +20,14 @@ export const ModalForm: FC = () => {
 
   const submit: SubmitHandler<ModalForm> = (data) => {
     console.log(data);
+    handleAlert("success");
   };
 
   const error: SubmitErrorHandler<ModalForm> = (data) => {
     console.log(data);
+    handleAlert("error");
   };
+
   return (
     <form
       onSubmit={handleSubmit(submit, error)}

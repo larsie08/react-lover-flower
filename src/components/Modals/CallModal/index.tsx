@@ -1,30 +1,39 @@
-import { FC, memo } from "react";
+import { FC, memo, useCallback } from "react";
 import { createPortal } from "react-dom";
 import classNames from "classnames";
 
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../../redux/store";
-import { selectCallStatus } from "../../../redux/modal/selectors";
+import { selectModalStatus } from "../../../redux/modal/selectors";
 import { ModalType } from "../../../redux/modal/types";
-import { setModalState } from "../../../redux/modal/slice";
+import { setModalState, setSeverityOption } from "../../../redux/modal/slice";
 
 import { CloseSvg, ModalCherrySvg, ModalLightSvg } from "../../../assets";
 import { ModalForm } from "./ModalForm";
+import { AlertColor } from "@mui/material";
 
 export const CallModal: FC = memo(() => {
   const dispatch = useAppDispatch();
 
-  const isOpen = useSelector(selectCallStatus);
+  const { isOpenModal } = useSelector(selectModalStatus);
 
   const onClose = () => {
     dispatch(setModalState({ modalType: ModalType.Modal, isOpen: false }));
   };
 
+  const handleAlert = useCallback(
+    (severityOption: AlertColor) => {
+      dispatch(setModalState({ modalType: ModalType.Alert, isOpen: true }));
+      dispatch(setSeverityOption({ severity: severityOption }));
+    },
+    [dispatch]
+  );
+
   return createPortal(
     <div
       className={classNames(
         "call_modal fixed z-40 bottom-4 right-4 w-0 h-[485px] bg-[#0F2222] opacity-0 transition-all duration-200",
-        { ["w-[540px] opacity-100"]: isOpen }
+        { ["w-[540px] opacity-100"]: isOpenModal }
       )}
     >
       <ModalCherrySvg />
@@ -47,7 +56,7 @@ export const CallModal: FC = memo(() => {
             обстоятельствах не будут переданы третьим лицам.
           </p>
         </div>
-        <ModalForm />
+        <ModalForm handleAlert={handleAlert} />
         <div className="mt-3">
           <p className="max-w-[342px] text-[10px] font-normal tracking-[0.2px] font-roboto_condensed">
             Нажимая на кнопку «Отправить», я даю свое согласие на обработку

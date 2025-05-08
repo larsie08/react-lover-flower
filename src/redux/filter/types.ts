@@ -7,7 +7,7 @@ export interface FilterSliceState {
   filtersId: string[];
   fieldPriceValue: number[];
   isConfirm: boolean;
-  sort: {
+  sortOption: {
     name: string;
     sortProperty: SortPropertyEnum;
   };

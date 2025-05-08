@@ -15,6 +15,7 @@ import classNames from "classnames";
 import { Bouquet } from "../../../../redux/bouquets/types";
 
 import { SearchCardBlock } from "./SearchCardBlock";
+import { TextField } from "@mui/material";
 import { ClearSvg, SearchSvg } from "../../../../assets";
 
 type SearchProps = {
@@ -82,7 +83,7 @@ export const Search: FC<SearchProps> = memo(
     const fetchSearchBouquets = async (searchValue: string) => {
       try {
         const { data } = await axios.get<Bouquet[]>(
-          `https://655b76e2ab37729791a92825.mockapi.io/items?name=${searchValue}&page=1&limit=5`
+          `http://localhost:3000/api/bouquets/search/${searchValue}`
         );
         setSearchItems(data);
         toggleShowSearchItems(true);
@@ -106,40 +107,75 @@ export const Search: FC<SearchProps> = memo(
     return (
       <div className="flex xl:ml-[50px] flex-col relative justify-center lg:ml-[30px]">
         <form className="relative flex items-center">
-          <SearchSvg />
-          <input
-            className={classNames(
-              "left-6 outline-none border-[#555] transition-[width] h-[30px] text-[14px] font-normal tracking-[.56px] uppercase placeholder:font-light placeholder:tracking-[.28px] placeholder:normal-case border-b xl:w-[360px]",
-              {
-                ["bg-[#040A0A]/[0.40]"]: lastScrollY < SCROLL_HIDE_THRESHOLD,
-                ["bg-[rgb(0,0,0)]"]: lastScrollY > SCROLL_HIDE_THRESHOLD,
-              }
-            )}
+          <TextField
+            id="search-input"
             type="search"
-            placeholder="Введите свой запрос"
             ref={searchRef}
-            id="search"
             value={searchValue}
             autoComplete="off"
+            placeholder="Введите свой запрос"
             onChange={handleInputChange}
+            variant="standard"
+            sx={{
+              input: {
+                color: "white",
+                fontSize: "14px",
+                letterSpacing: "0.04em",
+                textTransform: "uppercase",
+                fontWeight: 400,
+                width: "150px",
+                transition: "width 0.3s ease",
+                "&:focus": {
+                  width: "315px",
+                },
+                "&::placeholder": {
+                  color: "gray",
+                  opacity: 0.4,
+                  textTransform: "none",
+                  fontWeight: 300,
+                  letterSpacing: "0.02em",
+                },
+              },
+              "& .MuiInput-underline:before": {
+                borderBottom: "1px solid #6B7280",
+              },
+              "& .MuiInput-underline:hover": {
+                borderBottom: "1px solid #9CA3AF",
+              },
+              "& .MuiInput-underline:after": {
+                borderBottom: "1px solid white",
+              },
+              transition: "border-color 0.3s ease",
+              backgroundColor:
+                lastScrollY < SCROLL_HIDE_THRESHOLD
+                  ? "rgba(4, 10, 10, 0.4)"
+                  : "rgb(0, 0, 0)",
+            }}
+            slotProps={{
+              input: {
+                startAdornment: <SearchSvg />,
+                endAdornment: searchValue.length !== 0 && (
+                  <button onClick={clearSearchValue}>
+                    <ClearSvg />
+                  </button>
+                ),
+              },
+            }}
           />
-
-          <button
-            className="absolute right-0 cursor-pointer"
-            onClick={clearSearchValue}
-          >
-            <ClearSvg />
-          </button>
         </form>
 
         {searchItems.length > 0 && (
           <div
             className={classNames(
-              "absolute flex flex-col top-0 right-0 bg-[black]/[0.8] [&:last-of-type]:border-b transition-all ease-in-out w-[360px] duration-300",
-              { ["top-[70px]"]: lastScrollY < SCROLL_HIDE_THRESHOLD },
-              { ["top-[5rem]"]: lastScrollY > SCROLL_HIDE_THRESHOLD },
+              "absolute flex flex-col top-0 left-0 bg-[black]/[0.8] [&:last-of-type]:border-b transition-all ease-in-out w-[360px] duration-300",
               {
-                ["-translate-y-[150%]"]:
+                ["top-[70px]"]: lastScrollY < SCROLL_HIDE_THRESHOLD,
+              },
+              {
+                ["top-[5rem]"]: lastScrollY > SCROLL_HIDE_THRESHOLD,
+              },
+              {
+                ["-translate-y-[200%] opacity-0"]:
                   (!showHeader && lastScrollY > SCROLL_HIDE_THRESHOLD) ||
                   !showSearchItems,
               }

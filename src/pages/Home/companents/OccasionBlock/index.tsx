@@ -1,12 +1,18 @@
 import { FC, memo } from "react";
 import { Link } from "react-router-dom";
 
-import { OccasionImages, OccasionList, OccasionTitle } from "./components";
+import { OccasionImages, OccasionList } from "./components";
 import {
   ArrowToBtnAdaptive,
   ArrowToBtnSvg,
   OccasionCherrySvg,
 } from "../../../../assets";
+import { HomeTitleBlock } from "../TitleBlock";
+
+const SUBTITLE_WRAPPER_CLASSNAME =
+  "flex items-center lg:ml-[130px] lg:gap-7 max-lg:gap-2";
+const TITLE_CLASSNAME =
+  "text-[100px] font-normal tracking-[2px] uppercase font-cormorant max-md:text-[40px] max-md:tracking-[0.02em]";
 
 type OccasionBlockProps = {
   screenWidth: number;
@@ -16,9 +22,26 @@ export const OccasionBlock: FC<OccasionBlockProps> = memo(({ screenWidth }) => (
   <div className="occasion_block relative sm:h-[1000px] max-lg:mt-[6rem] mt-[160px]">
     {screenWidth > 640 && <OccasionCherrySvg />}
     <div className="occasion_block__wrapper container mx-auto">
-      <div className="occasion_block__top flex lg:justify-between max-lg:justify-center">
-        <OccasionTitle />
-        <div className="img_block mr-[130px] max-lg:hidden relative z-20 flex justify-center items-center">
+      <div
+        data-aos="fade-right"
+        data-aos-offset="300"
+        className="occasion_block__top flex lg:justify-between max-lg:justify-center"
+      >
+        {/* <OccasionTitle /> */}
+        <HomeTitleBlock
+          title="особенный"
+          subtitle="повод?"
+          titleClassName={TITLE_CLASSNAME}
+          subtitleClassName={TITLE_CLASSNAME}
+          animation="fade-right"
+          subtitleWrapperClassName={SUBTITLE_WRAPPER_CLASSNAME}
+        />
+        <div
+          data-aos="fade-left"
+          data-aos-offset="200"
+          data-aos-duration="2000"
+          className="img_block mr-[130px] max-lg:hidden relative z-20 flex justify-center items-center"
+        >
           <img
             className="w-[255px] h-[223px]"
             src="./img/PagesImg/HomeImg/OccasionImg/packing.png"
@@ -29,7 +52,12 @@ export const OccasionBlock: FC<OccasionBlockProps> = memo(({ screenWidth }) => (
 
       <div className="occasion_block__bottom relative flex justify-around mt-8">
         <div className="content_block flex flex-col gap-8">
-          <p className="max-w-[255px] text-[14px] font-normal sm:leading-normal tracking-[.56px] uppercase max-lg:w-[300px] max-lg:tracking-[0.02em]">
+          <p
+            data-aos="fade-left"
+            data-aos-offset="200"
+            data-aos-duration="2000"
+            className="max-w-[255px] text-[14px] font-normal sm:leading-normal tracking-[.56px] uppercase max-lg:w-[300px] max-lg:tracking-[0.02em]"
+          >
             Мы готовы прийти на помощь и собрать уникальный букет, на любой
             вкус, бюджет и для любого события по вашему индивидуальному заказу.
           </p>

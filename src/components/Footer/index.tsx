@@ -1,4 +1,4 @@
-import { FC, memo, useCallback } from "react";
+import { FC, useCallback } from "react";
 
 import { Category, FlowerCategoriesEnum } from "../../redux/filter/types";
 import { useAppDispatch } from "../../redux/store";
@@ -6,12 +6,14 @@ import { setCategory } from "../../redux/filter/slice";
 
 import { SocialsSvg } from "../../assets";
 import {
-  FooterBouquetBlock,
-  FooterCategoriesBlock,
   FooterInfoBlock,
-  FooterPagesBlock,
-  FooterTitleBlock,
+  FooterListBlock,
+  FooterTitleListBlock,
 } from "./FooterCompanents";
+
+const TITLE_CLASSNAME =
+  "text-[14px] font-bold text-light-turquoise mb-2.5 uppercase";
+const PAGES_CLASSNAME = "text-[14px] font-bold text-light-turquoise uppercase";
 
 const categories: Category[] = [
   { name: FlowerCategoriesEnum.PopularItems },
@@ -70,10 +72,10 @@ const info = [
   },
 ];
 
-export const Footer: FC = memo(() => {
+export const Footer: FC = () => {
   const dispatch = useAppDispatch();
 
-  const onClick = useCallback(
+  const selectCategory = useCallback(
     (category: string) => {
       const obj = { category };
       dispatch(setCategory(obj));
@@ -99,24 +101,37 @@ export const Footer: FC = memo(() => {
           </p>
         </div>
         <ul className="flex flex-col gap-2 lg:mt-7 max-lg:mt-5">
-          <FooterTitleBlock title="Каталог" />
+          <FooterTitleListBlock
+            title="Каталог"
+            path="catalog"
+            className={TITLE_CLASSNAME}
+          />
           {categories.map((category) => (
-            <FooterCategoriesBlock
+            <FooterListBlock
               key={category.name}
-              category={category}
-              onClick={onClick}
+              name={category.name}
+              selectCategory={selectCategory}
             />
           ))}
         </ul>
         <ul className="flex-col gap-2 lg:mt-7 max-lg:hidden lg:flex">
-          <FooterTitleBlock title={"Букет"} />
+          <FooterTitleListBlock
+            title="Букет"
+            path="catalog"
+            className={TITLE_CLASSNAME}
+          />
           {bouquet.map((name) => (
-            <FooterBouquetBlock key={name} name={name} />
+            <FooterListBlock key={name} name={name} />
           ))}
         </ul>
         <ul className="flex flex-col gap-6 lg:mt-7 max-lg:gap-2.5 max-w-[160px] max-lg:items-center">
           {links.map((obj) => (
-            <FooterPagesBlock key={obj.url} page={obj} />
+            <FooterTitleListBlock
+              key={obj.url}
+              path={obj.url}
+              title={obj.link}
+              className={PAGES_CLASSNAME}
+            />
           ))}
         </ul>
         <div className="flex flex-col gap-5 mt-7">
@@ -134,4 +149,4 @@ export const Footer: FC = memo(() => {
       </div>
     </footer>
   );
-});
+};

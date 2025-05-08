@@ -1,4 +1,3 @@
-export * from "./BouquetsTitleBlock";
 export * from "./CardFooterBlock";
 export * from "./CatalogBlock";
 export * from "./HomeOrderBlock";

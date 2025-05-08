@@ -8,8 +8,6 @@ export * from "./SVG/PagesSvg/HomeSvg/Intro/SocialBorderSvg";
 export * from "./SVG/PagesSvg/HomeSvg/PopularBouquetsSvg/ArrowsSvg/LeftArrowSvg";
 export * from "./SVG/PagesSvg/HomeSvg/PopularBouquetsSvg/ArrowsSvg/PinkArrowSvg";
 export * from "./SVG/PagesSvg/HomeSvg/PopularBouquetsSvg/ArrowsSvg/RightArrowSvg";
-export * from "./SVG/PagesSvg/HomeSvg/PopularBouquetsSvg/BGColorSvg/PopularCherrySvg";
-export * from "./SVG/PagesSvg/HomeSvg/PopularBouquetsSvg/BGColorSvg/PopularLightSvg";
 export * from "./SVG/PagesSvg/HomeSvg/OccasionBlockSvg/OccasionCherrySvg";
 export * from "./SVG/PagesSvg/HomeSvg/OccasionBlockSvg/ArrowToBtnSvg";
 export * from "./SVG/PagesSvg/HomeSvg/OccasionBlockSvg/ArrowToBtnAdaptive";

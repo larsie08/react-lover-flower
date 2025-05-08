@@ -40,6 +40,7 @@ export const SliderBlock: FC<SliderBlockProps> = memo(
                   name={obj.name}
                   imageUrl={obj.imageUrl}
                   cost={obj.cost}
+                  categories={obj.categories}
                   filters={obj.filters}
                   imgClassName="h-[450px] w-[350px]"
                 />

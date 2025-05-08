@@ -2,7 +2,10 @@ import { FC, useState, MouseEvent } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { ArrowSvg } from "../../../../assets";
-import { BouquetFilters } from "../../../../redux/bouquets/types";
+import {
+  BouquetCategories,
+  BouquetFilters,
+} from "../../../../redux/bouquets/types";
 
 interface BouquetBlockProps {
   id: number;
@@ -10,12 +13,14 @@ interface BouquetBlockProps {
   cost: number;
   imageUrl: string;
   filters: BouquetFilters;
+  categories: BouquetCategories;
   addToCart: (
     id: number,
     name: string,
     imageUrl: string,
     cost: number,
     count: number,
+    categories: BouquetCategories,
     filters: BouquetFilters
   ) => void;
 }
@@ -26,6 +31,7 @@ export const BouquetBlock: FC<BouquetBlockProps> = ({
   cost,
   imageUrl,
   filters,
+  categories,
   addToCart,
 }) => {
   const navigate = useNavigate();
@@ -36,7 +42,7 @@ export const BouquetBlock: FC<BouquetBlockProps> = ({
   };
 
   const handleAddToCart = () => {
-    addToCart(id, name, imageUrl, cost, count, filters);
+    addToCart(id, name, imageUrl, cost, count, categories, filters);
   };
 
   const handlePlus = (event: MouseEvent<HTMLButtonElement>) => {

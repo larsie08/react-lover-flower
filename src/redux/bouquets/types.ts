@@ -1,3 +1,5 @@
+import { Reviews } from "../reviews/types";
+
 export interface BouquetsSliceState {
   items: Bouquet[];
   status: Status;
@@ -22,17 +24,22 @@ export type BouquetFilters = {
   };
 };
 
-export type Bouquet = {
-  id: number;
-  name: string;
-  cost: number;
-  imageUrl: string;
+export type BouquetCategories = {
   category1?: string;
   category2?: string;
   category3?: string;
   category4?: string;
   category5?: string;
+};
+
+export type Bouquet = {
+  id: number;
+  name: string;
+  cost: number;
+  imageUrl: string;
+  categories: BouquetCategories;
   filters: BouquetFilters;
+  reviews?: Reviews[];
 };
 
 export enum Status {
@@ -40,3 +47,8 @@ export enum Status {
   SUCCESS = "success",
   ERROR = "error",
 }
+
+export type UpdateBouquetProps = {
+  id: number;
+  review: Reviews;
+};

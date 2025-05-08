@@ -1,6 +1,5 @@
 import { FC, useCallback } from "react";
 import { useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
 import axios from "axios";
 
 import { RootState, useAppDispatch } from "../../redux/store";
@@ -8,12 +7,15 @@ import { CartItem } from "../../redux/cart/types";
 
 import { CartCardBlock, DecorativeElement } from "../../components";
 
-import {
+import OrderFormBlock, {
   DeliveryRadioGroupOption,
   PayRadioGroupOptions,
 } from "./OrderFormBlock";
 import { PromoCode } from "./OrderFormBlock/FormTypes/form.types";
 import { IOrderForm } from "./OrderFormBlock/FormTypes/form.interface";
+import { setModalState, setSeverityOption } from "../../redux/modal/slice";
+import { ModalType } from "../../redux/modal/types";
+import { AlertColor } from "@mui/material";
 
 type Order = {
   name: string;
@@ -37,13 +39,15 @@ type Order = {
 const OrderPage: FC = () => {
   const dispatch = useAppDispatch();
 
-  const { items, totalPrice } = useSelector((state: RootState) => state.cart);
+  const { cartItems, totalPrice } = useSelector(
+    (state: RootState) => state.cart
+  );
 
   const submitOrder = useCallback(
     (
       formData: IOrderForm,
       finalPrice: number,
-      deliveryAddress: string,
+      deliveryAddress?: string,
       appliedPromoCode?: PromoCode
     ) => {
       const order: Order = {
@@ -55,7 +59,7 @@ const OrderPage: FC = () => {
         comment: formData.comment,
         deliveryMethod: formData.deliveryRadioGroup,
         paymentMethod: formData.payRadioGroupOptions,
-        cartItems: items,
+        cartItems: cartItems,
         finalPrice,
         ...(deliveryAddress && {
           address: {
@@ -72,14 +76,21 @@ const OrderPage: FC = () => {
     [dispatch]
   );
 
+  const sendAlert = useCallback(
+    (severityOption: AlertColor) => {
+      dispatch(setModalState({ modalType: ModalType.Alert, isOpen: true }));
+      dispatch(setSeverityOption({ severity: severityOption }));
+    },
+    [dispatch]
+  );
+
   const postOrder = async (order: Order) => {
     try {
-      await axios.post(
-        "https://663a356f1ae792804bee79f1.mockapi.io/orders",
-        order
-      );
+      await axios.post("http://localhost:3000/api/order/", order);
+      sendAlert("success");
     } catch (error) {
       console.log("Ошибка подтверждения заказа", error);
+      sendAlert("error");
     }
   };
 
@@ -123,21 +134,25 @@ const OrderPage: FC = () => {
           </h2>
           <div className="order__content_block flex justify-between mt-10 w-full">
             {/* form */}
-            <Outlet context={{ submitOrder, totalPrice }} />
+            <OrderFormBlock
+              submitOrder={submitOrder}
+              totalPrice={totalPrice}
+              sendAlert={sendAlert}
+            />
             {/* form */}
             <div className="order__cart_items">
               <h3 className="form_title text-[14px] text-light-turquoise font-bold uppercase">
                 Ваш заказ:
               </h3>
               <div className="cart_items flex flex-col w-[350px] [&:first-of-type]:border-t border-[#555] mt-11">
-                {items.map((item) => (
+                {cartItems.map((item) => (
                   <CartCardBlock
                     key={item.id}
                     id={item.id}
                     name={item.name}
                     cost={item.cost}
                     imageUrl={item.imageUrl}
-                    count={item.count}
+                    quantity={item.quantity}
                     dispatch={dispatch}
                   />
                 ))}

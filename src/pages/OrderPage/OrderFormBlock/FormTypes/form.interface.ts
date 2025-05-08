@@ -1,3 +1,4 @@
+import { AlertColor } from "@mui/material";
 import { DeliveryRadioGroupOption, PayRadioGroupOptions } from "..";
 import { GeosuggestResult, PromoCode } from "./form.types";
 
@@ -25,6 +26,7 @@ export interface IOrderFormProps {
     appliedPromoCode?: PromoCode
   ) => void;
   totalPrice: number;
+  sendAlert: (severityOption: AlertColor) => void
 }
 
 export interface IGeosuggestAnswer {

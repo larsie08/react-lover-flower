@@ -1,5 +1,11 @@
 import { FC } from "react";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
+import { useAppDispatch } from "../../../../../../redux/store";
+import {
+  setModalState,
+  setSeverityOption,
+} from "../../../../../../redux/modal/slice";
+import { ModalType } from "../../../../../../redux/modal/types";
 
 interface QuestionForm {
   name: string;
@@ -8,13 +14,22 @@ interface QuestionForm {
 }
 
 export const QuestionFormBlock: FC = () => {
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<QuestionForm>();
 
-  const submit: SubmitHandler<QuestionForm> = (data) => console.log(data);
+  const sendAlert = () => {
+    dispatch(setModalState({ modalType: ModalType.Alert, isOpen: true }));
+    dispatch(setSeverityOption({ severity: "success" }));
+  };
+
+  const submit: SubmitHandler<QuestionForm> = (data) => {
+    sendAlert();
+    console.log(data);
+  };
   const error: SubmitErrorHandler<QuestionForm> = (data) => console.log(data);
 
   return (

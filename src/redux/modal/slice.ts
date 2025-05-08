@@ -1,11 +1,14 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { ModalSliceState, ModalType } from "./types";
+import { AlertColor } from "@mui/material";
 
 const initialState: ModalSliceState = {
   isOpenModal: false,
   isOpenCart: false,
   isOpenHamburgerMenu: false,
+  isOpenAlertBlock: false,
+  severityOption: "success",
 };
 
 const modalSlice = createSlice({
@@ -19,9 +22,14 @@ const modalSlice = createSlice({
       const { modalType, isOpen } = action.payload;
       state[modalType] = isOpen;
     },
+
+    setSeverityOption(state, action: PayloadAction<{ severity: AlertColor }>) {
+      const { severity } = action.payload;
+      state.severityOption = severity;
+    },
   },
 });
 
-export const { setModalState } = modalSlice.actions;
+export const { setModalState, setSeverityOption } = modalSlice.actions;
 
 export default modalSlice.reducer;

@@ -1,35 +1,37 @@
-import { FC, useEffect, useState } from "react";
+import { FC, use, useEffect, useState } from "react";
 import axios from "axios";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { useOutletContext } from "react-router-dom";
-import { useSelector } from "react-redux";
-
-import { RootState, useAppDispatch } from "../../../../redux/store";
-import { addReview } from "../../../../redux/reviews/slice";
-import { Reviews } from "../../../../redux/reviews/types";
-import { selectBouquetById } from "../../../../redux/bouquets/selectors";
-import { fetchReviews } from "../../../../redux/reviews/asyncActions";
 
 import { ReviewBlock } from "./ReviewBlock";
 
+import { useAppDispatch } from "../../../../redux/store";
+import { updateBouquet } from "../../../../redux/bouquets/slice";
+import { Bouquet } from "../../../../redux/bouquets/types";
+import { Reviews } from "../../../../redux/reviews/types";
+
+import { AlertColor, Rating } from "@mui/material";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
+import { grey } from "@mui/material/colors";
+import {
+  setModalState,
+  setSeverityOption,
+} from "../../../../redux/modal/slice";
+import { ModalType } from "../../../../redux/modal/types";
+
 interface ReviewForm {
-  rating: number;
-  review: string;
+  feedback: string;
   name: string;
   email: string;
 }
 
 const BouquetReviewsBlock: FC = () => {
   const dispatch = useAppDispatch();
-  const date = new Date();
 
-  const bouquetId = useOutletContext<string>();
-  const bouquet = useSelector((state: RootState) =>
-    selectBouquetById(state, bouquetId)
-  );
+  const bouquet = useOutletContext<Bouquet>();
 
-  const [reviews, setReviews] = useState<Reviews[] | undefined>();
-  const currentDate = date.toLocaleDateString().split(".").join("/");
+  const [rating, setRating] = useState<number>(0);
+  const [reviews, setReviews] = useState<Reviews[]>([]);
 
   const {
     register,
@@ -38,27 +40,31 @@ const BouquetReviewsBlock: FC = () => {
   } = useForm<ReviewForm>();
 
   const submitReview: SubmitHandler<ReviewForm> = (data) => {
-    sendReview(data.rating, data.review, data.name, data.email);
+    sendReview(rating, data.feedback, data.name, data.email);
+    sendAlert("success");
   };
 
   const errorReview: SubmitErrorHandler<ReviewForm> = (data) => {
     console.log(data);
+    sendAlert("error");
   };
 
-  useEffect(() => {
-    async function fetchBouquet() {
-      try {
-        const { payload } = (await dispatch(fetchReviews({ bouquetId }))) as {
-          payload: Reviews[];
-        };
+  const sendAlert = (severityOption: AlertColor) => {
+    dispatch(setModalState({ modalType: ModalType.Alert, isOpen: true }));
+    dispatch(setSeverityOption({ severity: severityOption }));
+  };
 
-        setReviews(payload);
-      } catch (error) {
-        console.log(error);
-      }
+  const editDate = (date: string | Date) => {
+    let editedDate = "";
+
+    if (date instanceof Date) {
+      editedDate = date.toLocaleDateString().split(".").reverse().join("-");
+    } else {
+      editedDate = date.split("T")[0].split("-").reverse().join("-");
     }
-    fetchBouquet();
-  }, [bouquetId, dispatch]);
+
+    return editedDate;
+  };
 
   const sendReview = async (
     rating: number,
@@ -67,41 +73,36 @@ const BouquetReviewsBlock: FC = () => {
     email: string
   ) => {
     try {
-      const review = { rating, feedback, name, email, currentDate };
-      const reviewId = reviews?.reduce((foundId: number, item: Reviews) => {
-        if (Number(item.reviewId) === foundId) {
-          foundId++;
-        }
-        return foundId;
-      }, 1);
+      const review = { bouquetId: bouquet.id, rating, feedback, name, email };
 
-      setReviews((prevReviews) => {
-        return [
-          ...(prevReviews || []),
-          {
-            reviewId: String(reviewId),
-            bouquetId: String(bouquetId),
-            review,
-          },
-        ];
-      });
+      const date = new Date();
+      const createdAt = editDate(date);
+
+      const reviewId = reviews.length + 1;
+
+      setReviews([
+        ...reviews,
+        { reviewId, rating, feedback, name, email, createdAt },
+      ]);
 
       dispatch(
-        addReview({
-          reviewId: String(reviewId),
-          bouquetId: String(bouquetId),
-          review,
+        updateBouquet({
+          id: bouquet.id,
+          review: { reviewId, rating, feedback, name, email, createdAt },
         })
       );
 
-      await axios.post(
-        `https://655b76e2ab37729791a92825.mockapi.io/items/${bouquetId}/reviews`,
-        { review }
-      );
+      // await axios.post("http://localhost:3000/api/review", review);
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (!bouquet.reviews) return;
+
+    setReviews(bouquet.reviews);
+  }, [bouquet]);
 
   return (
     <div className="mt-16">
@@ -110,10 +111,10 @@ const BouquetReviewsBlock: FC = () => {
           reviews.map((obj) => (
             <ReviewBlock
               key={obj.reviewId}
-              rating={obj.review.rating}
-              feedback={obj.review.feedback}
-              name={obj.review.name}
-              currentDate={obj.review.currentDate}
+              rating={obj.rating}
+              feedback={obj.feedback}
+              name={obj.name}
+              createdAt={editDate(obj.createdAt)}
             />
           ))
         ) : (
@@ -122,7 +123,6 @@ const BouquetReviewsBlock: FC = () => {
           </h3>
         )}
       </div>
-
       <div className="mt-16 flex flex-col gap-2">
         <h2 className="text-[14px] text-light-turquoise font-normal tracking-[0.84px] uppercase">
           {reviews
@@ -138,49 +138,23 @@ const BouquetReviewsBlock: FC = () => {
         className="flex flex-col gap-5 mt-5"
       >
         <div className="flex flex-col">
-          <label htmlFor="rating-group">Ваша оценка:</label>
-          <div className="rating__group mt-1 relative p-0 w-[10em] h-[2em]">
-            <input
-              className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
-              type="radio"
-              id="rating"
-              value="1"
-              aria-label="Ужасно"
-              {...register("rating", { required: true })}
-            />
-            <input
-              className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
-              type="radio"
-              id="rating"
-              value="2"
-              aria-label="Сносно"
-              {...register("rating", { required: true })}
-            />
-            <input
-              className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
-              type="radio"
-              id="rating"
-              value="3"
-              aria-label="Нормально"
-              {...register("rating", { required: true })}
-            />
-            <input
-              className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
-              type="radio"
-              id="rating"
-              value="4"
-              aria-label="Хорошо"
-              {...register("rating", { required: true })}
-            />
-            <input
-              className="absolute border-none top-0 left-0 m-0 h-[2em] cursor-pointer"
-              type="radio"
-              id="rating"
-              value="5"
-              aria-label="Отлично"
-              {...register("rating", { required: true })}
-            />
-          </div>
+          <label htmlFor="rating-review">Ваша оценка:</label>
+
+          <Rating
+            name="rating-review"
+            defaultValue={0}
+            value={rating}
+            max={5}
+            precision={1}
+            onChange={(_event, value) => {
+              setRating(value ? value : 0);
+            }}
+            emptyIcon={
+              <StarBorderIcon
+                style={{ color: grey[800], opacity: "inherit" }}
+              />
+            }
+          />
         </div>
         <div className="flex flex-col">
           <label
@@ -193,7 +167,7 @@ const BouquetReviewsBlock: FC = () => {
             className="w-[540px] h-[180px] border border-[#555] bg-[#040A0A] p-4 placeholder:bg-[#040A0A] placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
             id="review"
             placeholder="Введите комментарий"
-            {...register("review", { required: true })}
+            {...register("feedback", { required: true })}
             aria-invalid={errors.name ? true : false}
           />
         </div>

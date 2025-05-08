@@ -1,10 +1,14 @@
 import { FC, useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 
 import { useAppDispatch } from "../../../redux/store";
-import { selectCartState } from "../../../redux/cart/selectors";
+import {
+  selectCartIsOpen,
+  selectCartState,
+} from "../../../redux/cart/selectors";
 
 import {
   CartBallsBlock,
@@ -18,8 +22,10 @@ import { ModalType } from "../../../redux/modal/types";
 
 export const Cart: FC = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  const { totalPrice, items, isOpen } = useSelector(selectCartState);
+  const { totalPrice, cartItems } = useSelector(selectCartState);
+  const isOpen = useSelector(selectCartIsOpen);
 
   const [screenWidth, setScreenWidth] = useState(window.outerWidth);
 
@@ -28,11 +34,18 @@ export const Cart: FC = () => {
     [dispatch]
   );
 
+  const handleOrderButton = useCallback(() => {
+    if (cartItems.length !== 0 || cartItems) {
+      navigate("order");
+      closeCart();
+    }
+  }, [dispatch, cartItems]);
+
   const handleScreenWidth = () => setScreenWidth(window.outerWidth);
 
   useEffect(() => {
-    localStorage.setItem("flower-cart", JSON.stringify(items));
-  }, [items]);
+    localStorage.setItem("flower-cart", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   useEffect(() => {
     window.addEventListener("resize", handleScreenWidth);
@@ -95,17 +108,17 @@ export const Cart: FC = () => {
           <div
             className={classNames("flex flex-col pr-4", {
               ["overflow-y-scroll"]:
-                items.length > 5 || (screenWidth < 769 && items.length >= 4),
+              cartItems.length > 5 || (screenWidth < 769 && cartItems.length >= 4),
             })}
           >
-            {items.map((obj) => (
+            {cartItems.map((obj) => (
               <CartCardBlock
                 key={obj.id}
                 id={obj.id}
                 name={obj.name}
                 imageUrl={obj.imageUrl}
                 cost={obj.cost}
-                count={obj.count}
+                quantity={obj.quantity}
                 dispatch={dispatch}
               />
             ))}
@@ -114,7 +127,10 @@ export const Cart: FC = () => {
         <div className="flex flex-col">
           <CartBallsBlock />
           <DecorativeElement className="lg:mt-7 mb-3 border-b-[1px] border-[#555] max-lg:mt-3" />
-          <CartTotalPrice totalPrice={totalPrice} closeCart={closeCart} />
+          <CartTotalPrice
+            totalPrice={totalPrice}
+            handleOrderButton={handleOrderButton}
+          />
         </div>
       </div>
     </div>,

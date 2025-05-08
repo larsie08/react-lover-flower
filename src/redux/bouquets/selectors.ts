@@ -1,20 +1,10 @@
-import { RootState } from "../store";
 import { createSelector } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 
-const selectBouquetsItems = (state: RootState) => state.bouquets.items;
-const selectBouquetsStatus = (state: RootState) => state.bouquets.status;
+const bouquets = (state: RootState) => state.bouquets.items;
+export const selectBouquetsState = (state: RootState) => state.bouquets;
 
 export const selectBouquetById = createSelector(
-  [selectBouquetsItems, (_state: RootState, id?: string) => id],
-  (items, id) => items.find((item) => String(item.id) === id)
-);
-
-export const selectBouquetState = createSelector(
-  [selectBouquetsItems, selectBouquetsStatus],
-  (items, status) => ({ items, status })
-);
-
-export const selectBouquetItems = createSelector(
-  selectBouquetsItems,
-  (items) => items
+  [bouquets, (_state: RootState, id: number) => id],
+  (bouquets, id) => bouquets.find((item) => item.id === id)
 );

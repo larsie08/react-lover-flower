@@ -8,7 +8,9 @@ type StepBlockProps = {
 export const StepBlock: FC<StepBlockProps> = memo(({ step, info }) => {
   return (
     <div
-      className="content_block flex flex-col gap-3 
+    data-aos="zoom-in"
+    data-aos-offset="300"
+      className="content_block flex flex-col gap-3 z-20
     max-sm:[&:nth-child(1)]:items-end max-sm:[&:nth-child(1)]:mr-[3rem] 
     max-sm:[&:nth-child(2)]:items-end max-sm:[&:nth-child(2)]:mr-[6rem] 
     max-sm:[&:nth-child(3)]:items-center 

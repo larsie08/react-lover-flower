@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import classNames from "classnames";
 
 import { useAppDispatch } from "../../../redux/store";
-import { selectHamburgerMenuStatus } from "../../../redux/modal/selectors";
+import { selectModalStatus } from "../../../redux/modal/selectors";
 import { ModalType } from "../../../redux/modal/types";
 import { setModalState } from "../../../redux/modal/slice";
 
@@ -38,7 +38,7 @@ const info = [
 export const HamburgerMenu: FC = memo(() => {
   const dispatch = useAppDispatch();
 
-  const isOpenMenu = useSelector(selectHamburgerMenuStatus);
+  const { isOpenHamburgerMenu } = useSelector(selectModalStatus);
 
   const onClose = () => {
     dispatch(
@@ -50,8 +50,8 @@ export const HamburgerMenu: FC = memo(() => {
     <div
       className={classNames(
         "hamburger-menu fixed z-40 top-0 left-0 w-0 h-[100vh] bg-[black] opacity-0 transition-all duration-200",
-        { "w-[260px] opacity-100 visible": isOpenMenu },
-        { invisible: !isOpenMenu }
+        { "w-[260px] opacity-100 visible": isOpenHamburgerMenu },
+        { invisible: !isOpenHamburgerMenu }
       )}
     >
       <div className="content flex flex-col px-2.5 py-5 justify-between h-full">

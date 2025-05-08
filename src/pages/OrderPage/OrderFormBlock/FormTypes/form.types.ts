@@ -2,8 +2,10 @@ import { ReactNode } from "react";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 
 export type PromoCode = {
+  id: number;
   promoName: string;
   percentageDiscount: number;
+  createdAt: Date;
 };
 
 export type GeosuggestResult = {

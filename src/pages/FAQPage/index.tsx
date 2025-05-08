@@ -59,7 +59,7 @@ const FAQPage: FC = () => {
   };
 
   return (
-    <div className="FAQ_page relative pt-[120px] h-[1400px] bg-[#040A0A]">
+    <div className="FAQ_page relative pt-[120px] h-[1400px] bg-[#040A0A] mb-">
       <DecorativeElement className="absolute w-[465px] h-[220px] top-0 -left-[10rem] bg-[#3D5279] rounded-[466px] blur-[125px] select-none" />
       <DecorativeElement className="absolute w-[328px] h-[220px] top-0 right-0 bg-[#3D5279] rounded-[327px] blur-[125px] select-none" />
       <img

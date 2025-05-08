@@ -2,7 +2,7 @@ import { FC, memo } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { BouquetFilters } from "../../redux/bouquets/types";
+import { BouquetCategories, BouquetFilters } from "../../redux/bouquets/types";
 import { RootState, useAppDispatch } from "../../redux/store";
 import { setCartItem } from "../../redux/cart/slice";
 import { selectCartItemById } from "../../redux/cart/selectors";
@@ -13,11 +13,12 @@ type CardProps = {
   cost: number;
   imageUrl: string;
   filters: BouquetFilters;
+  categories: BouquetCategories;
   imgClassName: string;
 };
 
 export const CardBlock: FC<CardProps> = memo(
-  ({ id, name, cost, imageUrl, filters, imgClassName }) => {
+  ({ id, name, cost, imageUrl, filters, imgClassName, categories }) => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
@@ -26,7 +27,15 @@ export const CardBlock: FC<CardProps> = memo(
     );
 
     const handleAddToCart = () => {
-      const bouquet = { id, name, imageUrl, cost, count: 1, filters };
+      const bouquet = {
+        id,
+        name,
+        imageUrl,
+        cost,
+        quantity: 1,
+        filters,
+        categories,
+      };
       dispatch(setCartItem(bouquet));
     };
 
@@ -35,7 +44,7 @@ export const CardBlock: FC<CardProps> = memo(
     };
 
     const buttonText = `В корзину ${
-      cartItem?.count ? `(${cartItem.count})` : ""
+      cartItem?.quantity ? `(${cartItem.quantity})` : ""
     }`;
 
     return (

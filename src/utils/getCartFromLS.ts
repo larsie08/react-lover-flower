@@ -7,7 +7,7 @@ export const getCartFromLS = () => {
   const totalPrice = calcTotalPrice(items)
 
   return {
-    items: items as CartItem[],
+    cartItems: items as CartItem[],
     totalPrice,
   };
 };

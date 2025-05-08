@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { useAppDispatch } from "../../redux/store";
 import { Category, FlowerCategoriesEnum } from "../../redux/filter/types";
 import { setCategory } from "../../redux/filter/slice";
-import { selectCartItems } from "../../redux/cart/selectors";
+import { selectCartState } from "../../redux/cart/selectors";
 import { setModalState } from "../../redux/modal/slice";
 import { ModalType } from "../../redux/modal/types";
 
@@ -48,7 +48,7 @@ export const Header: FC = memo(() => {
   const [showHeader, toggleShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState<number>(0);
   const [screenWidth, setScreenWidth] = useState<number>(window.outerWidth);
-  const items = useSelector(selectCartItems);
+  const { cartItems } = useSelector(selectCartState);
 
   const toggleHeaderVisibility = useCallback(() => {
     toggleShowHeader(window.scrollY > lastScrollY ? false : true);
@@ -148,7 +148,7 @@ export const Header: FC = memo(() => {
           />
         </div>
         {screenWidth <= 768 || lastScrollY > SCROLL_HIDE_THRESHOLD ? (
-          <CartBlock cart={items} openCart={openCart} />
+          <CartBlock cart={cartItems} openCart={openCart} />
         ) : (
           <InfoBlock />
         )}

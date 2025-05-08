@@ -1,15 +1,14 @@
-import { FC } from "react";
-import { useParams, Outlet } from "react-router-dom";
+import { FC, useCallback, useEffect, useState } from "react";
+import { Outlet, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { BouquetFilters } from "../../redux/bouquets/types";
 import { RootState, useAppDispatch } from "../../redux/store";
 import { setCartItem } from "../../redux/cart/slice";
 import {
   selectBouquetById,
-  selectBouquetItems,
+  selectBouquetsState,
 } from "../../redux/bouquets/selectors";
-import { selectReviews } from "../../redux/reviews/selectors";
+import { BouquetCategories, BouquetFilters } from "../../redux/bouquets/types";
 
 import { DecorativeElement, SliderBlock } from "../../components";
 import {
@@ -25,24 +24,46 @@ const BouquetPage: FC = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams<string>();
 
+  const { items } = useSelector(selectBouquetsState);
   const bouquet = useSelector((state: RootState) =>
-    selectBouquetById(state, id)
+    selectBouquetById(state, Number(id))
   );
 
-  const bouquets = useSelector(selectBouquetItems);
-  const reviews = useSelector(selectReviews);
+  const [screenWidth, setScreenWidth] = useState(window.outerWidth);
 
-  const addToCart = (
-    id: number,
-    name: string,
-    imageUrl: string,
-    cost: number,
-    count: number,
-    filters: BouquetFilters
-  ) => {
-    const bouquet = { id, name, imageUrl, cost, count, filters };
-    dispatch(setCartItem(bouquet));
-  };
+  const addToCart = useCallback(
+    (
+      id: number,
+      name: string,
+      imageUrl: string,
+      cost: number,
+      quantity: number,
+      categories: BouquetCategories,
+      filters: BouquetFilters
+    ) => {
+      const bouquet = {
+        id,
+        name,
+        imageUrl,
+        cost,
+        quantity,
+        categories,
+        filters,
+      };
+      dispatch(setCartItem(bouquet));
+    },
+    [dispatch, id]
+  );
+
+  const handleScreenWidth = () => setScreenWidth(window.outerWidth);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleScreenWidth);
+
+    return () => {
+      window.removeEventListener("resize", handleScreenWidth);
+    };
+  }, []);
 
   return (
     <div className="bouquet_page pt-[120px] pb-[120px] relative bg-[#040A0A]">
@@ -60,6 +81,7 @@ const BouquetPage: FC = () => {
             name={bouquet.name}
             cost={bouquet.cost}
             imageUrl={bouquet.imageUrl}
+            categories={bouquet.categories}
             filters={bouquet.filters}
             addToCart={addToCart}
           />
@@ -75,20 +97,22 @@ const BouquetPage: FC = () => {
             <BouquetSwitchBlock
               path="reviews"
               name="отзывы"
-              reviewsLength={reviews.length}
+              reviewsLength={bouquet?.reviews ? bouquet.reviews.length : 0}
             />
           </div>
-          <Outlet context={id} />
+          {bouquet && <Outlet context={bouquet} />}
         </div>
 
-        <div className="popular_bouquets flex flex-col gap-7">
-          <div className="popular_bouquets__title mt-20">
-            <h1 className="text-[30px] font-bold uppercase text-light-turquoise">
-              вам может понравиться:
-            </h1>
+        {items.length !== 0 && (
+          <div className="popular_bouquets flex flex-col gap-7">
+            <div className="popular_bouquets__title mt-20">
+              <h1 className="text-[30px] font-bold uppercase text-light-turquoise">
+                вам может понравиться:
+              </h1>
+            </div>
+            <SliderBlock bouquets={items} screenWidth={screenWidth} />
           </div>
-          <SliderBlock bouquets={bouquets} />
-        </div>
+        )}
       </div>
       <img
         className="absolute top-[60rem] right-0"

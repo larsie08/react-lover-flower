@@ -2,14 +2,16 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import { fetchBouquets } from "./redux/bouquets/asyncActions";
-import { setConfirm } from "./redux/filter/slice";
 import { useAppDispatch } from "./redux/store";
+import { fetchBouquets } from "./redux/bouquets/asyncActions";
+import { selectFiltersState } from "./redux/filter/selectors";
+import { setConfirm } from "./redux/filter/slice";
 
 import Home from "./pages/Home";
 import MainLayout from "./layout/MainLayout";
-import { CallModal, Cart, HamburgerMenu } from "./components";
-import { selectFiltersAppState } from "./redux/filter/selectors";
+import { AlertBlock, CallModal, Cart, HamburgerMenu } from "./components";
+import { setModalState, setSeverityOption } from "./redux/modal/slice";
+import { ModalType } from "./redux/modal/types";
 
 const DeliveryPage = lazy(() => import("./pages/DeliveryPage"));
 const OrderPage = lazy(() => import("./pages/OrderPage"));
@@ -28,7 +30,6 @@ const BouquetReviewsBlock = lazy(
 const BouquetDeliveryBlock = lazy(
   () => import("./pages/BouquetPage/companents/BouquetDeliveryBlock")
 );
-const OrderFormBlock = lazy(() => import("./pages/OrderPage/OrderFormBlock"));
 
 const ROUTE_PATHS = {
   HOME: "/",
@@ -46,41 +47,45 @@ const ROUTE_PATHS = {
 const allowedPaths = [
   ROUTE_PATHS.HOME,
   ROUTE_PATHS.CATALOG,
-  ROUTE_PATHS.BOUQUET,
+  "/catalog/bouquet",
 ];
 
 function App() {
   const dispatch = useAppDispatch();
   const location = useLocation();
 
-  const {
-    category,
-    filterIds,
-    isConfirmStatus,
-    sortProperty,
-    fieldPriceValue,
-  } = useSelector(selectFiltersAppState);
+  const { category, filtersId, isConfirm, sortOption, fieldPriceValue } =
+    useSelector(selectFiltersState);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const fetchParams = {
-          sortProperty,
+          sortProperty: sortOption.sortProperty,
           category,
           fieldPriceValue,
-          ...(location.pathname === ROUTE_PATHS.CATALOG && { filterIds }),
+          ...(location.pathname === ROUTE_PATHS.CATALOG && { filtersId }),
         };
 
-        if (allowedPaths.includes(location.pathname))
-          await dispatch(fetchBouquets(fetchParams));
+        const path = location.pathname.split("/").slice(0, 3).join("/");
 
-        dispatch(setConfirm(false));
+        if (allowedPaths.includes(path)) {
+          await dispatch(fetchBouquets(fetchParams)).unwrap();
+
+          dispatch(setConfirm(false));
+        }
       } catch (error) {
         console.error("Error fetching bouquets:", error);
+        dispatch(setModalState({ modalType: ModalType.Alert, isOpen: true }));
+        dispatch(setSeverityOption({ severity: "error" }));
       }
     };
     fetchData();
-  }, [dispatch, sortProperty, category, location, isConfirmStatus]);
+  }, [dispatch, sortOption.sortProperty, category, location, isConfirm]);
 
   return (
     <>
@@ -97,9 +102,7 @@ function App() {
             <Route path={ROUTE_PATHS.CORPORATE} element={<CorporatePage />} />
             <Route path={ROUTE_PATHS.SEARCH} element={<SearchResultPage />} />
 
-            <Route path={ROUTE_PATHS.ORDER} element={<OrderPage />}>
-              <Route index element={<OrderFormBlock />} />
-            </Route>
+            <Route path={ROUTE_PATHS.ORDER} element={<OrderPage />} />
             <Route path={ROUTE_PATHS.BOUQUET} element={<BouquetPage />}>
               <Route index element={<BouquetDeliveryBlock />} />
               <Route path="reviews" element={<BouquetReviewsBlock />} />
@@ -111,6 +114,7 @@ function App() {
       <CallModal />
       <Cart />
       <HamburgerMenu />
+      <AlertBlock />
     </>
   );
 }

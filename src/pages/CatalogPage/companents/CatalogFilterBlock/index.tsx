@@ -9,7 +9,7 @@ import {
 } from "../../../../redux/filter/slice";
 
 import { FilterOptionBlock, RangeBlock } from "./FilterCompanents";
-import { selectFilterIds } from "../../../../redux/filter/selectors";
+import { selectFiltersState } from "../../../../redux/filter/selectors";
 
 const FILTER_OPTIONS = {
   format: [
@@ -59,7 +59,7 @@ export const CatalogFilterBlock: FC = memo(() => {
   ]);
   const [currentId, setCurrentId] = useState<string | null>(null);
 
-  const filterIds = useSelector(selectFilterIds);
+  const { filtersId } = useSelector(selectFiltersState);
 
   const debouncedUpdatePrice = debounce((newValue: number | number[]) => {
     dispatch(setFieldPriceValue(newValue as number[]));
@@ -87,8 +87,8 @@ export const CatalogFilterBlock: FC = memo(() => {
   };
 
   const isOptionSelected = useCallback(
-    (id: string) => filterIds.includes(id),
-    [filterIds]
+    (id: string) => filtersId.includes(id),
+    [filtersId]
   );
 
   useEffect(() => {

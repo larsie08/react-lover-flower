@@ -1,13 +1,12 @@
 import { FC, memo } from "react";
-import { Link } from "react-router-dom";
 
 type CartTotalPriceProps = {
   totalPrice: number;
-  closeCart: () => void;
+  handleOrderButton: () => void;
 };
 
 export const CartTotalPrice: FC<CartTotalPriceProps> = memo(
-  ({ totalPrice, closeCart }) => {
+  ({ totalPrice, handleOrderButton }) => {
     return (
       <div className="total_price_block flex flex-col lg:gap-5 max-lg:gap-2">
         <div className="total_price w-[295px]">
@@ -18,13 +17,12 @@ export const CartTotalPrice: FC<CartTotalPriceProps> = memo(
             Чтобы узнать стоимость доставки, перейдите к оформлению заказа.
           </p>
         </div>
-        <Link
-          to="order"
-          onClick={closeCart}
+        <button
+          onClick={handleOrderButton}
           className="border-[0.5px] p-5 text-[12px] text-center font-bold tracking-[1.2px] uppercase hover:bg-light-turquoise hover:text-[black] focus:border-light-turquoise active:shadow-[0_0_10px_0_#01281F_inset]"
         >
           Оформить заказ
-        </Link>
+        </button>
       </div>
     );
   }

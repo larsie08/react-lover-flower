@@ -11,7 +11,7 @@ type CartCardProps = {
   name: string;
   cost: number;
   imageUrl: string;
-  count: number;
+  quantity: number;
   dispatch: AppDispatch;
 };
 
@@ -34,7 +34,7 @@ const CounterButton: FC<CounterButtonProps> = memo(
 );
 
 export const CartCardBlock: FC<CartCardProps> = memo(
-  ({ id, name, cost, imageUrl, count, dispatch }) => {
+  ({ id, name, cost, imageUrl, quantity, dispatch }) => {
     const handleAddToCart = (id: number) =>
       dispatch(updateItemCount({ id, delta: 1 }));
 
@@ -60,11 +60,11 @@ export const CartCardBlock: FC<CartCardProps> = memo(
           <div className="flex justify-around items-center w-[100px] h-[30px] border-[0.5px] border-[#555] max-lg:w-[80px]">
             <CounterButton
               onClick={() => handleMinus(id)}
-              disabled={count === 1}
+              disabled={quantity === 1}
             >
               –
             </CounterButton>
-            <b>{count}</b>
+            <b>{quantity}</b>
             <CounterButton onClick={() => handleAddToCart(id)}>+</CounterButton>
           </div>
         </div>

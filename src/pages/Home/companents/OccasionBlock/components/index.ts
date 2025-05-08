@@ -1,3 +1,2 @@
-export * from "./OccasionImagesBlock"
-export * from "./OccasionListBlock"
-export * from "./OccasionTitleBlock"
+export * from "./OccasionImagesBlock";
+export * from "./OccasionListBlock";

@@ -4,9 +4,11 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../redux/store";
 import { SortType } from "../../redux/filter/types";
 import { setCategory, setSortValue } from "../../redux/filter/slice";
-import { selectCategoryAndSortOptions } from "../../redux/filter/selectors";
-import { selectBouquetState } from "../../redux/bouquets/selectors";
-import { selectCartItems } from "../../redux/cart/selectors";
+import { selectFiltersState } from "../../redux/filter/selectors";
+import { selectBouquetsState } from "../../redux/bouquets/selectors";
+import { selectCartState } from "../../redux/cart/selectors";
+import { setModalState } from "../../redux/modal/slice";
+import { ModalType } from "../../redux/modal/types";
 
 import { DecorativeElement, CardBlock, SkeletonCard } from "../../components";
 import {
@@ -17,8 +19,6 @@ import {
   CatalogTitleBlock,
 } from "./companents";
 import { CatalogLeftSvg, CatalogRightSvg } from "../../assets";
-import { setModalState } from "../../redux/modal/slice";
-import { ModalType } from "../../redux/modal/types";
 
 const skeletons = [...new Array(9)].map((_, index) => (
   <SkeletonCard key={index} />
@@ -27,9 +27,9 @@ const skeletons = [...new Array(9)].map((_, index) => (
 const CatalogPage: FC = () => {
   const dispatch = useAppDispatch();
 
-  const { category, sortOption } = useSelector(selectCategoryAndSortOptions);
-  const { items, status } = useSelector(selectBouquetState);
-  const cartItems = useSelector(selectCartItems);
+  const { category, sortOption } = useSelector(selectFiltersState);
+  const { items, status } = useSelector(selectBouquetsState);
+  const { cartItems } = useSelector(selectCartState);
 
   const onClick = useCallback(
     (category: string) => {
@@ -100,14 +100,15 @@ const CatalogPage: FC = () => {
                   Ничего по данному запросу не найдено
                 </h1>
               ) : status === "success" ? (
-                items.map((obj) => (
+                items.map((bouquet) => (
                   <CardBlock
-                    key={obj.name}
-                    id={obj.id}
-                    name={obj.name}
-                    cost={obj.cost}
-                    imageUrl={obj.imageUrl}
-                    filters={obj.filters}
+                    key={bouquet.name}
+                    id={bouquet.id}
+                    name={bouquet.name}
+                    cost={bouquet.cost}
+                    imageUrl={bouquet.imageUrl}
+                    filters={bouquet.filters}
+                    categories={bouquet.categories}
                     imgClassName="h-[335px]"
                   />
                 ))
@@ -119,7 +120,7 @@ const CatalogPage: FC = () => {
         </div>
       </div>
       <CatalogLeftSvg />
-      <DecorativeElement className="absolute -bottom-[13rem] right-[15rem] w-[880px] h-[212px] rotate-[21.097deg] bg-light-turquoise rounded-[880px] blur-[125px] select-none" />
+      <DecorativeElement className="absolute -bottom-[13rem] right-[15rem] w-[800px] h-[212px] rotate-[21.097deg] bg-light-turquoise rounded-[880px] blur-[125px] select-none z-0" />
       <CatalogRightSvg />
     </div>
   );

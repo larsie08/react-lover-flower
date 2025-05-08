@@ -1,10 +1,10 @@
 import { Bouquet } from "../bouquets/types";
 
 export interface CartSliceState {
-  items: CartItem[];
+  cartItems: CartItem[];
   totalPrice: number;
 }
 
 export interface CartItem extends Bouquet {
-  count: number;
+  quantity: number;
 }
