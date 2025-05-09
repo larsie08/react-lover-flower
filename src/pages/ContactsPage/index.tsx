@@ -1,14 +1,18 @@
 import { FC } from "react";
 
-import { DecorativeElement } from "../../components";
+import { DecorativeElement, PathBlock } from "../../components";
 import {
   ContactsCardBlocks,
   ContactsFormBlock,
   ContactsMapBlock,
-  ContactsTitleBlock,
 } from "./companents";
 
 import { ContactsBgColor } from "../../assets";
+
+const titlePathBlock = [
+  { text: "Главная", path: "/" },
+  { text: "контакты", path: "/contacts" },
+];
 
 const ContactsPage: FC = () => {
   return (
@@ -26,7 +30,13 @@ const ContactsPage: FC = () => {
         alt="flower"
       />
       <div className="contacts__wrapper container mx-auto">
-        <ContactsTitleBlock />
+        {/* <ContactsTitleBlock /> */}
+        <PathBlock items={titlePathBlock} />
+        <div className="contacts__title relative z-10 mt-14">
+          <h1 className="flex items-center ml-20 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase">
+            контакты
+          </h1>
+        </div>
         <ContactsCardBlocks />
         <ContactsFormBlock />
         <div className="contacts__yandex_map flex flex-col mt-24 gap-5">

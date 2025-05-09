@@ -1,15 +1,19 @@
 import { FC } from "react";
 
-import { DecorativeElement } from "../../components";
+import { DecorativeElement, PathBlock } from "../../components";
 
 import {
   DeliveryAdditionallyBlock,
   DeliveryBlock,
   DeliveryCardBlocks,
-  DeliveryTitleBlock,
 } from "./companents";
 
 import { BgColorBottom } from "../../assets";
+
+const titlePathBlock = [
+  { text: "Главная", path: "/" },
+  { text: "доставка и оплата", path: "/delivery" },
+];
 
 const DeliveryPage: FC = () => {
   return (
@@ -28,7 +32,15 @@ const DeliveryPage: FC = () => {
         alt="flower"
       />
       <div className="delivery_page__wrapper relative container mx-auto z-20">
-        <DeliveryTitleBlock />
+        <PathBlock items={titlePathBlock} />
+        <div className="delivery_page__title mt-14">
+          <h1 className="flex items-center h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase">
+            доставка
+          </h1>
+          <h1 className="flex items-center ml-20 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase">
+            и оплата
+          </h1>
+        </div>
         <div className="delivery_page__subtitle flex items-center gap-3">
           <p className="text-[100px] text-pink font-normal font-cormorant">!</p>
           <div className="flex flex-col gap-1">

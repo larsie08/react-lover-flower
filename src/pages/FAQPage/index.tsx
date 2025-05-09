@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 
-import { DecorativeElement } from "../../components";
-import { FAQBlock, FAQTitleBlock } from "./companents";
+import { DecorativeElement, PathBlock } from "../../components";
+import { FAQBlock } from "./companents";
 
 import { FAQBgBottom } from "../../assets";
 
@@ -51,6 +51,11 @@ const questions = [
   },
 ];
 
+const titlePathBlock = [
+  { text: "Главная", path: "/" },
+  { text: "корпоративным клиентам", path: "/corporate" },
+];
+
 const FAQPage: FC = () => {
   const [BlockId, setBlockId] = useState<number | null>(null);
 
@@ -73,7 +78,13 @@ const FAQPage: FC = () => {
         alt="flower"
       />
       <div className="FAQ_page__wrapper container mx-auto">
-        <FAQTitleBlock />
+        <PathBlock items={titlePathBlock} />
+        <div className="FAQ_page__title flex items-center relative z-10 mt-14 select-none">
+          <div className="w-[65px] border-t-[1px] border-light-turquoise"></div>
+          <h1 className="flex items-center ml-10 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase">
+            faq
+          </h1>
+        </div>
         <div className="blocks flex flex-col mt-16 gap-3">
           {questions.map((obj) => (
             <FAQBlock

@@ -10,7 +10,7 @@ import {
 } from "../../redux/bouquets/selectors";
 import { BouquetCategories, BouquetFilters } from "../../redux/bouquets/types";
 
-import { DecorativeElement, SliderBlock } from "../../components";
+import { DecorativeElement, PathBlock, SliderBlock } from "../../components";
 import {
   BouquetAdditionBlock,
   BouquetBlock,
@@ -19,12 +19,19 @@ import {
 } from "./companents";
 
 import { BouquetBgTopLeft } from "../../assets";
+import { selectFiltersState } from "../../redux/filter/selectors";
+
+const basedPath = [
+  { text: "Главная", path: "/" },
+  { text: "Каталог букетов", path: "/catalog" },
+];
 
 const BouquetPage: FC = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams<string>();
 
   const { items } = useSelector(selectBouquetsState);
+  const { category } = useSelector(selectFiltersState);
   const bouquet = useSelector((state: RootState) =>
     selectBouquetById(state, Number(id))
   );
@@ -69,9 +76,15 @@ const BouquetPage: FC = () => {
     <div className="bouquet_page pt-[120px] pb-[120px] relative bg-[#040A0A]">
       <BouquetBgTopLeft />
       <div className="bouquet_page__wrapper container mx-auto relative z-20">
-        <div className="title text-[12px] font-normal tracking-[0.48px] uppercase">
-          Главная / Каталог букетов / Популярное / {bouquet?.name}
-        </div>
+        <PathBlock
+          items={[
+            ...basedPath,
+            ...(category ? [{ text: category, path: "/catalog" }] : []),
+            ...(bouquet?.name
+              ? [{ text: bouquet.name, path: `/catalog/bouquet/${bouquet.id}` }]
+              : []),
+          ]}
+        />
 
         {!bouquet ? (
           <BouquetSkeletonBlock />

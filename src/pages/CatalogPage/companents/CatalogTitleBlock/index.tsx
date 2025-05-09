@@ -3,6 +3,12 @@ import { FC, memo } from "react";
 import { Category, FlowerCategoriesEnum } from "../../../../redux/filter/types";
 
 import { CategoryItem } from "./CategoryItem";
+import { PathBlock } from "../../../../components";
+
+const titlePathItems = [
+  { text: "Главная", path: "/" },
+  { text: "Каталог", path: "/catalog" },
+];
 
 const categories: Category[] = [
   { name: FlowerCategoriesEnum.GypsophilaBouquets },
@@ -39,11 +45,13 @@ export const CatalogTitleBlock: FC<TitleBlockProps> = memo(
   ({ categoryId, onClick }) => {
     return (
       <div className="relative z-10">
-        <div className="catalog__path">
-          <h3 className="text-[12px] font-normal tracking-[.48px] uppercase">
-            Главная / Каталог
-          </h3>
-        </div>
+        <PathBlock
+          items={[
+            ...titlePathItems,
+            ...(categoryId ? [{ text: categoryId, path: "/catalog" }] : []),
+          ]}
+        />
+
         <div className="max-w-[950px] mt-5 p-5 bg-[#000]/[0.30] backdrop-blur-[10px] rounded-[20px]">
           <div className="catalog__title relative z-10">
             <h1 className="flex items-center  h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase">

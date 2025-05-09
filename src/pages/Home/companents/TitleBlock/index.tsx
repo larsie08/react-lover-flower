@@ -1,4 +1,8 @@
 import { FC, ReactNode } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+import { getAnimationVariant } from "../../../../utils/getAnimationVariant";
 
 type TitleBlock = {
   title: string;
@@ -18,24 +22,40 @@ export const HomeTitleBlock: FC<TitleBlock> = ({
   subtitleWrapperClassName,
   animation,
   renderTitleText,
-}) => (
-  <div className="title_block flex flex-col max-lg:items-center relative z-30">
-    <h1 data-aos={animation} data-aos-offset="300" className={titleClassName}>
-      {title}
-    </h1>
-    {subtitle && (
-      <div className={subtitleWrapperClassName}>
-        <h2
-          data-aos={animation}
-          data-aos-offset="300"
-          data-aos-duration="1800"
-          data-aos-anchor-placement="top-bottom"
-          className={subtitleClassName || ""}
-        >
-          {subtitle}
-        </h2>
-      </div>
-    )}
-    {renderTitleText?.()}
-  </div>
-);
+}) => {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+
+  const variants = getAnimationVariant(animation);
+
+  return (
+    <div
+      ref={ref}
+      className="title_block flex flex-col max-lg:items-center relative z-30"
+    >
+      <motion.h1
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={variants}
+        className={titleClassName}
+      >
+        {title}
+      </motion.h1>
+
+      {subtitle && (
+        <div className={subtitleWrapperClassName}>
+          <motion.h2
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            variants={variants}
+            transition={{ duration: 1.2 }}
+            className={subtitleClassName || ""}
+          >
+            {subtitle}
+          </motion.h2>
+        </div>
+      )}
+
+      {renderTitleText?.()}
+    </div>
+  );
+};

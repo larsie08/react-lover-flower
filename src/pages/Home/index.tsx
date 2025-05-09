@@ -20,6 +20,7 @@ import {
 
 import { PinkArrowSvg } from "../../assets";
 import { HomeTitleBlock } from "./companents/TitleBlock";
+import { motion } from "framer-motion";
 
 const HOME_TITLE_CLASSNAME =
   "title relative z-20 flex items-center h-[100px] text-[100px] font-normal tracking-[2px] uppercase font-cormorant max-lg:text-[40px] max-lg:tracking-[0.02em] max-lg:h-[50px]";
@@ -32,14 +33,15 @@ const HOME_CENTERED_CLASSNAME = `${HOME_TITLE_CLASSNAME} justify-center`;
 const renderTitleText = () => {
   return (
     <>
-      <h3
-        data-aos="fade-right"
-        data-aos-duration="2000"
-        data-aos-offset="300"
+      <motion.h3
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 2 }}
+        viewport={{ once: true, amount: 0.2 }}
         className={HOME_SUBTITLE_CLASSNAME}
       >
         Самые любимые композиции наших клиентов
-      </h3>
+      </motion.h3>
     </>
   );
 };

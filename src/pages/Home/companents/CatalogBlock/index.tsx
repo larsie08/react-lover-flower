@@ -3,6 +3,7 @@ import { FC, memo } from "react";
 import { Block } from "./Block";
 import { DecorativeElement } from "../../../../components";
 import { HomeTitleBlock } from "../TitleBlock";
+import { motion } from "framer-motion";
 
 const BOUQUETS_TITLE_CLASSNAME =
   "sm:absolute text-[160px] top-0 right-0 font-bold tracking-[8px] uppercase text-[#0A1717] max-lg:hidden";
@@ -23,24 +24,30 @@ const additionally: string[] = ["шары", "игрушки", "открытки"
 
 const CATALOG_TITLE_CLASSNAME =
   "title text-[100px] font-normal tracking-[2px] font-cormorant uppercase max-sm:text-[40px] max-sm:tracking-[0.02em]";
-
+  
 const renderTitleText = () => {
   return (
     <>
-      <p
-        data-aos="fade-right"
+      <motion.p
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
         className="text-[20px] relative z-10 font-light tracking-[.8px] leading-[130%] lg:ml-[90px] max-w-[540px] max-sm:hidden"
       >
         У нас самый большой выбор цветов, букетов, открыток и подарков. Мы
         всегда поможем вам подобрать букет для вашего события. Наш менеджер вас
         проконсультирует и поможет определиться с выбором.
-      </p>
-      <p
-        data-aos="fade-right"
+      </motion.p>
+      <motion.p
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
         className="text-[20px] relative z-10 font-light tracking-[.4px] mt-7 lg:ml-[90px] max-sm:hidden"
       >
         Ознакомьтесь с нашими разделами каталога.
-      </p>
+      </motion.p>
     </>
   );
 };

@@ -1,14 +1,18 @@
 import { FC } from "react";
 
-import { DecorativeElement } from "../../components";
+import { DecorativeElement, PathBlock } from "../../components";
 import {
   CorporateFormBlock,
   CorporateTableBlock,
-  CorporateTitleBlock,
   CorporateСoopBlock,
 } from "./companents";
 
 import { CorporateBgColor } from "../../assets";
+
+const titlePathBlock = [
+  { text: "Главная", path: "/" },
+  { text: "корпоративным клиентам", path: "/corporate" },
+];
 
 const CorporatePage: FC = () => {
   return (
@@ -32,7 +36,20 @@ const CorporatePage: FC = () => {
         src="./img/PagesImg/CorporateImg/CorporateFlowerMiddleSecond.png"
       />
       <div className="corporate_page__wrapper container mx-auto">
-        <CorporateTitleBlock />
+        <PathBlock items={titlePathBlock} />
+        <div className="contacts__title relative z-10 mt-14">
+          <h1 className="flex items-center ml-20 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase">
+            Букеты
+          </h1>
+          <div>
+            <h2 className="h-[40px] text-[40px] ml-20 font-normal font-cormorant tracking-[0.8px] uppercase">
+              поздравления для
+            </h2>
+            <h2 className="text-[40px] ml-40 font-normal font-cormorant tracking-[0.8px] uppercase">
+              ваших работников
+            </h2>
+          </div>
+        </div>
         <div className="mt-24">
           <h3 className="max-w-[765px] text-[20px] font-light tracking-[0.8px] uppercase">
             Если у Вас большое количество сотрудников (или не очень) и вы устали

@@ -102,17 +102,20 @@ const SearchResultPage: FC = () => {
         </div>
 
         <div className="search__cards relative sm:grid sm:grid-cols-[repeat(4,_255px)] mx-auto sm:gap-7 mt-3 max-sm:flex max-sm:flex-col max-sm:gap-12">
-          {searchItems.map(({ id, name, cost, imageUrl, filters }) => (
-            <CardBlock
-              key={id}
-              id={id}
-              name={name}
-              cost={cost}
-              imageUrl={imageUrl}
-              filters={filters}
-              imgClassName="h-[335px]"
-            />
-          ))}
+          {searchItems.map(
+            ({ id, name, cost, imageUrl, filters, categories }) => (
+              <CardBlock
+                key={id}
+                id={id}
+                name={name}
+                cost={cost}
+                imageUrl={imageUrl}
+                filters={filters}
+                categories={categories}
+                imgClassName="h-[335px]"
+              />
+            )
+          )}
         </div>
       </div>
       <DecorativeElement className="absolute -bottom-[13rem] right-[45rem] w-[879px] h-[211px] rotate-[21.097deg] bg-light-turquoise rounded-[879px] blur-[125px] max-sm:w-[258px] max-sm:h-[106px] max-sm:rotate-[21.097deg] max-sm:-left-[5rem] max-sm:-bottom-[6rem] max-sm:blur-[50px]" />

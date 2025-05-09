@@ -14,3 +14,5 @@ export * from "./SkeletonCard";
 export * from "./SliderBlock";
 
 export * from "./DecorativeElement";
+
+export * from "./PathBlock";

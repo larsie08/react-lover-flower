@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { motion } from "framer-motion";
 
 const images = [
   { src: "./img/PagesImg/HomeImg/OccasionImg/bouquet.png", alt: "bouquet" },
@@ -12,13 +13,15 @@ const images = [
 export const OccasionImages: FC = () => (
   <ul className="flex gap-8">
     {images.map((img, idx) => (
-      <li
-        data-aos="fade-left"
-        data-aos-offset="300"
-        data-aos-duration="2000"
-        key={idx}
-      >
-        <img src={img.src} alt={img.alt} />
+      <li key={idx}>
+        <motion.img
+          src={img.src}
+          alt={img.alt}
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
+        />
       </li>
     ))}
   </ul>

@@ -5,7 +5,7 @@ import axios from "axios";
 import { RootState, useAppDispatch } from "../../redux/store";
 import { CartItem } from "../../redux/cart/types";
 
-import { CartCardBlock, DecorativeElement } from "../../components";
+import { CartCardBlock, DecorativeElement, PathBlock } from "../../components";
 
 import OrderFormBlock, {
   DeliveryRadioGroupOption,
@@ -35,6 +35,11 @@ type Order = {
     deliveryTime: string;
   };
 };
+
+const titlePathBlock = [
+  { text: "Главная", path: "/" },
+  { text: "оформление заказа", path: "/order" },
+];
 
 const OrderPage: FC = () => {
   const dispatch = useAppDispatch();
@@ -113,11 +118,7 @@ const OrderPage: FC = () => {
       <DecorativeElement className="absolute w-[403px] h-[211px] blur-[125px] bg-light-turquoise rounded-[50%] top-[80rem] right-0 z-[15]" />
       <DecorativeElement className="absolute w-[355px] h-[365px] blur-[125px] bg-cherry rounded-[50%] top-[88rem] right-[5rem] z-10" />
       <div className="order_page__wrapper mx-auto container relative z-30">
-        <div className="order__path">
-          <h3 className="text-[12px] font-normal tracking-[.48px] uppercase">
-            Главная / оформление заказа
-          </h3>
-        </div>
+        <PathBlock items={titlePathBlock} />
 
         <div className="order__title relative z-10 mt-16">
           <h1 className="flex items-center  h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase">
