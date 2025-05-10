@@ -1,4 +1,4 @@
-import { FC, use, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import axios from "axios";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { useOutletContext } from "react-router-dom";
@@ -92,7 +92,7 @@ const BouquetReviewsBlock: FC = () => {
         })
       );
 
-      // await axios.post("http://localhost:3000/api/review", review);
+      await axios.post("http://localhost:3000/api/review", review);
     } catch (error) {
       console.log(error);
     }

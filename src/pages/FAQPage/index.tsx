@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 
 import { DecorativeElement, PathBlock } from "../../components";
-import { FAQBlock } from "./companents";
+import { FAQBlock } from "./FAQBlock";
 
 import { FAQBgBottom } from "../../assets";
 

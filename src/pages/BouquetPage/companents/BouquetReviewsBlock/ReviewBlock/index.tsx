@@ -1,6 +1,5 @@
 import { FC } from "react";
 
-import ratingStar from "../../../../../assets/SVG/PagesSvg/BouquetSvg/RatingSvg/ratingOn.svg";
 import { Rating } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
