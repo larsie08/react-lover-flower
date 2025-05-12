@@ -1,5 +1,6 @@
-import { j as e, A as p, w as d, F as m, M as u, G as h, R as f, I as g, D as o, P as j, __tla as __tla_0 } from "./index-BRYhcpXE.js";
-let P;
+import { j as e, A as p, w as d, F as m, M as u, G as h, R as f, I as g, D as o, P as b, __tla as __tla_0 } from "./index-B90y6GGM.js";
+import { T as j } from "./index-w2Go94SE.js";
+let R;
 let __tla = Promise.all([
   (() => {
     try {
@@ -8,8 +9,8 @@ let __tla = Promise.all([
     }
   })()
 ]).then(async () => {
-  let b, v, _, y, N, l, w, k, F, A, C, D, B, M, I;
-  b = () => e.jsxs("svg", {
+  let _, v, y, N, w, l, k, A, C, F, D, B, M, I, S, P, T;
+  _ = () => e.jsxs("svg", {
     className: "absolute right-0 -bottom-48",
     xmlns: "http://www.w3.org/2000/svg",
     width: "489",
@@ -71,7 +72,7 @@ let __tla = Promise.all([
       content: "zakaz@loverflower.by"
     }
   ];
-  _ = () => e.jsxs("div", {
+  y = () => e.jsxs("div", {
     className: "card_blocks relative",
     children: [
       e.jsx("div", {
@@ -95,7 +96,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  y = () => {
+  N = () => {
     const t = p(), { register: a, handleSubmit: n, formState: { errors: s } } = d(), c = () => {
       t(m({
         modalType: u.Alert,
@@ -201,43 +202,43 @@ let __tla = Promise.all([
       })
     });
   };
-  [N] = await Promise.all([
+  [w] = await Promise.all([
     ymaps3.import("@yandex/ymaps3-reactify"),
     ymaps3.ready
   ]);
-  l = N.reactify.bindTo(f, g);
-  ({ YMap: w, YMapDefaultSchemeLayer: k, YMapControls: F, YMapDefaultFeaturesLayer: A } = l.module(ymaps3));
-  ({ YMapZoomControl: C } = l.module(await ymaps3.import("@yandex/ymaps3-controls@0.0.1")));
-  ({ YMapDefaultMarker: D } = l.module(await ymaps3.import("@yandex/ymaps3-markers@0.0.1")));
-  B = {
+  l = w.reactify.bindTo(f, g);
+  ({ YMap: k, YMapDefaultSchemeLayer: A, YMapControls: C, YMapDefaultFeaturesLayer: F } = l.module(ymaps3));
+  ({ YMapZoomControl: D } = l.module(await ymaps3.import("@yandex/ymaps3-controls@0.0.1")));
+  ({ YMapDefaultMarker: B } = l.module(await ymaps3.import("@yandex/ymaps3-markers@0.0.1")));
+  M = {
     center: [
       27.508175,
       53.925269
     ],
     zoom: 18
   };
-  M = () => e.jsx("div", {
+  I = () => e.jsx("div", {
     className: "h-[500px]",
-    children: e.jsxs(w, {
-      location: B,
+    children: e.jsxs(k, {
+      location: M,
       mode: "vector",
       children: [
-        e.jsx(k, {}),
         e.jsx(A, {}),
-        e.jsx(D, {
+        e.jsx(F, {}),
+        e.jsx(B, {
           coordinates: [
             27.508175,
             53.925269
           ]
         }),
-        e.jsx(F, {
+        e.jsx(C, {
           position: "right",
-          children: e.jsx(C, {})
+          children: e.jsx(D, {})
         })
       ]
     })
   });
-  I = [
+  S = [
     {
       text: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F",
       path: "/"
@@ -247,7 +248,9 @@ let __tla = Promise.all([
       path: "/contacts"
     }
   ];
-  P = () => e.jsxs("div", {
+  P = "flex items-center ml-20 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase";
+  T = "contacts__title relative z-10 mt-14";
+  R = () => e.jsxs("div", {
     className: "contacts pt-[120px] relative bg-[#040A0A] h-[2300px]",
     children: [
       e.jsx(o, {
@@ -269,18 +272,16 @@ let __tla = Promise.all([
       e.jsxs("div", {
         className: "contacts__wrapper container mx-auto",
         children: [
+          e.jsx(b, {
+            items: S
+          }),
           e.jsx(j, {
-            items: I
+            title: "\u043A\u043E\u043D\u0442\u0430\u043A\u0442\u044B",
+            titleClassName: P,
+            wrapperClassName: T
           }),
-          e.jsx("div", {
-            className: "contacts__title relative z-10 mt-14",
-            children: e.jsx("h1", {
-              className: "flex items-center ml-20 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase",
-              children: "\u043A\u043E\u043D\u0442\u0430\u043A\u0442\u044B"
-            })
-          }),
-          e.jsx(_, {}),
           e.jsx(y, {}),
+          e.jsx(N, {}),
           e.jsxs("div", {
             className: "contacts__yandex_map flex flex-col mt-24 gap-5",
             children: [
@@ -288,7 +289,7 @@ let __tla = Promise.all([
                 className: "text-[20px] text-light-turquoise font-bold tracking-[0.8px] uppercase",
                 children: "\u041C\u044B \u043D\u0430 \u043A\u0430\u0440\u0442\u0435"
               }),
-              e.jsx(M, {})
+              e.jsx(I, {})
             ]
           })
         ]
@@ -296,11 +297,11 @@ let __tla = Promise.all([
       e.jsx(o, {
         className: "absolute left-0 -bottom-48 w-[205px] h-[437px] rounded-[437px] bg-[#922D2D] blur-[125px]"
       }),
-      e.jsx(b, {})
+      e.jsx(_, {})
     ]
   });
 });
 export {
   __tla,
-  P as default
+  R as default
 };
