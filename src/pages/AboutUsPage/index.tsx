@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { DecorativeElement, PathBlock } from "../../components";
+import { DecorativeElement, PathBlock, TitlePageBlock } from "../../components";
 import {
   AboutGuaranteesBlock,
   AboutOrderBlock,
@@ -13,6 +13,10 @@ const titlePathItems = [
   { text: "Главная", path: "/" },
   { text: "о нас", path: "/aboutUs" },
 ];
+
+const TITLE_CLASSNAME =
+  "flex items-center ml-20 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase";
+const TITLE_WRAPPER_CLASSNAME = "about_us__title mt-14";
 
 const AboutUsPage: FC = () => {
   return (
@@ -31,11 +35,13 @@ const AboutUsPage: FC = () => {
       />
       <div className="about_us__wrapper relative container mx-auto">
         <PathBlock items={titlePathItems} />
-        <div className="about_us__title mt-14">
-          <h1 className="flex items-center ml-20 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase">
-            о нас
-          </h1>
-        </div>
+        
+        <TitlePageBlock
+          title="о нас"
+          titleClassName={TITLE_CLASSNAME}
+          wrapperClassName={TITLE_WRAPPER_CLASSNAME}
+        />
+        
         <div className="about_us__subtitle ml-48 mt-24 flex gap-5">
           <h2 className="max-w-[250px] text-[60px] text-light-turquoise font-normal font-cormorant leading-[64px] tracking-[1.2px] uppercase">
             Lover flower

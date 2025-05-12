@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { DecorativeElement, PathBlock } from "../../components";
+import { DecorativeElement, PathBlock, TitlePageBlock } from "../../components";
 import {
   CorporateFormBlock,
   CorporateTableBlock,
@@ -13,6 +13,23 @@ const titlePathBlock = [
   { text: "Главная", path: "/" },
   { text: "корпоративным клиентам", path: "/corporate" },
 ];
+
+const TITLE_CLASSNAME =
+  "flex items-center ml-20 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase";
+const TITLE_WRAPPER_CLASSNAME = "contacts__title relative z-10 mt-14";
+
+const renderTitleText = () => {
+  return (
+    <div>
+      <h2 className="h-[40px] text-[40px] ml-20 font-normal font-cormorant tracking-[0.8px] uppercase">
+        поздравления для
+      </h2>
+      <h2 className="text-[40px] ml-40 font-normal font-cormorant tracking-[0.8px] uppercase">
+        ваших работников
+      </h2>
+    </div>
+  );
+};
 
 const CorporatePage: FC = () => {
   return (
@@ -37,19 +54,14 @@ const CorporatePage: FC = () => {
       />
       <div className="corporate_page__wrapper container mx-auto">
         <PathBlock items={titlePathBlock} />
-        <div className="contacts__title relative z-10 mt-14">
-          <h1 className="flex items-center ml-20 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase">
-            Букеты
-          </h1>
-          <div>
-            <h2 className="h-[40px] text-[40px] ml-20 font-normal font-cormorant tracking-[0.8px] uppercase">
-              поздравления для
-            </h2>
-            <h2 className="text-[40px] ml-40 font-normal font-cormorant tracking-[0.8px] uppercase">
-              ваших работников
-            </h2>
-          </div>
-        </div>
+
+        <TitlePageBlock
+          title="Букеты"
+          titleClassName={TITLE_CLASSNAME}
+          renderTitleText={renderTitleText}
+          wrapperClassName={TITLE_WRAPPER_CLASSNAME}
+        />
+
         <div className="mt-24">
           <h3 className="max-w-[765px] text-[20px] font-light tracking-[0.8px] uppercase">
             Если у Вас большое количество сотрудников (или не очень) и вы устали

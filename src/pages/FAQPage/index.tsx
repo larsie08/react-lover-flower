@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 
-import { DecorativeElement, PathBlock } from "../../components";
+import { DecorativeElement, PathBlock, TitlePageBlock } from "../../components";
 import { FAQBlock } from "./FAQBlock";
 
 import { FAQBgBottom } from "../../assets";
@@ -56,6 +56,13 @@ const titlePathBlock = [
   { text: "корпоративным клиентам", path: "/corporate" },
 ];
 
+const TITLE_CLASSNAME =
+  "flex items-center ml-10 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase";
+const TITLE_WRAPPER_CLASSNAME =
+  "FAQ_page__title flex items-center relative z-10 mt-14 select-none";
+const TITLE_DECORATIVE_CLASSNAME =
+  "w-[65px] border-t-[1px] border-light-turquoise";
+
 const FAQPage: FC = () => {
   const [BlockId, setBlockId] = useState<number | null>(null);
 
@@ -79,12 +86,14 @@ const FAQPage: FC = () => {
       />
       <div className="FAQ_page__wrapper container mx-auto">
         <PathBlock items={titlePathBlock} />
-        <div className="FAQ_page__title flex items-center relative z-10 mt-14 select-none">
-          <div className="w-[65px] border-t-[1px] border-light-turquoise"></div>
-          <h1 className="flex items-center ml-10 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase">
-            faq
-          </h1>
-        </div>
+
+        <TitlePageBlock
+          title="faq"
+          titleClassName={TITLE_CLASSNAME}
+          wrapperClassName={TITLE_WRAPPER_CLASSNAME}
+          decorativeElementClassName={TITLE_DECORATIVE_CLASSNAME}
+        />
+
         <div className="blocks flex flex-col mt-16 gap-3">
           {questions.map((obj) => (
             <FAQBlock

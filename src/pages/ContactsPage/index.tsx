@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { DecorativeElement, PathBlock } from "../../components";
+import { DecorativeElement, PathBlock, TitlePageBlock } from "../../components";
 import {
   ContactsCardBlocks,
   ContactsFormBlock,
@@ -13,6 +13,10 @@ const titlePathBlock = [
   { text: "Главная", path: "/" },
   { text: "контакты", path: "/contacts" },
 ];
+
+const TITLE_CLASSNAME =
+  "flex items-center ml-20 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase";
+const TITLE_WRAPPER_CLASSNAME = "contacts__title relative z-10 mt-14";
 
 const ContactsPage: FC = () => {
   return (
@@ -32,11 +36,16 @@ const ContactsPage: FC = () => {
       <div className="contacts__wrapper container mx-auto">
         {/* <ContactsTitleBlock /> */}
         <PathBlock items={titlePathBlock} />
-        <div className="contacts__title relative z-10 mt-14">
-          <h1 className="flex items-center ml-20 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase">
+        {/* <div className=>
+          <h1 className=>
             контакты
           </h1>
-        </div>
+        </div> */}
+        <TitlePageBlock
+          title="контакты"
+          titleClassName={TITLE_CLASSNAME}
+          wrapperClassName={TITLE_WRAPPER_CLASSNAME}
+        />
         <ContactsCardBlocks />
         <ContactsFormBlock />
         <div className="contacts__yandex_map flex flex-col mt-24 gap-5">

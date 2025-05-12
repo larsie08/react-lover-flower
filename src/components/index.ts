@@ -16,3 +16,5 @@ export * from "./SliderBlock";
 export * from "./DecorativeElement";
 
 export * from "./PathBlock";
+
+export * from "./TitlePageBlock";

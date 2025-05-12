@@ -5,7 +5,12 @@ import axios from "axios";
 import { RootState, useAppDispatch } from "../../redux/store";
 import { CartItem } from "../../redux/cart/types";
 
-import { CartCardBlock, DecorativeElement, PathBlock } from "../../components";
+import {
+  CartCardBlock,
+  DecorativeElement,
+  PathBlock,
+  TitlePageBlock,
+} from "../../components";
 
 import OrderFormBlock, {
   DeliveryRadioGroupOption,
@@ -40,6 +45,12 @@ const titlePathBlock = [
   { text: "Главная", path: "/" },
   { text: "оформление заказа", path: "/order" },
 ];
+
+const TITLE_CLASSNAME =
+  "flex items-center  h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase";
+const SUBTITLE_CLASSNAME =
+  "flex items-center ml-[95px] h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase";
+const TITLE_WRAPPER_CLASSNAME = "order__title relative z-10 mt-16";
 
 const OrderPage: FC = () => {
   const dispatch = useAppDispatch();
@@ -120,14 +131,13 @@ const OrderPage: FC = () => {
       <div className="order_page__wrapper mx-auto container relative z-30">
         <PathBlock items={titlePathBlock} />
 
-        <div className="order__title relative z-10 mt-16">
-          <h1 className="flex items-center  h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase">
-            оформление
-          </h1>
-          <h1 className="flex items-center ml-[95px] h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase">
-            заказа
-          </h1>
-        </div>
+        <TitlePageBlock
+          title="оформление"
+          subtitle="заказа"
+          titleClassName={TITLE_CLASSNAME}
+          subtitleClassName={SUBTITLE_CLASSNAME}
+          wrapperClassName={TITLE_WRAPPER_CLASSNAME}
+        />
 
         <div className="order_block mt-20">
           <h2 className="text-[30px] text-light-turquoise font-bold uppercase">

@@ -10,7 +10,7 @@ export const PathBlock: FC<PathBlockProps> = memo(({ items }) => {
   return (
     <>
       <nav className="title">
-        <ol className="flex w-[500px]">
+        <ol className="flex max-w-[500px]">
           {items.map((item, index) => (
             <li
               key={item.text}

@@ -119,7 +119,7 @@ export const Header: FC = memo(() => {
 
         <div
           className={classNames(
-            "intro__content flex flex-col my-auto lg:hidden",
+            "intro__content flex flex-col my-auto md:hidden",
             {
               ["hidden"]:
                 location.pathname === "/" &&

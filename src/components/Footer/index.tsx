@@ -84,7 +84,7 @@ export const Footer: FC = () => {
   );
 
   return (
-    <footer className="footer relative z-50 pb-[30px] bg-[#000] h-[380px] max-lg:h-[672px]">
+    <footer className="footer relative z-50 pb-[30px] bg-[#000] max-lg:max-h-[800px]">
       <div className="container mx-auto flex h-full lg:justify-between transition-all max-lg:flex-col max-lg:items-center">
         <div className="flex flex-col">
           <div className="logo flex max-lg:justify-center">
@@ -100,7 +100,7 @@ export const Footer: FC = () => {
             corporis magni.
           </p>
         </div>
-        <ul className="flex flex-col gap-2 lg:mt-7 max-lg:mt-5">
+        <ul className="flex flex-col gap-2 lg:mt-7 max-lg:hidden max-lg:mt-5">
           <FooterTitleListBlock
             title="Каталог"
             path="catalog"

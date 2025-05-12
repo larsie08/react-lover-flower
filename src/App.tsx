@@ -89,7 +89,7 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={<MainLayout />}>
+      <Suspense fallback={<div className="loading">Загрузка...</div>}>
         <Routes>
           <Route path={ROUTE_PATHS.HOME} element={<MainLayout />}>
             <Route index element={<Home />} />
