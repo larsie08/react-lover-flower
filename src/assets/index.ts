@@ -22,14 +22,11 @@ export * from "./SVG/PagesSvg/HomeSvg/CardFooterBlockSvg/BgColorsSvg/CardCherryS
 export * from "./SVG/PagesSvg/HomeSvg/CardFooterBlockSvg/BgColorsSvg/CardLightSvg";
 export * from "./SVG/PagesSvg/HomeSvg/CardFooterBlockSvg/BgColorsSvg/CardCherryAdaptiveSvg";
 
-
 export * from "./SVG/PagesSvg/CatalogSvg/CatalogRightSvg";
 export * from "./SVG/PagesSvg/CatalogSvg/CatalogLeftSvg";
 export * from "./SVG/PagesSvg/CatalogSvg/CatalogCloseSvg";
 export * from "./SVG/PagesSvg/CatalogSvg/CatalogCheckSvg";
 export * from "./SVG/PagesSvg/CatalogSvg/CatalogTipSvg";
-
-export * from "./SVG/PagesSvg/AboutUsSvg/AboutBgColorBottom";
 
 export * from "./SVG/PagesSvg/ContactsSvg/ContactsBgColor";
 

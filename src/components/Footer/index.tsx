@@ -124,7 +124,7 @@ export const Footer: FC = () => {
             <FooterListBlock key={name} name={name} />
           ))}
         </ul>
-        <ul className="flex flex-col gap-6 lg:mt-7 max-lg:gap-2.5 max-w-[160px] max-lg:items-center">
+        <ul className="flex flex-col gap-6 lg:mt-7 max-lg:gap-2.5 max-w-[160px] max-lg:items-center max-lg:text-center">
           {links.map((obj) => (
             <FooterTitleListBlock
               key={obj.url}
