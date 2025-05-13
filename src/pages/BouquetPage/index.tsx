@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, useCallback } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -21,6 +21,8 @@ import {
 import { BouquetBgTopLeft } from "../../assets";
 import { selectFiltersState } from "../../redux/filter/selectors";
 
+import { useScreenWidth } from "../../utils/useScreenWidth";
+
 const basedPath = [
   { text: "Главная", path: "/" },
   { text: "Каталог букетов", path: "/catalog" },
@@ -29,14 +31,13 @@ const basedPath = [
 const BouquetPage: FC = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams<string>();
+  const screenWidth = useScreenWidth();
 
   const { items } = useSelector(selectBouquetsState);
   const { category } = useSelector(selectFiltersState);
   const bouquet = useSelector((state: RootState) =>
     selectBouquetById(state, Number(id))
   );
-
-  const [screenWidth, setScreenWidth] = useState(window.outerWidth);
 
   const addToCart = useCallback(
     (
@@ -61,16 +62,6 @@ const BouquetPage: FC = () => {
     },
     [dispatch, id]
   );
-
-  const handleScreenWidth = () => setScreenWidth(window.outerWidth);
-
-  useEffect(() => {
-    window.addEventListener("resize", handleScreenWidth);
-
-    return () => {
-      window.removeEventListener("resize", handleScreenWidth);
-    };
-  }, []);
 
   return (
     <div className="bouquet_page pt-[120px] pb-[120px] relative bg-[#040A0A]">

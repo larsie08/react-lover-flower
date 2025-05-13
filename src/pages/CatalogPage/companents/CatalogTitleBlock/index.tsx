@@ -58,7 +58,7 @@ const renderTitleText = () => {
 export const CatalogTitleBlock: FC<TitleBlockProps> = memo(
   ({ categoryId, onClickCategory, screenWidth }) => {
     return (
-      <div className="relative z-10">
+      <div className="relative z-30">
         <PathBlock
           items={[
             ...titlePathItems,

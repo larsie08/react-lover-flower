@@ -1,3 +1,4 @@
 export * from "./DeliveryAdditionallyBlock";
-export * from "./DeliveryBlock";
+export * from "./DeliveryInfoBlock";
 export * from "./DeliveryCardBlocks";
+export * from "./DeliveryBlockTitle";

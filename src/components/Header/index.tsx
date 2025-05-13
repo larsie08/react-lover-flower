@@ -12,6 +12,7 @@ import { ModalType } from "../../redux/modal/types";
 import { CartBlock, InfoBlock, Search } from "./HeaderCompanents";
 import { NavigationMenu } from "./HeaderCompanents/NavigationMenu";
 import { useLocation } from "react-router-dom";
+import { useScreenWidth } from "../../utils/useScreenWidth";
 
 const CATEGORIES: Category[] = [
   { name: FlowerCategoriesEnum.PopularItems },
@@ -44,10 +45,10 @@ const SCROLL_HIDE_THRESHOLD = 80;
 export const Header: FC = memo(() => {
   const dispatch = useAppDispatch();
   const location = useLocation();
+  const screenWidth = useScreenWidth();
 
   const [showHeader, toggleShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState<number>(0);
-  const [screenWidth, setScreenWidth] = useState<number>(window.outerWidth);
   const { cartItems } = useSelector(selectCartState);
 
   const toggleHeaderVisibility = useCallback(() => {
@@ -75,10 +76,6 @@ export const Header: FC = memo(() => {
     );
   }, [dispatch]);
 
-  const handleScreenWidth = () => {
-    setScreenWidth(window.outerWidth);
-  };
-
   useEffect(() => {
     window.addEventListener("scroll", toggleHeaderVisibility);
 
@@ -86,14 +83,6 @@ export const Header: FC = memo(() => {
       window.removeEventListener("scroll", toggleHeaderVisibility);
     };
   }, [lastScrollY]);
-
-  useEffect(() => {
-    window.addEventListener("resize", handleScreenWidth);
-
-    return () => {
-      window.removeEventListener("resize", handleScreenWidth);
-    };
-  }, [window.outerWidth]);
 
   return (
     <div

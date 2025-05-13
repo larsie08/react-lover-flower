@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -21,6 +21,7 @@ import {
 import { PinkArrowSvg } from "../../assets";
 import { HomeTitleBlock } from "./companents/TitleBlock";
 import { motion } from "framer-motion";
+import { useScreenWidth } from "../../utils/useScreenWidth";
 
 const HOME_TITLE_CLASSNAME =
   "title relative z-20 flex items-center h-[100px] text-[100px] font-normal tracking-[2px] uppercase font-cormorant max-lg:text-[40px] max-lg:tracking-[0.02em] max-lg:h-[50px]";
@@ -48,39 +49,20 @@ const renderTitleText = () => {
 
 const Home: FC = () => {
   const dispatch = useAppDispatch();
+  const screenWidth = useScreenWidth();
 
   const { cartItems } = useSelector(selectCartState);
   const { items } = useSelector(selectBouquetsState);
 
-  const [screenWidth, setScreenWidth] = useState(window.outerWidth);
-
   const openModal = useCallback(
-    () => dispatch(setModalState({ modalType: ModalType.Modal, isOpen: true })),
+    (type: ModalType) =>
+      dispatch(setModalState({ modalType: type, isOpen: true })),
     [dispatch]
   );
-  const openCart = useCallback(
-    () => dispatch(setModalState({ modalType: ModalType.Cart, isOpen: true })),
-    [dispatch]
-  );
-
-  const handleScreenWidth = () => setScreenWidth(window.outerWidth);
-
-  useEffect(() => {
-    window.addEventListener("resize", handleScreenWidth);
-
-    return () => {
-      window.removeEventListener("resize", handleScreenWidth);
-    };
-  }, []);
 
   return (
     <div className="wrapper bg-[#040A0A]">
-      <Intro
-        cart={cartItems}
-        openCart={openCart}
-        openModal={openModal}
-        screenWidth={screenWidth}
-      />
+      <Intro cart={cartItems} openModal={openModal} screenWidth={screenWidth} />
 
       <CatalogBlock />
 

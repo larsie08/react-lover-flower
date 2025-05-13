@@ -2,16 +2,17 @@ import { FC, memo } from "react";
 import classNames from "classnames";
 
 import { CartSvg, PhoneButtonSvg, SocialBorderSvg } from "../../../../assets";
+
 import { CartItem } from "../../../../redux/cart/types";
+import { ModalType } from "../../../../redux/modal/types";
 
 type SideBlockProps = {
   cartItems: CartItem[];
-  openModal: () => void;
-  openCart: () => void;
+  openModal: (type: ModalType) => void;
 };
 
 export const CatalogRightSideBlock: FC<SideBlockProps> = memo(
-  ({ openModal, openCart, cartItems }) => {
+  ({ openModal, cartItems }) => {
     return (
       <div className="flex flex-col justify-between">
         <div className="socials flex justify-end mt-20">
@@ -22,7 +23,7 @@ export const CatalogRightSideBlock: FC<SideBlockProps> = memo(
             +375 (29) 113-69-69
           </h3>
           <button
-            onClick={openModal}
+            onClick={() => openModal(ModalType.Modal)}
             className="call w-[180px] mt-3 flex items-center gap-2 py-2 px-4 bg-[#000]/[.20] rounded-xl backdrop-blur-[10px]"
           >
             <PhoneButtonSvg />
@@ -31,7 +32,7 @@ export const CatalogRightSideBlock: FC<SideBlockProps> = memo(
             </p>
           </button>
           <button
-            onClick={openCart}
+            onClick={() => openModal(ModalType.Cart)}
             className="cart flex mt-5 bg-[#000]/[.20] rounded-xl backdrop-blur-[10px] p-[15px]"
           >
             <CartSvg />

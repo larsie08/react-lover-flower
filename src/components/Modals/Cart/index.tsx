@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -20,14 +20,15 @@ import { DecorativeElement } from "../..";
 import { setModalState } from "../../../redux/modal/slice";
 import { ModalType } from "../../../redux/modal/types";
 
+import { useScreenWidth } from "../../../utils/useScreenWidth";
+
 export const Cart: FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const screenWidth = useScreenWidth();
 
   const { totalPrice, cartItems } = useSelector(selectCartState);
   const isOpen = useSelector(selectCartIsOpen);
-
-  const [screenWidth, setScreenWidth] = useState(window.outerWidth);
 
   const closeCart = useCallback(
     () => dispatch(setModalState({ modalType: ModalType.Cart, isOpen: false })),
@@ -41,19 +42,9 @@ export const Cart: FC = () => {
     }
   }, [dispatch, cartItems]);
 
-  const handleScreenWidth = () => setScreenWidth(window.outerWidth);
-
   useEffect(() => {
     localStorage.setItem("flower-cart", JSON.stringify(cartItems));
   }, [cartItems]);
-
-  useEffect(() => {
-    window.addEventListener("resize", handleScreenWidth);
-
-    return () => {
-      window.removeEventListener("resize", handleScreenWidth);
-    };
-  }, []);
 
   useEffect(() => {
     const body = document.body;
@@ -108,7 +99,8 @@ export const Cart: FC = () => {
           <div
             className={classNames("flex flex-col pr-4", {
               ["overflow-y-scroll"]:
-              cartItems.length > 5 || (screenWidth < 769 && cartItems.length >= 4),
+                cartItems.length > 5 ||
+                (screenWidth < 769 && cartItems.length >= 4),
             })}
           >
             {cartItems.map((obj) => (

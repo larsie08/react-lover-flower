@@ -1,20 +1,20 @@
 import { FC, memo } from "react";
+import { Link } from "react-router-dom";
 
 import { CartItem } from "../../../../redux/cart/types";
+import { ModalType } from "../../../../redux/modal/types";
 
 import { CallButton, CartButton, IntroTitleBlock } from "./components";
 import { DecorativeElement } from "../../../../components";
-import { Link } from "react-router-dom";
 
 type IntroProps = {
   cart: CartItem[];
   screenWidth: number;
-  openModal: () => void;
-  openCart: () => void;
+  openModal: (type: ModalType) => void;
 };
 
 export const Intro: FC<IntroProps> = memo(
-  ({ cart, screenWidth, openModal, openCart }) => {
+  ({ cart, screenWidth, openModal }) => {
     const isMobile = screenWidth <= 768;
 
     return (
@@ -66,8 +66,11 @@ export const Intro: FC<IntroProps> = memo(
                 <h3 className="phone text-[16px] mt-14 text-light-turquoise font-normal tracking-[1.6px] uppercase">
                   +375 (29) 113-69-69
                 </h3>
-                <CallButton onClick={openModal} />
-                <CartButton cartCount={cart.length} onClick={openCart} />
+                <CallButton onClick={() => openModal(ModalType.Modal)} />
+                <CartButton
+                  cartCount={cart.length}
+                  onClick={() => openModal(ModalType.Cart)}
+                />
               </div>
             )}
           </div>

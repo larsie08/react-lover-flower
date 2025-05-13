@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, useCallback, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { useAppDispatch } from "../../redux/store";
@@ -20,6 +20,7 @@ import {
   CatalogTitleBlock,
 } from "./companents";
 import { CatalogLeftSvg, CatalogRightSvg } from "../../assets";
+import { useScreenWidth } from "../../utils/useScreenWidth";
 
 const skeletons = [...new Array(9)].map((_, index) => (
   <SkeletonCard key={index} />
@@ -27,8 +28,7 @@ const skeletons = [...new Array(9)].map((_, index) => (
 
 const CatalogPage: FC = () => {
   const dispatch = useAppDispatch();
-
-  const [screenWidth, setScreenWidth] = useState(window.outerWidth);
+  const screenWidth = useScreenWidth();
 
   const { category, sortOption } = useSelector(selectFiltersState);
   const { items, status } = useSelector(selectBouquetsState);
@@ -54,11 +54,8 @@ const CatalogPage: FC = () => {
   }, [dispatch]);
 
   const openModal = useCallback(
-    () => dispatch(setModalState({ modalType: ModalType.Modal, isOpen: true })),
-    [dispatch]
-  );
-  const openCart = useCallback(
-    () => dispatch(setModalState({ modalType: ModalType.Cart, isOpen: true })),
+    (type: ModalType) =>
+      dispatch(setModalState({ modalType: type, isOpen: true })),
     [dispatch]
   );
 
@@ -68,16 +65,6 @@ const CatalogPage: FC = () => {
     },
     [dispatch]
   );
-
-  const handleScreenWidth = () => setScreenWidth(window.outerWidth);
-
-  useEffect(() => {
-    window.addEventListener("resize", handleScreenWidth);
-
-    return () => {
-      window.removeEventListener("resize", handleScreenWidth);
-    };
-  }, []);
 
   return (
     <div className="catalog_page relative pt-[120px] pb-[200px] bg-[#040A0A]">
@@ -125,7 +112,6 @@ const CatalogPage: FC = () => {
           {screenWidth >= 1024 && (
             <CatalogRightSideBlock
               openModal={openModal}
-              openCart={openCart}
               cartItems={cartItems}
             />
           )}
