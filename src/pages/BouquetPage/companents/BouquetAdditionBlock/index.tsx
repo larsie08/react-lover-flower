@@ -32,7 +32,7 @@ export const BouquetAdditionBlock: FC = () => {
       <h1 className="title text-[20px] text-pink font-bold tracking-[0.8px] uppercase">
         Дополнительно к заказу:
       </h1>
-      <div className="cards flex gap-8">
+      <div className="cards flex max-md:flex-col gap-8">
         {infoCards.map((obj, id) => (
           <div
             key={id}

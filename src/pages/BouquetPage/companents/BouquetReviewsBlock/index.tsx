@@ -107,7 +107,7 @@ const BouquetReviewsBlock: FC = () => {
   return (
     <div className="mt-16">
       <div className="reviews">
-        {reviews ? (
+        {reviews.length ? (
           reviews.map((obj) => (
             <ReviewBlock
               key={obj.reviewId}
@@ -164,7 +164,7 @@ const BouquetReviewsBlock: FC = () => {
             Ваш отзыв*
           </label>
           <textarea
-            className="w-[540px] h-[180px] border border-[#555] bg-[#040A0A] p-4 placeholder:bg-[#040A0A] placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
+            className="lg:w-[540px] max-lg:w-[300px] h-[180px] border border-[#555] bg-[#040A0A] p-4 placeholder:bg-[#040A0A] placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
             id="review"
             placeholder="Введите комментарий"
             {...register("feedback", { required: true })}
@@ -179,7 +179,7 @@ const BouquetReviewsBlock: FC = () => {
             Имя*
           </label>
           <input
-            className="w-[540px] h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:bg-[#040A0A] placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
+            className="lg:w-[540px] max-lg:w-[300px] h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:bg-[#040A0A] placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
             type="text"
             id="name"
             placeholder="Введите ваше имя"
@@ -195,7 +195,7 @@ const BouquetReviewsBlock: FC = () => {
             E-mail*
           </label>
           <input
-            className="w-[540px] h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:bg-[#040A0A] placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
+            className="lg:w-[540px] max-lg:w-[300px] h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:bg-[#040A0A] placeholder:text-[#395959] text-[14px] font-normal tracking-[.56px] uppercase outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"
             type="email"
             id="email"
             placeholder="Введите вашу почту"

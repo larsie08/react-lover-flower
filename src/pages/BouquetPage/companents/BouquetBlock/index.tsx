@@ -6,6 +6,7 @@ import {
   BouquetCategories,
   BouquetFilters,
 } from "../../../../redux/bouquets/types";
+import { BackButton } from "./BackButton";
 
 interface BouquetBlockProps {
   id: number;
@@ -14,6 +15,7 @@ interface BouquetBlockProps {
   imageUrl: string;
   filters: BouquetFilters;
   categories: BouquetCategories;
+  screenWidth: number;
   addToCart: (
     id: number,
     name: string,
@@ -29,6 +31,7 @@ export const BouquetBlock: FC<BouquetBlockProps> = ({
   id,
   name,
   cost,
+  screenWidth,
   imageUrl,
   filters,
   categories,
@@ -55,33 +58,32 @@ export const BouquetBlock: FC<BouquetBlockProps> = ({
   };
 
   return (
-    <div className="h-[450px] bouquet mt-16 flex gap-20">
-      <div className="flex flex-col items-center justify-between gap-5">
-        <ArrowSvg className="h-[20px] w-[20px] rotate-90" />
-        {Array.from({ length: 2 }).map((_, index) => (
-          <img
-            key={index}
-            className="w-[160px] h-[175px]"
-            src={imageUrl}
-            alt="bouquet"
-          />
-        ))}
-        <ArrowSvg className="h-[20px] w-[20px] -rotate-90" />
-      </div>
-      <div className="flex gap-14">
+    <div className="lg:h-[450px] bouquet mt-16 flex max-lg:justify-center lg:gap-20">
+      {screenWidth >= 1024 && (
+        <div className="flex flex-col items-center justify-between gap-5 max-lg:hidden">
+          <ArrowSvg className="h-[20px] w-[20px] rotate-90" />
+          {Array.from({ length: 2 }).map((_, index) => (
+            <img
+              key={index}
+              className="w-[160px] h-[175px]"
+              src={imageUrl}
+              alt="bouquet"
+            />
+          ))}
+          <ArrowSvg className="h-[20px] w-[20px] -rotate-90" />
+        </div>
+      )}
+      <div className="flex max-lg:flex-col max-lg:w-full lg:gap-14 max-lg:gap-5 max-lg:items-center">
+        {screenWidth <= 1024 && <BackButton goBack={goBack} />}
+
         <img className="w-[350px]" src={imageUrl} alt="bouquet" />
-        <div className="flex flex-col justify-between">
-          <button
-            onClick={goBack}
-            className="flex gap-2 items-center text-[10px] font-normal tracking-[0.4px] uppercase"
-          >
-            <ArrowSvg className="w-[16px] h-[16px]" /> назад
-          </button>
+        <div className="flex flex-col justify-between max-lg:gap-5">
+          {screenWidth >= 1024 && <BackButton goBack={goBack} />}
           <div className="title">
-            <h1 className="text-[40px] font-cormorant font-normal tracking-[0.8px] uppercase">
+            <h1 className="lg:text-[40px] max-lg:text-[20px] font-cormorant font-normal tracking-[0.8px] uppercase">
               {name}
             </h1>
-            <h2 className="text-[30px] text-light-turquoise font-bold tracking-[1.2px] uppercase">
+            <h2 className="lg:text-[30px] max-lg:text-[20px] text-light-turquoise font-bold tracking-[1.2px] uppercase">
               {cost} ₽
             </h2>
           </div>
@@ -109,7 +111,7 @@ export const BouquetBlock: FC<BouquetBlockProps> = ({
           <div className="flex gap-8">
             <button
               onClick={handleAddToCart}
-              className="border-[.5px] w-[255px] p-4 text-[12px] font-bold tracking-[1.2px] uppercase hover:bg-light-turquoise hover:text-[black] focus:border-light-turquoise active:shadow-[0_0_10px_0_#01281F_inset] transition"
+              className="border-[.5px] lg:w-[255px] max-lg:w-[180px] p-4 text-[12px] font-bold tracking-[1.2px] uppercase hover:bg-light-turquoise hover:text-[black] focus:border-light-turquoise active:shadow-[0_0_10px_0_#01281F_inset] transition"
             >
               В корзину
             </button>
