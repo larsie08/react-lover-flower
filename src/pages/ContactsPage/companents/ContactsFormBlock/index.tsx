@@ -33,21 +33,27 @@ export const ContactsFormBlock: FC = () => {
   const error: SubmitErrorHandler<MyForm> = (data) => console.log(data);
 
   return (
-    <div className="contacts_form mt-36">
-      <div className="contacts_form__wrapper container mx-auto">
-        <div className="contacts_form__top flex justify-between items-center pt-8">
+    <div className="contacts_form lg:mt-36 max-lg:mt-16">
+      <div className="contacts_form__wrapper container mx-auto relative">
+        <img
+          className="absolute max-lg:w-[132px] max-lg:h-[100px] lg:left-[20rem] lg:bottom-0 max-lg:top-[5rem] max-lg:left-[10rem] -rotate-[18.444deg] z-10"
+          src="./img/PagesImg/ContactsImg/signature.png"
+          alt="signature"
+        />
+
+        <div className="contacts_form__top flex max-lg:flex-col lg:justify-between lg:items-center lg:pt-8 relative z-20">
           <div className="contacts_form__title flex z-30 flex-col">
-            <h1 className="title flex items-center h-[100px] text-[100px] font-cormorant font-normal tracking-[2px] uppercase">
+            <h1 className="title flex items-center lg:h-[100px] lg:text-[100px] max-lg:text-[40px] font-cormorant font-normal tracking-[2px] uppercase">
               напишите
             </h1>
-            <h1 className="title flex items-center justify-end h-[100px] text-[100px] font-cormorant font-normal tracking-[2px] uppercase">
+            <h1 className="title flex items-center lg:justify-end lg:h-[100px] lg:text-[100px] max-lg:text-[40px] font-cormorant font-normal tracking-[2px] uppercase">
               нам
             </h1>
           </div>
 
-          <div className="max-w-[255px] flex flex-col gap-14">
-            <div className="line border-t-[1px] border-light-turquoise"></div>
-            <p>
+          <div className="max-w-[255px] flex flex-col lg:gap-14 max-lg:gap-5 max-lg:mt-[45px]">
+            <div className="line max-lg:w-[100px] border-t-[1px] border-light-turquoise"></div>
+            <p className="text-[14px] font-normal tracking-[0.04px] uppercase">
               Отправьте ваш вопрос, заказ, предложение или жалобу через форму
               обратной связи, и наш специалист свяжется с вами в течение 15
               минут.
@@ -55,15 +61,10 @@ export const ContactsFormBlock: FC = () => {
           </div>
         </div>
 
-        <div className="contacts__form relative flex justify-end mt-8">
-          <img
-            className="absolute left-[30rem] -rotate-[18.444deg]"
-            src="./img/PagesImg/ContactsImg/signature.png"
-            alt="signature"
-          />
+        <div className="contacts__form flex justify-end mt-8">
           <form
             onSubmit={handleSubmit(submit, error)}
-            className="w-[455px] flex flex-col gap-3"
+            className="w-[455px] flex flex-col gap-3 relative z-20"
           >
             <input
               className="form__input h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none  aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]"

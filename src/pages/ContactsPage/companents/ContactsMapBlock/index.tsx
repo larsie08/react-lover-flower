@@ -25,7 +25,7 @@ const LOCATION: YMapLocationRequest = {
 
 export const ContactsMapBlock: FC = () => {
   return (
-    <div className="h-[500px]">
+    <div className="h-[500px] relative z-20">
       <YMap location={LOCATION} mode="vector">
         <YMapDefaultSchemeLayer />
         <YMapDefaultFeaturesLayer />
