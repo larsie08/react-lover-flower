@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-fjCNEoEq.js","assets/index-D4hVN8Of.js","assets/index-C7YDcdrK.js","assets/index-PGUKFvZl.js","assets/index-BYnFovD8.js","assets/index-CddFmKfn.js","assets/Collapse-tUAnfmKh.js","assets/index-D3NRY5yH.js","assets/index-Bh1UHF8d.js","assets/visuallyHidden-Dan1xhjv.js","assets/index-hdOGYkTo.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-CuIxdU_v.js","assets/index-BkJO6pE2.js","assets/index-C2627Ra6.js","assets/index-Cb8TtL85.js","assets/index-z5qVUbXz.js","assets/index-zSkbUSGx.js","assets/Collapse-bAylzNZe.js","assets/index-B0DWhICc.js","assets/index-BxxtCpuU.js","assets/visuallyHidden-Dan1xhjv.js","assets/index-DIYI5rjZ.js"])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
@@ -34718,10 +34718,10 @@ export default theme;`;
       }),
       v.jsx(NP, {})
     ]
-  }), gU = E.lazy(() => hr(() => import("./index-fjCNEoEq.js"), __vite__mapDeps([0,1]))), yU = E.lazy(() => hr(() => import("./index-C7YDcdrK.js"), __vite__mapDeps([2,1]))), vU = E.lazy(() => hr(() => import("./index-PGUKFvZl.js"), __vite__mapDeps([3,1]))), xU = E.lazy(() => hr(() => import("./index-BYnFovD8.js").then(async (m) => {
+  }), gU = E.lazy(() => hr(() => import("./index-CuIxdU_v.js"), __vite__mapDeps([0,1]))), yU = E.lazy(() => hr(() => import("./index-C2627Ra6.js"), __vite__mapDeps([2,1]))), vU = E.lazy(() => hr(() => import("./index-Cb8TtL85.js"), __vite__mapDeps([3,1]))), xU = E.lazy(() => hr(() => import("./index-z5qVUbXz.js").then(async (m) => {
     await m.__tla;
     return m;
-  }), __vite__mapDeps([4,1]))), bU = E.lazy(() => hr(() => import("./index-CddFmKfn.js"), __vite__mapDeps([5,1,6]))), SU = E.lazy(() => hr(() => import("./index-D3NRY5yH.js"), __vite__mapDeps([7,1]))), wU = E.lazy(() => hr(() => import("./index-Bh1UHF8d.js"), __vite__mapDeps([8,9,1,6]))), CU = E.lazy(() => hr(() => import("./index-CyJV-ClY.js"), [])), TU = E.lazy(() => hr(() => import("./index-BECMcrqm.js"), [])), EU = E.lazy(() => hr(() => import("./index-CMHQ83sv.js"), [])), AU = E.lazy(() => hr(() => import("./index-hdOGYkTo.js"), __vite__mapDeps([10,9]))), RU = E.lazy(() => hr(() => import("./index-C71PwpMZ.js"), [])), Un = {
+  }), __vite__mapDeps([4,1]))), bU = E.lazy(() => hr(() => import("./index-zSkbUSGx.js"), __vite__mapDeps([5,1,6]))), SU = E.lazy(() => hr(() => import("./index-B0DWhICc.js"), __vite__mapDeps([7,1]))), wU = E.lazy(() => hr(() => import("./index-BxxtCpuU.js"), __vite__mapDeps([8,9,1,6]))), CU = E.lazy(() => hr(() => import("./index-Do62Vcru.js"), [])), TU = E.lazy(() => hr(() => import("./index-BEMWMixe.js"), [])), EU = E.lazy(() => hr(() => import("./index-BTXGIfJO.js"), [])), AU = E.lazy(() => hr(() => import("./index-DIYI5rjZ.js"), __vite__mapDeps([10,9]))), RU = E.lazy(() => hr(() => import("./index-CBfHi9S4.js"), [])), Un = {
     HOME: "/",
     CATALOG: "/catalog",
     BOUQUET: "/catalog/bouquet/:id",
