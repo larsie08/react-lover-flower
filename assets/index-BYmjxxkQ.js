@@ -1,15 +1,23 @@
-import { j as e, D as l, A as p, w as m, F as g, M as d, G as u, R as h, I as f, P as b, __tla as __tla_0 } from "./index-bVRnJW3-.js";
-import { T as j } from "./index-C5WqwIs0.js";
-let q;
+import { j as e, g as p, t as m, z as g, __tla as __tla_0 } from "./vendor-DsNSJXVB.js";
+import { D as l, u as d, s as u, M as h, a as f, P as b, __tla as __tla_1 } from "./index-D_uz0qJu.js";
+import { T as j } from "./index-83omGegK.js";
+import "./vendor-redux-CF_v3iJm.js";
+let L;
 let __tla = Promise.all([
   (() => {
     try {
       return __tla_0;
     } catch {
     }
+  })(),
+  (() => {
+    try {
+      return __tla_1;
+    } catch {
+    }
   })()
 ]).then(async () => {
-  let v, N, _, y, o, w, k, A, F, C, D, M, z, P, T, I;
+  let v, N, _, y, o, w, k, A, C, D, F, M, z, P, T, S;
   v = [
     {
       title: "\u0432\u0440\u0435\u043C\u044F \u0440\u0430\u0431\u043E\u0442\u044B",
@@ -53,11 +61,11 @@ let __tla = Promise.all([
     ]
   });
   _ = () => {
-    const t = p(), { register: a, handleSubmit: x, formState: { errors: r } } = m(), c = () => {
-      t(g({
-        modalType: d.Alert,
+    const t = d(), { register: a, handleSubmit: x, formState: { errors: r } } = p(), c = () => {
+      t(u({
+        modalType: h.Alert,
         isOpen: true
-      })), t(u({
+      })), t(f({
         severity: "success"
       }));
     }, n = (s) => {
@@ -161,10 +169,10 @@ let __tla = Promise.all([
     ymaps3.import("@yandex/ymaps3-reactify"),
     ymaps3.ready
   ]);
-  o = y.reactify.bindTo(h, f);
-  ({ YMap: w, YMapDefaultSchemeLayer: k, YMapControls: A, YMapDefaultFeaturesLayer: F } = o.module(ymaps3));
-  ({ YMapZoomControl: C } = o.module(await ymaps3.import("@yandex/ymaps3-controls@0.0.1")));
-  ({ YMapDefaultMarker: D } = o.module(await ymaps3.import("@yandex/ymaps3-markers@0.0.1")));
+  o = y.reactify.bindTo(m, g);
+  ({ YMap: w, YMapDefaultSchemeLayer: k, YMapControls: A, YMapDefaultFeaturesLayer: C } = o.module(ymaps3));
+  ({ YMapZoomControl: D } = o.module(await ymaps3.import("@yandex/ymaps3-controls@0.0.1")));
+  ({ YMapDefaultMarker: F } = o.module(await ymaps3.import("@yandex/ymaps3-markers@0.0.1")));
   M = {
     center: [
       27.508175,
@@ -179,8 +187,8 @@ let __tla = Promise.all([
       mode: "vector",
       children: [
         e.jsx(k, {}),
-        e.jsx(F, {}),
-        e.jsx(D, {
+        e.jsx(C, {}),
+        e.jsx(F, {
           coordinates: [
             27.508175,
             53.925269
@@ -188,7 +196,7 @@ let __tla = Promise.all([
         }),
         e.jsx(A, {
           position: "right",
-          children: e.jsx(C, {})
+          children: e.jsx(D, {})
         })
       ]
     })
@@ -204,8 +212,8 @@ let __tla = Promise.all([
     }
   ];
   T = "flex items-center lg:ml-20 lg:h-[100px] lg:text-[100px] max-lg:text-[40px] font-normal font-cormorant tracking-[2px] uppercase";
-  I = "contacts__title relative z-10 lg:mt-14 max-lg:mt-5";
-  q = () => e.jsxs("div", {
+  S = "contacts__title relative z-10 lg:mt-14 max-lg:mt-5";
+  L = () => e.jsxs("div", {
     className: "contacts pt-[120px] max-lg:px-4 relative bg-[#040A0A] lg:pb-[200px] max-lg:pb-[150px]",
     children: [
       e.jsx(l, {
@@ -235,7 +243,7 @@ let __tla = Promise.all([
           e.jsx(j, {
             title: "\u043A\u043E\u043D\u0442\u0430\u043A\u0442\u044B",
             titleClassName: T,
-            wrapperClassName: I
+            wrapperClassName: S
           }),
           e.jsx(N, {}),
           e.jsx(_, {}),
@@ -262,5 +270,5 @@ let __tla = Promise.all([
 });
 export {
   __tla,
-  q as default
+  L as default
 };
