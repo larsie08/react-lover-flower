@@ -3,8 +3,6 @@ import { FC, useState } from "react";
 import { DecorativeElement, PathBlock, TitlePageBlock } from "../../components";
 import { FAQBlock } from "./FAQBlock";
 
-import { FAQBgBottom } from "../../assets";
-
 const questions = [
   {
     id: 1,
@@ -57,11 +55,11 @@ const titlePathBlock = [
 ];
 
 const TITLE_CLASSNAME =
-  "flex items-center ml-10 h-[100px] text-[100px] font-normal font-cormorant tracking-[2px] uppercase";
+  "flex items-center lg:ml-10 lg:h-[100px] lg:text-[100px] max-lg:text-[40px] font-normal font-cormorant tracking-[2px] uppercase";
 const TITLE_WRAPPER_CLASSNAME =
   "FAQ_page__title flex items-center relative z-10 mt-14 select-none";
 const TITLE_DECORATIVE_CLASSNAME =
-  "w-[65px] border-t-[1px] border-light-turquoise";
+  "w-[65px] border-t-[1px] border-light-turquoise max-lg:hidden";
 
 const FAQPage: FC = () => {
   const [BlockId, setBlockId] = useState<number | null>(null);
@@ -71,16 +69,17 @@ const FAQPage: FC = () => {
   };
 
   return (
-    <div className="FAQ_page relative pt-[120px] h-[1400px] bg-[#040A0A] mb-">
-      <DecorativeElement className="absolute w-[465px] h-[220px] top-0 -left-[10rem] bg-[#3D5279] rounded-[466px] blur-[125px] select-none" />
-      <DecorativeElement className="absolute w-[328px] h-[220px] top-0 right-0 bg-[#3D5279] rounded-[327px] blur-[125px] select-none" />
+    <div className="FAQ_page relative bg-[#040A0A] pt-[120px] max-lg:px-4 max-lg:pb-[150px] lg:pb-[200px]">
+      <DecorativeElement className="absolute -left-[10rem] top-0 z-10 select-none rounded-[466px] bg-[#3D5279] blur-[125px] max-lg:h-[220px] max-lg:w-[280px] lg:h-[220px] lg:w-[465px]" />
+      <DecorativeElement className="absolute right-0 top-0 h-[220px] w-[328px] select-none rounded-[327px] bg-[#3D5279] blur-[125px] max-lg:hidden" />
       <img
-        className="absolute top-0 left-0 select-none"
+        className="absolute left-0 top-0 select-none"
         src="./img/PagesImg/FAQImg/FAQFlowerLeft.png"
         alt="flower"
       />
+
       <img
-        className="absolute top-0 right-0 select-none"
+        className="absolute right-0 select-none max-lg:top-[5rem] max-lg:h-[200px] max-lg:w-[150px] lg:top-0"
         src="./img/PagesImg/FAQImg/FAQFlowerRight.png"
         alt="flower"
       />
@@ -94,7 +93,7 @@ const FAQPage: FC = () => {
           decorativeElementClassName={TITLE_DECORATIVE_CLASSNAME}
         />
 
-        <div className="blocks flex flex-col mt-16 gap-3">
+        <div className="blocks relative z-20 mt-16 flex flex-col gap-3">
           {questions.map((obj) => (
             <FAQBlock
               key={obj.id}
@@ -106,8 +105,9 @@ const FAQPage: FC = () => {
           ))}
         </div>
       </div>
-      <DecorativeElement className="absolute w-[465px] h-[220px] -bottom-[4rem] -left-[12rem] bg-[#3D5279] rounded-[466px] blur-[125px]" />
-      <FAQBgBottom />
+      <DecorativeElement className="absolute -bottom-[4rem] rounded-[466px] bg-[#3D5279] blur-[125px] max-lg:right-6 max-lg:h-[100px] max-lg:w-[250px] max-lg:rotate-[21deg] max-lg:blur-[50px] lg:-left-[12rem] lg:h-[220px] lg:w-[465px]" />
+      <DecorativeElement className="absolute -bottom-[10rem] right-0 h-[400px] w-[489px] rounded-[400px] bg-[#3D5279] blur-[125px] max-lg:hidden" />
+      {/* <FAQBgBottom /> */}
     </div>
   );
 };

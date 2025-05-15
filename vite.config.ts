@@ -14,4 +14,18 @@ export default defineConfig({
       promiseImportName: (i) => `__tla_${i}`,
     }),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            if (id.includes("redux") || id.includes("@reduxjs/toolkit")) {
+              return "vendor-redux";
+            }
+            return "vendor";
+          }
+        },
+      },
+    },
+  },
 });

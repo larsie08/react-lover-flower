@@ -8,33 +8,32 @@ interface FAQBlockProps {
   onClick: () => void;
 }
 
-export const FAQBlock: FC<FAQBlockProps> = memo(({
-  title,
-  content,
-  isOpen,
-  onClick,
-}) => {
-  return (
-    <div
-      className={
-        "w-[825px] pb-5 px-5 flex flex-col border border-light-turquoise"
-      }
-    >
+export const FAQBlock: FC<FAQBlockProps> = memo(
+  ({ title, content, isOpen, onClick }) => {
+    return (
       <div
-        onClick={onClick}
-        className="trigger h-[80px] relative flex items-center justify-between z-20"
+        className={
+          "flex max-w-[825px] flex-col border border-light-turquoise px-5 pb-5 max-lg:gap-2 max-lg:pt-5"
+        }
       >
-        <h1 className="title text-center text-[20px] text-light-turquoise font-normal uppercase select-none">
-          {title}
-        </h1>
-        <h2 className="flex w-[15px] text-[40px] text-light-turquoise font-extralight cursor-pointer select-none">
-          {isOpen ? "-" : "+"}
-        </h2>
-      </div>
+        <div
+          onClick={onClick}
+          className="trigger relative z-20 flex max-h-[80px] items-center justify-between"
+        >
+          <h1 className="title select-none font-normal uppercase text-light-turquoise max-lg:text-[14px] lg:text-center lg:text-[20px]">
+            {title}
+          </h1>
+          <h2 className="flex w-[15px] cursor-pointer select-none text-[40px] font-extralight text-light-turquoise">
+            {isOpen ? "-" : "+"}
+          </h2>
+        </div>
 
-      <Collapse orientation="vertical" in={isOpen}>
-        <p className={"text-[20px] font-light"}>{content}</p>
-      </Collapse>
-    </div>
-  );
-});
+        <Collapse orientation="vertical" in={isOpen}>
+          <p className="font-light max-lg:text-[14px] lg:text-[20px]">
+            {content}
+          </p>
+        </Collapse>
+      </div>
+    );
+  },
+);

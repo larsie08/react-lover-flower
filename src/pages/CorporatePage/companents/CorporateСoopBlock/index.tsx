@@ -2,8 +2,8 @@ import { FC } from "react";
 
 export const CorporateСoopBlock: FC = () => {
   return (
-    <div className="cooperation_block flex flex-col gap-5 mt-24">
-      <p className="max-w-[736px] ml-20 text-[20px] font-light tracking-[0.8px]">
+    <div className="cooperation_block flex flex-col gap-5 max-lg:mt-10 lg:mt-24">
+      <p className="max-w-[736px] font-light tracking-[0.8px] max-lg:text-[14px] lg:ml-20 lg:text-[20px]">
         Одним вариантом сотрудничества является предоставление нам перечня
         сотрудников с Днями их рождений и мы уже самостоятельно связываемся с
         каждым, изготавливаем букет либо композицию и доставляем в удобное время
@@ -11,11 +11,11 @@ export const CorporateСoopBlock: FC = () => {
         настоящее время многие сотрудники продолжают выполнять работу удалённо
         либо находятся на больничном или в отпуске.
       </p>
-      <p className="max-w-[736px] ml-20 text-[20px] font-light tracking-[0.8px]">
+      <p className="max-w-[736px] font-light tracking-[0.8px] max-lg:text-[14px] lg:ml-20 lg:text-[20px]">
         Другим вариантом сотрудничества является заказ букетов самостоятельно
         представителем организации за день до нужной даты.
       </p>
-      <p className="max-w-[736px] ml-20 text-[20px] font-light tracking-[0.8px]">
+      <p className="max-w-[736px] font-light tracking-[0.8px] max-lg:text-[14px] lg:ml-20 lg:text-[20px]">
         Так вы <span className="text-light-turquoise">экономите время</span>{" "}
         остальных сотрудников на сбор денег на поиск подарка и доставку его
         получателю, а также оберегаете себя от риска пропустить кого-либо из

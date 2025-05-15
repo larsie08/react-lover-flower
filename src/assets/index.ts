@@ -28,10 +28,6 @@ export * from "./SVG/PagesSvg/CatalogSvg/CatalogCloseSvg";
 export * from "./SVG/PagesSvg/CatalogSvg/CatalogCheckSvg";
 export * from "./SVG/PagesSvg/CatalogSvg/CatalogTipSvg";
 
-export * from "./SVG/PagesSvg/FAQSvg/FAQBgBottom";
-
-export * from "./SVG/PagesSvg/CorporateSvg/CorporateBgColor";
-
 export * from "./SVG/PagesSvg/BouquetSvg/ArrowSvg";
 export * from "./SVG/PagesSvg/BouquetSvg/CardCircleSvg";
 
