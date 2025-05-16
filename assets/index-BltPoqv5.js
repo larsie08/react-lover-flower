@@ -1,7 +1,7 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-BRfCKMER.js","assets/vendor-DsNSJXVB.js","assets/vendor-DV8PrLMj.css","assets/index-83omGegK.js","assets/vendor-redux-CF_v3iJm.js","assets/index-U5rqBuqQ.js","assets/index-CLC-CVHy.js","assets/index-BYmjxxkQ.js","assets/index-KfIOe4Rj.js","assets/index-DoGJ3EK5.js","assets/index-Cpx_kkIg.js","assets/index-DdIB9-e6.js","assets/index-BQeNKjI0.js","assets/index-BPuv1Rvn.js","assets/index-DH31-DjI.js","assets/index-BpnorXUV.js"])))=>i.map(i=>d[i]);
-import { b as H, c as te, r as a, j as e, d as b, L as C, u as z, e as Ne, T as ye, f as se, g as le, h as T, B as ke, A as Ie, S as q, k as Le, l as Be, M as Se, N as Fe, m as Ae, n as ae, o as w, O as Oe, R as qe, q as f, s as Me, t as Ee, H as Te, __tla as __tla_0 } from "./vendor-DsNSJXVB.js";
-import { c as A, a as re, b as Pe, u as De, d as y, P as Re } from "./vendor-redux-CF_v3iJm.js";
-let p2, Xt, h, d, v, v2, pt, Z, U, Ue, at, d2, c2, x2, dt, ue, oe, C2, it, V, ce, m2, fe, f2, g2, N, j2, k, pe, mt, h2, Je, m1;
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-B2WhoEGM.js","assets/vendor-DsNSJXVB.js","assets/vendor-DV8PrLMj.css","assets/index-BdePPvjL.js","assets/vendor-redux-CF_v3iJm.js","assets/index-y3hp7U7Y.js","assets/index-BmYOGn4d.js","assets/index-2mvGZ64C.js","assets/index-DsgL8Q3d.js","assets/index-bDm_lFqc.js","assets/index-CGZ7cacG.js","assets/index-D9xRtKqc.js","assets/index-DvTuQMYs.js","assets/index-BkaaIAsD.js","assets/index-D9AX72Ex.js","assets/index-BpnorXUV.js"])))=>i.map(i=>d[i]);
+import { b as H, c as te, r as l, j as e, d as b, L as C, u as z, e as Ne, T as ye, f as se, g as ae, h as P, B as ke, A as Ie, S as q, k as Be, l as Le, M as Se, N as Fe, m as Ae, n as le, o as w, O as Oe, R as qe, q as f, s as Me, t as Ee, H as Pe, __tla as __tla_0 } from "./vendor-DsNSJXVB.js";
+import { c as A, a as re, b as Te, u as De, d as y, P as Re } from "./vendor-redux-CF_v3iJm.js";
+let p2, Xt, g, d, v, v2, pt, Z, U, Ue, lt, d2, c2, x2, dt, ue, oe, C2, it, V, ce, m2, fe, f2, h2, N, j2, k, pe, mt, g2, Je, m1;
 let __tla = Promise.all([
   (() => {
     try {
@@ -20,14 +20,14 @@ let __tla = Promise.all([
       childList: true,
       subtree: true
     });
-    function l(o) {
+    function a(o) {
       const i = {};
       return o.integrity && (i.integrity = o.integrity), o.referrerPolicy && (i.referrerPolicy = o.referrerPolicy), o.crossOrigin === "use-credentials" ? i.credentials = "include" : o.crossOrigin === "anonymous" ? i.credentials = "omit" : i.credentials = "same-origin", i;
     }
     function r(o) {
       if (o.ep) return;
       o.ep = true;
-      const i = l(o);
+      const i = a(o);
       fetch(o.href, i);
     }
   })();
@@ -37,19 +37,19 @@ let __tla = Promise.all([
     return "/react-lover-flower/" + t;
   };
   Q = {};
-  _ = function(s, l, r) {
+  _ = function(s, a, r) {
     let o = Promise.resolve();
-    if (l && l.length > 0) {
+    if (a && a.length > 0) {
       document.getElementsByTagName("link");
       const c = document.querySelector("meta[property=csp-nonce]"), m = (c == null ? void 0 : c.nonce) || (c == null ? void 0 : c.getAttribute("nonce"));
-      o = Promise.allSettled(l.map((n) => {
+      o = Promise.allSettled(a.map((n) => {
         if (n = ze(n), n in Q) return;
         Q[n] = true;
-        const x = n.endsWith(".css"), g = x ? '[rel="stylesheet"]' : "";
-        if (document.querySelector(`link[href="${n}"]${g}`)) return;
+        const x = n.endsWith(".css"), h = x ? '[rel="stylesheet"]' : "";
+        if (document.querySelector(`link[href="${n}"]${h}`)) return;
         const u = document.createElement("link");
-        if (u.rel = x ? "stylesheet" : He, x || (u.as = "script"), u.crossOrigin = "", u.href = n, m && u.setAttribute("nonce", m), document.head.appendChild(u), x) return new Promise((L, B) => {
-          u.addEventListener("load", L), u.addEventListener("error", () => B(new Error(`Unable to preload CSS for ${n}`)));
+        if (u.rel = x ? "stylesheet" : He, x || (u.as = "script"), u.crossOrigin = "", u.href = n, m && u.setAttribute("nonce", m), document.head.appendChild(u), x) return new Promise((B, L) => {
+          u.addEventListener("load", B), u.addEventListener("error", () => L(new Error(`Unable to preload CSS for ${n}`)));
         });
       }));
     }
@@ -76,12 +76,12 @@ let __tla = Promise.all([
     initialState: Ze,
     reducers: {
       setModalState(t, s) {
-        const { modalType: l, isOpen: r } = s.payload;
-        t[l] = r;
+        const { modalType: a, isOpen: r } = s.payload;
+        t[a] = r;
       },
       setSeverityOption(t, s) {
-        const { severity: l } = s.payload;
-        t.severityOption = l;
+        const { severity: a } = s.payload;
+        t.severityOption = a;
       }
     }
   });
@@ -108,14 +108,14 @@ let __tla = Promise.all([
     initialState: Ge,
     reducers: {
       setCategory(t, s) {
-        const { category: l } = s.payload;
-        t.category === l ? t.category = "" : t.category = l;
+        const { category: a } = s.payload;
+        t.category === a ? t.category = "" : t.category = a;
       },
       setFiltersId(t, s) {
-        const { payload: l } = s;
-        t.filtersId = t.filtersId.includes(l) ? t.filtersId.filter((r) => r !== l) : [
+        const { payload: a } = s;
+        t.filtersId = t.filtersId.includes(a) ? t.filtersId.filter((r) => r !== a) : [
           ...t.filtersId,
-          l
+          a
         ];
       },
       setClearFiltersId(t) {
@@ -134,21 +134,21 @@ let __tla = Promise.all([
   });
   ({ setCategory: ce, setFiltersId: c2, setClearFiltersId: x2, setSortValue: m2, setConfirm: Ue, setFieldPriceValue: d2 } = ne.actions);
   $e = ne.reducer;
-  M = re("bouquets/fetchBouquetsStatus", async ({ sortProperty: t, category: s, filterIds: l, fieldPriceValue: r }) => {
+  M = re("bouquets/fetchBouquetsStatus", async ({ sortProperty: t, category: s, filterIds: a, fieldPriceValue: r }) => {
     const o = new URLSearchParams({
       sortBy: t,
       category: s,
       minPriceValue: String(r[0]),
       maxPriceValue: String(r[1])
     });
-    l && l.forEach((c) => {
+    a && a.forEach((c) => {
       o.append("filters", c);
     });
     const { data: i } = await H.get(`http://localhost:3000/api/bouquets?${o}`);
     return i;
   });
   var I = ((t) => (t.LOADING = "loading", t.SUCCESS = "success", t.ERROR = "error", t))(I || {});
-  let Qe, xe, We, E, Ye, Ke, me, Xe, W, et, P, tt, de, u2, st, lt, rt, ot, nt, ct;
+  let Qe, xe, We, E, Ye, Ke, me, Xe, W, et, T, tt, de, u2, st, at, rt, ot, nt, ct;
   Qe = {
     items: [],
     status: I.LOADING
@@ -159,7 +159,7 @@ let __tla = Promise.all([
     reducers: {
       updateBouquet(t, s) {
         var _a;
-        const { id: l, review: r } = s.payload, o = t.items.find((i) => i.id === l);
+        const { id: a, review: r } = s.payload, o = t.items.find((i) => i.id === a);
         o && (Array.isArray(o.reviews) ? (_a = o.reviews) == null ? void 0 : _a.push(r) : o.reviews = [
           r
         ]);
@@ -168,8 +168,8 @@ let __tla = Promise.all([
     extraReducers: (t) => {
       t.addCase(M.pending, (s) => {
         s.status = I.LOADING, s.items = [];
-      }), t.addCase(M.fulfilled, (s, l) => {
-        s.items = l.payload, s.status = I.SUCCESS;
+      }), t.addCase(M.fulfilled, (s, a) => {
+        s.items = a.payload, s.status = I.SUCCESS;
       }), t.addCase(M.rejected, (s) => {
         s.status = I.ERROR, s.items = [];
       });
@@ -177,12 +177,12 @@ let __tla = Promise.all([
   });
   ({ updateBouquet: p2 } = xe.actions);
   We = xe.reducer;
-  E = (t) => t.reduce((s, l) => l.cost * l.quantity + s, 0);
+  E = (t) => t.reduce((s, a) => a.cost * a.quantity + s, 0);
   Ye = () => {
-    const t = localStorage.getItem("flower-cart"), s = t ? JSON.parse(t) : [], l = E(s);
+    const t = localStorage.getItem("flower-cart"), s = t ? JSON.parse(t) : [], a = E(s);
     return {
       cartItems: s,
-      totalPrice: l
+      totalPrice: a
     };
   };
   Ke = Ye();
@@ -191,23 +191,23 @@ let __tla = Promise.all([
     initialState: Ke,
     reducers: {
       setCartItem(t, s) {
-        const { id: l, quantity: r } = s.payload, o = t.cartItems.find((i) => i.id === l);
+        const { id: a, quantity: r } = s.payload, o = t.cartItems.find((i) => i.id === a);
         o ? o.quantity += r : t.cartItems.push({
           ...s.payload
         }), t.totalPrice = E(t.cartItems);
       },
       updateItemCount(t, s) {
-        const { id: l, delta: r } = s.payload, o = t.cartItems.find((i) => i.id === l);
+        const { id: a, delta: r } = s.payload, o = t.cartItems.find((i) => i.id === a);
         o && (o.quantity += r), t.totalPrice = E(t.cartItems);
       },
       setDeleteBouquet(t, s) {
-        t.cartItems = t.cartItems.filter((l) => l.id !== s.payload), t.totalPrice = E(t.cartItems);
+        t.cartItems = t.cartItems.filter((a) => a.id !== s.payload), t.totalPrice = E(t.cartItems);
       }
     }
   });
   ({ setCartItem: Je, setDeleteBouquet: Xe, updateItemCount: W } = me.actions);
   et = me.reducer;
-  P = re("reviews/fetchReviewsStatus", async ({ bouquetId: t }) => {
+  T = re("reviews/fetchReviewsStatus", async ({ bouquetId: t }) => {
     const { data: s } = await H.get(`http://localhost:3000/api/review/${t}`);
     return s;
   });
@@ -226,18 +226,18 @@ let __tla = Promise.all([
       }
     },
     extraReducers: (t) => {
-      t.addCase(P.pending, (s) => {
+      t.addCase(T.pending, (s) => {
         s.status = I.LOADING, s.reviews = [];
-      }), t.addCase(P.fulfilled, (s, l) => {
-        s.reviews = l.payload, s.status = I.SUCCESS;
-      }), t.addCase(P.rejected, (s) => {
+      }), t.addCase(T.fulfilled, (s, a) => {
+        s.reviews = a.payload, s.status = I.SUCCESS;
+      }), t.addCase(T.rejected, (s) => {
         s.status = I.ERROR, s.reviews = [];
       });
     }
   });
   ({ addReview: u2 } = de.actions);
   st = de.reducer;
-  lt = Pe({
+  at = Te({
     reducer: {
       modal: Ve,
       filter: $e,
@@ -247,23 +247,23 @@ let __tla = Promise.all([
     }
   });
   k = () => De();
-  at = (t) => t.filter;
+  lt = (t) => t.filter;
   rt = (t) => t.bouquets.items;
   it = (t) => t.bouquets;
-  h2 = te([
+  g2 = te([
     rt,
     (t, s) => s
-  ], (t, s) => t.find((l) => l.id === s));
+  ], (t, s) => t.find((a) => a.id === s));
   ot = (t) => t.cart.cartItems;
   nt = (t) => t.modal.isOpenCart;
   V = (t) => t.cart;
   ct = te([
     ot,
     (t, s) => s
-  ], (t, s) => t.find((l) => l.id === s));
+  ], (t, s) => t.find((a) => a.id === s));
   v = ((t) => (t.Modal = "isOpenModal", t.Cart = "isOpenCart", t.HamburgerMenu = "isOpenHamburgerMenu", t.Alert = "isOpenAlertBlock", t))(v || {});
-  let xt, ut, ht, gt, ft, Ct, jt, vt, wt, bt, _t, Nt, yt, kt, It, Lt, Bt, he, St, Ft, G, At, Ot, qt, Mt, Et, Tt, Pt, Dt, Rt, F, Ht, D, zt, Y, K, Zt, Vt, Gt, Ut, $t, Qt, $, Wt, Yt, Kt, Jt, J, e1, t1, s1, l1, a1, r1, i1, o1, n1;
-  pe = a.memo(() => e.jsx("svg", {
+  let xt, ut, gt, ht, ft, Ct, jt, vt, wt, bt, _t, Nt, yt, kt, It, Bt, Lt, ge, St, Ft, G, At, Ot, qt, Mt, Et, Pt, Tt, Dt, Rt, F, Ht, D, zt, Y, K, Zt, Vt, Gt, Ut, $t, Qt, $, Wt, Yt, Kt, Jt, J, e1, t1, s1, a1, l1, r1, i1, o1, n1;
+  pe = l.memo(() => e.jsx("svg", {
     className: "mr-2.5",
     xmlns: "http://www.w3.org/2000/svg",
     width: "18",
@@ -275,7 +275,7 @@ let __tla = Promise.all([
       fill: "white"
     })
   }));
-  xt = a.memo(() => e.jsx("svg", {
+  xt = l.memo(() => e.jsx("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "18",
     height: "18",
@@ -286,7 +286,7 @@ let __tla = Promise.all([
       fill: "#43FFD2"
     })
   }));
-  mt = a.memo(() => e.jsxs("svg", {
+  mt = l.memo(() => e.jsxs("svg", {
     className: "ei-close",
     width: "18",
     height: "18",
@@ -357,7 +357,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  ue = a.memo(() => e.jsx("svg", {
+  ue = l.memo(() => e.jsx("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "30",
     height: "30",
@@ -458,7 +458,7 @@ let __tla = Promise.all([
       fill: "#43FFD2"
     })
   });
-  ht = () => e.jsx("svg", {
+  gt = () => e.jsx("svg", {
     className: "ml-2",
     xmlns: "http://www.w3.org/2000/svg",
     width: "40",
@@ -470,7 +470,7 @@ let __tla = Promise.all([
       fill: "#D978AC"
     })
   });
-  gt = () => e.jsx("svg", {
+  ht = () => e.jsx("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "80",
     height: "6",
@@ -808,7 +808,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  Lt = () => e.jsxs("svg", {
+  Bt = () => e.jsxs("svg", {
     className: "absolute -bottom-56 left-0 blur-[10px]",
     xmlns: "http://www.w3.org/2000/svg",
     width: "339",
@@ -856,7 +856,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  Bt = () => e.jsxs("svg", {
+  Lt = () => e.jsxs("svg", {
     className: "absolute -bottom-[11rem] right-0 z-30 max-xl:size-2/3",
     width: "235",
     height: "413",
@@ -900,7 +900,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  g2 = a.memo(() => e.jsxs("svg", {
+  h2 = l.memo(() => e.jsxs("svg", {
     className: "absolute -bottom-[20rem] right-0",
     xmlns: "http://www.w3.org/2000/svg",
     width: "489",
@@ -944,7 +944,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  f2 = a.memo(() => e.jsxs("svg", {
+  f2 = l.memo(() => e.jsxs("svg", {
     className: "absolute -bottom-[20rem]",
     xmlns: "http://www.w3.org/2000/svg",
     width: "339",
@@ -992,7 +992,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  C2 = a.memo(({ isOpen: t }) => e.jsx("svg", {
+  C2 = l.memo(({ isOpen: t }) => e.jsx("svg", {
     className: b("transition-all duration-300", {
       "-rotate-180": t
     }),
@@ -1006,7 +1006,7 @@ let __tla = Promise.all([
       fill: "white"
     })
   }));
-  he = a.memo(() => e.jsxs("svg", {
+  ge = l.memo(() => e.jsxs("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "112",
     height: "24",
@@ -1157,7 +1157,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  Ot = a.memo(({ cart: t, openCart: s }) => e.jsxs("div", {
+  Ot = l.memo(({ cart: t, openCart: s }) => e.jsxs("div", {
     className: "cart_block flex items-center gap-8",
     children: [
       e.jsxs("div", {
@@ -1199,7 +1199,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  qt = a.memo(() => e.jsxs("div", {
+  qt = l.memo(() => e.jsxs("div", {
     className: "flex flex-col gap-5 mt-5",
     children: [
       e.jsxs("div", {
@@ -1230,13 +1230,13 @@ let __tla = Promise.all([
       })
     ]
   }));
-  Mt = a.memo(({ id: t, name: s, imageUrl: l, cost: r }) => e.jsxs(C, {
+  Mt = l.memo(({ id: t, name: s, imageUrl: a, cost: r }) => e.jsxs(C, {
     to: `/catalog/bouquet/${t}`,
     className: "card group/card relative flex gap-3 z-20 h-[80px] border-t p-3 w-full hover:bg-light-turquoise transition-colors",
     children: [
       e.jsx("img", {
         className: "bg-cover h-full w-[50px]",
-        src: l,
+        src: a,
         alt: "bouquet"
       }),
       e.jsxs("div", {
@@ -1257,27 +1257,27 @@ let __tla = Promise.all([
       })
     ]
   }));
-  Et = a.memo(({ lastScrollY: t, SCROLL_HIDE_THRESHOLD: s, showHeader: l }) => {
-    const r = z(), o = a.useRef(null), [i, c] = a.useState(""), [m, n] = a.useState([]), [x, g] = a.useState(false);
-    a.useEffect(() => (document.body.addEventListener("click", L), () => {
-      document.body.removeEventListener("click", L);
-    }), []), a.useEffect(() => (i ? document.addEventListener("keydown", u) : g(false), () => {
+  Et = l.memo(({ lastScrollY: t, SCROLL_HIDE_THRESHOLD: s, showHeader: a }) => {
+    const r = z(), o = l.useRef(null), [i, c] = l.useState(""), [m, n] = l.useState([]), [x, h] = l.useState(false);
+    l.useEffect(() => (document.body.addEventListener("click", B), () => {
+      document.body.removeEventListener("click", B);
+    }), []), l.useEffect(() => (i ? document.addEventListener("keydown", u) : h(false), () => {
       document.removeEventListener("keydown", u);
     }), [
       i
     ]);
     const u = (p) => {
       o.current && p.composedPath().includes(o.current) && p.key === "Enter" && r(`search/${i}`);
-    }, L = (p) => {
-      o.current && p.composedPath().includes(o.current) ? g(true) : g(false);
-    }, B = a.useCallback((p) => {
+    }, B = (p) => {
+      o.current && p.composedPath().includes(o.current) ? h(true) : h(false);
+    }, L = l.useCallback((p) => {
       p.preventDefault(), c(""), n([]);
     }, [
       r
     ]), we = async (p) => {
       try {
         const { data: S } = await H.get(`http://localhost:3000/api/bouquets/search/${p}`);
-        n(S), g(true);
+        n(S), h(true);
       } catch (S) {
         console.error("Error fetching search bouquets:", S);
       }
@@ -1337,7 +1337,7 @@ let __tla = Promise.all([
               input: {
                 startAdornment: e.jsx(pe, {}),
                 endAdornment: i.length !== 0 && e.jsx("button", {
-                  onClick: B,
+                  onClick: L,
                   children: e.jsx(mt, {})
                 })
               }
@@ -1350,7 +1350,7 @@ let __tla = Promise.all([
           }, {
             "top-[5rem]": t > s
           }, {
-            "-translate-y-[200%] opacity-0": !l && t > s || !x
+            "-translate-y-[200%] opacity-0": !a && t > s || !x
           }),
           children: m.map((p) => e.jsx(Mt, {
             id: p.id,
@@ -1362,22 +1362,22 @@ let __tla = Promise.all([
       ]
     });
   });
-  h = a.memo(({ className: t, children: s }) => e.jsx("div", {
+  g = l.memo(({ className: t, children: s }) => e.jsx("div", {
     className: t,
     children: s
   }));
-  Tt = a.memo(({ name: t, handleCategorySelect: s }) => e.jsxs(C, {
+  Pt = l.memo(({ name: t, handleCategorySelect: s }) => e.jsxs(C, {
     to: "catalog",
     onClick: () => s(t),
     className: "group/categories catalog_name group-[:hover]:opacity-100 opacity-0 text-[14px] font-normal relative z-30 tracking-[.56px] uppercase cursor-pointer hover:text-light-turquoise",
     children: [
       t,
-      e.jsx(h, {
+      e.jsx(g, {
         className: "absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/categories:w-full group-hover/categories:visible transition-all duration-300"
       })
     ]
   }));
-  Pt = a.memo(({ categories: t, navLinks: s, handleCategorySelect: l }) => e.jsxs(e.Fragment, {
+  Tt = l.memo(({ categories: t, navLinks: s, handleCategorySelect: a }) => e.jsxs(e.Fragment, {
     children: [
       e.jsx(C, {
         to: "/",
@@ -1399,16 +1399,16 @@ let __tla = Promise.all([
                 className: "group/link hover:text-light-turquoise hover:decoration-light-turquoise cursor-pointer transition-all group-hover:text-light-turquoise",
                 children: [
                   "\u041A\u0430\u0442\u0430\u043B\u043E\u0433",
-                  e.jsx(h, {
+                  e.jsx(g, {
                     className: "absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/link:w-full group-hover/link:visible transition-all group-hover:w-full group-hover:visible"
                   })
                 ]
               }),
               e.jsx("ul", {
                 className: "group/submenu absolute group-[:hover]:visible group-[:hover]:opacity-100 opacity-0 -left-4 top-[40px] invisible bg-[grey]/[.3] backdrop-blur-[10px] flex flex-col gap-1 w-[260px] p-2 transition-all z-20",
-                children: t.map((r) => e.jsx(Tt, {
+                children: t.map((r) => e.jsx(Pt, {
                   name: r.name,
-                  handleCategorySelect: l
+                  handleCategorySelect: a
                 }, r.name))
               })
             ]
@@ -1420,7 +1420,7 @@ let __tla = Promise.all([
               className: "relative",
               children: [
                 r.label,
-                e.jsx(h, {
+                e.jsx(g, {
                   className: "absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/nav:w-full group-hover/nav:visible transition-all"
                 })
               ]
@@ -1431,10 +1431,10 @@ let __tla = Promise.all([
     ]
   }));
   U = () => {
-    const [t, s] = a.useState(window.outerWidth);
-    return a.useEffect(() => {
-      const l = () => s(window.outerWidth);
-      return window.addEventListener("resize", l), () => window.removeEventListener("resize", l);
+    const [t, s] = l.useState(window.outerWidth);
+    return l.useEffect(() => {
+      const a = () => s(window.outerWidth);
+      return window.addEventListener("resize", a), () => window.removeEventListener("resize", a);
     }, []), t;
   };
   Dt = [
@@ -1488,18 +1488,18 @@ let __tla = Promise.all([
     }
   ];
   F = 80;
-  Ht = a.memo(() => {
-    const t = k(), s = se(), l = U(), [r, o] = a.useState(true), [i, c] = a.useState(0), { cartItems: m } = y(V), n = a.useCallback(() => {
+  Ht = l.memo(() => {
+    const t = k(), s = se(), a = U(), [r, o] = l.useState(true), [i, c] = l.useState(0), { cartItems: m } = y(V), n = l.useCallback(() => {
       o(!(window.scrollY > i)), c(window.scrollY);
     }, [
       i
-    ]), x = a.useCallback((L) => {
+    ]), x = l.useCallback((B) => {
       t(ce({
-        category: L
+        category: B
       }));
     }, [
       t
-    ]), g = a.useCallback(() => {
+    ]), h = l.useCallback(() => {
       t(N({
         modalType: v.Cart,
         isOpen: true
@@ -1509,7 +1509,7 @@ let __tla = Promise.all([
       }));
     }, [
       t
-    ]), u = a.useCallback(() => {
+    ]), u = l.useCallback(() => {
       t(N({
         modalType: v.HamburgerMenu,
         isOpen: true
@@ -1517,7 +1517,7 @@ let __tla = Promise.all([
     }, [
       t
     ]);
-    return a.useEffect(() => (window.addEventListener("scroll", n), () => {
+    return l.useEffect(() => (window.addEventListener("scroll", n), () => {
       window.removeEventListener("scroll", n);
     }), [
       i
@@ -1525,7 +1525,7 @@ let __tla = Promise.all([
       id: "header",
       className: b("w-full fixed z-40 transition", {
         "-translate-y-full": !r && i > F,
-        "bg-[black]": s.pathname !== "/" && l < 768 || i > F
+        "bg-[black]": s.pathname !== "/" && a < 768 || i > F
       }),
       children: e.jsxs("div", {
         className: "header__wrapper flex justify-between h-[80px] container mx-auto",
@@ -1560,7 +1560,7 @@ let __tla = Promise.all([
           e.jsxs("div", {
             className: "content max-lg:hidden lg:flex",
             children: [
-              e.jsx(Pt, {
+              e.jsx(Tt, {
                 handleCategorySelect: x,
                 categories: Dt,
                 navLinks: Rt
@@ -1572,28 +1572,28 @@ let __tla = Promise.all([
               })
             ]
           }),
-          l <= 768 || i > F ? e.jsx(Ot, {
+          a <= 768 || i > F ? e.jsx(Ot, {
             cart: m,
-            openCart: g
+            openCart: h
           }) : e.jsx(qt, {})
         ]
       })
     });
   });
-  D = a.memo(({ title: t, path: s, className: l }) => e.jsx("li", {
-    className: l,
+  D = l.memo(({ title: t, path: s, className: a }) => e.jsx("li", {
+    className: a,
     children: e.jsxs(C, {
       to: s,
       className: "group/footer-title relative hover:text-cherry transition-colors",
       children: [
         t,
-        e.jsx(h, {
+        e.jsx(g, {
           className: "absolute invisible h-[1px] w-0 bg-cherry group-hover/footer-title:w-full group-hover/footer-title:visible transition-all duration-300"
         })
       ]
     })
   }));
-  zt = a.memo(({ name: t, contentInfo: s }) => e.jsxs("div", {
+  zt = l.memo(({ name: t, contentInfo: s }) => e.jsxs("div", {
     className: "flex flex-col gap-1.5",
     children: [
       e.jsx("h2", {
@@ -1606,7 +1606,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  Y = a.memo(({ name: t, selectCategory: s }) => e.jsx("li", {
+  Y = l.memo(({ name: t, selectCategory: s }) => e.jsx("li", {
     className: "max-sm:hidden sm:flex",
     children: e.jsxs(C, {
       to: "catalog",
@@ -1614,7 +1614,7 @@ let __tla = Promise.all([
       className: "group/catalog relative text-standart font-light uppercase tracking-[0.48px] cursor-pointer hover:text-light-turquoise transition-colors",
       children: [
         t,
-        e.jsx(h, {
+        e.jsx(g, {
           className: "absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/catalog:w-full group-hover/catalog:visible transition-all duration-300 z-0"
         })
       ]
@@ -1702,9 +1702,9 @@ let __tla = Promise.all([
     }
   ];
   Qt = () => {
-    const t = k(), s = a.useCallback((l) => {
+    const t = k(), s = l.useCallback((a) => {
       t(ce({
-        category: l
+        category: a
       }));
     }, [
       t
@@ -1742,10 +1742,10 @@ let __tla = Promise.all([
                 path: "catalog",
                 className: K
               }),
-              Vt.map((l) => e.jsx(Y, {
-                name: l.name,
+              Vt.map((a) => e.jsx(Y, {
+                name: a.name,
                 selectCategory: s
-              }, l.name))
+              }, a.name))
             ]
           }),
           e.jsxs("ul", {
@@ -1756,29 +1756,29 @@ let __tla = Promise.all([
                 path: "catalog",
                 className: K
               }),
-              Gt.map((l) => e.jsx(Y, {
-                name: l
-              }, l))
+              Gt.map((a) => e.jsx(Y, {
+                name: a
+              }, a))
             ]
           }),
           e.jsx("ul", {
             className: "flex flex-col gap-6 lg:mt-7 max-lg:gap-2.5 max-w-[160px] max-lg:items-center max-lg:text-center",
-            children: Ut.map((l) => e.jsx(D, {
-              path: l.url,
-              title: l.link,
+            children: Ut.map((a) => e.jsx(D, {
+              path: a.url,
+              title: a.link,
               className: Zt
-            }, l.url))
+            }, a.url))
           }),
           e.jsxs("div", {
             className: "flex flex-col gap-5 mt-7",
             children: [
-              $t.map((l) => e.jsx(zt, {
-                name: l.title,
-                contentInfo: l.content
-              }, l.title)),
+              $t.map((a) => e.jsx(zt, {
+                name: a.title,
+                contentInfo: a.content
+              }, a.title)),
               e.jsx("div", {
                 className: "mt-9 flex justify-center",
-                children: e.jsx(he, {})
+                children: e.jsx(ge, {})
               })
             ]
           })
@@ -1789,13 +1789,13 @@ let __tla = Promise.all([
   $ = (t) => t.modal;
   Wt = (t) => t.modal.severityOption;
   Yt = ({ handleAlert: t }) => {
-    const { register: s, handleSubmit: l, formState: { errors: r } } = le(), o = (c) => {
+    const { register: s, handleSubmit: a, formState: { errors: r } } = ae(), o = (c) => {
       console.log(c), t("success");
     }, i = (c) => {
       console.log(c), t("error");
     };
     return e.jsxs("form", {
-      onSubmit: l(o, i),
+      onSubmit: a(o, i),
       className: "call_modal__form flex flex-col gap-3 mt-3",
       children: [
         e.jsx("input", {
@@ -1823,13 +1823,13 @@ let __tla = Promise.all([
       ]
     });
   };
-  Kt = a.memo(() => {
-    const t = k(), { isOpenModal: s } = y($), l = () => {
+  Kt = l.memo(() => {
+    const t = k(), { isOpenModal: s } = y($), a = () => {
       t(N({
         modalType: v.Modal,
         isOpen: false
       }));
-    }, r = a.useCallback((o) => {
+    }, r = l.useCallback((o) => {
       t(N({
         modalType: v.Alert,
         isOpen: true
@@ -1839,7 +1839,7 @@ let __tla = Promise.all([
     }, [
       t
     ]);
-    return T.createPortal(e.jsxs("div", {
+    return P.createPortal(e.jsxs("div", {
       className: b("call_modal fixed z-40 bottom-4 right-4 w-0 h-[485px] bg-[#0F2222] opacity-0 transition-all duration-200", {
         "w-[540px] opacity-100": s
       }),
@@ -1852,7 +1852,7 @@ let __tla = Promise.all([
             e.jsx("div", {
               className: "call_modal__close flex justify-end",
               children: e.jsx("button", {
-                onClick: l,
+                onClick: a,
                 children: e.jsx(G, {})
               })
             }),
@@ -1894,7 +1894,7 @@ let __tla = Promise.all([
       ]
     }), document.getElementById("portal"));
   });
-  Jt = a.memo(({ closeCart: t, screenWidth: s }) => e.jsxs("div", {
+  Jt = l.memo(({ closeCart: t, screenWidth: s }) => e.jsxs("div", {
     className: "title flex items-center justify-between border-b-[1px] w-full pb-4 border-[#555] ",
     children: [
       e.jsx("h1", {
@@ -1907,13 +1907,13 @@ let __tla = Promise.all([
       })
     ]
   }));
-  J = a.memo(({ onClick: t, disabled: s = false, children: l }) => e.jsx("button", {
+  J = l.memo(({ onClick: t, disabled: s = false, children: a }) => e.jsx("button", {
     onClick: t,
     disabled: s,
     className: "h-full w-[8px] disabled:text-[#555] text-[white] hover:text-light-turquoise active:text-cherry transition-colors",
-    children: l
+    children: a
   }));
-  Xt = a.memo(({ id: t, name: s, cost: l, imageUrl: r, quantity: o, dispatch: i }) => {
+  Xt = l.memo(({ id: t, name: s, cost: a, imageUrl: r, quantity: o, dispatch: i }) => {
     const c = (x) => i(W({
       id: x,
       delta: 1
@@ -1964,7 +1964,7 @@ let __tla = Promise.all([
             e.jsxs("p", {
               className: "text-[14px] text-light-turquoise font-bold tracking-[0.56px] uppercase max-lg:text-[12px] max-lg:tracking-[0.04em]",
               children: [
-                l,
+                a,
                 " \u20BD"
               ]
             }),
@@ -1988,7 +1988,7 @@ let __tla = Promise.all([
       url: "./img/balls/heart.png"
     }
   ];
-  t1 = a.memo(() => e.jsxs("div", {
+  t1 = l.memo(() => e.jsxs("div", {
     className: "top_block flex flex-col gap-3",
     children: [
       e.jsx("div", {
@@ -2036,7 +2036,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  s1 = a.memo(({ totalPrice: t, handleOrderButton: s }) => e.jsxs("div", {
+  s1 = l.memo(({ totalPrice: t, handleOrderButton: s }) => e.jsxs("div", {
     className: "total_price_block flex flex-col lg:gap-5 max-lg:gap-2",
     children: [
       e.jsxs("div", {
@@ -2063,30 +2063,30 @@ let __tla = Promise.all([
       })
     ]
   }));
-  l1 = () => {
-    const t = k(), s = z(), l = U(), { totalPrice: r, cartItems: o } = y(V), i = y(nt), c = a.useCallback(() => t(N({
+  a1 = () => {
+    const t = k(), s = z(), a = U(), { totalPrice: r, cartItems: o } = y(V), i = y(nt), c = l.useCallback(() => t(N({
       modalType: v.Cart,
       isOpen: false
     })), [
       t
-    ]), m = a.useCallback(() => {
+    ]), m = l.useCallback(() => {
       (o.length !== 0 || o) && (s("order"), c());
     }, [
       t,
       o
     ]);
-    return a.useEffect(() => {
+    return l.useEffect(() => {
       localStorage.setItem("flower-cart", JSON.stringify(o));
     }, [
       o
-    ]), a.useEffect(() => {
+    ]), l.useEffect(() => {
       const n = document.body, x = document.getElementById("header"), u = `${window.innerWidth - document.documentElement.clientWidth}px`;
       return i ? (n.style.paddingRight = u, n.style.overflow = "hidden", x && (x.style.paddingRight = u)) : (n.style.paddingRight = "0px", n.style.overflow = "visible", x && (x.style.paddingRight = "0px")), () => {
         n.style.paddingRight = "0px", n.style.overflow = "visible", x && (x.style.paddingRight = "0px");
       };
     }, [
       i
-    ]), T.createPortal(e.jsxs("div", {
+    ]), P.createPortal(e.jsxs("div", {
       className: b("cart fixed top-0 w-full h-full z-40 delay-75", {
         invisible: !i,
         visible: i
@@ -2110,11 +2110,11 @@ let __tla = Promise.all([
               children: [
                 e.jsx(Jt, {
                   closeCart: c,
-                  screenWidth: l
+                  screenWidth: a
                 }),
                 e.jsx("div", {
                   className: b("flex flex-col pr-4", {
-                    "overflow-y-scroll": o.length > 5 || l < 769 && o.length >= 4
+                    "overflow-y-scroll": o.length > 5 || a < 769 && o.length >= 4
                   }),
                   children: o.map((n) => e.jsx(Xt, {
                     id: n.id,
@@ -2131,7 +2131,7 @@ let __tla = Promise.all([
               className: "flex flex-col",
               children: [
                 e.jsx(t1, {}),
-                e.jsx(h, {
+                e.jsx(g, {
                   className: "lg:mt-7 mb-3 border-b-[1px] border-[#555] max-lg:mt-3"
                 }),
                 e.jsx(s1, {
@@ -2145,7 +2145,7 @@ let __tla = Promise.all([
       ]
     }), document.getElementById("portal"));
   };
-  a1 = a.memo(() => e.jsxs(e.Fragment, {
+  l1 = l.memo(() => e.jsxs(e.Fragment, {
     children: [
       e.jsxs("div", {
         className: "flex flex-col",
@@ -2166,11 +2166,11 @@ let __tla = Promise.all([
       }),
       e.jsx("div", {
         className: "mt-2.5",
-        children: e.jsx(he, {})
+        children: e.jsx(ge, {})
       })
     ]
   }));
-  r1 = a.memo(({ title: t, content: s }) => e.jsxs("div", {
+  r1 = l.memo(({ title: t, content: s }) => e.jsxs("div", {
     className: "flex flex-col",
     children: [
       e.jsx("h1", {
@@ -2223,14 +2223,14 @@ let __tla = Promise.all([
       content: "10:00 \u0434\u043E 21:00 \u0431\u0435\u0437 \u0432\u044B\u0445\u043E\u0434\u043D\u044B\u0445"
     }
   ];
-  n1 = a.memo(() => {
-    const t = k(), { isOpenHamburgerMenu: s } = y($), l = () => {
+  n1 = l.memo(() => {
+    const t = k(), { isOpenHamburgerMenu: s } = y($), a = () => {
       t(N({
         modalType: v.HamburgerMenu,
         isOpen: false
       }));
     };
-    return T.createPortal(e.jsx("div", {
+    return P.createPortal(e.jsx("div", {
       className: b("hamburger-menu fixed z-40 top-0 left-0 w-0 h-[100vh] bg-[black] opacity-0 transition-all duration-200", {
         "w-[260px] opacity-100 visible": s
       }, {
@@ -2247,7 +2247,7 @@ let __tla = Promise.all([
                 alt: "logo"
               }),
               e.jsx("button", {
-                onClick: l,
+                onClick: a,
                 children: e.jsx(G, {})
               })
             ]
@@ -2267,12 +2267,12 @@ let __tla = Promise.all([
             className: "flex flex-col gap-2.5 mt-2.5",
             children: i1.map((r) => e.jsx(C, {
               to: r.url,
-              onClick: l,
+              onClick: a,
               className: "text-[14px] tracking-[0.04em] font-normal uppercase",
               children: r.link
             }, r.url))
           }),
-          e.jsx(h, {
+          e.jsx(g, {
             className: "border-b-[1px] border-[#555555] mt-2.5 w-[100px]"
           }),
           e.jsxs("div", {
@@ -2282,36 +2282,36 @@ let __tla = Promise.all([
                 title: r.title,
                 content: r.content
               }, r.title)),
-              e.jsx(a1, {})
+              e.jsx(l1, {})
             ]
           })
         ]
       })
     }), document.getElementById("portal"));
   });
-  var ge = ((t) => (t.success = "\u041E\u043F\u0435\u0440\u0430\u0446\u0438\u044F \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0430 \u0443\u0441\u043F\u0435\u0448\u043D\u043E.", t.info = "\u041E\u0431\u0440\u0430\u0442\u0438\u0442\u0435 \u0432\u043D\u0438\u043C\u0430\u043D\u0438\u0435 \u043D\u0430 \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u0443\u044E \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E.", t.warning = "\u041F\u0440\u0435\u0434\u0443\u043F\u0440\u0435\u0436\u0434\u0435\u043D\u0438\u0435: \u043F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435 \u0432\u0432\u0435\u0434\u0451\u043D\u043D\u044B\u0435 \u0434\u0430\u043D\u043D\u044B\u0435.", t.error = "\u041F\u0440\u043E\u0438\u0437\u043E\u0448\u043B\u0430 \u043E\u0448\u0438\u0431\u043A\u0430. \u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u043F\u043E\u0437\u0436\u0435.", t))(ge || {});
-  let c1, x1, d1, p1, u1, h1, g1, Ce, R, O, f1, C1, j1, v1, w1, b1, _1, N1, y1, k1, I1, X, L1, B1, S1, F1, A1, O1, q1, M1, E1, ee, T1, P1, D1, je, R1, H1, ve, z1, Z1, V1, G1, U1, $1, Q1, W1, Y1, K1, J1, X1, e2, t2, s2, l2, a2, j, r2;
+  var he = ((t) => (t.success = "\u041E\u043F\u0435\u0440\u0430\u0446\u0438\u044F \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0430 \u0443\u0441\u043F\u0435\u0448\u043D\u043E.", t.info = "\u041E\u0431\u0440\u0430\u0442\u0438\u0442\u0435 \u0432\u043D\u0438\u043C\u0430\u043D\u0438\u0435 \u043D\u0430 \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u0443\u044E \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E.", t.warning = "\u041F\u0440\u0435\u0434\u0443\u043F\u0440\u0435\u0436\u0434\u0435\u043D\u0438\u0435: \u043F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435 \u0432\u0432\u0435\u0434\u0451\u043D\u043D\u044B\u0435 \u0434\u0430\u043D\u043D\u044B\u0435.", t.error = "\u041F\u0440\u043E\u0438\u0437\u043E\u0448\u043B\u0430 \u043E\u0448\u0438\u0431\u043A\u0430. \u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u043F\u043E\u0437\u0436\u0435.", t))(he || {});
+  let c1, x1, d1, p1, u1, g1, h1, Ce, R, O, f1, C1, j1, v1, w1, b1, _1, N1, y1, k1, I1, X, B1, L1, S1, F1, A1, O1, q1, M1, E1, ee, P1, T1, D1, je, R1, H1, ve, z1, Z1, V1, G1, U1, $1, Q1, W1, Y1, K1, J1, X1, e2, t2, s2, a2, l2, j, r2;
   c1 = 80;
-  x1 = a.memo(() => {
-    const t = k(), [s, l] = a.useState(0), [r, o] = a.useState(false), i = y(Wt), { isOpenAlertBlock: c } = y($), m = () => {
+  x1 = l.memo(() => {
+    const t = k(), [s, a] = l.useState(0), [r, o] = l.useState(false), i = y(Wt), { isOpenAlertBlock: c } = y($), m = () => {
       t(N({
         modalType: v.Alert,
         isOpen: false
       }));
     }, n = () => {
-      o(!(window.scrollY > s)), l(window.scrollY);
+      o(!(window.scrollY > s)), a(window.scrollY);
     };
-    return a.useEffect(() => {
+    return l.useEffect(() => {
       if (!c) return;
       const x = setTimeout(() => m(), 1e4);
       return () => clearTimeout(x);
     }, [
       c
-    ]), a.useEffect(() => (window.addEventListener("scroll", n), () => {
+    ]), l.useEffect(() => (window.addEventListener("scroll", n), () => {
       window.removeEventListener("scroll", n);
     }), [
       s
-    ]), T.createPortal(e.jsx(ke, {
+    ]), P.createPortal(e.jsx(ke, {
       sx: {
         position: "fixed",
         top: s > c1 && r ? 100 : 40,
@@ -2325,24 +2325,24 @@ let __tla = Promise.all([
         severity: i,
         onClose: m,
         variant: "filled",
-        children: ge[i]
+        children: he[i]
       })
     }), document.getElementById("portal"));
   });
-  fe = a.memo(({ id: t, name: s, cost: l, imageUrl: r, filters: o, imgClassName: i, categories: c }) => {
-    const m = k(), n = z(), x = y((B) => ct(B, t)), g = () => {
+  fe = l.memo(({ id: t, name: s, cost: a, imageUrl: r, filters: o, imgClassName: i, categories: c }) => {
+    const m = k(), n = z(), x = y((L) => ct(L, t)), h = () => {
       m(Je({
         id: t,
         name: s,
         imageUrl: r,
-        cost: l,
+        cost: a,
         quantity: 1,
         filters: o,
         categories: c
       }));
     }, u = () => {
       n(`/catalog/bouquet/${t}`);
-    }, L = `\u0412 \u043A\u043E\u0440\u0437\u0438\u043D\u0443 ${(x == null ? void 0 : x.quantity) ? `(${x.quantity})` : ""}`;
+    }, B = `\u0412 \u043A\u043E\u0440\u0437\u0438\u043D\u0443 ${(x == null ? void 0 : x.quantity) ? `(${x.quantity})` : ""}`;
     return e.jsxs("div", {
       className: "card relative flex flex-col gap-3 z-20",
       children: [
@@ -2365,21 +2365,21 @@ let __tla = Promise.all([
             e.jsxs("p", {
               className: "text-[14px] font-bold tracking-[0.56px] uppercase",
               children: [
-                l,
+                a,
                 " \u20BD"
               ]
             })
           ]
         }),
         e.jsx("button", {
-          onClick: g,
+          onClick: h,
           className: "border-[.5px] w-[255px] p-4 text-[12px] font-bold tracking-[1.2px] uppercase hover:bg-light-turquoise hover:text-[black] focus:border-light-turquoise active:shadow-[0_0_10px_0_#01281F_inset] transition",
-          children: L
+          children: B
         })
       ]
     });
   });
-  j2 = a.memo(() => e.jsxs("div", {
+  j2 = l.memo(() => e.jsxs("div", {
     children: [
       e.jsx(q, {
         variant: "rectangular",
@@ -2421,7 +2421,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  m1 = a.memo(({ bouquets: t, screenWidth: s }) => e.jsx(e.Fragment, {
+  m1 = l.memo(({ bouquets: t, screenWidth: s }) => e.jsx(e.Fragment, {
     children: e.jsxs("div", {
       className: "popular_bouquets__slider gap-8 flex items-center justify-center",
       children: [
@@ -2429,7 +2429,7 @@ let __tla = Promise.all([
           className: "arrow-prev mb-14 relative z-10 cursor-pointer select-none max-md:hidden",
           children: e.jsx(ut, {})
         }),
-        e.jsx(Le, {
+        e.jsx(Be, {
           spaceBetween: 10,
           freeMode: true,
           slidesPerView: s > 1024 ? 3 : 2,
@@ -2439,36 +2439,36 @@ let __tla = Promise.all([
           },
           mousewheel: true,
           modules: [
-            Be,
+            Le,
             Se,
             Fe
           ],
           className: "flex flex-nowrap select-none z-30 relative",
-          children: t.map((l) => e.jsx(Ae, {
+          children: t.map((a) => e.jsx(Ae, {
             children: e.jsx(fe, {
-              id: l.id,
-              name: l.name,
-              imageUrl: l.imageUrl,
-              cost: l.cost,
-              categories: l.categories,
-              filters: l.filters,
+              id: a.id,
+              name: a.name,
+              imageUrl: a.imageUrl,
+              cost: a.cost,
+              categories: a.categories,
+              filters: a.filters,
               imgClassName: "h-[450px] w-[350px]"
-            }, l.id)
-          }, l.id))
+            }, a.id)
+          }, a.id))
         }),
         e.jsx("button", {
           className: "arrow-next mb-14 relative cursor-pointer select-none z-10 max-md:hidden",
-          children: e.jsx(gt, {})
+          children: e.jsx(ht, {})
         })
       ]
     })
   }));
-  v2 = a.memo(({ items: t }) => e.jsx(e.Fragment, {
+  v2 = l.memo(({ items: t }) => e.jsx(e.Fragment, {
     children: e.jsx("nav", {
       className: "title",
       children: e.jsx("ol", {
         className: "flex max-w-[500px]",
-        children: t.map((s, l) => e.jsxs("li", {
+        children: t.map((s, a) => e.jsxs("li", {
           className: "text-[12px] font-normal tracking-[0.48px] uppercase",
           children: [
             e.jsxs(C, {
@@ -2476,12 +2476,12 @@ let __tla = Promise.all([
               to: s.path,
               children: [
                 s.text,
-                e.jsx(h, {
+                e.jsx(g, {
                   className: "absolute invisible h-[1px] w-0 bg-light-turquoise group-hover/path:w-full group-hover/path:visible transition-all duration-300 z-0"
                 })
               ]
             }),
-            l < t.length - 1 && e.jsx("span", {
+            a < t.length - 1 && e.jsx("span", {
               className: "mx-1",
               children: "/"
             })
@@ -2496,7 +2496,7 @@ let __tla = Promise.all([
     "./img/PagesImg/HomeImg/CardImg/candle.png",
     "./img/PagesImg/HomeImg/CardImg/bouquetCard.png"
   ];
-  p1 = a.memo(() => e.jsx("ul", {
+  p1 = l.memo(() => e.jsx("ul", {
     className: "card_footer_block__content flex z-20 gap-8 max-lg:w-full max-lg:grid max-lg:grid-cols-2 max-lg:mt-6 max-lg:justify-center",
     children: d1.map((t, s) => e.jsx("li", {
       className: "max-lg:w-full max-lg:flex max-lg:justify-center",
@@ -2512,20 +2512,20 @@ let __tla = Promise.all([
     e.jsx(yt, {}),
     e.jsx(kt, {})
   ];
-  h1 = a.memo(() => e.jsx("ul", {
+  g1 = l.memo(() => e.jsx("ul", {
     className: "social_icons flex justify-end lg:mt-28 lg:gap-8 max-lg:gap-5",
     children: u1.map((t, s) => e.jsx("li", {
       children: t
     }, s))
   }));
-  g1 = a.memo(({ screenWidth: t }) => {
+  h1 = l.memo(({ screenWidth: t }) => {
     const s = t > 1024;
     return e.jsxs("div", {
       className: "card_footer_block relative h-[500px] mt-[10rem] max-lg:px-2",
       children: [
-        s ? e.jsx(It, {}) : e.jsx(Bt, {}),
-        s && e.jsx(Lt, {}),
-        e.jsx(h, {
+        s ? e.jsx(It, {}) : e.jsx(Lt, {}),
+        s && e.jsx(Bt, {}),
+        e.jsx(g, {
           className: `absolute -bottom-[10rem] right-[45rem] z-10 h-[212px] w-[400px] rotate-[21.097deg] bg-light-turquoise rounded-[880px] blur-[125px]
         max-lg:w-[259px] max-lg:h-[106px] max-lg:rotate-[21.097deg] max-lg:blur-[50px] max-lg:-bottom-[3.5rem] max-lg:-left-[10rem]`
         }),
@@ -2553,7 +2553,7 @@ let __tla = Promise.all([
                     })
                   ]
                 }),
-                e.jsx(h1, {})
+                e.jsx(g1, {})
               ]
             })
           ]
@@ -2561,7 +2561,7 @@ let __tla = Promise.all([
       ]
     });
   });
-  Ce = (t, s = 0, l = 0.8) => {
+  Ce = (t, s = 0, a = 0.8) => {
     const r = {
       hidden: {
         opacity: 0
@@ -2569,7 +2569,7 @@ let __tla = Promise.all([
       visible: {
         opacity: 1,
         transition: {
-          duration: l,
+          duration: a,
           ease: "easeOut",
           delay: s
         }
@@ -2604,8 +2604,8 @@ let __tla = Promise.all([
         return r;
     }
   };
-  R = a.memo(({ items: t, title: s, subTitleBlock: l, animation: r, titleClassName: o, marginTop: i, height: c = "h-[280px]" }) => {
-    const [m, n] = ae({
+  R = l.memo(({ items: t, title: s, subTitleBlock: a, animation: r, titleClassName: o, marginTop: i, height: c = "h-[280px]" }) => {
+    const [m, n] = le({
       triggerOnce: true,
       threshold: 0.2
     }), x = Ce(r);
@@ -2621,21 +2621,21 @@ let __tla = Promise.all([
           initial: "hidden",
           animate: n ? "visible" : "hidden",
           variants: x,
-          className: "w-[445px] relative z-30 h-full bg-[#000]/[0.20] backdrop-blur-[10px] rounded-[20px] px-10 py-5 max-sm:w-[300px] max-sm:flex max-sm:flex-col max-sm:items-center max-sm:justify-between md:w-[540px] lg:w-[480px]",
+          className: "relative z-30 h-full w-[445px] rounded-[20px] bg-[#000]/[0.20] px-10 py-5 backdrop-blur-[10px] max-sm:flex max-sm:w-[300px] max-sm:flex-col max-sm:items-center max-sm:justify-between md:w-[540px] lg:w-[480px]",
           children: [
             e.jsx("li", {
-              className: "block_title text-[30px] mb-2.5 max-w-[271px] font-bold tracking-[1.2px] text-light-turquoise uppercase max-sm:text-[20px] max-sm:tracking-[0.04em] max-sm:text-center",
-              children: l
+              className: "block_title mb-2.5 max-w-[271px] text-[30px] font-bold uppercase tracking-[1.2px] text-light-turquoise max-sm:text-center max-sm:text-[20px] max-sm:tracking-[0.04em]",
+              children: a
             }),
-            t.map((g) => e.jsx("li", {
-              className: "text-[18px] font-normal ml-5 tracking-[.72px] uppercase list-disc max-sm:text-[14px]",
-              children: g
-            }, g)),
+            t.map((h) => e.jsx("li", {
+              className: "ml-5 list-disc text-[18px] font-normal uppercase tracking-[.72px] max-sm:text-[14px]",
+              children: h
+            }, h)),
             e.jsx("li", {
-              className: "mt-6 float-right",
+              className: "float-right mt-6",
               children: e.jsx(C, {
                 to: "catalog",
-                className: "text-standart font-bold text-pink tracking-[1.2px] underline uppercase",
+                className: "text-standart font-bold uppercase tracking-[1.2px] text-pink underline",
                 children: "\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u043A\u0430\u0442\u0430\u043B\u043E\u0433"
               })
             })
@@ -2644,8 +2644,8 @@ let __tla = Promise.all([
       ]
     });
   });
-  O = ({ title: t, subtitle: s, titleClassName: l, subtitleClassName: r, subtitleWrapperClassName: o, animation: i, renderTitleText: c }) => {
-    const [m, n] = ae({
+  O = ({ title: t, subtitle: s, titleClassName: a, subtitleClassName: r, subtitleWrapperClassName: o, animation: i, renderTitleText: c }) => {
+    const [m, n] = le({
       triggerOnce: true,
       threshold: 0.2
     }), x = Ce(i);
@@ -2657,7 +2657,7 @@ let __tla = Promise.all([
           initial: "hidden",
           animate: n ? "visible" : "hidden",
           variants: x,
-          className: l,
+          className: a,
           children: t
         }),
         s && e.jsx("div", {
@@ -2717,7 +2717,7 @@ let __tla = Promise.all([
           once: true,
           amount: 0.2
         },
-        className: "text-[20px] relative z-10 font-light tracking-[.8px] leading-[130%] lg:ml-[90px] max-w-[540px] max-sm:hidden",
+        className: "relative z-10 max-w-[540px] text-[20px] font-light leading-[130%] tracking-[.8px] max-sm:hidden lg:ml-[90px]",
         children: "\u0423 \u043D\u0430\u0441 \u0441\u0430\u043C\u044B\u0439 \u0431\u043E\u043B\u044C\u0448\u043E\u0439 \u0432\u044B\u0431\u043E\u0440 \u0446\u0432\u0435\u0442\u043E\u0432, \u0431\u0443\u043A\u0435\u0442\u043E\u0432, \u043E\u0442\u043A\u0440\u044B\u0442\u043E\u043A \u0438 \u043F\u043E\u0434\u0430\u0440\u043A\u043E\u0432. \u041C\u044B \u0432\u0441\u0435\u0433\u0434\u0430 \u043F\u043E\u043C\u043E\u0436\u0435\u043C \u0432\u0430\u043C \u043F\u043E\u0434\u043E\u0431\u0440\u0430\u0442\u044C \u0431\u0443\u043A\u0435\u0442 \u0434\u043B\u044F \u0432\u0430\u0448\u0435\u0433\u043E \u0441\u043E\u0431\u044B\u0442\u0438\u044F. \u041D\u0430\u0448 \u043C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u0432\u0430\u0441 \u043F\u0440\u043E\u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0438\u0440\u0443\u0435\u0442 \u0438 \u043F\u043E\u043C\u043E\u0436\u0435\u0442 \u043E\u043F\u0440\u0435\u0434\u0435\u043B\u0438\u0442\u044C\u0441\u044F \u0441 \u0432\u044B\u0431\u043E\u0440\u043E\u043C."
       }),
       e.jsx(w.p, {
@@ -2737,26 +2737,24 @@ let __tla = Promise.all([
           once: true,
           amount: 0.2
         },
-        className: "text-[20px] relative z-10 font-light tracking-[.4px] mt-7 lg:ml-[90px] max-sm:hidden",
+        className: "relative z-10 mt-7 text-[20px] font-light tracking-[.4px] max-sm:hidden lg:ml-[90px]",
         children: "\u041E\u0437\u043D\u0430\u043A\u043E\u043C\u044C\u0442\u0435\u0441\u044C \u0441 \u043D\u0430\u0448\u0438\u043C\u0438 \u0440\u0430\u0437\u0434\u0435\u043B\u0430\u043C\u0438 \u043A\u0430\u0442\u0430\u043B\u043E\u0433\u0430."
       })
     ]
   });
-  y1 = a.memo(() => e.jsx("section", {
-    className: "catalog_block__wrapper lg:h-[1100px] mt-[100px]",
+  y1 = l.memo(() => e.jsx("section", {
+    className: "catalog_block__wrapper mt-[100px] lg:h-[1100px]",
     children: e.jsxs("div", {
-      className: "container relative h-full flex flex-col mx-auto max-lg:items-center",
+      className: "container relative mx-auto flex h-full flex-col max-lg:items-center",
       children: [
-        e.jsx(h, {
-          className: `absolute z-10 top-[34rem] w-[707px] h-[236px] bg-cherry rotate-[32.828deg] rounded-[50%] blur-[125px]
-          max-sm:h-[237px] max-sm:rotate-[-37.57deg] max-sm:top-[50rem] max-sm:right-0`
+        e.jsx(g, {
+          className: "absolute top-[34rem] z-10 h-[236px] w-[707px] rotate-[32.828deg] rounded-[50%] bg-cherry blur-[125px] max-sm:right-0 max-sm:top-[50rem] max-sm:h-[237px] max-sm:rotate-[-37.57deg]"
         }),
-        e.jsx(h, {
-          className: `absolute z-10 top-[24rem] right-[2rem] w-[880px] h-[211px] bg-light-turquoise rotate-[32.828deg] rounded-[50%] blur-[125px]
-          max-sm:h-[128px] max-sm:top-[20rem]`
+        e.jsx(g, {
+          className: "absolute right-[2rem] top-[24rem] z-10 h-[211px] w-[880px] rotate-[32.828deg] rounded-[50%] bg-light-turquoise blur-[125px] max-sm:top-[20rem] max-sm:h-[128px]"
         }),
         e.jsxs("div", {
-          className: "catalog_block__top relative flex lg:justify-around max-lg:flex-col max-md:justify-center",
+          className: "catalog_block__top relative flex max-lg:flex-col max-md:justify-center lg:justify-around",
           children: [
             e.jsx(O, {
               title: "\u041A\u0430\u0442\u0430\u043B\u043E\u0433",
@@ -2775,7 +2773,7 @@ let __tla = Promise.all([
           ]
         }),
         e.jsxs("div", {
-          className: "catalog_block__bottom flex justify-around max-lg:flex-col max-lg:mt-10",
+          className: "catalog_block__bottom flex justify-around max-lg:mt-10 max-lg:flex-col",
           children: [
             e.jsx(R, {
               items: w1,
@@ -2798,7 +2796,7 @@ let __tla = Promise.all([
       ]
     })
   }));
-  k1 = a.memo(({ step: t, info: s }) => e.jsxs(w.div, {
+  k1 = l.memo(({ step: t, info: s }) => e.jsxs(w.div, {
     className: `content_block flex flex-col gap-3 z-20
         max-sm:[&:nth-child(1)]:items-end max-sm:[&:nth-child(1)]:mr-[3rem] 
         max-sm:[&:nth-child(2)]:items-end max-sm:[&:nth-child(2)]:mr-[6rem] 
@@ -2857,13 +2855,13 @@ let __tla = Promise.all([
     }
   ];
   X = "title flex items-center text-[100px] h-[100px] font-normal tracking-[2px] uppercase font-cormorant max-md:text-[40px] max-md:tracking-[0.02em] max-md:h-[50px]";
-  L1 = a.memo(() => e.jsxs("div", {
+  B1 = l.memo(() => e.jsxs("div", {
     className: "about_order relative max-lg:mt-24 mt-[250px]",
     children: [
-      e.jsx(h, {
+      e.jsx(g, {
         className: "max-lg:absolute max-lg:right-3 max-lg:top-[10rem] max-lg:h-[166px] max-lg:w-[390px] max-lg:rotate-[-37.57deg] max-lg:rounded-[50%] max-lg:bg-cherry max-lg:blur-[125px] lg:hidden"
       }),
-      e.jsx(h, {
+      e.jsx(g, {
         className: "max-lg:absolute max-lg:-left-[6rem] max-lg:bottom-0 max-lg:h-[274px] max-lg:w-[335px] max-lg:-rotate-[71.859deg] bg-light-turquoise max-lg:blur-[200px] lg:hidden"
       }),
       e.jsx("img", {
@@ -2907,7 +2905,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  B1 = a.memo(({ screenWidth: t }) => e.jsxs("div", {
+  L1 = l.memo(({ screenWidth: t }) => e.jsxs("div", {
     className: "intro__title flex items-center containter mx-auto w-full",
     children: [
       e.jsxs("div", {
@@ -2918,7 +2916,7 @@ let __tla = Promise.all([
             children: "lover"
           }),
           e.jsx("h2", {
-            className: "lg:text-[200px] lg:h-[160px] font-light tracking-[40px] uppercase font-cormorant flex justify-center items-center relative sm:z-20 max-sm:text-[50px] max-sm:tracking-[0.1em] md:text-[120px] max-md:text-[110px]",
+            className: "lg:text-[200px] max-sm:z-30 lg:h-[160px] font-light tracking-[40px] uppercase font-cormorant flex justify-center items-center relative sm:z-20 max-sm:text-[50px] max-sm:tracking-[0.1em] md:text-[120px] max-md:text-[110px]",
             children: "Flower"
           })
         ]
@@ -2966,70 +2964,78 @@ let __tla = Promise.all([
       })
     ]
   });
-  A1 = a.memo(({ cart: t, screenWidth: s, openModal: l }) => {
+  A1 = l.memo(({ cart: t, screenWidth: s, openModal: a }) => {
     const r = s <= 768;
     return e.jsxs("div", {
-      className: "intro relative max-sm:pt-5 sm:pt-[140px] sm:h-[1600px] max-sm:h-[1000px]",
+      className: "intro relative max-sm:h-[1000px] max-sm:pt-5 sm:h-[1600px] sm:pt-[140px]",
       children: [
         e.jsxs("div", {
-          className: "absolute w-full sm:h-[1600px] max-sm:h-[800px] top-0",
+          className: "absolute top-0 w-full max-sm:h-[800px] sm:h-[1600px]",
           children: [
-            e.jsx("img", {
-              className: "intro_img absolute w-full h-full top-0 left-0 z-10",
-              srcSet: "./img/PagesImg/HomeImg/IntroImg/intro.png 1280w, ./img/PagesImg/HomeImg/IntroImg/introAdaptive.png 768w",
-              alt: "intro"
+            e.jsxs("picture", {
+              children: [
+                e.jsx("source", {
+                  srcSet: "./img/PagesImg/HomeImg/IntroImg/introAdaptive.png 640w",
+                  media: "(max-width: 767px)"
+                }),
+                e.jsx("img", {
+                  className: "absolute left-0 top-0 z-10 h-full w-full",
+                  src: "./img/PagesImg/HomeImg/IntroImg/intro.png",
+                  srcSet: "./img/PagesImg/HomeImg/IntroImg/intro.png 1280w, ./img/PagesImg/HomeImg/IntroImg/introAdaptive.png 640w",
+                  loading: "lazy",
+                  alt: "flower"
+                })
+              ]
             }),
             e.jsx("img", {
               srcSet: "./img/PagesImg/HomeImg/IntroImg/shadow.png 1280w, ./img/PagesImg/HomeImg/IntroImg/shadow-640.png 640w",
-              className: "absolute h-[300px] w-full z-20 bottom-0",
+              className: "absolute bottom-0 z-20 h-[300px] w-full",
               alt: "shadow"
             })
           ]
         }),
-        e.jsx(h, {
-          className: `w-[359px] h-[294px] rotate-[41.599deg] rounded-[50%] bg-light-turquoise blur-[125px] absolute top-[34rem] left-[16rem] 
-        max-sm:w-[148px] max-sm:h-[121px] max-sm:blur-[60px] max-sm:left-0 max-sm:top-[300px]`
+        e.jsx(g, {
+          className: "absolute left-[16rem] top-[34rem] h-[294px] w-[359px] rotate-[41.599deg] rounded-[50%] bg-light-turquoise blur-[125px] max-sm:left-0 max-sm:top-[300px] max-sm:h-[121px] max-sm:w-[148px] max-sm:blur-[60px]"
         }),
-        e.jsx(h, {
-          className: `w-[473px] h-[212px] -rotate-[43.21deg] rounded-[50%] bg-cherry blur-[125px] absolute top-[25rem] sm:right-[25rem]
-        max-sm:w-[131px] max-sm:h-[64px] max-sm:blur-[25px] max-sm:right-[2rem] max-sm:top-[17rem]`
+        e.jsx(g, {
+          className: "absolute top-[25rem] h-[212px] w-[473px] -rotate-[43.21deg] rounded-[50%] bg-cherry blur-[125px] max-sm:right-[2rem] max-sm:top-[17rem] max-sm:h-[64px] max-sm:w-[131px] max-sm:blur-[25px] sm:right-[25rem]"
         }),
         e.jsxs("div", {
-          className: "intro_wrapper relative container mx-auto",
+          className: "intro_wrapper container relative mx-auto",
           children: [
-            e.jsx(B1, {
+            e.jsx(L1, {
               screenWidth: s
             }),
             e.jsxs("div", {
-              className: "intro__footer__content flex justify-end mt-10 relative z-20",
+              className: "intro__footer__content relative z-20 mt-10 flex justify-end",
               children: [
                 e.jsxs("div", {
-                  className: "flex-1 flex flex-col items-center max-sm:mt-[600px]",
+                  className: "flex flex-1 flex-col items-center max-sm:mt-[600px]",
                   children: [
                     e.jsx("h2", {
-                      className: "text-[20px] font-normal tracking-[0.4px] max-sm:text-center max-sm:w-[300px]",
+                      className: "text-[20px] font-normal tracking-[0.4px] max-sm:w-[300px] max-sm:text-center",
                       children: "\u0421\u043E\u0437\u0434\u0430\u0451\u043C \u0434\u043B\u044F \u0442\u0435\u0445, \u043A\u0442\u043E \u0446\u0435\u043D\u0438\u0442 \u0441\u0432\u0435\u0436\u0435\u0441\u0442\u044C \u0438 \u0438\u0437\u044F\u0449\u0435\u0441\u0442\u0432\u043E \u0446\u0432\u0435\u0442\u043A\u0430"
                     }),
                     e.jsx(C, {
                       to: "catalog",
-                      className: "bg-light-turquoise h-[50px] w-[220px] max-sm:w-[300px] text-center text-[black] mt-12 px-12 py-4 border border-light-turquoise uppercase text-standart font-bold tracking-[1.2px] hover:bg-cherry hover:border-cherry hover:text-white transition-all",
+                      className: "hover:text-white mt-12 h-[50px] w-[220px] border border-light-turquoise bg-light-turquoise px-12 py-4 text-center text-standart font-bold uppercase tracking-[1.2px] text-[black] transition-all hover:border-cherry hover:bg-cherry max-sm:w-[300px]",
                       children: "\u0421\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u043A\u0430\u0442\u0430\u043B\u043E\u0433"
                     })
                   ]
                 }),
                 !r && e.jsxs("div", {
-                  className: "intro__footer_buttons flex-col items-end justify-center sm:flex max-sm:hidden",
+                  className: "intro__footer_buttons flex-col items-end justify-center max-sm:hidden sm:flex",
                   children: [
                     e.jsx("h3", {
-                      className: "phone text-[16px] mt-14 text-light-turquoise font-normal tracking-[1.6px] uppercase",
+                      className: "phone mt-14 text-[16px] font-normal uppercase tracking-[1.6px] text-light-turquoise",
                       children: "+375 (29) 113-69-69"
                     }),
                     e.jsx(S1, {
-                      onClick: () => l(v.Modal)
+                      onClick: () => a(v.Modal)
                     }),
                     e.jsx(F1, {
                       cartCount: t.length,
-                      onClick: () => l(v.Cart)
+                      onClick: () => a(v.Cart)
                     })
                   ]
                 })
@@ -3107,7 +3113,7 @@ let __tla = Promise.all([
   });
   E1 = "flex items-center lg:ml-[130px] lg:gap-7 max-lg:gap-2";
   ee = "text-[100px] font-normal tracking-[2px] uppercase font-cormorant max-md:text-[40px] max-md:tracking-[0.02em]";
-  T1 = a.memo(({ screenWidth: t }) => e.jsxs("div", {
+  P1 = l.memo(({ screenWidth: t }) => e.jsxs("div", {
     className: "occasion_block relative sm:h-[1000px] max-lg:mt-[6rem] mt-[160px]",
     children: [
       t > 640 && e.jsx(ft, {}),
@@ -3194,7 +3200,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  P1 = () => e.jsxs("div", {
+  T1 = () => e.jsxs("div", {
     className: "flex flex-col z-20 sm:gap-14 max-sm:mt-[8rem] max-sm:gap-5 max-sm:ml-2",
     children: [
       e.jsx(w.div, {
@@ -3235,7 +3241,7 @@ let __tla = Promise.all([
     ]
   });
   D1 = () => {
-    const t = k(), { register: s, handleSubmit: l, formState: { errors: r } } = le(), o = () => {
+    const t = k(), { register: s, handleSubmit: a, formState: { errors: r } } = ae(), o = () => {
       t(N({
         modalType: v.Alert,
         isOpen: true
@@ -3248,7 +3254,7 @@ let __tla = Promise.all([
     return e.jsx("div", {
       className: "question_block__form relative flex flex-col z-20 md:items-end mt-8 max-lg:items-center md:mr-[1rem]",
       children: e.jsxs("form", {
-        onSubmit: l(i, c),
+        onSubmit: a(i, c),
         className: "sm:w-[455px] flex flex-col gap-3 max-lg:max-w-[400px]",
         children: [
           e.jsx("input", {
@@ -3296,20 +3302,40 @@ let __tla = Promise.all([
   };
   je = "title flex items-center sm:h-[100px] text-[100px] font-cormorant font-normal tracking-[2px] uppercase max-sm:text-[40px] max-sm:tracking-[0.02em]";
   R1 = `${je} sm:ml-24`;
-  H1 = a.memo(({ screenWidth: t }) => {
+  H1 = l.memo(({ screenWidth: t }) => {
     const s = t > 768;
     return e.jsxs("div", {
-      className: "question_block relative bg-[#0F2222] max-sm:h-[800px] h-[850px] max-lg:mt-[6rem]",
+      className: "question_block relative h-[850px] bg-[#0F2222] max-lg:mt-[6rem] max-sm:h-[800px]",
       children: [
-        e.jsx("img", {
-          srcSet: "./img/PagesImg/HomeImg/QuestionImg/questions.png 1280w, ./img/PagesImg/HomeImg/QuestionImg/questions-640.png 640w",
-          className: "xl:w-[305px] xl:h-[200px] absolute max-lg:rotate-[-18.444deg] z-30 max-lg:right-[5rem] max-lg:top-[12rem] max-sm:w-[133px] max-sm:right-[9rem] max-sm:top-[8rem] max-md:top-[5rem] max-md:right-0 max-xl:bottom-[1rem] max-xl:right-[10rem]",
-          alt: "Questions Decoration"
+        e.jsxs("picture", {
+          children: [
+            e.jsx("source", {
+              srcSet: "./img/PagesImg/HomeImg/QuestionImg/leaves-640.png 640w",
+              media: "(max-width: 767px)"
+            }),
+            e.jsx("img", {
+              className: "absolute top-0 z-20 object-fill max-md:right-0 max-md:h-[379px] max-md:w-[252px] md:left-0 lg:h-[1038px] lg:w-[691px]",
+              src: "./img/PagesImg/HomeImg/QuestionImg/leaves.png",
+              srcSet: "./img/PagesImg/HomeImg/QuestionImg/leaves.png 1280w, ./img/PagesImg/HomeImg/QuestionImg/leaves-640.png 640w",
+              loading: "lazy",
+              alt: "flower"
+            })
+          ]
         }),
-        e.jsx("img", {
-          srcSet: "./img/PagesImg/HomeImg/QuestionImg/leaves-640.png 640w, ./img/PagesImg/HomeImg/QuestionImg/leaves.png 1280w",
-          className: "lg:w-[691px] lg:h-[1038px] z-20 absolute md:left-0 top-0 max-md:right-0 object-fill max-md:w-[252px] max-md:h-[379px]",
-          alt: "Leaves Decoration"
+        e.jsxs("picture", {
+          children: [
+            e.jsx("source", {
+              srcSet: "./img/PagesImg/HomeImg/QuestionImg/questions-640.png 640w",
+              media: "(max-width: 767px)"
+            }),
+            e.jsx("img", {
+              className: "absolute z-30 max-xl:bottom-[1rem] max-xl:right-[10rem] max-lg:right-[5rem] max-lg:top-[12rem] max-lg:rotate-[-18.444deg] max-md:right-0 max-md:top-[5rem] max-sm:right-[9rem] max-sm:top-[8rem] max-sm:w-[133px] xl:h-[200px] xl:w-[305px]",
+              src: "./img/PagesImg/HomeImg/QuestionImg/questions.png",
+              srcSet: "./img/PagesImg/HomeImg/QuestionImg/questions.png 1280w, ./img/PagesImg/HomeImg/QuestionImg/questions-640.png 640w",
+              loading: "lazy",
+              alt: "Questions Decoration"
+            })
+          ]
         }),
         s ? e.jsx(vt, {}) : e.jsx(bt, {}),
         s ? e.jsx(wt, {}) : e.jsx(_t, {}),
@@ -3317,7 +3343,7 @@ let __tla = Promise.all([
           className: "question_block__wrapper container sm:mx-auto",
           children: [
             e.jsxs("div", {
-              className: "question_block__top flex justify-between sm:items-center pt-8 max-lg:flex-col",
+              className: "question_block__top flex justify-between pt-8 max-lg:flex-col sm:items-center",
               children: [
                 e.jsx(O, {
                   title: "\u043E\u0441\u0442\u0430\u043B\u0438\u0441\u044C",
@@ -3326,7 +3352,7 @@ let __tla = Promise.all([
                   subtitleClassName: R1,
                   animation: "fade-right"
                 }),
-                e.jsx(P1, {})
+                e.jsx(T1, {})
               ]
             }),
             e.jsx(D1, {})
@@ -3360,7 +3386,7 @@ let __tla = Promise.all([
     })
   });
   G1 = () => {
-    const t = k(), s = U(), { cartItems: l } = y(V), { items: r } = y(it), o = a.useCallback((i) => t(N({
+    const t = k(), s = U(), { cartItems: a } = y(V), { items: r } = y(it), o = l.useCallback((i) => t(N({
       modalType: i,
       isOpen: true
     })), [
@@ -3370,7 +3396,7 @@ let __tla = Promise.all([
       className: "wrapper bg-[#040A0A]",
       children: [
         e.jsx(A1, {
-          cart: l,
+          cart: a,
           openModal: o,
           screenWidth: s
         }),
@@ -3378,17 +3404,17 @@ let __tla = Promise.all([
         e.jsxs("div", {
           className: "popular_bouquets relative",
           children: [
-            s > 768 && e.jsx(h, {
-              className: "absolute right-0 z-10 w-[60%] h-[750px] bg-[url('./img/PagesImg/HomeImg/IntroImg/BouquetsBG.png')]"
+            s > 768 && e.jsx(g, {
+              className: "absolute right-0 z-10 h-[750px] w-[60%] bg-[url('./img/PagesImg/HomeImg/IntroImg/BouquetsBG.png')]"
             }),
-            s > 768 && e.jsx(h, {
-              className: "absolute left-0 z-10 h-[800px] w-[500px] bg-[#43FFD2]/[0.47] blur-[125px] rounded-[40%]"
+            s > 768 && e.jsx(g, {
+              className: "absolute left-0 z-10 h-[800px] w-[500px] rounded-[40%] bg-[#43FFD2]/[0.47] blur-[125px]"
             }),
-            s > 768 && e.jsx(h, {
-              className: "absolute top-[22rem] right-[30rem] max-[1440px]:right-[13rem] z-0 h-[1007px] w-[1001px] bg-[#7D2253]/[0.46] blur-[125px] rounded-[40%]"
+            s > 768 && e.jsx(g, {
+              className: "absolute right-[30rem] top-[22rem] z-0 h-[1007px] w-[1001px] rounded-[40%] bg-[#7D2253]/[0.46] blur-[125px] max-[1440px]:right-[13rem]"
             }),
             e.jsxs("div", {
-              className: "popular_bouquets__wrapper relative container mx-auto max-lg:flex max-lg:flex-col max-lg:mt-[6rem]",
+              className: "popular_bouquets__wrapper container relative mx-auto max-lg:mt-[6rem] max-lg:flex max-lg:flex-col",
               children: [
                 e.jsx(O, {
                   title: "\u041F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u044B\u0435",
@@ -3402,7 +3428,7 @@ let __tla = Promise.all([
                   bouquets: r,
                   screenWidth: s
                 }) : e.jsx("div", {
-                  className: "flex flex-col items-center gap-10 mt-6",
+                  className: "mt-6 flex flex-col items-center gap-10",
                   children: r.slice(0, 3).map((i) => e.jsx(fe, {
                     id: i.id,
                     name: i.name,
@@ -3414,28 +3440,28 @@ let __tla = Promise.all([
                   }))
                 }),
                 e.jsxs("div", {
-                  className: "popular_bouquets__link flex items-center mt-16 ml-3",
+                  className: "popular_bouquets__link ml-3 mt-16 flex items-center",
                   children: [
                     e.jsx(C, {
                       to: "catalog",
-                      className: "link text-[12px] text-pink font-bold tracking-[1.2px] uppercase underline",
+                      className: "link text-[12px] font-bold uppercase tracking-[1.2px] text-pink underline",
                       children: "\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u0432\u0435\u0441\u044C \u043A\u0430\u0442\u0430\u043B\u043E\u0433"
                     }),
-                    e.jsx(ht, {})
+                    e.jsx(gt, {})
                   ]
                 })
               ]
             })
           ]
         }),
-        e.jsx(L1, {}),
-        e.jsx(T1, {
+        e.jsx(B1, {}),
+        e.jsx(P1, {
           screenWidth: s
         }),
         e.jsx(H1, {
           screenWidth: s
         }),
-        e.jsx(g1, {
+        e.jsx(h1, {
           screenWidth: s
         })
       ]
@@ -3451,21 +3477,21 @@ let __tla = Promise.all([
       e.jsx(Qt, {})
     ]
   });
-  $1 = a.lazy(() => _(() => import("./index-BRfCKMER.js"), __vite__mapDeps([0,1,2,3,4])));
-  Q1 = a.lazy(() => _(() => import("./index-U5rqBuqQ.js"), __vite__mapDeps([5,1,2,4,3])));
-  W1 = a.lazy(() => _(() => import("./index-CLC-CVHy.js"), __vite__mapDeps([6,1,2,3,4])));
-  Y1 = a.lazy(() => _(() => import("./index-BYmjxxkQ.js").then(async (m) => {
+  $1 = l.lazy(() => _(() => import("./index-B2WhoEGM.js"), __vite__mapDeps([0,1,2,3,4])));
+  Q1 = l.lazy(() => _(() => import("./index-y3hp7U7Y.js"), __vite__mapDeps([5,1,2,4,3])));
+  W1 = l.lazy(() => _(() => import("./index-BmYOGn4d.js"), __vite__mapDeps([6,1,2,3,4])));
+  Y1 = l.lazy(() => _(() => import("./index-2mvGZ64C.js").then(async (m) => {
     await m.__tla;
     return m;
   }), __vite__mapDeps([7,1,2,3,4])));
-  K1 = a.lazy(() => _(() => import("./index-KfIOe4Rj.js"), __vite__mapDeps([8,1,2,3,4])));
-  J1 = a.lazy(() => _(() => import("./index-DoGJ3EK5.js"), __vite__mapDeps([9,1,2,3,4])));
-  X1 = a.lazy(() => _(() => import("./index-Cpx_kkIg.js"), __vite__mapDeps([10,1,2,4,3])));
-  e2 = a.lazy(() => _(() => import("./index-DdIB9-e6.js"), __vite__mapDeps([11,1,2,4])));
-  t2 = a.lazy(() => _(() => import("./index-BQeNKjI0.js"), __vite__mapDeps([12,1,2,4])));
-  s2 = a.lazy(() => _(() => import("./index-BPuv1Rvn.js"), __vite__mapDeps([13,1,2,4])));
-  l2 = a.lazy(() => _(() => import("./index-DH31-DjI.js"), __vite__mapDeps([14,1,2,4])));
-  a2 = a.lazy(() => _(() => import("./index-BpnorXUV.js"), __vite__mapDeps([15,1,2])));
+  K1 = l.lazy(() => _(() => import("./index-DsgL8Q3d.js"), __vite__mapDeps([8,1,2,3,4])));
+  J1 = l.lazy(() => _(() => import("./index-bDm_lFqc.js"), __vite__mapDeps([9,1,2,3,4])));
+  X1 = l.lazy(() => _(() => import("./index-CGZ7cacG.js"), __vite__mapDeps([10,1,2,4,3])));
+  e2 = l.lazy(() => _(() => import("./index-D9xRtKqc.js"), __vite__mapDeps([11,1,2,4])));
+  t2 = l.lazy(() => _(() => import("./index-DvTuQMYs.js"), __vite__mapDeps([12,1,2,4])));
+  s2 = l.lazy(() => _(() => import("./index-BkaaIAsD.js"), __vite__mapDeps([13,1,2,4])));
+  a2 = l.lazy(() => _(() => import("./index-D9AX72Ex.js"), __vite__mapDeps([14,1,2,4])));
+  l2 = l.lazy(() => _(() => import("./index-BpnorXUV.js"), __vite__mapDeps([15,1,2])));
   j = {
     HOME: "/",
     CATALOG: "/catalog",
@@ -3484,17 +3510,17 @@ let __tla = Promise.all([
     "/catalog/bouquet"
   ];
   function i2() {
-    const t = k(), s = se(), { category: l, filtersId: r, isConfirm: o, sortOption: i, fieldPriceValue: c } = y(at);
-    return a.useEffect(() => {
+    const t = k(), s = se(), { category: a, filtersId: r, isConfirm: o, sortOption: i, fieldPriceValue: c } = y(lt);
+    return l.useEffect(() => {
       window.scrollTo(0, 0);
     }, [
       s.pathname
-    ]), a.useEffect(() => {
+    ]), l.useEffect(() => {
       (async () => {
         try {
           const n = {
             sortProperty: i.sortProperty,
-            category: l,
+            category: a,
             fieldPriceValue: c,
             ...s.pathname === j.CATALOG && {
               filtersId: r
@@ -3513,12 +3539,12 @@ let __tla = Promise.all([
     }, [
       t,
       i.sortProperty,
-      l,
+      a,
       s,
       o
     ]), e.jsxs(e.Fragment, {
       children: [
-        e.jsx(a.Suspense, {
+        e.jsx(l.Suspense, {
           fallback: e.jsx("div", {
             className: "loading",
             children: "\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430..."
@@ -3574,11 +3600,11 @@ let __tla = Promise.all([
                   children: [
                     e.jsx(f, {
                       index: true,
-                      element: e.jsx(a2, {})
+                      element: e.jsx(l2, {})
                     }),
                     e.jsx(f, {
                       path: "reviews",
-                      element: e.jsx(l2, {})
+                      element: e.jsx(a2, {})
                     })
                   ]
                 })
@@ -3587,16 +3613,16 @@ let __tla = Promise.all([
           })
         }),
         e.jsx(Kt, {}),
-        e.jsx(l1, {}),
+        e.jsx(a1, {}),
         e.jsx(n1, {}),
         e.jsx(x1, {})
       ]
     });
   }
   Me.createRoot(document.getElementById("root")).render(e.jsx(Ee.StrictMode, {
-    children: e.jsx(Te, {
+    children: e.jsx(Pe, {
       children: e.jsx(Re, {
-        store: lt,
+        store: at,
         children: e.jsx(i2, {})
       })
     })
@@ -3605,7 +3631,7 @@ let __tla = Promise.all([
 export {
   p2 as A,
   Xt as C,
-  h as D,
+  g as D,
   d as F,
   v as M,
   v2 as P,
@@ -3614,7 +3640,7 @@ export {
   Z as a,
   U as b,
   Ue as c,
-  at as d,
+  lt as d,
   d2 as e,
   c2 as f,
   x2 as g,
@@ -3628,13 +3654,13 @@ export {
   m2 as o,
   fe as p,
   f2 as q,
-  g2 as r,
+  h2 as r,
   N as s,
   j2 as t,
   k as u,
   pe as v,
   mt as w,
-  h2 as x,
+  g2 as x,
   Je as y,
   m1 as z
 };
