@@ -24,7 +24,7 @@ const additionally: string[] = ["шары", "игрушки", "открытки"
 
 const CATALOG_TITLE_CLASSNAME =
   "title text-[100px] font-normal tracking-[2px] font-cormorant uppercase max-sm:text-[40px] max-sm:tracking-[0.02em]";
-  
+
 const renderTitleText = () => {
   return (
     <>
@@ -33,7 +33,7 @@ const renderTitleText = () => {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: true, amount: 0.2 }}
-        className="text-[20px] relative z-10 font-light tracking-[.8px] leading-[130%] lg:ml-[90px] max-w-[540px] max-sm:hidden"
+        className="relative z-10 max-w-[540px] text-[20px] font-light leading-[130%] tracking-[.8px] max-sm:hidden lg:ml-[90px]"
       >
         У нас самый большой выбор цветов, букетов, открыток и подарков. Мы
         всегда поможем вам подобрать букет для вашего события. Наш менеджер вас
@@ -44,7 +44,7 @@ const renderTitleText = () => {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
         viewport={{ once: true, amount: 0.2 }}
-        className="text-[20px] relative z-10 font-light tracking-[.4px] mt-7 lg:ml-[90px] max-sm:hidden"
+        className="relative z-10 mt-7 text-[20px] font-light tracking-[.4px] max-sm:hidden lg:ml-[90px]"
       >
         Ознакомьтесь с нашими разделами каталога.
       </motion.p>
@@ -54,20 +54,14 @@ const renderTitleText = () => {
 
 export const CatalogBlock: FC = memo(() => {
   return (
-    <section className="catalog_block__wrapper lg:h-[1100px] mt-[100px]">
-      <div className="container relative h-full flex flex-col mx-auto max-lg:items-center">
+    <section className="catalog_block__wrapper mt-[100px] lg:h-[1100px]">
+      <div className="container relative mx-auto flex h-full flex-col max-lg:items-center">
         {/* Decorative Elements */}
-        <DecorativeElement
-          className="absolute z-10 top-[34rem] w-[707px] h-[236px] bg-cherry rotate-[32.828deg] rounded-[50%] blur-[125px]
-          max-sm:h-[237px] max-sm:rotate-[-37.57deg] max-sm:top-[50rem] max-sm:right-0"
-        />
-        <DecorativeElement
-          className="absolute z-10 top-[24rem] right-[2rem] w-[880px] h-[211px] bg-light-turquoise rotate-[32.828deg] rounded-[50%] blur-[125px]
-          max-sm:h-[128px] max-sm:top-[20rem]"
-        />
+        <DecorativeElement className="absolute top-[34rem] z-10 h-[236px] w-[707px] rotate-[32.828deg] rounded-[50%] bg-cherry blur-[125px] max-sm:right-0 max-sm:top-[50rem] max-sm:h-[237px] max-sm:rotate-[-37.57deg]" />
+        <DecorativeElement className="absolute right-[2rem] top-[24rem] z-10 h-[211px] w-[880px] rotate-[32.828deg] rounded-[50%] bg-light-turquoise blur-[125px] max-sm:top-[20rem] max-sm:h-[128px]" />
 
         {/* Top Section */}
-        <div className="catalog_block__top relative flex lg:justify-around max-lg:flex-col max-md:justify-center">
+        <div className="catalog_block__top relative flex max-lg:flex-col max-md:justify-center lg:justify-around">
           <HomeTitleBlock
             title="Каталог"
             titleClassName={CATALOG_TITLE_CLASSNAME}
@@ -86,7 +80,7 @@ export const CatalogBlock: FC = memo(() => {
         </div>
 
         {/* Bottom Section */}
-        <div className="catalog_block__bottom flex justify-around max-lg:flex-col max-lg:mt-10">
+        <div className="catalog_block__bottom flex justify-around max-lg:mt-10 max-lg:flex-col">
           <Block
             items={flowers}
             title="Цветы"

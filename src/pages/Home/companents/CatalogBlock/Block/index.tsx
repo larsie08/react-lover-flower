@@ -39,23 +39,23 @@ export const Block: FC<BlockProps> = memo(
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={variants}
-          className="w-[445px] relative z-30 h-full bg-[#000]/[0.20] backdrop-blur-[10px] rounded-[20px] px-10 py-5 max-sm:w-[300px] max-sm:flex max-sm:flex-col max-sm:items-center max-sm:justify-between md:w-[540px] lg:w-[480px]"
+          className="relative z-30 h-full w-[445px] rounded-[20px] bg-[#000]/[0.20] px-10 py-5 backdrop-blur-[10px] max-sm:flex max-sm:w-[300px] max-sm:flex-col max-sm:items-center max-sm:justify-between md:w-[540px] lg:w-[480px]"
         >
-          <li className="block_title text-[30px] mb-2.5 max-w-[271px] font-bold tracking-[1.2px] text-light-turquoise uppercase max-sm:text-[20px] max-sm:tracking-[0.04em] max-sm:text-center">
+          <li className="block_title mb-2.5 max-w-[271px] text-[30px] font-bold uppercase tracking-[1.2px] text-light-turquoise max-sm:text-center max-sm:text-[20px] max-sm:tracking-[0.04em]">
             {subTitleBlock}
           </li>
           {items.map((item) => (
             <li
-              className="text-[18px] font-normal ml-5 tracking-[.72px] uppercase list-disc max-sm:text-[14px]"
+              className="ml-5 list-disc text-[18px] font-normal uppercase tracking-[.72px] max-sm:text-[14px]"
               key={item}
             >
               {item}
             </li>
           ))}
-          <li className="mt-6 float-right">
+          <li className="float-right mt-6">
             <Link
               to="catalog"
-              className="text-standart font-bold text-pink tracking-[1.2px] underline uppercase"
+              className="text-standart font-bold uppercase tracking-[1.2px] text-pink underline"
             >
               смотреть каталог
             </Link>
@@ -63,5 +63,5 @@ export const Block: FC<BlockProps> = memo(
         </motion.ul>
       </div>
     );
-  }
+  },
 );

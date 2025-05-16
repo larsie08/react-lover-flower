@@ -18,43 +18,46 @@ export const Intro: FC<IntroProps> = memo(
     const isMobile = screenWidth <= 768;
 
     return (
-      <div className="intro relative max-sm:pt-5 sm:pt-[140px] sm:h-[1600px] max-sm:h-[1000px]">
+      <div className="intro relative max-sm:h-[1000px] max-sm:pt-5 sm:h-[1600px] sm:pt-[140px]">
         {/* Background */}
-        <div className="absolute w-full sm:h-[1600px] max-sm:h-[800px] top-0">
-          <img
-            className="intro_img absolute w-full h-full top-0 left-0 z-10"
-            srcSet="./img/PagesImg/HomeImg/IntroImg/intro.png 1280w, ./img/PagesImg/HomeImg/IntroImg/introAdaptive.png 768w"
-            alt="intro"
-          />
+        <div className="absolute top-0 w-full max-sm:h-[800px] sm:h-[1600px]">
+          <picture>
+            <source
+              srcSet="./img/PagesImg/HomeImg/IntroImg/introAdaptive.png 640w"
+              media="(max-width: 767px)"
+            />
+            <img
+              className="absolute left-0 top-0 z-10 h-full w-full"
+              src="./img/PagesImg/HomeImg/IntroImg/intro.png"
+              srcSet="./img/PagesImg/HomeImg/IntroImg/intro.png 1280w, ./img/PagesImg/HomeImg/IntroImg/introAdaptive.png 640w"
+              loading="lazy"
+              alt="flower"
+            />
+          </picture>
+
           <img
             srcSet="./img/PagesImg/HomeImg/IntroImg/shadow.png 1280w, ./img/PagesImg/HomeImg/IntroImg/shadow-640.png 640w"
-            className="absolute h-[300px] w-full z-20 bottom-0"
+            className="absolute bottom-0 z-20 h-[300px] w-full"
             alt="shadow"
           />
         </div>
 
         {/* Decorative Blurs */}
-        <DecorativeElement
-          className="w-[359px] h-[294px] rotate-[41.599deg] rounded-[50%] bg-light-turquoise blur-[125px] absolute top-[34rem] left-[16rem] 
-        max-sm:w-[148px] max-sm:h-[121px] max-sm:blur-[60px] max-sm:left-0 max-sm:top-[300px]"
-        />
-        <DecorativeElement
-          className="w-[473px] h-[212px] -rotate-[43.21deg] rounded-[50%] bg-cherry blur-[125px] absolute top-[25rem] sm:right-[25rem]
-        max-sm:w-[131px] max-sm:h-[64px] max-sm:blur-[25px] max-sm:right-[2rem] max-sm:top-[17rem]"
-        />
+        <DecorativeElement className="absolute left-[16rem] top-[34rem] h-[294px] w-[359px] rotate-[41.599deg] rounded-[50%] bg-light-turquoise blur-[125px] max-sm:left-0 max-sm:top-[300px] max-sm:h-[121px] max-sm:w-[148px] max-sm:blur-[60px]" />
+        <DecorativeElement className="absolute top-[25rem] h-[212px] w-[473px] -rotate-[43.21deg] rounded-[50%] bg-cherry blur-[125px] max-sm:right-[2rem] max-sm:top-[17rem] max-sm:h-[64px] max-sm:w-[131px] max-sm:blur-[25px] sm:right-[25rem]" />
 
         {/* Main Content */}
-        <div className="intro_wrapper relative container mx-auto">
+        <div className="intro_wrapper container relative mx-auto">
           <IntroTitleBlock screenWidth={screenWidth} />
 
-          <div className="intro__footer__content flex justify-end mt-10 relative z-20">
-            <div className="flex-1 flex flex-col items-center max-sm:mt-[600px]">
-              <h2 className="text-[20px] font-normal tracking-[0.4px] max-sm:text-center max-sm:w-[300px]">
+          <div className="intro__footer__content relative z-20 mt-10 flex justify-end">
+            <div className="flex flex-1 flex-col items-center max-sm:mt-[600px]">
+              <h2 className="text-[20px] font-normal tracking-[0.4px] max-sm:w-[300px] max-sm:text-center">
                 Создаём для тех, кто ценит свежесть и изящество цветка
               </h2>
               <Link
                 to="catalog"
-                className="bg-light-turquoise h-[50px] w-[220px] max-sm:w-[300px] text-center text-[black] mt-12 px-12 py-4 border border-light-turquoise uppercase text-standart font-bold tracking-[1.2px] hover:bg-cherry hover:border-cherry hover:text-white transition-all"
+                className="hover:text-white mt-12 h-[50px] w-[220px] border border-light-turquoise bg-light-turquoise px-12 py-4 text-center text-standart font-bold uppercase tracking-[1.2px] text-[black] transition-all hover:border-cherry hover:bg-cherry max-sm:w-[300px]"
               >
                 Смотреть каталог
               </Link>
@@ -62,8 +65,8 @@ export const Intro: FC<IntroProps> = memo(
 
             {/* Кнопки и контакт */}
             {!isMobile && (
-              <div className="intro__footer_buttons flex-col items-end justify-center sm:flex max-sm:hidden">
-                <h3 className="phone text-[16px] mt-14 text-light-turquoise font-normal tracking-[1.6px] uppercase">
+              <div className="intro__footer_buttons flex-col items-end justify-center max-sm:hidden sm:flex">
+                <h3 className="phone mt-14 text-[16px] font-normal uppercase tracking-[1.6px] text-light-turquoise">
                   +375 (29) 113-69-69
                 </h3>
                 <CallButton onClick={() => openModal(ModalType.Modal)} />
@@ -77,5 +80,5 @@ export const Intro: FC<IntroProps> = memo(
         </div>
       </div>
     );
-  }
+  },
 );

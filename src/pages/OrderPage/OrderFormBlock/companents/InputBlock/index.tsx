@@ -1,9 +1,10 @@
 import { FC, memo } from "react";
 import { InputProps } from "../../FormTypes/form.types";
 
-const LABEL_CLASS = "flex flex-col gap-1 text-[14px] font-normal";
+const LABEL_CLASS =
+  "flex flex-col gap-1 text-[14px] font-normal max-lg:max-w-[300px]";
 const INPUT_CLASS =
-  "form__input h-[60px] border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]";
+  "form__input h-[60px] w-full border border-[#555] bg-[#040A0A] p-4 placeholder:text-[#555] text-[14px] font-normal tracking-[.56px] outline-none aria-[invalid=true]:placeholder:text-[#FF3A44] aria-[invalid=true]:border-[#FF3A44]";
 
 export const Input: FC<InputProps> = memo(
   ({
@@ -25,5 +26,5 @@ export const Input: FC<InputProps> = memo(
         aria-invalid={error ? true : false}
       />
     </label>
-  )
+  ),
 );

@@ -74,7 +74,7 @@ const OrderFormBlock: FC<IOrderFormProps> = memo(
     const [addressSuggestions, setAddressSuggestions] =
       useState<GeosuggestResult[]>();
     const [appliedPromo, setAppliedPromo] = useState<PromoCode | undefined>(
-      undefined
+      undefined,
     );
     const [isAddressListOpen, toggleAddressList] = useState(false);
 
@@ -105,7 +105,7 @@ const OrderFormBlock: FC<IOrderFormProps> = memo(
     const fetchPromocode = async (promo: string) => {
       try {
         const { data } = await axios.get<PromoCode>(
-          `http://localhost:3000/api/promocode/${promo}`
+          `http://localhost:3000/api/promocode/${promo}`,
         );
 
         return data;
@@ -120,7 +120,7 @@ const OrderFormBlock: FC<IOrderFormProps> = memo(
 
       try {
         const { data } = await axios.get<IGeosuggestAnswer>(
-          `https://suggest-maps.yandex.ru/v1/suggest?apikey=YOUR_API_KEY&text=${address}&lang=ru&results=20`
+          `https://suggest-maps.yandex.ru/v1/suggest?apikey=YOUR_API_KEY&text=${address}&lang=ru&results=20`,
         );
         setAddressSuggestions(data.results);
         toggleAddressList(true);
@@ -211,7 +211,7 @@ const OrderFormBlock: FC<IOrderFormProps> = memo(
                       />
                     }
                     label={option}
-                    className="text-[#353535] font-normal aria-checked:text-[white] uppercase tracking-normal"
+                    className="font-normal uppercase tracking-normal text-[#353535] aria-checked:text-[white]"
                     aria-checked={watchDelivery === option}
                   />
                 ))}
@@ -230,7 +230,7 @@ const OrderFormBlock: FC<IOrderFormProps> = memo(
                 error={errors.address}
                 autoComplete="off"
               />
-              <div className="flex gap-8">
+              <div className="flex gap-8 max-lg:max-w-[300px]">
                 <Input
                   label="Кв/офис"
                   placeholder="Кв/офис"
@@ -282,7 +282,7 @@ const OrderFormBlock: FC<IOrderFormProps> = memo(
                       />
                     }
                     label={option}
-                    className="text-[#353535] font-normal aria-checked:text-[white] uppercase tracking-normal"
+                    className="font-normal uppercase tracking-normal text-[#353535] aria-checked:text-[white]"
                     aria-checked={watchPayMethods === option}
                   />
                 ))}
@@ -305,19 +305,19 @@ const OrderFormBlock: FC<IOrderFormProps> = memo(
           appliedPromo={appliedPromo}
         />
 
-        <div className="total_price__button_block flex flex-col gap-[10px] mt-7">
+        <div className="total_price__button_block flex flex-col gap-[10px] max-lg:mt-5 lg:mt-7">
           <button
             onClick={handleSubmit(submitForm, errorHandler)}
             type="submit"
-            className="w-[255px] mt-2 transition-all cursor-pointer text-[black] text-[12px] border border-light-turquoise font-bold tracking-[1.2px] uppercase bg-light-turquoise p-4 hover:border-cherry hover:bg-cherry hover:text-[white] focus:border focus:border-cherry active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]"
+            className="mt-2 w-[255px] cursor-pointer border border-light-turquoise bg-light-turquoise p-4 text-[12px] font-bold uppercase tracking-[1.2px] text-[black] transition-all hover:border-cherry hover:bg-cherry hover:text-[white] focus:border focus:border-cherry active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]"
           >
             К оплате
           </button>
 
-          <p className="max-w-[342px] text-[10px] font-normal tracking-[0.2px] font-roboto_condensed">
+          <p className="max-w-[342px] font-roboto_condensed text-[10px] font-normal tracking-[0.2px]">
             Нажимая на кнопку «К Оплате», я даю свое согласие на обработку
             персональных данных, в соответствии с
-            <span className="text-pink underline ml-1">
+            <span className="ml-1 text-pink underline">
               Политикой конфиденциальности
             </span>
             , а так же ознакомлен с условиями оплаты и доставки
@@ -325,7 +325,7 @@ const OrderFormBlock: FC<IOrderFormProps> = memo(
         </div>
       </form>
     );
-  }
+  },
 );
 
 export default OrderFormBlock;

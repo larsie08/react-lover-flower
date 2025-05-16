@@ -13,7 +13,7 @@ export const IntroTitleBlock: FC<IntroTitleBlockProps> = memo(
           <h1 className="lg:text-[200px] lg:h-[160px] font-light tracking-[40px] uppercase font-cormorant flex justify-center items-center max-sm:z-30 max-sm:text-[50px] max-sm:tracking-[0.1em] md:text-[120px] max-md:text-[110px]">
             lover
           </h1>
-          <h2 className="lg:text-[200px] lg:h-[160px] font-light tracking-[40px] uppercase font-cormorant flex justify-center items-center relative sm:z-20 max-sm:text-[50px] max-sm:tracking-[0.1em] md:text-[120px] max-md:text-[110px]">
+          <h2 className="lg:text-[200px] max-sm:z-30 lg:h-[160px] font-light tracking-[40px] uppercase font-cormorant flex justify-center items-center relative sm:z-20 max-sm:text-[50px] max-sm:tracking-[0.1em] md:text-[120px] max-md:text-[110px]">
             Flower
           </h2>
         </div>

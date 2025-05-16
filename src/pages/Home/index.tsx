@@ -57,7 +57,7 @@ const Home: FC = () => {
   const openModal = useCallback(
     (type: ModalType) =>
       dispatch(setModalState({ modalType: type, isOpen: true })),
-    [dispatch]
+    [dispatch],
   );
 
   return (
@@ -68,16 +68,16 @@ const Home: FC = () => {
 
       <div className="popular_bouquets relative">
         {screenWidth > 768 && (
-          <DecorativeElement className="absolute right-0 z-10 w-[60%] h-[750px] bg-[url('./img/PagesImg/HomeImg/IntroImg/BouquetsBG.png')]" />
+          <DecorativeElement className="absolute right-0 z-10 h-[750px] w-[60%] bg-[url('./img/PagesImg/HomeImg/IntroImg/BouquetsBG.png')]" />
         )}
         {screenWidth > 768 && (
-          <DecorativeElement className="absolute left-0 z-10 h-[800px] w-[500px] bg-[#43FFD2]/[0.47] blur-[125px] rounded-[40%]" />
+          <DecorativeElement className="absolute left-0 z-10 h-[800px] w-[500px] rounded-[40%] bg-[#43FFD2]/[0.47] blur-[125px]" />
         )}
         {screenWidth > 768 && (
-          <DecorativeElement className="absolute top-[22rem] right-[30rem] max-[1440px]:right-[13rem] z-0 h-[1007px] w-[1001px] bg-[#7D2253]/[0.46] blur-[125px] rounded-[40%]" />
+          <DecorativeElement className="absolute right-[30rem] top-[22rem] z-0 h-[1007px] w-[1001px] rounded-[40%] bg-[#7D2253]/[0.46] blur-[125px] max-[1440px]:right-[13rem]" />
         )}
 
-        <div className="popular_bouquets__wrapper relative container mx-auto max-lg:flex max-lg:flex-col max-lg:mt-[6rem]">
+        <div className="popular_bouquets__wrapper container relative mx-auto max-lg:mt-[6rem] max-lg:flex max-lg:flex-col">
           {/* <BouquetsTitleBlock /> */}
           <HomeTitleBlock
             title="Популярные"
@@ -90,7 +90,7 @@ const Home: FC = () => {
           {screenWidth > 500 ? (
             <SliderBlock bouquets={items} screenWidth={screenWidth} />
           ) : (
-            <div className="flex flex-col items-center gap-10 mt-6">
+            <div className="mt-6 flex flex-col items-center gap-10">
               {items.slice(0, 3).map((bouquet) => (
                 <CardBlock
                   id={bouquet.id}
@@ -105,10 +105,10 @@ const Home: FC = () => {
             </div>
           )}
 
-          <div className="popular_bouquets__link flex items-center mt-16 ml-3">
+          <div className="popular_bouquets__link ml-3 mt-16 flex items-center">
             <Link
               to="catalog"
-              className="link text-[12px] text-pink font-bold tracking-[1.2px] uppercase underline"
+              className="link text-[12px] font-bold uppercase tracking-[1.2px] text-pink underline"
             >
               смотреть весь каталог
             </Link>
