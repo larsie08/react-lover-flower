@@ -64,9 +64,9 @@ export const QuestionBlock: FC<QuestionBlockProps> = memo(({ screenWidth }) => {
             subtitle="вопросы?"
             titleClassName={QUESTION_TITLE_CLASSNAME}
             subtitleClassName={QUESTION_SUBTITLE_CLASSNAME}
-            animation="fade-right"
+            animation={screenWidth >= 768 ? "fade-right" : "fade-bottom"}
           />
-          <QuestionDescriptionBlock />
+          <QuestionDescriptionBlock screenWidth={screenWidth} />
         </div>
         <QuestionFormBlock />
       </div>

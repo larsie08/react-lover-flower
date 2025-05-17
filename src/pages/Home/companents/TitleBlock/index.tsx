@@ -10,7 +10,7 @@ type TitleBlock = {
   titleClassName: string;
   subtitleClassName?: string;
   subtitleWrapperClassName?: string;
-  animation: "fade-right" | "fade-left";
+  animation: "fade-right" | "fade-left" | "fade-bottom";
   renderTitleText?: () => ReactNode;
 };
 
@@ -30,7 +30,7 @@ export const HomeTitleBlock: FC<TitleBlock> = ({
   return (
     <div
       ref={ref}
-      className="title_block flex flex-col max-lg:items-center relative z-30"
+      className="title_block relative z-30 flex flex-col max-lg:items-center"
     >
       <motion.h1
         initial="hidden"
@@ -47,7 +47,7 @@ export const HomeTitleBlock: FC<TitleBlock> = ({
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             variants={variants}
-            transition={{ duration: 1.2 }}
+            transition={{ duration: 1 }}
             className={subtitleClassName || ""}
           >
             {subtitle}

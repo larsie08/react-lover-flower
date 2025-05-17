@@ -1,20 +1,26 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 
-export const QuestionDescriptionBlock: FC = () => {
+export const QuestionDescriptionBlock: FC<{ screenWidth: number }> = ({
+  screenWidth,
+}) => {
   return (
-    <div className="flex flex-col z-20 sm:gap-14 max-sm:mt-[8rem] max-sm:gap-5 max-sm:ml-2">
+    <div className="z-20 flex flex-col max-sm:ml-2 max-sm:mt-[8rem] max-sm:gap-5 sm:gap-14">
       <motion.div
         initial={{ width: 0 }}
         whileInView={{ width: "100%" }}
         transition={{ duration: 1 }}
         viewport={{ once: true, amount: 0.2 }}
-        className="line border-t-[1px] border-light-turquoise sm:max-w-[255px] max-sm:w-[96px]"
+        className="line border-t-[1px] border-light-turquoise max-sm:w-[96px] sm:max-w-[255px]"
       ></motion.div>
 
       <motion.p
-        initial={{ opacity: 0, x: 100 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{
+          opacity: 0,
+          y: screenWidth <= 768 ? 100 : 0,
+          x: screenWidth >= 768 ? -100 : 0,
+        }}
+        whileInView={{ opacity: 1, x: 0, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: true, amount: 0.2 }}
         className="max-sm:text-[14px] max-sm:font-normal max-sm:tracking-[0.04em] md:w-[255px]"

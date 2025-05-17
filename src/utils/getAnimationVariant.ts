@@ -1,9 +1,9 @@
-type AnimationType = "fade-left" | "fade-right";
+type AnimationType = "fade-left" | "fade-right" | "fade-bottom";
 
 export const getAnimationVariant = (
   type: AnimationType,
   delay: number = 0,
-  duration: number = 0.8
+  duration: number = 0.8,
 ) => {
   const baseAnimation = {
     hidden: { opacity: 0 },
@@ -36,6 +36,13 @@ export const getAnimationVariant = (
           ...baseAnimation.visible,
           x: 0,
         },
+      };
+
+    case "fade-bottom":
+      return {
+        ...baseAnimation,
+        hidden: { ...baseAnimation.hidden, y: 100 },
+        visible: { ...baseAnimation.visible, y: 0 },
       };
 
     default:

@@ -9,7 +9,7 @@ type BlockProps = {
   items: string[];
   title: string;
   subTitleBlock: string;
-  animation: "fade-left" | "fade-right";
+  animation: "fade-left" | "fade-right" | "fade-bottom";
   titleClassName: string;
   marginTop?: string;
   height?: string;

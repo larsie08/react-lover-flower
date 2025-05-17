@@ -35,9 +35,17 @@ const renderTitleText = () => {
   return (
     <>
       <motion.h3
-        initial={{ opacity: 0, x: -100 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 2 }}
+        initial={{
+          opacity: 0,
+          y: useScreenWidth() <= 768 ? 100 : 0,
+          x: useScreenWidth() >= 768 ? -100 : 0,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          x: 0,
+        }}
+        transition={{ duration: useScreenWidth() >= 768 ? 2 : 1 }}
         viewport={{ once: true, amount: 0.2 }}
         className={HOME_SUBTITLE_CLASSNAME}
       >
@@ -64,7 +72,7 @@ const Home: FC = () => {
     <div className="wrapper bg-[#040A0A]">
       <Intro cart={cartItems} openModal={openModal} screenWidth={screenWidth} />
 
-      <CatalogBlock />
+      <CatalogBlock screenWidth={screenWidth} />
 
       <div className="popular_bouquets relative">
         {screenWidth > 768 && (
@@ -78,11 +86,10 @@ const Home: FC = () => {
         )}
 
         <div className="popular_bouquets__wrapper container relative mx-auto max-lg:mt-[6rem] max-lg:flex max-lg:flex-col">
-          {/* <BouquetsTitleBlock /> */}
           <HomeTitleBlock
             title="Популярные"
             subtitle="букеты"
-            animation="fade-right"
+            animation={screenWidth >= 768 ? "fade-right" : "fade-bottom"}
             titleClassName={HOME_TITLE_CLASSNAME}
             subtitleClassName={HOME_CENTERED_CLASSNAME}
             renderTitleText={renderTitleText}
@@ -117,7 +124,7 @@ const Home: FC = () => {
         </div>
       </div>
 
-      <HomeOrderBlock />
+      <HomeOrderBlock screenWidth={screenWidth} />
 
       <OccasionBlock screenWidth={screenWidth} />
 
