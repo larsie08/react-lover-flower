@@ -7,7 +7,7 @@ import { FiltersParams } from "../filter/types";
 
 export const fetchBouquets = createAsyncThunk<Bouquet[], FiltersParams>(
   "bouquets/fetchBouquetsStatus",
-  async ({ sortProperty, category, filterIds, fieldPriceValue }) => {
+  async ({ sortProperty, category, filtersId, fieldPriceValue }) => {
     const params = new URLSearchParams({
       sortBy: sortProperty,
       category: category,
@@ -15,8 +15,8 @@ export const fetchBouquets = createAsyncThunk<Bouquet[], FiltersParams>(
       maxPriceValue: String(fieldPriceValue[1]),
     });
 
-    if (filterIds) {
-      filterIds.forEach((filter) => {
+    if (filtersId) {
+      filtersId.forEach((filter) => {
         params.append("filters", filter);
       });
     }

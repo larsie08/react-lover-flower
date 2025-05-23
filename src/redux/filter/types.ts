@@ -46,7 +46,7 @@ export enum SortPropertyEnum {
 export type FiltersParams = {
   sortProperty: string;
   category: string;
-  filterIds?: string[];
+  filtersId?: string[];
   fieldPriceValue: number[];
 };
 
