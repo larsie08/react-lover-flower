@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-CEBBSjgO.js","assets/vendor-DsNSJXVB.js","assets/vendor-DV8PrLMj.css","assets/index-BtP6gyP3.js","assets/vendor-redux-CF_v3iJm.js","assets/index-BDmUrxLb.js","assets/index-Bsgy-FKQ.js","assets/index-CIIaK8L4.js","assets/index-CIOvp2sS.js","assets/index-BS0uFe2Q.js","assets/index-CyGvSHNP.js","assets/index-uF4ggOrh.js","assets/index-ofKoiS9e.js","assets/index-C-SBp1M3.js","assets/index-HuDZA0JD.js","assets/index-BpnorXUV.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-DyY4-FZG.js","assets/vendor-DsNSJXVB.js","assets/vendor-DV8PrLMj.css","assets/index-tIy76ve6.js","assets/vendor-redux-CF_v3iJm.js","assets/index-CbXmTUk1.js","assets/index-Bezm_JkM.js","assets/index-4H34Z3mJ.js","assets/index-BpzG9NkC.js","assets/index-BwKTwPBJ.js","assets/index-BDhvARFY.js","assets/index-Du8sWvT_.js","assets/index-CRy0sapJ.js","assets/index-Ck-rIKXL.js","assets/index-Fi8jh-B8.js","assets/index-BpnorXUV.js"])))=>i.map(i=>d[i]);
 import { b as z, c as te, r as l, j as e, d as b, L as C, u as Z, e as Ne, T as ye, f as se, g as ae, h as T, B as ke, A as Ie, S as M, k as Be, l as Le, M as Se, N as Fe, m as Ae, n as le, o as w, O as Oe, R as qe, q as f, s as Me, t as Ee, H as Pe, __tla as __tla_0 } from "./vendor-DsNSJXVB.js";
 import { c as O, a as re, b as Te, u as De, d as y, P as Re } from "./vendor-redux-CF_v3iJm.js";
 let p2, Xt, g, d, v, v2, pt, V, L, Ue, lt, d2, c2, x2, dt, ue, oe, C2, it, G, ce, m2, fe, f2, h2, N, j2, k, pe, mt, g2, Je, m1;
@@ -134,7 +134,7 @@ let __tla = Promise.all([
   });
   ({ setCategory: ce, setFiltersId: c2, setClearFiltersId: x2, setSortValue: m2, setConfirm: Ue, setFieldPriceValue: d2 } = ne.actions);
   $e = ne.reducer;
-  E = re("bouquets/fetchBouquetsStatus", async ({ sortProperty: t, category: s, filterIds: a, fieldPriceValue: r }) => {
+  E = re("bouquets/fetchBouquetsStatus", async ({ sortProperty: t, category: s, filtersId: a, fieldPriceValue: r }) => {
     const o = new URLSearchParams({
       sortBy: t,
       category: s,
@@ -144,7 +144,7 @@ let __tla = Promise.all([
     a && a.forEach((c) => {
       o.append("filters", c);
     });
-    const { data: i } = await z.get(`http://localhost:3000/api/bouquets?${o}`);
+    const { data: i } = await z.get(`http://85.192.37.217:3000/api/bouquets?${o}`);
     return i;
   });
   var I = ((t) => (t.LOADING = "loading", t.SUCCESS = "success", t.ERROR = "error", t))(I || {});
@@ -208,7 +208,7 @@ let __tla = Promise.all([
   ({ setCartItem: Je, setDeleteBouquet: Xe, updateItemCount: W } = me.actions);
   et = me.reducer;
   D = re("reviews/fetchReviewsStatus", async ({ bouquetId: t }) => {
-    const { data: s } = await z.get(`http://localhost:3000/api/review/${t}`);
+    const { data: s } = await z.get(`http://85.192.37.217:3000/api/review/${t}`);
     return s;
   });
   tt = {
@@ -1276,7 +1276,7 @@ let __tla = Promise.all([
       r
     ]), we = async (p) => {
       try {
-        const { data: F } = await z.get(`http://localhost:3000/api/bouquets/search/${p}`);
+        const { data: F } = await z.get(`http://85.192.37.217:3000/api/bouquets/search/${p}`);
         n(F), h(true);
       } catch (F) {
         console.error("Error fetching search bouquets:", F);
@@ -3507,20 +3507,20 @@ let __tla = Promise.all([
       e.jsx(Qt, {})
     ]
   });
-  $1 = l.lazy(() => _(() => import("./index-CEBBSjgO.js"), __vite__mapDeps([0,1,2,3,4])));
-  Q1 = l.lazy(() => _(() => import("./index-BDmUrxLb.js"), __vite__mapDeps([5,1,2,4,3])));
-  W1 = l.lazy(() => _(() => import("./index-Bsgy-FKQ.js"), __vite__mapDeps([6,1,2,3,4])));
-  Y1 = l.lazy(() => _(() => import("./index-CIIaK8L4.js").then(async (m) => {
+  $1 = l.lazy(() => _(() => import("./index-DyY4-FZG.js"), __vite__mapDeps([0,1,2,3,4])));
+  Q1 = l.lazy(() => _(() => import("./index-CbXmTUk1.js"), __vite__mapDeps([5,1,2,4,3])));
+  W1 = l.lazy(() => _(() => import("./index-Bezm_JkM.js"), __vite__mapDeps([6,1,2,3,4])));
+  Y1 = l.lazy(() => _(() => import("./index-4H34Z3mJ.js").then(async (m) => {
     await m.__tla;
     return m;
   }), __vite__mapDeps([7,1,2,3,4])));
-  K1 = l.lazy(() => _(() => import("./index-CIOvp2sS.js"), __vite__mapDeps([8,1,2,3,4])));
-  J1 = l.lazy(() => _(() => import("./index-BS0uFe2Q.js"), __vite__mapDeps([9,1,2,3,4])));
-  X1 = l.lazy(() => _(() => import("./index-CyGvSHNP.js"), __vite__mapDeps([10,1,2,4,3])));
-  e2 = l.lazy(() => _(() => import("./index-uF4ggOrh.js"), __vite__mapDeps([11,1,2,4])));
-  t2 = l.lazy(() => _(() => import("./index-ofKoiS9e.js"), __vite__mapDeps([12,1,2,4])));
-  s2 = l.lazy(() => _(() => import("./index-C-SBp1M3.js"), __vite__mapDeps([13,1,2,4])));
-  a2 = l.lazy(() => _(() => import("./index-HuDZA0JD.js"), __vite__mapDeps([14,1,2,4])));
+  K1 = l.lazy(() => _(() => import("./index-BpzG9NkC.js"), __vite__mapDeps([8,1,2,3,4])));
+  J1 = l.lazy(() => _(() => import("./index-BwKTwPBJ.js"), __vite__mapDeps([9,1,2,3,4])));
+  X1 = l.lazy(() => _(() => import("./index-BDhvARFY.js"), __vite__mapDeps([10,1,2,4,3])));
+  e2 = l.lazy(() => _(() => import("./index-Du8sWvT_.js"), __vite__mapDeps([11,1,2,4])));
+  t2 = l.lazy(() => _(() => import("./index-CRy0sapJ.js"), __vite__mapDeps([12,1,2,4])));
+  s2 = l.lazy(() => _(() => import("./index-Ck-rIKXL.js"), __vite__mapDeps([13,1,2,4])));
+  a2 = l.lazy(() => _(() => import("./index-Fi8jh-B8.js"), __vite__mapDeps([14,1,2,4])));
   l2 = l.lazy(() => _(() => import("./index-BpnorXUV.js"), __vite__mapDeps([15,1,2])));
   j = {
     HOME: "/",

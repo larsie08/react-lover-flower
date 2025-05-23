@@ -1,5 +1,5 @@
 import { j as e, J as b, K as w, y as j, P as F, r as m, g as q, b as R } from "./vendor-DsNSJXVB.js";
-import { u as S, A as _, s as B, M as D, a as I } from "./index-DEteCQ4C.js";
+import { u as S, A as _, s as B, M as D, a as I } from "./index-BY25SXSw.js";
 import "./vendor-redux-CF_v3iJm.js";
 const E = ({ rating: s, feedback: r, name: i, createdAt: n }) => e.jsxs("div", { className: "flex flex-col gap-2", children: [e.jsx("p", { className: "h-[25px] text-light-turquoise text-[30px] font-normal tracking-[0.6px] uppercase", children: "\u201C" }), e.jsx("h2", { className: "max-w-[540px] text-[16px] font-normal tracking-[0.32px]", children: r }), e.jsx("div", { className: "rating__group mt-1 relative w-[10em] h-[2em]", children: e.jsx(b, { name: "read-only-rating", value: s, readOnly: true, max: 5, emptyIcon: e.jsx(w, { style: { color: j[800], opacity: "inherit" } }) }) }), e.jsxs("div", { className: "flex gap-1", children: [e.jsxs("h4", { className: "text-[14px] font-normal tracking-[0.14px] text-[#555]", children: [i, ","] }), e.jsx("h4", { className: "text-[14px] font-normal tracking-[0.28px] text-[#555]", children: n })] })] }), $ = () => {
   const s = S(), r = F(), [i, n] = m.useState(0), [l, h] = m.useState([]), { register: o, handleSubmit: N, formState: { errors: c } } = q(), A = (t) => {
@@ -14,7 +14,7 @@ const E = ({ rating: s, feedback: r, name: i, createdAt: n }) => e.jsxs("div", {
   }, k = async (t, a, x, p) => {
     try {
       const d = { bouquetId: r.id, rating: t, feedback: a, name: x, email: p }, v = g(/* @__PURE__ */ new Date()), f = l.length + 1;
-      h([...l, { reviewId: f, rating: t, feedback: a, name: x, email: p, createdAt: v }]), s(_({ id: r.id, review: { reviewId: f, rating: t, feedback: a, name: x, email: p, createdAt: v } })), await R.post("http://localhost:3000/api/review", d);
+      h([...l, { reviewId: f, rating: t, feedback: a, name: x, email: p, createdAt: v }]), s(_({ id: r.id, review: { reviewId: f, rating: t, feedback: a, name: x, email: p, createdAt: v } })), await R.post("http://85.192.37.217:3000/api/review", d);
     } catch (d) {
       console.log(d);
     }
