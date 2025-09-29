@@ -1,7 +1,7 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-DyY4-FZG.js","assets/vendor-DsNSJXVB.js","assets/vendor-DV8PrLMj.css","assets/index-tIy76ve6.js","assets/vendor-redux-CF_v3iJm.js","assets/index-CbXmTUk1.js","assets/index-Bezm_JkM.js","assets/index-4H34Z3mJ.js","assets/index-BpzG9NkC.js","assets/index-BwKTwPBJ.js","assets/index-BDhvARFY.js","assets/index-Du8sWvT_.js","assets/index-CRy0sapJ.js","assets/index-Ck-rIKXL.js","assets/index-Fi8jh-B8.js","assets/index-BpnorXUV.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-CIBgrD2A.js","assets/vendor-DsNSJXVB.js","assets/vendor-DV8PrLMj.css","assets/index-D2__dnbF.js","assets/vendor-redux-CF_v3iJm.js","assets/index-IyKELorG.js","assets/index-CRI7i_QX.js","assets/index-D9BOYUJh.js","assets/index-C6gPVOT1.js","assets/index-D6CUrcBF.js","assets/index-Ur1Yj27a.js","assets/index-PFZfq58F.js","assets/index--fwNth2W.js","assets/index-DThnF677.js","assets/index-DPtaL4XC.js","assets/index-BpnorXUV.js"])))=>i.map(i=>d[i]);
 import { b as z, c as te, r as l, j as e, d as b, L as C, u as Z, e as Ne, T as ye, f as se, g as ae, h as T, B as ke, A as Ie, S as M, k as Be, l as Le, M as Se, N as Fe, m as Ae, n as le, o as w, O as Oe, R as qe, q as f, s as Me, t as Ee, H as Pe, __tla as __tla_0 } from "./vendor-DsNSJXVB.js";
 import { c as O, a as re, b as Te, u as De, d as y, P as Re } from "./vendor-redux-CF_v3iJm.js";
-let p2, Xt, g, d, v, v2, pt, V, L, Ue, lt, d2, c2, x2, dt, ue, oe, C2, it, G, ce, m2, fe, f2, h2, N, j2, k, pe, mt, g2, Je, m1;
+let u2, e1, g, d, v, w2, ut, G, L, Ve, rt, p2, x2, m2, pt, ue, oe, j2, ot, U, ce, d2, fe, C2, f2, N, v2, k, pe, dt, h2, Xe, d1;
 let __tla = Promise.all([
   (() => {
     try {
@@ -31,7 +31,7 @@ let __tla = Promise.all([
       fetch(o.href, i);
     }
   })();
-  let He, ze, Q, _, Ze, ie, Ve;
+  let He, ze, Q, _, Ze, ie, Ge;
   He = "modulepreload";
   ze = function(t) {
     return "/react-lover-flower/" + t;
@@ -41,26 +41,26 @@ let __tla = Promise.all([
     let o = Promise.resolve();
     if (a && a.length > 0) {
       document.getElementsByTagName("link");
-      const c = document.querySelector("meta[property=csp-nonce]"), m = (c == null ? void 0 : c.nonce) || (c == null ? void 0 : c.getAttribute("nonce"));
+      const c = document.querySelector("meta[property=csp-nonce]"), x = (c == null ? void 0 : c.nonce) || (c == null ? void 0 : c.getAttribute("nonce"));
       o = Promise.allSettled(a.map((n) => {
         if (n = ze(n), n in Q) return;
         Q[n] = true;
-        const x = n.endsWith(".css"), h = x ? '[rel="stylesheet"]' : "";
+        const m = n.endsWith(".css"), h = m ? '[rel="stylesheet"]' : "";
         if (document.querySelector(`link[href="${n}"]${h}`)) return;
         const u = document.createElement("link");
-        if (u.rel = x ? "stylesheet" : He, x || (u.as = "script"), u.crossOrigin = "", u.href = n, m && u.setAttribute("nonce", m), document.head.appendChild(u), x) return new Promise((B, S) => {
+        if (u.rel = m ? "stylesheet" : He, m || (u.as = "script"), u.crossOrigin = "", u.href = n, x && u.setAttribute("nonce", x), document.head.appendChild(u), m) return new Promise((B, S) => {
           u.addEventListener("load", B), u.addEventListener("error", () => S(new Error(`Unable to preload CSS for ${n}`)));
         });
       }));
     }
     function i(c) {
-      const m = new Event("vite:preloadError", {
+      const x = new Event("vite:preloadError", {
         cancelable: true
       });
-      if (m.payload = c, window.dispatchEvent(m), !m.defaultPrevented) throw c;
+      if (x.payload = c, window.dispatchEvent(x), !x.defaultPrevented) throw c;
     }
     return o.then((c) => {
-      for (const m of c || []) m.status === "rejected" && i(m.reason);
+      for (const x of c || []) x.status === "rejected" && i(x.reason);
       return s().catch(i);
     });
   };
@@ -85,12 +85,12 @@ let __tla = Promise.all([
       }
     }
   });
-  ({ setModalState: N, setSeverityOption: V } = ie.actions);
-  Ve = ie.reducer;
+  ({ setModalState: N, setSeverityOption: G } = ie.actions);
+  Ge = ie.reducer;
   d = ((t) => (t.GypsophilaBouquets = "\u0411\u0443\u043A\u0435\u0442\u044B \u0438\u0437 \u0433\u0438\u043F\u0441\u043E\u0444\u0438\u043B", t.ChamomileBouquets = "\u0411\u0443\u043A\u0435\u0442\u044B \u0438\u0437 \u0440\u043E\u043C\u0430\u0448\u0435\u043A", t.ChrysanthemumBouquets = "\u0411\u0443\u043A\u0435\u0442\u044B \u0438\u0437 \u0445\u0440\u0438\u0437\u0430\u043D\u0442\u0435\u043C", t.PottedIndoorPlants = "\u041A\u043E\u043C\u043D\u0430\u0442\u043D\u044B\u0435 \u0446\u0432\u0435\u0442\u044B \u0432 \u0433\u043E\u0440\u0448\u043A\u0430\u0445", t.MonoBouquets = "\u041C\u043E\u043D\u043E\u0431\u0443\u043A\u0435\u0442\u044B", t.AssortedBouquets = "\u0421\u0431\u043E\u0440\u043D\u044B\u0435 \u0431\u0443\u043A\u0435\u0442\u044B", t.HolidayBouquets = "\u0411\u0443\u043A\u0435\u0442 \u043D\u0430 \u043F\u0440\u0430\u0437\u0434\u043D\u0438\u043A", t.FlowerCompositions = "\u041A\u043E\u043C\u043F\u043E\u0437\u0438\u0446\u0438\u0438 \u0438\u0437 \u0446\u0432\u0435\u0442\u043E\u0432", t.Envelopes = "\u041A\u043E\u043D\u0432\u0435\u0440\u0442\u044B", t.GreetingCards = "\u041E\u0442\u043A\u0440\u044B\u0442\u043A\u0438", t.Gifts = "\u041F\u043E\u0434\u0430\u0440\u043A\u0438", t.DriedFlowerBouquets = "\u0411\u0443\u043A\u0435\u0442\u044B \u0438\u0437 \u0441\u0443\u0445\u043E\u0446\u0432\u0435\u0442\u043E\u0432", t.Balloons = "\u0428\u0430\u0440\u044B", t.PopularItems = "\u041F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u043E\u0435", t.RoseBouquets = "\u0411\u0443\u043A\u0435\u0442\u044B \u0440\u043E\u0437", t.FuneralFlowers = "\u0426\u0432\u0435\u0442\u044B \u043D\u0430 \u043F\u043E\u0445\u043E\u0440\u043E\u043D\u044B", t.GiftWrapping = "\u0423\u043F\u0430\u043A\u043E\u0432\u043A\u0430 \u043F\u043E\u0434\u0430\u0440\u043A\u043E\u0432", t))(d || {});
   oe = ((t) => (t.RATING = "rating", t.NAME = "name", t.COST = "cost", t))(oe || {});
-  let Ge, ne, $e, E;
-  Ge = {
+  let Ue, ne, $e, Qe, E;
+  Ue = {
     category: "",
     filtersId: [],
     fieldPriceValue: [
@@ -105,7 +105,7 @@ let __tla = Promise.all([
   };
   ne = O({
     name: "filter",
-    initialState: Ge,
+    initialState: Ue,
     reducers: {
       setCategory(t, s) {
         const { category: a } = s.payload;
@@ -132,30 +132,30 @@ let __tla = Promise.all([
       }
     }
   });
-  ({ setCategory: ce, setFiltersId: c2, setClearFiltersId: x2, setSortValue: m2, setConfirm: Ue, setFieldPriceValue: d2 } = ne.actions);
+  ({ setCategory: ce, setFiltersId: x2, setClearFiltersId: m2, setSortValue: d2, setConfirm: Ve, setFieldPriceValue: p2 } = ne.actions);
   $e = ne.reducer;
+  Qe = (t, s, a) => !s || s.length === 0 ? t.filter((r) => r.cost >= a[0] && r.cost <= a[1]) : t.filter((r) => {
+    const { filters: o, cost: i } = r;
+    return (s.includes(o.lighting) || Object.values(o.colors).some((x) => s.includes(x)) || Object.values(o.format).some((x) => s.includes(x)) || Object.values(o.flowers).some((x) => s.includes(x))) && i >= a[0] && i <= a[1];
+  });
   E = re("bouquets/fetchBouquetsStatus", async ({ sortProperty: t, category: s, filtersId: a, fieldPriceValue: r }) => {
     const o = new URLSearchParams({
       sortBy: t,
-      category: s,
-      minPriceValue: String(r[0]),
-      maxPriceValue: String(r[1])
+      search: s
     });
-    a && a.forEach((c) => {
-      o.append("filters", c);
-    });
-    const { data: i } = await z.get(`http://85.192.37.217:3000/api/bouquets?${o}`);
-    return i;
+    console.log(a);
+    const { data: i } = await z.get(`https://655b76e2ab37729791a92825.mockapi.io/items?${o.toString()}`);
+    return Qe(i, a, r);
   });
   var I = ((t) => (t.LOADING = "loading", t.SUCCESS = "success", t.ERROR = "error", t))(I || {});
-  let Qe, xe, We, P, Ye, Ke, me, Xe, W, et, D, tt, de, u2, st, at, rt, ot, nt, ct;
-  Qe = {
+  let We, xe, Ye, P, Ke, Je, me, et, W, tt, D, st, de, g2, at, lt, it, nt, ct, xt;
+  We = {
     items: [],
     status: I.LOADING
   };
   xe = O({
     name: "bouquet",
-    initialState: Qe,
+    initialState: We,
     reducers: {
       updateBouquet(t, s) {
         var _a;
@@ -175,20 +175,20 @@ let __tla = Promise.all([
       });
     }
   });
-  ({ updateBouquet: p2 } = xe.actions);
-  We = xe.reducer;
+  ({ updateBouquet: u2 } = xe.actions);
+  Ye = xe.reducer;
   P = (t) => t.reduce((s, a) => a.cost * a.quantity + s, 0);
-  Ye = () => {
+  Ke = () => {
     const t = localStorage.getItem("flower-cart"), s = t ? JSON.parse(t) : [], a = P(s);
     return {
       cartItems: s,
       totalPrice: a
     };
   };
-  Ke = Ye();
+  Je = Ke();
   me = O({
     name: "cart",
-    initialState: Ke,
+    initialState: Je,
     reducers: {
       setCartItem(t, s) {
         const { id: a, quantity: r } = s.payload, o = t.cartItems.find((i) => i.id === a);
@@ -205,19 +205,19 @@ let __tla = Promise.all([
       }
     }
   });
-  ({ setCartItem: Je, setDeleteBouquet: Xe, updateItemCount: W } = me.actions);
-  et = me.reducer;
+  ({ setCartItem: Xe, setDeleteBouquet: et, updateItemCount: W } = me.actions);
+  tt = me.reducer;
   D = re("reviews/fetchReviewsStatus", async ({ bouquetId: t }) => {
-    const { data: s } = await z.get(`http://85.192.37.217:3000/api/review/${t}`);
+    const { data: s } = await z.get(`http://localhost:3000/api/review/${t}`);
     return s;
   });
-  tt = {
+  st = {
     reviews: [],
     status: I.LOADING
   };
   de = O({
     name: "reviws",
-    initialState: tt,
+    initialState: st,
     reducers: {
       addReview(t, s) {
         t.reviews.push({
@@ -235,34 +235,34 @@ let __tla = Promise.all([
       });
     }
   });
-  ({ addReview: u2 } = de.actions);
-  st = de.reducer;
-  at = Te({
+  ({ addReview: g2 } = de.actions);
+  at = de.reducer;
+  lt = Te({
     reducer: {
-      modal: Ve,
+      modal: Ge,
       filter: $e,
-      bouquets: We,
-      cart: et,
-      reviews: st
+      bouquets: Ye,
+      cart: tt,
+      reviews: at
     }
   });
   k = () => De();
-  lt = (t) => t.filter;
-  rt = (t) => t.bouquets.items;
-  it = (t) => t.bouquets;
-  g2 = te([
-    rt,
+  rt = (t) => t.filter;
+  it = (t) => t.bouquets.items;
+  ot = (t) => t.bouquets;
+  h2 = te([
+    it,
     (t, s) => s
   ], (t, s) => t.find((a) => a.id === s));
-  ot = (t) => t.cart.cartItems;
-  nt = (t) => t.modal.isOpenCart;
-  G = (t) => t.cart;
-  ct = te([
-    ot,
+  nt = (t) => t.cart.cartItems;
+  ct = (t) => t.modal.isOpenCart;
+  U = (t) => t.cart;
+  xt = te([
+    nt,
     (t, s) => s
   ], (t, s) => t.find((a) => a.id === s));
   v = ((t) => (t.Modal = "isOpenModal", t.Cart = "isOpenCart", t.HamburgerMenu = "isOpenHamburgerMenu", t.Alert = "isOpenAlertBlock", t))(v || {});
-  let xt, ut, gt, ht, ft, Ct, jt, vt, wt, bt, _t, Nt, yt, kt, It, Bt, Lt, ge, St, Ft, U, At, Ot, qt, Mt, Et, Pt, Tt, Dt, Rt, A, Ht, R, zt, Y, K, Zt, Vt, Gt, Ut, $t, Qt, $, Wt, Yt, Kt, Jt, J, e1, t1, s1, a1, l1, r1, i1, o1, n1;
+  let mt, gt, ht, ft, Ct, jt, vt, wt, bt, _t, Nt, yt, kt, It, Bt, Lt, St, ge, Ft, At, V, Ot, qt, Mt, Et, Pt, Tt, Dt, Rt, Ht, A, zt, R, Zt, Y, K, Gt, Ut, Vt, $t, Qt, Wt, $, Yt, Kt, Jt, Xt, J, t1, s1, a1, l1, r1, i1, o1, n1, c1;
   pe = l.memo(() => e.jsx("svg", {
     className: "mr-2.5",
     xmlns: "http://www.w3.org/2000/svg",
@@ -275,7 +275,7 @@ let __tla = Promise.all([
       fill: "white"
     })
   }));
-  xt = l.memo(() => e.jsx("svg", {
+  mt = l.memo(() => e.jsx("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "18",
     height: "18",
@@ -286,7 +286,7 @@ let __tla = Promise.all([
       fill: "#43FFD2"
     })
   }));
-  mt = l.memo(() => e.jsxs("svg", {
+  dt = l.memo(() => e.jsxs("svg", {
     className: "ei-close",
     width: "18",
     height: "18",
@@ -368,7 +368,7 @@ let __tla = Promise.all([
       fill: "white"
     })
   }));
-  dt = () => e.jsx("svg", {
+  pt = () => e.jsx("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "16",
     height: "16",
@@ -379,7 +379,7 @@ let __tla = Promise.all([
       fill: "#43FFD2"
     })
   });
-  pt = () => e.jsxs("svg", {
+  ut = () => e.jsxs("svg", {
     className: "relative z-20 max-sm:hidden",
     xmlns: "http://www.w3.org/2000/svg",
     width: "60",
@@ -447,7 +447,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  ut = () => e.jsx("svg", {
+  gt = () => e.jsx("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "80",
     height: "6",
@@ -458,7 +458,7 @@ let __tla = Promise.all([
       fill: "#43FFD2"
     })
   });
-  gt = () => e.jsx("svg", {
+  ht = () => e.jsx("svg", {
     className: "ml-2",
     xmlns: "http://www.w3.org/2000/svg",
     width: "40",
@@ -470,7 +470,7 @@ let __tla = Promise.all([
       fill: "#D978AC"
     })
   });
-  ht = () => e.jsx("svg", {
+  ft = () => e.jsx("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "80",
     height: "6",
@@ -481,7 +481,7 @@ let __tla = Promise.all([
       fill: "#43FFD2"
     })
   });
-  ft = () => e.jsxs("svg", {
+  Ct = () => e.jsxs("svg", {
     className: "absolute right-0 top-0 max-xl:size-2/3 w-[439px]",
     xmlns: "http://www.w3.org/2000/svg",
     height: "900",
@@ -524,7 +524,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  Ct = () => e.jsx("svg", {
+  jt = () => e.jsx("svg", {
     className: "absolute bottom-6 left-24 max-xl:-left-[1rem] max-2xl:left-[3rem]",
     xmlns: "http://www.w3.org/2000/svg",
     width: "11",
@@ -536,7 +536,7 @@ let __tla = Promise.all([
       fill: "#43FFD2"
     })
   });
-  jt = () => e.jsx("svg", {
+  vt = () => e.jsx("svg", {
     className: "absolute bottom-6 max-md:right-[2.5rem] md:left-[16rem]",
     width: "25",
     height: "63",
@@ -548,7 +548,7 @@ let __tla = Promise.all([
       fill: "#43FFD2"
     })
   });
-  vt = () => e.jsxs("svg", {
+  wt = () => e.jsxs("svg", {
     className: "absolute z-10  -top-48",
     xmlns: "http://www.w3.org/2000/svg",
     width: "712",
@@ -592,7 +592,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  wt = () => e.jsxs("svg", {
+  bt = () => e.jsxs("svg", {
     className: "absolute w-[733px] left-[24rem] z-10 top-0 blur-[50px] max-xl:w-[500px]",
     xmlns: "http://www.w3.org/2000/svg",
     height: "802",
@@ -635,7 +635,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  bt = () => e.jsxs("svg", {
+  _t = () => e.jsxs("svg", {
     className: "absolute blur-[40px] right-[3rem]",
     width: "320",
     height: "402",
@@ -679,7 +679,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  _t = () => e.jsxs("svg", {
+  Nt = () => e.jsxs("svg", {
     className: "absolute blur-[50px] right-0 top-[3rem]",
     width: "229",
     height: "331",
@@ -723,7 +723,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  Nt = () => e.jsx("svg", {
+  yt = () => e.jsx("svg", {
     className: "max-sm:w-[20px]",
     xmlns: "http://www.w3.org/2000/svg",
     width: "40",
@@ -735,7 +735,7 @@ let __tla = Promise.all([
       fill: "#43FFD2"
     })
   });
-  yt = () => e.jsxs("svg", {
+  kt = () => e.jsxs("svg", {
     className: "max-sm:w-[20px]",
     xmlns: "http://www.w3.org/2000/svg",
     width: "40",
@@ -753,7 +753,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  kt = () => e.jsx("svg", {
+  It = () => e.jsx("svg", {
     className: "max-sm:w-[20px]",
     xmlns: "http://www.w3.org/2000/svg",
     width: "40",
@@ -765,7 +765,7 @@ let __tla = Promise.all([
       fill: "#43FFD2"
     })
   });
-  It = () => e.jsxs("svg", {
+  Bt = () => e.jsxs("svg", {
     className: "absolute -bottom-56 right-0 blur-[10px] max-lg:right-0 w-[489px]",
     xmlns: "http://www.w3.org/2000/svg",
     height: "818",
@@ -808,7 +808,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  Bt = () => e.jsxs("svg", {
+  Lt = () => e.jsxs("svg", {
     className: "absolute -bottom-56 left-0 blur-[10px]",
     xmlns: "http://www.w3.org/2000/svg",
     width: "339",
@@ -856,7 +856,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  Lt = () => e.jsxs("svg", {
+  St = () => e.jsxs("svg", {
     className: "absolute -bottom-[11rem] right-0 z-30 max-xl:size-2/3",
     width: "235",
     height: "413",
@@ -900,7 +900,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  h2 = l.memo(() => e.jsxs("svg", {
+  f2 = l.memo(() => e.jsxs("svg", {
     className: "absolute -bottom-[20rem] right-0",
     xmlns: "http://www.w3.org/2000/svg",
     width: "489",
@@ -944,7 +944,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  f2 = l.memo(() => e.jsxs("svg", {
+  C2 = l.memo(() => e.jsxs("svg", {
     className: "absolute -bottom-[20rem]",
     xmlns: "http://www.w3.org/2000/svg",
     width: "339",
@@ -992,7 +992,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  C2 = l.memo(({ isOpen: t }) => e.jsx("svg", {
+  j2 = l.memo(({ isOpen: t }) => e.jsx("svg", {
     className: b("transition-all duration-300", {
       "-rotate-180": t
     }),
@@ -1035,7 +1035,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  St = () => e.jsxs("svg", {
+  Ft = () => e.jsxs("svg", {
     className: "absolute top-0 z-10",
     xmlns: "http://www.w3.org/2000/svg",
     width: "410",
@@ -1079,7 +1079,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  Ft = () => e.jsxs("svg", {
+  At = () => e.jsxs("svg", {
     className: "absolute top-0 z-10",
     xmlns: "http://www.w3.org/2000/svg",
     width: "342",
@@ -1123,7 +1123,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  U = () => e.jsxs("svg", {
+  V = () => e.jsxs("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "30",
     height: "30",
@@ -1140,7 +1140,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  At = () => e.jsxs("svg", {
+  Ot = () => e.jsxs("svg", {
     width: "18",
     height: "18",
     viewBox: "0 0 18 18",
@@ -1157,13 +1157,13 @@ let __tla = Promise.all([
       })
     ]
   });
-  Ot = l.memo(({ cart: t, openCart: s }) => e.jsxs("div", {
+  qt = l.memo(({ cart: t, openCart: s }) => e.jsxs("div", {
     className: "cart_block flex items-center gap-8",
     children: [
       e.jsxs("div", {
         className: "cart_block__phone items-center gap-3 max-lg:hidden lg:flex",
         children: [
-          e.jsx(xt, {}),
+          e.jsx(mt, {}),
           e.jsx("p", {
             className: "text-[14px] text-light-turquoise font-normal tracking-[1.4px] uppercase",
             children: "+375 (29) 113-69-69"
@@ -1199,7 +1199,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  qt = l.memo(() => e.jsxs("div", {
+  Mt = l.memo(() => e.jsxs("div", {
     className: "flex flex-col gap-5 mt-5",
     children: [
       e.jsxs("div", {
@@ -1230,7 +1230,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  Mt = l.memo(({ id: t, name: s, imageUrl: a, cost: r }) => e.jsxs(C, {
+  Et = l.memo(({ id: t, name: s, imageUrl: a, cost: r }) => e.jsxs(C, {
     to: `/catalog/bouquet/${t}`,
     className: "card group/card relative flex gap-3 z-20 h-[80px] border-t p-3 w-full hover:bg-light-turquoise transition-colors",
     children: [
@@ -1257,8 +1257,8 @@ let __tla = Promise.all([
       })
     ]
   }));
-  Et = l.memo(({ lastScrollY: t, SCROLL_HIDE_THRESHOLD: s, showHeader: a }) => {
-    const r = Z(), o = l.useRef(null), [i, c] = l.useState(""), [m, n] = l.useState([]), [x, h] = l.useState(false);
+  Pt = l.memo(({ lastScrollY: t, SCROLL_HIDE_THRESHOLD: s, showHeader: a }) => {
+    const r = Z(), o = l.useRef(null), [i, c] = l.useState(""), [x, n] = l.useState([]), [m, h] = l.useState(false);
     l.useEffect(() => (document.body.addEventListener("click", B), () => {
       document.body.removeEventListener("click", B);
     }), []), l.useEffect(() => (i ? document.addEventListener("keydown", u) : h(false), () => {
@@ -1276,7 +1276,7 @@ let __tla = Promise.all([
       r
     ]), we = async (p) => {
       try {
-        const { data: F } = await z.get(`http://85.192.37.217:3000/api/bouquets/search/${p}`);
+        const { data: F } = await z.get(`http://localhost:3000/api/bouquets/search/${p}`);
         n(F), h(true);
       } catch (F) {
         console.error("Error fetching search bouquets:", F);
@@ -1338,21 +1338,21 @@ let __tla = Promise.all([
                 startAdornment: e.jsx(pe, {}),
                 endAdornment: i.length !== 0 && e.jsx("button", {
                   onClick: S,
-                  children: e.jsx(mt, {})
+                  children: e.jsx(dt, {})
                 })
               }
             }
           })
         }),
-        m.length > 0 && e.jsx("div", {
+        x.length > 0 && e.jsx("div", {
           className: b("absolute flex flex-col top-0 left-0 bg-[black]/[0.8] [&:last-of-type]:border-b transition-all ease-in-out w-[360px] duration-300", {
             "top-[70px]": t < s
           }, {
             "top-[5rem]": t > s
           }, {
-            "-translate-y-[200%] opacity-0": !a && t > s || !x
+            "-translate-y-[200%] opacity-0": !a && t > s || !m
           }),
-          children: m.map((p) => e.jsx(Mt, {
+          children: x.map((p) => e.jsx(Et, {
             id: p.id,
             name: p.name,
             imageUrl: p.imageUrl,
@@ -1366,7 +1366,7 @@ let __tla = Promise.all([
     className: t,
     children: s
   }));
-  Pt = l.memo(({ name: t, handleCategorySelect: s }) => e.jsxs(C, {
+  Tt = l.memo(({ name: t, handleCategorySelect: s }) => e.jsxs(C, {
     to: "catalog",
     onClick: () => s(t),
     className: "group/categories catalog_name group-[:hover]:opacity-100 opacity-0 text-[14px] font-normal relative z-30 tracking-[.56px] uppercase cursor-pointer hover:text-light-turquoise",
@@ -1377,7 +1377,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  Tt = l.memo(({ categories: t, navLinks: s, handleCategorySelect: a }) => e.jsxs(e.Fragment, {
+  Dt = l.memo(({ categories: t, navLinks: s, handleCategorySelect: a }) => e.jsxs(e.Fragment, {
     children: [
       e.jsx(C, {
         to: "/",
@@ -1406,7 +1406,7 @@ let __tla = Promise.all([
               }),
               e.jsx("ul", {
                 className: "group/submenu absolute group-[:hover]:visible group-[:hover]:opacity-100 opacity-0 -left-4 top-[40px] invisible bg-[grey]/[.3] backdrop-blur-[10px] flex flex-col gap-1 w-[260px] p-2 transition-all z-20",
-                children: t.map((r) => e.jsx(Pt, {
+                children: t.map((r) => e.jsx(Tt, {
                   name: r.name,
                   handleCategorySelect: a
                 }, r.name))
@@ -1437,7 +1437,7 @@ let __tla = Promise.all([
       return window.addEventListener("resize", a), () => window.removeEventListener("resize", a);
     }, []), t;
   };
-  Dt = [
+  Rt = [
     {
       name: d.PopularItems
     },
@@ -1469,7 +1469,7 @@ let __tla = Promise.all([
       name: d.ChrysanthemumBouquets
     }
   ];
-  Rt = [
+  Ht = [
     {
       label: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0438 \u043E\u043F\u043B\u0430\u0442\u0430 ",
       url: "delivery"
@@ -1488,12 +1488,12 @@ let __tla = Promise.all([
     }
   ];
   A = 80;
-  Ht = l.memo(() => {
-    const t = k(), s = se(), a = L(), [r, o] = l.useState(true), [i, c] = l.useState(0), { cartItems: m } = y(G), n = l.useCallback(() => {
+  zt = l.memo(() => {
+    const t = k(), s = se(), a = L(), [r, o] = l.useState(true), [i, c] = l.useState(0), { cartItems: x } = y(U), n = l.useCallback(() => {
       o(!(window.scrollY > i)), c(window.scrollY);
     }, [
       i
-    ]), x = l.useCallback((B) => {
+    ]), m = l.useCallback((B) => {
       t(ce({
         category: B
       }));
@@ -1560,22 +1560,22 @@ let __tla = Promise.all([
           e.jsxs("div", {
             className: "content max-lg:hidden lg:flex",
             children: [
-              e.jsx(Tt, {
-                handleCategorySelect: x,
-                categories: Dt,
-                navLinks: Rt
+              e.jsx(Dt, {
+                handleCategorySelect: m,
+                categories: Rt,
+                navLinks: Ht
               }),
-              e.jsx(Et, {
+              e.jsx(Pt, {
                 lastScrollY: i,
                 SCROLL_HIDE_THRESHOLD: A,
                 showHeader: r
               })
             ]
           }),
-          a <= 768 || i > A ? e.jsx(Ot, {
-            cart: m,
+          a <= 768 || i > A ? e.jsx(qt, {
+            cart: x,
             openCart: h
-          }) : e.jsx(qt, {})
+          }) : e.jsx(Mt, {})
         ]
       })
     });
@@ -1593,7 +1593,7 @@ let __tla = Promise.all([
       ]
     })
   }));
-  zt = l.memo(({ name: t, contentInfo: s }) => e.jsxs("div", {
+  Zt = l.memo(({ name: t, contentInfo: s }) => e.jsxs("div", {
     className: "flex flex-col gap-1.5",
     children: [
       e.jsx("h2", {
@@ -1621,8 +1621,8 @@ let __tla = Promise.all([
     })
   }));
   K = "text-[14px] font-bold text-light-turquoise mb-2.5 uppercase";
-  Zt = "text-[14px] font-bold text-light-turquoise uppercase";
-  Vt = [
+  Gt = "text-[14px] font-bold text-light-turquoise uppercase";
+  Ut = [
     {
       name: d.PopularItems
     },
@@ -1654,7 +1654,7 @@ let __tla = Promise.all([
       name: d.ChrysanthemumBouquets
     }
   ];
-  Gt = [
+  Vt = [
     "\u0414\u043B\u044F \u0434\u0435\u0432\u0443\u0448\u043A\u0438",
     "\u0414\u043B\u044F \u043C\u0443\u0436\u0447\u0438\u043D\u044B",
     "\u0414\u043B\u044F \u0436\u0435\u043D\u044B",
@@ -1665,7 +1665,7 @@ let __tla = Promise.all([
     "\u0414\u043B\u044F \u0434\u0435\u0442\u0435\u0439",
     "\u0414\u043B\u044F \u0436\u0435\u043D\u0449\u0438\u043D\u044B"
   ];
-  Ut = [
+  $t = [
     {
       link: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0438 \u043E\u043F\u043B\u0430\u0442\u0430",
       url: "delivery"
@@ -1687,7 +1687,7 @@ let __tla = Promise.all([
       url: "corporate"
     }
   ];
-  $t = [
+  Qt = [
     {
       title: "zakaz@loverflower.by",
       content: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430 24/7 \u043F\u043E \u0434\u043E\u0433\u043E\u0432\u043E\u0440\u0435\u043D\u043D\u043E\u0441\u0442\u0438 \u0441 \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u043E\u043C"
@@ -1701,7 +1701,7 @@ let __tla = Promise.all([
       content: "\u043F\u0440\u0438\u0435\u043C \u0437\u0432\u043E\u043D\u043A\u043E\u0432 \u043A\u0440\u0443\u0433\u043B\u043E\u0441\u0443\u0442\u043E\u0447\u043D\u043E"
     }
   ];
-  Qt = () => {
+  Wt = () => {
     const t = k(), s = l.useCallback((a) => {
       t(ce({
         category: a
@@ -1742,7 +1742,7 @@ let __tla = Promise.all([
                 path: "catalog",
                 className: K
               }),
-              Vt.map((a) => e.jsx(Y, {
+              Ut.map((a) => e.jsx(Y, {
                 name: a.name,
                 selectCategory: s
               }, a.name))
@@ -1756,23 +1756,23 @@ let __tla = Promise.all([
                 path: "catalog",
                 className: K
               }),
-              Gt.map((a) => e.jsx(Y, {
+              Vt.map((a) => e.jsx(Y, {
                 name: a
               }, a))
             ]
           }),
           e.jsx("ul", {
             className: "flex flex-col gap-6 lg:mt-7 max-lg:gap-2.5 max-w-[160px] max-lg:items-center max-lg:text-center",
-            children: Ut.map((a) => e.jsx(R, {
+            children: $t.map((a) => e.jsx(R, {
               path: a.url,
               title: a.link,
-              className: Zt
+              className: Gt
             }, a.url))
           }),
           e.jsxs("div", {
             className: "flex flex-col gap-5 mt-7",
             children: [
-              $t.map((a) => e.jsx(zt, {
+              Qt.map((a) => e.jsx(Zt, {
                 name: a.title,
                 contentInfo: a.content
               }, a.title)),
@@ -1787,8 +1787,8 @@ let __tla = Promise.all([
     });
   };
   $ = (t) => t.modal;
-  Wt = (t) => t.modal.severityOption;
-  Yt = ({ handleAlert: t }) => {
+  Yt = (t) => t.modal.severityOption;
+  Kt = ({ handleAlert: t }) => {
     const { register: s, handleSubmit: a, formState: { errors: r } } = ae(), o = (c) => {
       console.log(c), t("success");
     }, i = (c) => {
@@ -1823,7 +1823,7 @@ let __tla = Promise.all([
       ]
     });
   };
-  Kt = l.memo(() => {
+  Jt = l.memo(() => {
     const t = k(), { isOpenModal: s } = y($), a = () => {
       t(N({
         modalType: v.Modal,
@@ -1833,7 +1833,7 @@ let __tla = Promise.all([
       t(N({
         modalType: v.Alert,
         isOpen: true
-      })), t(V({
+      })), t(G({
         severity: o
       }));
     }, [
@@ -1844,8 +1844,8 @@ let __tla = Promise.all([
         "w-[540px] opacity-100": s
       }),
       children: [
+        e.jsx(At, {}),
         e.jsx(Ft, {}),
-        e.jsx(St, {}),
         e.jsxs("div", {
           className: "call_modal__wrapper z-20 p-5 relative flex flex-col",
           children: [
@@ -1853,7 +1853,7 @@ let __tla = Promise.all([
               className: "call_modal__close flex justify-end",
               children: e.jsx("button", {
                 onClick: a,
-                children: e.jsx(U, {})
+                children: e.jsx(V, {})
               })
             }),
             e.jsx("div", {
@@ -1873,7 +1873,7 @@ let __tla = Promise.all([
                 children: "\u0412\u043F\u0438\u0448\u0438\u0442\u0435 \u0441\u0432\u043E\u0438 \u0434\u0430\u043D\u043D\u044B\u0435, \u0438 \u043C\u044B \u0441\u0432\u044F\u0436\u0435\u043C\u0441\u044F \u0441 \u0412\u0430\u043C\u0438. \u0412\u0430\u0448\u0438 \u0434\u0430\u043D\u043D\u044B\u0435 \u043D\u0438 \u043F\u0440\u0438 \u043A\u0430\u043A\u0438\u0445 \u043E\u0431\u0441\u0442\u043E\u044F\u0442\u0435\u043B\u044C\u0441\u0442\u0432\u0430\u0445 \u043D\u0435 \u0431\u0443\u0434\u0443\u0442 \u043F\u0435\u0440\u0435\u0434\u0430\u043D\u044B \u0442\u0440\u0435\u0442\u044C\u0438\u043C \u043B\u0438\u0446\u0430\u043C."
               })
             }),
-            e.jsx(Yt, {
+            e.jsx(Kt, {
               handleAlert: r
             }),
             e.jsx("div", {
@@ -1894,7 +1894,7 @@ let __tla = Promise.all([
       ]
     }), document.getElementById("portal"));
   });
-  Jt = l.memo(({ closeCart: t, screenWidth: s }) => e.jsxs("div", {
+  Xt = l.memo(({ closeCart: t, screenWidth: s }) => e.jsxs("div", {
     className: "title flex items-center justify-between border-b-[1px] w-full pb-4 border-[#555] ",
     children: [
       e.jsx("h1", {
@@ -1903,7 +1903,7 @@ let __tla = Promise.all([
       }),
       e.jsx("button", {
         onClick: t,
-        children: s > 640 ? e.jsx(U, {}) : e.jsx(At, {})
+        children: s > 640 ? e.jsx(V, {}) : e.jsx(Ot, {})
       })
     ]
   }));
@@ -1913,14 +1913,14 @@ let __tla = Promise.all([
     className: "h-full w-[8px] disabled:text-[#555] text-[white] hover:text-light-turquoise active:text-cherry transition-colors",
     children: a
   }));
-  Xt = l.memo(({ id: t, name: s, cost: a, imageUrl: r, quantity: o, dispatch: i }) => {
-    const c = (x) => i(W({
-      id: x,
+  e1 = l.memo(({ id: t, name: s, cost: a, imageUrl: r, quantity: o, dispatch: i }) => {
+    const c = (m) => i(W({
+      id: m,
       delta: 1
-    })), m = (x) => i(W({
-      id: x,
+    })), x = (m) => i(W({
+      id: m,
       delta: -1
-    })), n = (x) => i(Xe(x));
+    })), n = (m) => i(et(m));
     return e.jsxs("div", {
       className: "card_block flex border-b-[1px] border-[#555] py-5 max-lg:py-2",
       children: [
@@ -1943,7 +1943,7 @@ let __tla = Promise.all([
               className: "flex justify-around items-center w-[100px] h-[30px] border-[0.5px] border-[#555] max-lg:w-[80px]",
               children: [
                 e.jsx(J, {
-                  onClick: () => m(t),
+                  onClick: () => x(t),
                   disabled: o === 1,
                   children: "\u2013"
                 }),
@@ -1978,7 +1978,7 @@ let __tla = Promise.all([
       ]
     });
   });
-  e1 = [
+  t1 = [
     {
       title: "\u0428\u0410\u0420 \u201C\u0417\u0412\u0415\u0417\u0414\u0410\u201D",
       url: "./img/balls/star.png"
@@ -1988,7 +1988,7 @@ let __tla = Promise.all([
       url: "./img/balls/heart.png"
     }
   ];
-  t1 = l.memo(() => e.jsxs("div", {
+  s1 = l.memo(() => e.jsxs("div", {
     className: "top_block flex flex-col gap-3",
     children: [
       e.jsx("div", {
@@ -2006,7 +2006,7 @@ let __tla = Promise.all([
       }),
       e.jsx("div", {
         className: "cards flex justify-between",
-        children: e1.map((t, s) => e.jsxs("div", {
+        children: t1.map((t, s) => e.jsxs("div", {
           className: "card flex h-[60px] gap-3 max-sm:h-[40px]",
           children: [
             e.jsx("img", {
@@ -2036,7 +2036,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  s1 = l.memo(({ totalPrice: t, handleOrderButton: s }) => e.jsxs("div", {
+  a1 = l.memo(({ totalPrice: t, handleOrderButton: s }) => e.jsxs("div", {
     className: "total_price_block flex flex-col lg:gap-5 max-lg:gap-2",
     children: [
       e.jsxs("div", {
@@ -2063,13 +2063,13 @@ let __tla = Promise.all([
       })
     ]
   }));
-  a1 = () => {
-    const t = k(), s = Z(), a = L(), { totalPrice: r, cartItems: o } = y(G), i = y(nt), c = l.useCallback(() => t(N({
+  l1 = () => {
+    const t = k(), s = Z(), a = L(), { totalPrice: r, cartItems: o } = y(U), i = y(ct), c = l.useCallback(() => t(N({
       modalType: v.Cart,
       isOpen: false
     })), [
       t
-    ]), m = l.useCallback(() => {
+    ]), x = l.useCallback(() => {
       (o.length !== 0 || o) && (s("order"), c());
     }, [
       t,
@@ -2080,9 +2080,9 @@ let __tla = Promise.all([
     }, [
       o
     ]), l.useEffect(() => {
-      const n = document.body, x = document.getElementById("header"), u = `${window.innerWidth - document.documentElement.clientWidth}px`;
-      return i ? (n.style.paddingRight = u, n.style.overflow = "hidden", x && (x.style.paddingRight = u)) : (n.style.paddingRight = "0px", n.style.overflow = "visible", x && (x.style.paddingRight = "0px")), () => {
-        n.style.paddingRight = "0px", n.style.overflow = "visible", x && (x.style.paddingRight = "0px");
+      const n = document.body, m = document.getElementById("header"), u = `${window.innerWidth - document.documentElement.clientWidth}px`;
+      return i ? (n.style.paddingRight = u, n.style.overflow = "hidden", m && (m.style.paddingRight = u)) : (n.style.paddingRight = "0px", n.style.overflow = "visible", m && (m.style.paddingRight = "0px")), () => {
+        n.style.paddingRight = "0px", n.style.overflow = "visible", m && (m.style.paddingRight = "0px");
       };
     }, [
       i
@@ -2108,7 +2108,7 @@ let __tla = Promise.all([
             e.jsxs("div", {
               className: "flex flex-col overflow-y-hidden",
               children: [
-                e.jsx(Jt, {
+                e.jsx(Xt, {
                   closeCart: c,
                   screenWidth: a
                 }),
@@ -2116,7 +2116,7 @@ let __tla = Promise.all([
                   className: b("flex flex-col pr-4", {
                     "overflow-y-scroll": o.length > 5 || a < 769 && o.length >= 4
                   }),
-                  children: o.map((n) => e.jsx(Xt, {
+                  children: o.map((n) => e.jsx(e1, {
                     id: n.id,
                     name: n.name,
                     imageUrl: n.imageUrl,
@@ -2130,13 +2130,13 @@ let __tla = Promise.all([
             e.jsxs("div", {
               className: "flex flex-col",
               children: [
-                e.jsx(t1, {}),
+                e.jsx(s1, {}),
                 e.jsx(g, {
                   className: "lg:mt-7 mb-3 border-b-[1px] border-[#555] max-lg:mt-3"
                 }),
-                e.jsx(s1, {
+                e.jsx(a1, {
                   totalPrice: r,
-                  handleOrderButton: m
+                  handleOrderButton: x
                 })
               ]
             })
@@ -2145,7 +2145,7 @@ let __tla = Promise.all([
       ]
     }), document.getElementById("portal"));
   };
-  l1 = l.memo(() => e.jsxs(e.Fragment, {
+  r1 = l.memo(() => e.jsxs(e.Fragment, {
     children: [
       e.jsxs("div", {
         className: "flex flex-col",
@@ -2170,7 +2170,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  r1 = l.memo(({ title: t, content: s }) => e.jsxs("div", {
+  i1 = l.memo(({ title: t, content: s }) => e.jsxs("div", {
     className: "flex flex-col",
     children: [
       e.jsx("h1", {
@@ -2183,7 +2183,7 @@ let __tla = Promise.all([
       })
     ]
   }, t));
-  i1 = [
+  o1 = [
     {
       link: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F",
       url: "/"
@@ -2213,7 +2213,7 @@ let __tla = Promise.all([
       url: "corporate"
     }
   ];
-  o1 = [
+  n1 = [
     {
       title: "zakaz@loverflower.by",
       content: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430 24/7 \u043F\u043E \u0434\u043E\u0433\u043E\u0432\u043E\u0440\u0435\u043D\u043D\u043E\u0441\u0442\u0438 \u0441 \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u043E\u043C"
@@ -2223,7 +2223,7 @@ let __tla = Promise.all([
       content: "10:00 \u0434\u043E 21:00 \u0431\u0435\u0437 \u0432\u044B\u0445\u043E\u0434\u043D\u044B\u0445"
     }
   ];
-  n1 = l.memo(() => {
+  c1 = l.memo(() => {
     const t = k(), { isOpenHamburgerMenu: s } = y($), a = () => {
       t(N({
         modalType: v.HamburgerMenu,
@@ -2248,7 +2248,7 @@ let __tla = Promise.all([
               }),
               e.jsx("button", {
                 onClick: a,
-                children: e.jsx(U, {})
+                children: e.jsx(V, {})
               })
             ]
           }),
@@ -2265,7 +2265,7 @@ let __tla = Promise.all([
           }),
           e.jsx("div", {
             className: "flex flex-col gap-2.5 mt-2.5",
-            children: i1.map((r) => e.jsx(C, {
+            children: o1.map((r) => e.jsx(C, {
               to: r.url,
               onClick: a,
               className: "text-[14px] tracking-[0.04em] font-normal uppercase",
@@ -2278,11 +2278,11 @@ let __tla = Promise.all([
           e.jsxs("div", {
             className: "mt-5 flex flex-col gap-2.5",
             children: [
-              o1.map((r) => e.jsx(r1, {
+              n1.map((r) => e.jsx(i1, {
                 title: r.title,
                 content: r.content
               }, r.title)),
-              e.jsx(l1, {})
+              e.jsx(r1, {})
             ]
           })
         ]
@@ -2290,10 +2290,10 @@ let __tla = Promise.all([
     }), document.getElementById("portal"));
   });
   var he = ((t) => (t.success = "\u041E\u043F\u0435\u0440\u0430\u0446\u0438\u044F \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0430 \u0443\u0441\u043F\u0435\u0448\u043D\u043E.", t.info = "\u041E\u0431\u0440\u0430\u0442\u0438\u0442\u0435 \u0432\u043D\u0438\u043C\u0430\u043D\u0438\u0435 \u043D\u0430 \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u0443\u044E \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E.", t.warning = "\u041F\u0440\u0435\u0434\u0443\u043F\u0440\u0435\u0436\u0434\u0435\u043D\u0438\u0435: \u043F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435 \u0432\u0432\u0435\u0434\u0451\u043D\u043D\u044B\u0435 \u0434\u0430\u043D\u043D\u044B\u0435.", t.error = "\u041F\u0440\u043E\u0438\u0437\u043E\u0448\u043B\u0430 \u043E\u0448\u0438\u0431\u043A\u0430. \u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u043F\u043E\u0437\u0436\u0435.", t))(he || {});
-  let c1, x1, d1, p1, u1, g1, h1, Ce, H, q, f1, C1, j1, v1, w1, b1, _1, N1, y1, k1, I1, X, B1, L1, S1, F1, A1, O1, q1, M1, E1, ee, P1, T1, D1, je, R1, H1, ve, z1, Z1, V1, G1, U1, $1, Q1, W1, Y1, K1, J1, X1, e2, t2, s2, a2, l2, j, r2;
-  c1 = 80;
-  x1 = l.memo(() => {
-    const t = k(), [s, a] = l.useState(0), [r, o] = l.useState(false), i = y(Wt), { isOpenAlertBlock: c } = y($), m = () => {
+  let x1, m1, p1, u1, g1, h1, f1, Ce, H, q, C1, j1, v1, w1, b1, _1, N1, y1, k1, I1, B1, X, L1, S1, F1, A1, O1, q1, M1, E1, P1, ee, T1, D1, R1, je, H1, z1, ve, Z1, G1, U1, V1, $1, Q1, W1, Y1, K1, J1, X1, e2, t2, s2, a2, l2, r2, j, i2;
+  x1 = 80;
+  m1 = l.memo(() => {
+    const t = k(), [s, a] = l.useState(0), [r, o] = l.useState(false), i = y(Yt), { isOpenAlertBlock: c } = y($), x = () => {
       t(N({
         modalType: v.Alert,
         isOpen: false
@@ -2303,8 +2303,8 @@ let __tla = Promise.all([
     };
     return l.useEffect(() => {
       if (!c) return;
-      const x = setTimeout(() => m(), 1e4);
-      return () => clearTimeout(x);
+      const m = setTimeout(() => x(), 1e4);
+      return () => clearTimeout(m);
     }, [
       c
     ]), l.useEffect(() => (window.addEventListener("scroll", n), () => {
@@ -2314,7 +2314,7 @@ let __tla = Promise.all([
     ]), T.createPortal(e.jsx(ke, {
       sx: {
         position: "fixed",
-        top: s > c1 && r ? 100 : 40,
+        top: s > x1 && r ? 100 : 40,
         right: 0,
         zIndex: 1300,
         transition: "opacity 0.3s ease, transform 0.3s ease",
@@ -2323,15 +2323,15 @@ let __tla = Promise.all([
       },
       children: c && e.jsx(Ie, {
         severity: i,
-        onClose: m,
+        onClose: x,
         variant: "filled",
         children: he[i]
       })
     }), document.getElementById("portal"));
   });
   fe = l.memo(({ id: t, name: s, cost: a, imageUrl: r, filters: o, imgClassName: i, categories: c }) => {
-    const m = k(), n = Z(), x = y((S) => ct(S, t)), h = () => {
-      m(Je({
+    const x = k(), n = Z(), m = y((S) => xt(S, t)), h = () => {
+      x(Xe({
         id: t,
         name: s,
         imageUrl: r,
@@ -2342,7 +2342,7 @@ let __tla = Promise.all([
       }));
     }, u = () => {
       n(`/catalog/bouquet/${t}`);
-    }, B = `\u0412 \u043A\u043E\u0440\u0437\u0438\u043D\u0443 ${(x == null ? void 0 : x.quantity) ? `(${x.quantity})` : ""}`;
+    }, B = `\u0412 \u043A\u043E\u0440\u0437\u0438\u043D\u0443 ${(m == null ? void 0 : m.quantity) ? `(${m.quantity})` : ""}`;
     return e.jsxs("div", {
       className: "card relative flex flex-col gap-3 z-20",
       children: [
@@ -2379,7 +2379,7 @@ let __tla = Promise.all([
       ]
     });
   });
-  j2 = l.memo(() => e.jsxs("div", {
+  v2 = l.memo(() => e.jsxs("div", {
     children: [
       e.jsx(M, {
         variant: "rectangular",
@@ -2421,13 +2421,13 @@ let __tla = Promise.all([
       })
     ]
   }));
-  m1 = l.memo(({ bouquets: t, screenWidth: s }) => e.jsx(e.Fragment, {
+  d1 = l.memo(({ bouquets: t, screenWidth: s }) => e.jsx(e.Fragment, {
     children: e.jsxs("div", {
       className: "popular_bouquets__slider gap-8 flex items-center justify-center",
       children: [
         e.jsx("button", {
           className: "arrow-prev mb-14 relative z-10 cursor-pointer select-none max-md:hidden",
-          children: e.jsx(ut, {})
+          children: e.jsx(gt, {})
         }),
         e.jsx(Be, {
           spaceBetween: 10,
@@ -2458,12 +2458,12 @@ let __tla = Promise.all([
         }),
         e.jsx("button", {
           className: "arrow-next mb-14 relative cursor-pointer select-none z-10 max-md:hidden",
-          children: e.jsx(ht, {})
+          children: e.jsx(ft, {})
         })
       ]
     })
   }));
-  v2 = l.memo(({ items: t }) => e.jsx(e.Fragment, {
+  w2 = l.memo(({ items: t }) => e.jsx(e.Fragment, {
     children: e.jsx("nav", {
       className: "title",
       children: e.jsx("ol", {
@@ -2490,15 +2490,15 @@ let __tla = Promise.all([
       })
     })
   }));
-  d1 = [
+  p1 = [
     "./img/PagesImg/HomeImg/CardImg/tree.png",
     "./img/PagesImg/HomeImg/CardImg/decorations.png",
     "./img/PagesImg/HomeImg/CardImg/candle.png",
     "./img/PagesImg/HomeImg/CardImg/bouquetCard.png"
   ];
-  p1 = l.memo(() => e.jsx("ul", {
+  u1 = l.memo(() => e.jsx("ul", {
     className: "card_footer_block__content flex z-20 gap-8 max-lg:w-full max-lg:grid max-lg:grid-cols-2 max-lg:mt-6 max-lg:justify-center",
-    children: d1.map((t, s) => e.jsx("li", {
+    children: p1.map((t, s) => e.jsx("li", {
       className: "max-lg:w-full max-lg:flex max-lg:justify-center",
       children: e.jsx("img", {
         className: "backdrop-blur-[10px] lg:h-[160px] lg:w-[160px] max-lg:w-[147px] max-lg:h-[137px]",
@@ -2507,24 +2507,24 @@ let __tla = Promise.all([
       })
     }, s))
   }));
-  u1 = [
-    e.jsx(Nt, {}),
+  g1 = [
     e.jsx(yt, {}),
-    e.jsx(kt, {})
+    e.jsx(kt, {}),
+    e.jsx(It, {})
   ];
-  g1 = l.memo(() => e.jsx("ul", {
+  h1 = l.memo(() => e.jsx("ul", {
     className: "social_icons flex justify-end lg:mt-28 lg:gap-8 max-lg:gap-5",
-    children: u1.map((t, s) => e.jsx("li", {
+    children: g1.map((t, s) => e.jsx("li", {
       children: t
     }, s))
   }));
-  h1 = l.memo(({ screenWidth: t }) => {
+  f1 = l.memo(({ screenWidth: t }) => {
     const s = t > 1024;
     return e.jsxs("div", {
       className: "card_footer_block relative h-[500px] mt-[10rem] max-lg:px-2",
       children: [
-        s ? e.jsx(It, {}) : e.jsx(Lt, {}),
-        s && e.jsx(Bt, {}),
+        s ? e.jsx(Bt, {}) : e.jsx(St, {}),
+        s && e.jsx(Lt, {}),
         e.jsx(g, {
           className: `absolute -bottom-[10rem] right-[45rem] z-10 h-[212px] w-[400px] rotate-[21.097deg] bg-light-turquoise rounded-[880px] blur-[125px]
         max-lg:w-[259px] max-lg:h-[106px] max-lg:rotate-[21.097deg] max-lg:blur-[50px] max-lg:-bottom-[3.5rem] max-lg:-left-[10rem]`
@@ -2536,7 +2536,7 @@ let __tla = Promise.all([
               className: "absolute left-0 overflow-hidden text-[#0A1717] text-[200px] font-bold tracking-[8px] uppercase max-lg:hidden lg:max-w-[1000px]",
               children: "instagram"
             }),
-            e.jsx(p1, {}),
+            e.jsx(u1, {}),
             e.jsxs("div", {
               className: "card_footer_block__socials flex lg:flex-col z-20 max-lg:justify-around",
               children: [
@@ -2553,7 +2553,7 @@ let __tla = Promise.all([
                     })
                   ]
                 }),
-                e.jsx(g1, {})
+                e.jsx(h1, {})
               ]
             })
           ]
@@ -2617,12 +2617,12 @@ let __tla = Promise.all([
     }
   };
   H = l.memo(({ items: t, title: s, subTitleBlock: a, animation: r, titleClassName: o, marginTop: i, height: c = "h-[280px]" }) => {
-    const [m, n] = le({
+    const [x, n] = le({
       triggerOnce: true,
       threshold: 0.2
-    }), x = Ce(r);
+    }), m = Ce(r);
     return e.jsxs("div", {
-      ref: m,
+      ref: x,
       className: `catalog__content_block relative ${c} ${i}`,
       children: [
         e.jsx("h2", {
@@ -2632,7 +2632,7 @@ let __tla = Promise.all([
         e.jsxs(w.ul, {
           initial: "hidden",
           animate: n ? "visible" : "hidden",
-          variants: x,
+          variants: m,
           className: "relative z-30 h-full w-[445px] rounded-[20px] bg-[#000]/[0.20] px-10 py-5 backdrop-blur-[10px] max-sm:flex max-sm:w-[300px] max-sm:flex-col max-sm:items-center max-sm:justify-between md:w-[540px] lg:w-[480px]",
           children: [
             e.jsx("li", {
@@ -2657,18 +2657,18 @@ let __tla = Promise.all([
     });
   });
   q = ({ title: t, subtitle: s, titleClassName: a, subtitleClassName: r, subtitleWrapperClassName: o, animation: i, renderTitleText: c }) => {
-    const [m, n] = le({
+    const [x, n] = le({
       triggerOnce: true,
       threshold: 0.2
-    }), x = Ce(i);
+    }), m = Ce(i);
     return e.jsxs("div", {
-      ref: m,
+      ref: x,
       className: "title_block relative z-30 flex flex-col max-lg:items-center",
       children: [
         e.jsx(w.h1, {
           initial: "hidden",
           animate: n ? "visible" : "hidden",
-          variants: x,
+          variants: m,
           className: a,
           children: t
         }),
@@ -2677,7 +2677,7 @@ let __tla = Promise.all([
           children: e.jsx(w.h2, {
             initial: "hidden",
             animate: n ? "visible" : "hidden",
-            variants: x,
+            variants: m,
             transition: {
               duration: 1
             },
@@ -2689,29 +2689,29 @@ let __tla = Promise.all([
       ]
     });
   };
-  f1 = "sm:absolute text-[160px] top-0 right-0 font-bold tracking-[8px] uppercase text-[#0A1717] max-lg:hidden";
-  C1 = "absolute -top-10 left-[5rem] text-[160px] font-bold tracking-[8px] uppercase text-[#0A1717] max-lg:hidden z-0";
-  j1 = "absolute top-0 -right-[10rem] text-[160px] max-w-[800px] break-words leading-[1.2] font-bold tracking-[8px] uppercase text-[#0A1717] max-[1536px]:max-w-[500px] max-lg:hidden";
-  v1 = [
+  C1 = "sm:absolute text-[160px] top-0 right-0 font-bold tracking-[8px] uppercase text-[#0A1717] max-lg:hidden";
+  j1 = "absolute -top-10 left-[5rem] text-[160px] font-bold tracking-[8px] uppercase text-[#0A1717] max-lg:hidden z-0";
+  v1 = "absolute top-0 -right-[10rem] text-[160px] max-w-[800px] break-words leading-[1.2] font-bold tracking-[8px] uppercase text-[#0A1717] max-[1536px]:max-w-[500px] max-lg:hidden";
+  w1 = [
     "\u0431\u0443\u043A\u0435\u0442\u044B",
     "\u0434\u043B\u044F \u0438\u043D\u0442\u0435\u0440\u044C\u0435\u0440\u0430",
     "\u041A\u043E\u043C\u043F\u043E\u0437\u0438\u0446\u0438\u0438"
   ];
-  w1 = [
+  b1 = [
     "\u0421\u0431\u043E\u0440\u043D\u044B\u0435 \u0431\u0443\u043A\u0435\u0442\u044B",
     "\u041C\u043E\u043D\u043E\u0431\u0443\u043A\u0435\u0442\u044B",
     "\u041A\u043E\u043C\u043F\u043E\u0437\u0438\u0446\u0438\u0438 \u0438\u0437 \u0446\u0432\u0435\u0442\u043E\u0432",
     "\u0440\u043E\u0437\u044B",
     "\u0441\u0432\u0430\u0434\u0435\u0431\u043D\u044B\u0435"
   ];
-  b1 = [
+  _1 = [
     "\u0448\u0430\u0440\u044B",
     "\u0438\u0433\u0440\u0443\u0448\u043A\u0438",
     "\u043E\u0442\u043A\u0440\u044B\u0442\u043A\u0438",
     "\u0443\u043F\u0430\u043A\u043E\u0432\u043A\u0430"
   ];
-  _1 = "title text-[100px] font-normal tracking-[2px] font-cormorant uppercase max-sm:text-[40px] max-sm:tracking-[0.02em]";
-  N1 = () => e.jsxs(e.Fragment, {
+  N1 = "title text-[100px] font-normal tracking-[2px] font-cormorant uppercase max-sm:text-[40px] max-sm:tracking-[0.02em]";
+  y1 = () => e.jsxs(e.Fragment, {
     children: [
       e.jsx(w.p, {
         initial: {
@@ -2756,7 +2756,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  y1 = l.memo(({ screenWidth: t }) => e.jsx("section", {
+  k1 = l.memo(({ screenWidth: t }) => e.jsx("section", {
     className: "catalog_block__wrapper mt-[100px] lg:h-[1100px]",
     children: e.jsxs("div", {
       className: "container relative mx-auto flex h-full flex-col max-lg:items-center",
@@ -2772,16 +2772,16 @@ let __tla = Promise.all([
           children: [
             e.jsx(q, {
               title: "\u041A\u0430\u0442\u0430\u043B\u043E\u0433",
-              titleClassName: _1,
+              titleClassName: N1,
               animation: t >= 768 ? "fade-right" : "fade-bottom",
-              renderTitleText: N1
+              renderTitleText: y1
             }),
             e.jsx(H, {
-              items: v1,
+              items: w1,
               title: "\u0431\u0443\u043A\u0435\u0442\u044B",
               subTitleBlock: "\u0433\u043E\u0442\u043E\u0432\u044B\u0435 \u0431\u0443\u043A\u0435\u0442\u044B \u0438\u0437 \u0441\u0443\u0445\u043E\u0446\u0432\u0435\u0442\u043E\u0432",
               animation: t >= 768 ? "fade-left" : "fade-bottom",
-              titleClassName: f1,
+              titleClassName: C1,
               marginTop: "lg:mt-36 max-lg:mt-5"
             })
           ]
@@ -2790,18 +2790,18 @@ let __tla = Promise.all([
           className: "catalog_block__bottom flex justify-around max-lg:mt-10 max-lg:flex-col",
           children: [
             e.jsx(H, {
-              items: w1,
+              items: b1,
               title: "\u0426\u0432\u0435\u0442\u044B",
               subTitleBlock: "\u0426\u0432\u0435\u0442\u044B",
               animation: t >= 768 ? "fade-right" : "fade-bottom",
-              titleClassName: C1
+              titleClassName: j1
             }),
             e.jsx(H, {
-              items: b1,
+              items: _1,
               title: "\u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u043E",
               subTitleBlock: "\u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u043E",
               animation: t >= 768 ? "fade-left" : "fade-bottom",
-              titleClassName: j1,
+              titleClassName: v1,
               marginTop: "mt-8",
               height: "h-[250px]"
             })
@@ -2810,7 +2810,7 @@ let __tla = Promise.all([
       ]
     })
   }));
-  k1 = l.memo(({ step: t, info: s }) => e.jsxs(w.div, {
+  I1 = l.memo(({ step: t, info: s }) => e.jsxs(w.div, {
     className: `content_block flex flex-col gap-3 z-20
         max-sm:[&:nth-child(1)]:items-end max-sm:[&:nth-child(1)]:mr-[3rem] 
         max-sm:[&:nth-child(2)]:items-end max-sm:[&:nth-child(2)]:mr-[6rem] 
@@ -2846,7 +2846,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  I1 = [
+  B1 = [
     {
       step: 1,
       info: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043A\u0430\u043A\u0438\u0435 \u0446\u0432\u0435\u0442\u044B \u0438\u043B\u0438 \u043F\u043E\u0434\u0430\u0440\u043A\u0438 \u0432\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u043A\u0443\u043F\u0438\u0442\u044C"
@@ -2869,7 +2869,7 @@ let __tla = Promise.all([
     }
   ];
   X = "title flex items-center text-[100px] h-[100px] font-normal tracking-[2px] uppercase font-cormorant max-md:text-[40px] max-md:tracking-[0.02em] max-md:h-[50px]";
-  B1 = l.memo(({ screenWidth: t }) => e.jsxs("div", {
+  L1 = l.memo(({ screenWidth: t }) => e.jsxs("div", {
     className: "about_order relative mt-[250px] max-lg:mt-24",
     children: [
       e.jsx(g, {
@@ -2902,7 +2902,7 @@ let __tla = Promise.all([
           e.jsxs("div", {
             className: "about_order__content relative flex flex-col max-lg:mt-5 max-lg:h-full max-lg:gap-12 sm:h-[500px] sm:flex-wrap sm:content-end sm:gap-10 sm:gap-x-[110px]",
             children: [
-              I1.map((s) => e.jsx(k1, {
+              B1.map((s) => e.jsx(I1, {
                 step: s.step,
                 info: s.info
               }, s.info)),
@@ -2919,7 +2919,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  L1 = l.memo(({ screenWidth: t }) => e.jsxs("div", {
+  S1 = l.memo(({ screenWidth: t }) => e.jsxs("div", {
     className: "intro__title flex items-center containter mx-auto w-full",
     children: [
       e.jsxs("div", {
@@ -2935,21 +2935,21 @@ let __tla = Promise.all([
           })
         ]
       }),
-      t > 768 && e.jsx(pt, {})
+      t > 768 && e.jsx(ut, {})
     ]
   }));
-  S1 = ({ onClick: t }) => e.jsxs("button", {
+  F1 = ({ onClick: t }) => e.jsxs("button", {
     onClick: t,
     className: "call w-[180px] mt-3 flex items-center gap-2 py-2 px-4 bg-black/20 rounded-xl backdrop-blur-[10px]",
     children: [
-      e.jsx(dt, {}),
+      e.jsx(pt, {}),
       e.jsx("p", {
         className: "text-[14px] font-normal tracking-[1.4px] uppercase text-light-turquoise",
         children: "\u0417\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0437\u0432\u043E\u043D\u043E\u043A"
       })
     ]
   });
-  F1 = ({ cartCount: t, onClick: s }) => e.jsxs("button", {
+  A1 = ({ cartCount: t, onClick: s }) => e.jsxs("button", {
     onClick: s,
     className: "cart relative flex mt-5 bg-black/20 rounded-xl backdrop-blur-[10px] p-[15px]",
     children: [
@@ -2978,7 +2978,7 @@ let __tla = Promise.all([
       })
     ]
   });
-  A1 = l.memo(({ cart: t, screenWidth: s, openModal: a }) => {
+  O1 = l.memo(({ cart: t, screenWidth: s, openModal: a }) => {
     const r = s <= 768;
     return e.jsxs("div", {
       className: "intro relative max-sm:h-[1000px] max-sm:pt-5 sm:h-[1600px] sm:pt-[140px]",
@@ -3017,7 +3017,7 @@ let __tla = Promise.all([
         e.jsxs("div", {
           className: "intro_wrapper container relative mx-auto",
           children: [
-            e.jsx(L1, {
+            e.jsx(S1, {
               screenWidth: s
             }),
             e.jsxs("div", {
@@ -3044,10 +3044,10 @@ let __tla = Promise.all([
                       className: "phone mt-14 text-[16px] font-normal uppercase tracking-[1.6px] text-light-turquoise",
                       children: "+375 (29) 113-69-69"
                     }),
-                    e.jsx(S1, {
+                    e.jsx(F1, {
                       onClick: () => a(v.Modal)
                     }),
-                    e.jsx(F1, {
+                    e.jsx(A1, {
                       cartCount: t.length,
                       onClick: () => a(v.Cart)
                     })
@@ -3060,7 +3060,7 @@ let __tla = Promise.all([
       ]
     });
   });
-  O1 = [
+  q1 = [
     {
       src: "./img/PagesImg/HomeImg/OccasionImg/bouquet.png",
       alt: "bouquet"
@@ -3074,9 +3074,9 @@ let __tla = Promise.all([
       alt: "decoration"
     }
   ];
-  q1 = () => e.jsx("ul", {
+  M1 = () => e.jsx("ul", {
     className: "flex gap-8",
-    children: O1.map((t, s) => e.jsx("li", {
+    children: q1.map((t, s) => e.jsx("li", {
       children: e.jsx(w.img, {
         src: t.src,
         alt: t.alt,
@@ -3098,7 +3098,7 @@ let __tla = Promise.all([
       })
     }, s))
   });
-  M1 = l.memo(({ screenWidth: t }) => e.jsx("ul", {
+  E1 = l.memo(({ screenWidth: t }) => e.jsx("ul", {
     className: "flex max-w-[275px] flex-col gap-5",
     children: [
       "\u0443\u0447\u0442\u0435\u043C \u0434\u0430\u0436\u0435 \u0441\u0430\u043C\u044B\u0435 \u0438\u0437\u044B\u0441\u043A\u0430\u043D\u043D\u044B\u0435 \u043F\u043E\u0436\u0435\u043B\u0430\u043D\u0438\u044F",
@@ -3127,12 +3127,12 @@ let __tla = Promise.all([
       children: s
     }, a))
   }));
-  E1 = "flex items-center lg:ml-[130px] lg:gap-7 max-lg:gap-2";
+  P1 = "flex items-center lg:ml-[130px] lg:gap-7 max-lg:gap-2";
   ee = "text-[100px] font-normal tracking-[2px] uppercase font-cormorant max-md:text-[40px] max-md:tracking-[0.02em]";
-  P1 = l.memo(({ screenWidth: t }) => e.jsxs("div", {
+  T1 = l.memo(({ screenWidth: t }) => e.jsxs("div", {
     className: "occasion_block relative mt-[160px] max-lg:mt-[6rem] sm:h-[1000px]",
     children: [
-      t > 640 && e.jsx(ft, {}),
+      t > 640 && e.jsx(Ct, {}),
       e.jsxs("div", {
         className: "occasion_block__wrapper container mx-auto",
         children: [
@@ -3145,7 +3145,7 @@ let __tla = Promise.all([
                 titleClassName: ee,
                 subtitleClassName: ee,
                 animation: t >= 768 ? "fade-right" : "fade-bottom",
-                subtitleWrapperClassName: E1
+                subtitleWrapperClassName: P1
               }),
               e.jsx("div", {
                 className: "img_block relative z-20 mr-[130px] flex items-center justify-center max-lg:hidden",
@@ -3199,10 +3199,10 @@ let __tla = Promise.all([
                     className: "max-w-[255px] text-[14px] font-normal uppercase tracking-[.56px] max-lg:w-[300px] max-lg:tracking-[0.02em] sm:leading-normal",
                     children: "\u041C\u044B \u0433\u043E\u0442\u043E\u0432\u044B \u043F\u0440\u0438\u0439\u0442\u0438 \u043D\u0430 \u043F\u043E\u043C\u043E\u0449\u044C \u0438 \u0441\u043E\u0431\u0440\u0430\u0442\u044C \u0443\u043D\u0438\u043A\u0430\u043B\u044C\u043D\u044B\u0439 \u0431\u0443\u043A\u0435\u0442, \u043D\u0430 \u043B\u044E\u0431\u043E\u0439 \u0432\u043A\u0443\u0441, \u0431\u044E\u0434\u0436\u0435\u0442 \u0438 \u0434\u043B\u044F \u043B\u044E\u0431\u043E\u0433\u043E \u0441\u043E\u0431\u044B\u0442\u0438\u044F \u043F\u043E \u0432\u0430\u0448\u0435\u043C\u0443 \u0438\u043D\u0434\u0438\u0432\u0438\u0434\u0443\u0430\u043B\u044C\u043D\u043E\u043C\u0443 \u0437\u0430\u043A\u0430\u0437\u0443."
                   }),
-                  e.jsx(M1, {
+                  e.jsx(E1, {
                     screenWidth: t
                   }),
-                  t > 1024 ? e.jsx(Ct, {}) : e.jsx(jt, {}),
+                  t > 1024 ? e.jsx(jt, {}) : e.jsx(vt, {}),
                   e.jsx(C, {
                     to: "catalog",
                     className: "h-[50px] bg-light-turquoise p-4 text-center text-[12px] font-bold uppercase tracking-[1.2px] text-[black] transition hover:bg-cherry hover:text-[white] focus:border focus:border-cherry active:bg-cherry active:text-[white] active:shadow-[0_0_10px_0_#1B000E_inset]",
@@ -3212,7 +3212,7 @@ let __tla = Promise.all([
               }),
               e.jsx("div", {
                 className: "img_block max-md:hidden",
-                children: e.jsx(q1, {})
+                children: e.jsx(M1, {})
               })
             ]
           })
@@ -3220,7 +3220,7 @@ let __tla = Promise.all([
       })
     ]
   }));
-  T1 = ({ screenWidth: t }) => e.jsxs("div", {
+  D1 = ({ screenWidth: t }) => e.jsxs("div", {
     className: "z-20 flex flex-col max-sm:ml-2 max-sm:mt-[8rem] max-sm:gap-5 sm:gap-14",
     children: [
       e.jsx(w.div, {
@@ -3262,17 +3262,17 @@ let __tla = Promise.all([
       })
     ]
   });
-  D1 = () => {
+  R1 = () => {
     const t = k(), { register: s, handleSubmit: a, formState: { errors: r } } = ae(), o = () => {
       t(N({
         modalType: v.Alert,
         isOpen: true
-      })), t(V({
+      })), t(G({
         severity: "success"
       }));
-    }, i = (m) => {
-      o(), console.log(m);
-    }, c = (m) => console.log(m);
+    }, i = (x) => {
+      o(), console.log(x);
+    }, c = (x) => console.log(x);
     return e.jsx("div", {
       className: "question_block__form relative flex flex-col z-20 md:items-end mt-8 max-lg:items-center md:mr-[1rem]",
       children: e.jsxs("form", {
@@ -3323,8 +3323,8 @@ let __tla = Promise.all([
     });
   };
   je = "title flex items-center sm:h-[100px] text-[100px] font-cormorant font-normal tracking-[2px] uppercase max-sm:text-[40px] max-sm:tracking-[0.02em]";
-  R1 = `${je} sm:ml-24`;
-  H1 = l.memo(({ screenWidth: t }) => {
+  H1 = `${je} sm:ml-24`;
+  z1 = l.memo(({ screenWidth: t }) => {
     const s = t > 768;
     return e.jsxs("div", {
       className: "question_block relative h-[850px] bg-[#0F2222] max-lg:mt-[6rem] max-sm:h-[800px]",
@@ -3359,8 +3359,8 @@ let __tla = Promise.all([
             })
           ]
         }),
-        s ? e.jsx(vt, {}) : e.jsx(bt, {}),
         s ? e.jsx(wt, {}) : e.jsx(_t, {}),
+        s ? e.jsx(bt, {}) : e.jsx(Nt, {}),
         e.jsxs("div", {
           className: "question_block__wrapper container sm:mx-auto",
           children: [
@@ -3371,24 +3371,24 @@ let __tla = Promise.all([
                   title: "\u043E\u0441\u0442\u0430\u043B\u0438\u0441\u044C",
                   subtitle: "\u0432\u043E\u043F\u0440\u043E\u0441\u044B?",
                   titleClassName: je,
-                  subtitleClassName: R1,
+                  subtitleClassName: H1,
                   animation: t >= 768 ? "fade-right" : "fade-bottom"
                 }),
-                e.jsx(T1, {
+                e.jsx(D1, {
                   screenWidth: t
                 })
               ]
             }),
-            e.jsx(D1, {})
+            e.jsx(R1, {})
           ]
         })
       ]
     });
   });
   ve = "title relative z-20 flex items-center h-[100px] text-[100px] font-normal tracking-[2px] uppercase font-cormorant max-lg:text-[40px] max-lg:tracking-[0.02em] max-lg:h-[50px]";
-  z1 = "subtitle relative z-20 flex justify-center items-center sm:mt-5 text-[20px] font-light tracking-[.4px] sm:mb-20 max-lg:text-[14px] max-lg:tracking-[0.04em]";
-  Z1 = `${ve} justify-center`;
-  V1 = () => e.jsx(e.Fragment, {
+  Z1 = "subtitle relative z-20 flex justify-center items-center sm:mt-5 text-[20px] font-light tracking-[.4px] sm:mb-20 max-lg:text-[14px] max-lg:tracking-[0.04em]";
+  G1 = `${ve} justify-center`;
+  U1 = () => e.jsx(e.Fragment, {
     children: e.jsx(w.h3, {
       initial: {
         opacity: 0,
@@ -3407,12 +3407,12 @@ let __tla = Promise.all([
         once: true,
         amount: 0.2
       },
-      className: z1,
+      className: Z1,
       children: "\u0421\u0430\u043C\u044B\u0435 \u043B\u044E\u0431\u0438\u043C\u044B\u0435 \u043A\u043E\u043C\u043F\u043E\u0437\u0438\u0446\u0438\u0438 \u043D\u0430\u0448\u0438\u0445 \u043A\u043B\u0438\u0435\u043D\u0442\u043E\u0432"
     })
   });
-  G1 = () => {
-    const t = k(), s = L(), { cartItems: a } = y(G), { items: r } = y(it), o = l.useCallback((i) => t(N({
+  V1 = () => {
+    const t = k(), s = L(), { cartItems: a } = y(U), { items: r } = y(ot), o = l.useCallback((i) => t(N({
       modalType: i,
       isOpen: true
     })), [
@@ -3421,12 +3421,12 @@ let __tla = Promise.all([
     return e.jsxs("div", {
       className: "wrapper bg-[#040A0A]",
       children: [
-        e.jsx(A1, {
+        e.jsx(O1, {
           cart: a,
           openModal: o,
           screenWidth: s
         }),
-        e.jsx(y1, {
+        e.jsx(k1, {
           screenWidth: s
         }),
         e.jsxs("div", {
@@ -3449,10 +3449,10 @@ let __tla = Promise.all([
                   subtitle: "\u0431\u0443\u043A\u0435\u0442\u044B",
                   animation: s >= 768 ? "fade-right" : "fade-bottom",
                   titleClassName: ve,
-                  subtitleClassName: Z1,
-                  renderTitleText: V1
+                  subtitleClassName: G1,
+                  renderTitleText: U1
                 }),
-                s > 500 ? e.jsx(m1, {
+                s > 500 ? e.jsx(d1, {
                   bouquets: r,
                   screenWidth: s
                 }) : e.jsx("div", {
@@ -3475,53 +3475,53 @@ let __tla = Promise.all([
                       className: "link text-[12px] font-bold uppercase tracking-[1.2px] text-pink underline",
                       children: "\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u0432\u0435\u0441\u044C \u043A\u0430\u0442\u0430\u043B\u043E\u0433"
                     }),
-                    e.jsx(gt, {})
+                    e.jsx(ht, {})
                   ]
                 })
               ]
             })
           ]
         }),
-        e.jsx(B1, {
+        e.jsx(L1, {
           screenWidth: s
         }),
-        e.jsx(P1, {
+        e.jsx(T1, {
           screenWidth: s
         }),
-        e.jsx(H1, {
+        e.jsx(z1, {
           screenWidth: s
         }),
-        e.jsx(h1, {
+        e.jsx(f1, {
           screenWidth: s
         })
       ]
     });
   };
-  U1 = () => e.jsxs("div", {
+  $1 = () => e.jsxs("div", {
     className: "layout bg-[#040A0A] flex flex-col justify-between h-[100vh]",
     children: [
-      e.jsx(Ht, {}),
+      e.jsx(zt, {}),
       e.jsx("div", {
         children: e.jsx(Oe, {})
       }),
-      e.jsx(Qt, {})
+      e.jsx(Wt, {})
     ]
   });
-  $1 = l.lazy(() => _(() => import("./index-DyY4-FZG.js"), __vite__mapDeps([0,1,2,3,4])));
-  Q1 = l.lazy(() => _(() => import("./index-CbXmTUk1.js"), __vite__mapDeps([5,1,2,4,3])));
-  W1 = l.lazy(() => _(() => import("./index-Bezm_JkM.js"), __vite__mapDeps([6,1,2,3,4])));
-  Y1 = l.lazy(() => _(() => import("./index-4H34Z3mJ.js").then(async (m) => {
+  Q1 = l.lazy(() => _(() => import("./index-CIBgrD2A.js"), __vite__mapDeps([0,1,2,3,4])));
+  W1 = l.lazy(() => _(() => import("./index-IyKELorG.js"), __vite__mapDeps([5,1,2,4,3])));
+  Y1 = l.lazy(() => _(() => import("./index-CRI7i_QX.js"), __vite__mapDeps([6,1,2,3,4])));
+  K1 = l.lazy(() => _(() => import("./index-D9BOYUJh.js").then(async (m) => {
     await m.__tla;
     return m;
   }), __vite__mapDeps([7,1,2,3,4])));
-  K1 = l.lazy(() => _(() => import("./index-BpzG9NkC.js"), __vite__mapDeps([8,1,2,3,4])));
-  J1 = l.lazy(() => _(() => import("./index-BwKTwPBJ.js"), __vite__mapDeps([9,1,2,3,4])));
-  X1 = l.lazy(() => _(() => import("./index-BDhvARFY.js"), __vite__mapDeps([10,1,2,4,3])));
-  e2 = l.lazy(() => _(() => import("./index-Du8sWvT_.js"), __vite__mapDeps([11,1,2,4])));
-  t2 = l.lazy(() => _(() => import("./index-CRy0sapJ.js"), __vite__mapDeps([12,1,2,4])));
-  s2 = l.lazy(() => _(() => import("./index-Ck-rIKXL.js"), __vite__mapDeps([13,1,2,4])));
-  a2 = l.lazy(() => _(() => import("./index-Fi8jh-B8.js"), __vite__mapDeps([14,1,2,4])));
-  l2 = l.lazy(() => _(() => import("./index-BpnorXUV.js"), __vite__mapDeps([15,1,2])));
+  J1 = l.lazy(() => _(() => import("./index-C6gPVOT1.js"), __vite__mapDeps([8,1,2,3,4])));
+  X1 = l.lazy(() => _(() => import("./index-D6CUrcBF.js"), __vite__mapDeps([9,1,2,3,4])));
+  e2 = l.lazy(() => _(() => import("./index-Ur1Yj27a.js"), __vite__mapDeps([10,1,2,4,3])));
+  t2 = l.lazy(() => _(() => import("./index-PFZfq58F.js"), __vite__mapDeps([11,1,2,4])));
+  s2 = l.lazy(() => _(() => import("./index--fwNth2W.js"), __vite__mapDeps([12,1,2,4])));
+  a2 = l.lazy(() => _(() => import("./index-DThnF677.js"), __vite__mapDeps([13,1,2,4])));
+  l2 = l.lazy(() => _(() => import("./index-DPtaL4XC.js"), __vite__mapDeps([14,1,2,4])));
+  r2 = l.lazy(() => _(() => import("./index-BpnorXUV.js"), __vite__mapDeps([15,1,2])));
   j = {
     HOME: "/",
     CATALOG: "/catalog",
@@ -3534,13 +3534,13 @@ let __tla = Promise.all([
     SEARCH: "/search/:searchValue?",
     ORDER: "/order"
   };
-  r2 = [
+  i2 = [
     j.HOME,
     j.CATALOG,
     "/catalog/bouquet"
   ];
-  function i2() {
-    const t = k(), s = se(), { category: a, filtersId: r, isConfirm: o, sortOption: i, fieldPriceValue: c } = y(lt);
+  function o2() {
+    const t = k(), s = se(), { category: a, filtersId: r, isConfirm: o, sortOption: i, fieldPriceValue: c } = y(rt);
     return l.useEffect(() => {
       window.scrollTo(0, 0);
     }, [
@@ -3555,13 +3555,13 @@ let __tla = Promise.all([
             ...s.pathname === j.CATALOG && {
               filtersId: r
             }
-          }, x = s.pathname.split("/").slice(0, 3).join("/");
-          r2.includes(x) && (await t(E(n)).unwrap(), t(Ue(false)));
+          }, m = s.pathname.split("/").slice(0, 3).join("/");
+          i2.includes(m) && (await t(E(n)).unwrap(), t(Ve(false)));
         } catch (n) {
           console.error("Error fetching bouquets:", n), t(N({
             modalType: v.Alert,
             isOpen: true
-          })), t(V({
+          })), t(G({
             severity: "error"
           }));
         }
@@ -3582,59 +3582,59 @@ let __tla = Promise.all([
           children: e.jsx(qe, {
             children: e.jsxs(f, {
               path: j.HOME,
-              element: e.jsx(U1, {}),
+              element: e.jsx($1, {}),
               children: [
                 e.jsx(f, {
                   index: true,
-                  element: e.jsx(G1, {})
+                  element: e.jsx(V1, {})
                 }),
                 e.jsx(f, {
                   path: "*",
-                  element: e.jsx(s2, {})
+                  element: e.jsx(a2, {})
                 }),
                 e.jsx(f, {
                   path: j.CATALOG,
-                  element: e.jsx(X1, {})
-                }),
-                e.jsx(f, {
-                  path: j.DELIVERY,
-                  element: e.jsx($1, {})
-                }),
-                e.jsx(f, {
-                  path: j.ABOUT_US,
-                  element: e.jsx(W1, {})
-                }),
-                e.jsx(f, {
-                  path: j.CONTACTS,
-                  element: e.jsx(Y1, {})
-                }),
-                e.jsx(f, {
-                  path: j.FAQ,
-                  element: e.jsx(K1, {})
-                }),
-                e.jsx(f, {
-                  path: j.CORPORATE,
-                  element: e.jsx(J1, {})
-                }),
-                e.jsx(f, {
-                  path: j.SEARCH,
                   element: e.jsx(e2, {})
                 }),
                 e.jsx(f, {
-                  path: j.ORDER,
+                  path: j.DELIVERY,
                   element: e.jsx(Q1, {})
+                }),
+                e.jsx(f, {
+                  path: j.ABOUT_US,
+                  element: e.jsx(Y1, {})
+                }),
+                e.jsx(f, {
+                  path: j.CONTACTS,
+                  element: e.jsx(K1, {})
+                }),
+                e.jsx(f, {
+                  path: j.FAQ,
+                  element: e.jsx(J1, {})
+                }),
+                e.jsx(f, {
+                  path: j.CORPORATE,
+                  element: e.jsx(X1, {})
+                }),
+                e.jsx(f, {
+                  path: j.SEARCH,
+                  element: e.jsx(t2, {})
+                }),
+                e.jsx(f, {
+                  path: j.ORDER,
+                  element: e.jsx(W1, {})
                 }),
                 e.jsxs(f, {
                   path: j.BOUQUET,
-                  element: e.jsx(t2, {}),
+                  element: e.jsx(s2, {}),
                   children: [
                     e.jsx(f, {
                       index: true,
-                      element: e.jsx(l2, {})
+                      element: e.jsx(r2, {})
                     }),
                     e.jsx(f, {
                       path: "reviews",
-                      element: e.jsx(a2, {})
+                      element: e.jsx(l2, {})
                     })
                   ]
                 })
@@ -3642,55 +3642,55 @@ let __tla = Promise.all([
             })
           })
         }),
-        e.jsx(Kt, {}),
-        e.jsx(a1, {}),
-        e.jsx(n1, {}),
-        e.jsx(x1, {})
+        e.jsx(Jt, {}),
+        e.jsx(l1, {}),
+        e.jsx(c1, {}),
+        e.jsx(m1, {})
       ]
     });
   }
   Me.createRoot(document.getElementById("root")).render(e.jsx(Ee.StrictMode, {
     children: e.jsx(Pe, {
       children: e.jsx(Re, {
-        store: at,
-        children: e.jsx(i2, {})
+        store: lt,
+        children: e.jsx(o2, {})
       })
     })
   }));
 });
 export {
-  p2 as A,
-  Xt as C,
+  u2 as A,
+  e1 as C,
   g as D,
   d as F,
   v as M,
-  v2 as P,
-  pt as S,
+  w2 as P,
+  ut as S,
   __tla,
-  V as a,
+  G as a,
   L as b,
-  Ue as c,
-  lt as d,
-  d2 as e,
-  c2 as f,
-  x2 as g,
-  dt as h,
+  Ve as c,
+  rt as d,
+  p2 as e,
+  x2 as f,
+  m2 as g,
+  pt as h,
   ue as i,
   oe as j,
-  C2 as k,
-  it as l,
-  G as m,
+  j2 as k,
+  ot as l,
+  U as m,
   ce as n,
-  m2 as o,
+  d2 as o,
   fe as p,
-  f2 as q,
-  h2 as r,
+  C2 as q,
+  f2 as r,
   N as s,
-  j2 as t,
+  v2 as t,
   k as u,
   pe as v,
-  mt as w,
-  g2 as x,
-  Je as y,
-  m1 as z
+  dt as w,
+  h2 as x,
+  Xe as y,
+  d1 as z
 };
