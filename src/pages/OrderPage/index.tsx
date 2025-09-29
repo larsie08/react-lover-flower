@@ -57,7 +57,7 @@ const OrderPage: FC = () => {
   const dispatch = useAppDispatch();
 
   const { cartItems, totalPrice } = useSelector(
-    (state: RootState) => state.cart,
+    (state: RootState) => state.cart
   );
 
   const submitOrder = useCallback(
@@ -65,7 +65,7 @@ const OrderPage: FC = () => {
       formData: IOrderForm,
       finalPrice: number,
       deliveryAddress?: string,
-      appliedPromoCode?: PromoCode,
+      appliedPromoCode?: PromoCode
     ) => {
       const order: Order = {
         name: formData.name,
@@ -90,7 +90,7 @@ const OrderPage: FC = () => {
 
       postOrder(order);
     },
-    [dispatch],
+    [dispatch]
   );
 
   const sendAlert = useCallback(
@@ -98,12 +98,15 @@ const OrderPage: FC = () => {
       dispatch(setModalState({ modalType: ModalType.Alert, isOpen: true }));
       dispatch(setSeverityOption({ severity: severityOption }));
     },
-    [dispatch],
+    [dispatch]
   );
 
   const postOrder = async (order: Order) => {
     try {
-      await axios.post("http://localhost:3000/api/order/", order);
+      await axios.post(
+        "https://663a356f1ae792804bee79f1.mockapi.io/orders",
+        order
+      );
       sendAlert("success");
     } catch (error) {
       console.log("Ошибка подтверждения заказа", error);
