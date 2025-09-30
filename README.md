@@ -3,25 +3,31 @@
 Клиентская часть проекта **Lover Flower**, взаимодействующая с [Lover Flower Server](https://github.com/larsie08/lover-flower-server).
 Реализована на **React** и обеспечивает интерфейс для пользователей: просмотр каталога товаров, оформление заказов и авторизацию.
 
-## 🚀 Функциональность  
-- **Каталог цветов** — динамическое отображение карточек с описанием и изображениями.  
-- **Фильтрация и поиск** — возможность сортировки и поиска по категориям.  
-- **Управление состоянием** — используется Redux Toolkit для предсказуемого обновления данных.  
-- **Форма обратной связи** — валидация с помощью React Hook Form.  
-- **Навигация** — реализована на React Router.  
-- **Интерактивный UI** — стилизация с Tailwind CSS.  
-- **Высокая производительность** — применены Code Splitting и оптимизация загрузки данных.  
+<p align="center">
+  <img src="https://i.imgur.com/KPBfSQj.jpeg" alt="project"/>
+</p>
+
+## 🚀 Функциональность
+
+- **Каталог цветов** — динамическое отображение карточек с описанием и изображениями.
+- **Фильтрация и поиск** — возможность сортировки и поиска по категориям.
+- **Управление состоянием** — используется Redux Toolkit для предсказуемого обновления данных.
+- **Форма обратной связи** — валидация с помощью React Hook Form.
+- **Навигация** — реализована на React Router.
+- **Интерактивный UI** — стилизация с Tailwind CSS.
+- **Высокая производительность** — применены Code Splitting и оптимизация загрузки данных.
+
 ---
 
 ## 🚀 Стек технологий
 
-* [React](https://react.dev/) — фронтенд-фреймворк
-* [TypeScript](https://www.typescriptlang.org/) — статическая типизация
-* [Redux Toolkit](https://redux-toolkit.js.org/) — управление состоянием
-* [React Router](https://reactrouter.com/) — маршрутизация
-* [Axios](https://axios-http.com/) — взаимодействие с API
-* [TailwindCSS](https://tailwindcss.com/) — стилизация
-* [Vite](https://vitejs.dev/) — сборка и дев-сервер
+- [React](https://react.dev/) — фронтенд-фреймворк
+- [TypeScript](https://www.typescriptlang.org/) — статическая типизация
+- [Redux Toolkit](https://redux-toolkit.js.org/) — управление состоянием
+- [React Router](https://reactrouter.com/) — маршрутизация
+- [Axios](https://axios-http.com/) — взаимодействие с API
+- [TailwindCSS](https://tailwindcss.com/) — стилизация
+- [Vite](https://vitejs.dev/) — сборка и дев-сервер
 
 ---
 
@@ -62,12 +68,13 @@ npm run dev
 
 ## 🛠️ Скрипты
 
-* `npm run dev` — запуск dev-сервера
-* `npm run build` — сборка проекта
-* `npm run preview` — предпросмотр сборки
+- `npm run dev` — запуск dev-сервера
+- `npm run build` — сборка проекта
+- `npm run preview` — предпросмотр сборки
+
 ---
 
 ## 👤 Автор
 
-* GitHub: [larsie08](https://github.com/larsie08)
-``
+- GitHub: [larsie08](https://github.com/larsie08)
+  ``
