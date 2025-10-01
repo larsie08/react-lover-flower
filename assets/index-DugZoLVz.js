@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-CIBgrD2A.js","assets/vendor-DsNSJXVB.js","assets/vendor-DV8PrLMj.css","assets/index-D2__dnbF.js","assets/vendor-redux-CF_v3iJm.js","assets/index-IyKELorG.js","assets/index-CRI7i_QX.js","assets/index-D9BOYUJh.js","assets/index-C6gPVOT1.js","assets/index-D6CUrcBF.js","assets/index-Ur1Yj27a.js","assets/index-PFZfq58F.js","assets/index--fwNth2W.js","assets/index-DThnF677.js","assets/index-DPtaL4XC.js","assets/index-BpnorXUV.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-DbXY3lKe.js","assets/vendor-DsNSJXVB.js","assets/vendor-DV8PrLMj.css","assets/index-NJ1oJ79u.js","assets/vendor-redux-CF_v3iJm.js","assets/index-DPKbjrvL.js","assets/index-DZIWMxI8.js","assets/index-CEA5JFjQ.js","assets/index-Djs9Lzo-.js","assets/index-48Osw4b3.js","assets/index-DqCclfS_.js","assets/index-DfOIcijk.js","assets/index-C6qRFn4K.js","assets/index-BtGEcMJA.js","assets/index-CeC9LNbV.js","assets/index-BpnorXUV.js"])))=>i.map(i=>d[i]);
 import { b as z, c as te, r as l, j as e, d as b, L as C, u as Z, e as Ne, T as ye, f as se, g as ae, h as T, B as ke, A as Ie, S as M, k as Be, l as Le, M as Se, N as Fe, m as Ae, n as le, o as w, O as Oe, R as qe, q as f, s as Me, t as Ee, H as Pe, __tla as __tla_0 } from "./vendor-DsNSJXVB.js";
 import { c as O, a as re, b as Te, u as De, d as y, P as Re } from "./vendor-redux-CF_v3iJm.js";
 let u2, e1, g, d, v, w2, ut, G, L, Ve, rt, p2, x2, m2, pt, ue, oe, j2, ot, U, ce, d2, fe, C2, f2, N, v2, k, pe, dt, h2, Xe, d1;
@@ -142,9 +142,7 @@ let __tla = Promise.all([
     const o = new URLSearchParams({
       sortBy: t,
       search: s
-    });
-    console.log(a);
-    const { data: i } = await z.get(`https://655b76e2ab37729791a92825.mockapi.io/items?${o.toString()}`);
+    }), { data: i } = await z.get(`https://655b76e2ab37729791a92825.mockapi.io/items?${o.toString()}`);
     return Qe(i, a, r);
   });
   var I = ((t) => (t.LOADING = "loading", t.SUCCESS = "success", t.ERROR = "error", t))(I || {});
@@ -3507,20 +3505,20 @@ let __tla = Promise.all([
       e.jsx(Wt, {})
     ]
   });
-  Q1 = l.lazy(() => _(() => import("./index-CIBgrD2A.js"), __vite__mapDeps([0,1,2,3,4])));
-  W1 = l.lazy(() => _(() => import("./index-IyKELorG.js"), __vite__mapDeps([5,1,2,4,3])));
-  Y1 = l.lazy(() => _(() => import("./index-CRI7i_QX.js"), __vite__mapDeps([6,1,2,3,4])));
-  K1 = l.lazy(() => _(() => import("./index-D9BOYUJh.js").then(async (m) => {
+  Q1 = l.lazy(() => _(() => import("./index-DbXY3lKe.js"), __vite__mapDeps([0,1,2,3,4])));
+  W1 = l.lazy(() => _(() => import("./index-DPKbjrvL.js"), __vite__mapDeps([5,1,2,4,3])));
+  Y1 = l.lazy(() => _(() => import("./index-DZIWMxI8.js"), __vite__mapDeps([6,1,2,3,4])));
+  K1 = l.lazy(() => _(() => import("./index-CEA5JFjQ.js").then(async (m) => {
     await m.__tla;
     return m;
   }), __vite__mapDeps([7,1,2,3,4])));
-  J1 = l.lazy(() => _(() => import("./index-C6gPVOT1.js"), __vite__mapDeps([8,1,2,3,4])));
-  X1 = l.lazy(() => _(() => import("./index-D6CUrcBF.js"), __vite__mapDeps([9,1,2,3,4])));
-  e2 = l.lazy(() => _(() => import("./index-Ur1Yj27a.js"), __vite__mapDeps([10,1,2,4,3])));
-  t2 = l.lazy(() => _(() => import("./index-PFZfq58F.js"), __vite__mapDeps([11,1,2,4])));
-  s2 = l.lazy(() => _(() => import("./index--fwNth2W.js"), __vite__mapDeps([12,1,2,4])));
-  a2 = l.lazy(() => _(() => import("./index-DThnF677.js"), __vite__mapDeps([13,1,2,4])));
-  l2 = l.lazy(() => _(() => import("./index-DPtaL4XC.js"), __vite__mapDeps([14,1,2,4])));
+  J1 = l.lazy(() => _(() => import("./index-Djs9Lzo-.js"), __vite__mapDeps([8,1,2,3,4])));
+  X1 = l.lazy(() => _(() => import("./index-48Osw4b3.js"), __vite__mapDeps([9,1,2,3,4])));
+  e2 = l.lazy(() => _(() => import("./index-DqCclfS_.js"), __vite__mapDeps([10,1,2,4,3])));
+  t2 = l.lazy(() => _(() => import("./index-DfOIcijk.js"), __vite__mapDeps([11,1,2,4])));
+  s2 = l.lazy(() => _(() => import("./index-C6qRFn4K.js"), __vite__mapDeps([12,1,2,4])));
+  a2 = l.lazy(() => _(() => import("./index-BtGEcMJA.js"), __vite__mapDeps([13,1,2,4])));
+  l2 = l.lazy(() => _(() => import("./index-CeC9LNbV.js"), __vite__mapDeps([14,1,2,4])));
   r2 = l.lazy(() => _(() => import("./index-BpnorXUV.js"), __vite__mapDeps([15,1,2])));
   j = {
     HOME: "/",
