@@ -45,8 +45,6 @@ export const fetchBouquets = createAsyncThunk<Bouquet[], FiltersParams>(
       search: category,
     });
 
-    console.log(filtersId);
-
     const { data } = await axios.get<Bouquet[]>(
       `https://655b76e2ab37729791a92825.mockapi.io/items?${params.toString()}`
     );

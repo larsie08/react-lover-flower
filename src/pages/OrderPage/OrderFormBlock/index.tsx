@@ -50,8 +50,8 @@ const defaultValues: DefaultValues<IOrderForm> = {
   payRadioGroupOptions: "Банковская карта",
   promoCode: "",
   address: "",
-  apartmentNumber: "",
-  deliveryTime: "",
+  appartement_number: "",
+  delivery_time: "",
 };
 
 const OrderFormBlock: FC<IOrderFormProps> = memo(
@@ -74,7 +74,7 @@ const OrderFormBlock: FC<IOrderFormProps> = memo(
     const [addressSuggestions, setAddressSuggestions] =
       useState<GeosuggestResult[]>();
     const [appliedPromo, setAppliedPromo] = useState<PromoCode | undefined>(
-      undefined,
+      undefined
     );
     const [isAddressListOpen, toggleAddressList] = useState(false);
 
@@ -105,7 +105,7 @@ const OrderFormBlock: FC<IOrderFormProps> = memo(
     const fetchPromocode = async (promo: string) => {
       try {
         const { data } = await axios.get<PromoCode>(
-          `http://localhost:3000/api/promocode/${promo}`,
+          `http://localhost:3000/api/promocode/${promo}`
         );
 
         return data;
@@ -115,12 +115,13 @@ const OrderFormBlock: FC<IOrderFormProps> = memo(
     };
 
     const fetchAddressSuggestions = debounce(async () => {
-      const address = getValues("address").trim();
+      const address = getValues("address");
+
       if (!address) return;
 
       try {
         const { data } = await axios.get<IGeosuggestAnswer>(
-          `https://suggest-maps.yandex.ru/v1/suggest?apikey=YOUR_API_KEY&text=${address}&lang=ru&results=20`,
+          `https://suggest-maps.yandex.ru/v1/suggest?apikey=070fb698-002c-430b-9858-7b9dd513018a&text=${address}&lang=ru&results=20`
         );
         setAddressSuggestions(data.results);
         toggleAddressList(true);
@@ -220,21 +221,29 @@ const OrderFormBlock: FC<IOrderFormProps> = memo(
           />
           {watchDelivery === "Доставка курьером" && (
             <>
-              <Input
-                label="Адрес*"
-                placeholder="Введите адрес"
-                register={register("address", {
-                  required: true,
-                  onChange: fetchAddressSuggestions,
-                })}
-                error={errors.address}
-                autoComplete="off"
-              />
+              <div className="flex flex-col gap-5 relative">
+                <Input
+                  label="Адрес*"
+                  placeholder="Введите адрес"
+                  register={register("address", {
+                    required: true,
+                    onChange: fetchAddressSuggestions,
+                  })}
+                  error={errors.address}
+                  autoComplete="off"
+                />
+                {isAddressListOpen && addressSuggestions && (
+                  <SuggestionList
+                    suggestions={addressSuggestions}
+                    onSelect={handleAddressSelection}
+                  />
+                )}
+              </div>
               <div className="flex gap-8 max-lg:max-w-[300px]">
                 <Input
                   label="Кв/офис"
                   placeholder="Кв/офис"
-                  register={register("address", {
+                  register={register("appartement_number", {
                     required: true,
                     onChange: fetchAddressSuggestions,
                   })}
@@ -244,21 +253,13 @@ const OrderFormBlock: FC<IOrderFormProps> = memo(
                 <Input
                   label="Время доставки"
                   placeholder="__/__"
-                  register={register("address", {
+                  register={register("delivery_time", {
                     required: true,
-                    onChange: fetchAddressSuggestions,
                   })}
                   error={errors.address}
                   autoComplete="off"
                 />
               </div>
-
-              {isAddressListOpen && addressSuggestions && (
-                <SuggestionList
-                  suggestions={addressSuggestions}
-                  onSelect={handleAddressSelection}
-                />
-              )}
             </>
           )}
         </FormSection>
@@ -325,7 +326,7 @@ const OrderFormBlock: FC<IOrderFormProps> = memo(
         </div>
       </form>
     );
-  },
+  }
 );
 
 export default OrderFormBlock;
